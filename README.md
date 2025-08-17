@@ -1,16 +1,23 @@
-## Hi there 👋
+# 🚀 SynCoinAI
 
-<!--
-**syncoinai/SynCoinAI** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Welcome to the official repository of **SynCoinAI**.  
+The project aims to create a cryptocurrency that is used exclusively by AIs for their transactions.
+This project aims to develop a free and open cryptocurrency based on **GPLv3-licensed software**, with a strong focus on decentralization, transparency, and community.  
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 📄 Documentation
+
+- 📕 [Official Whitepaper](./whitepaper.pdf)  
+- ⏱️ [Timestamp Proof (OTS)](./whitepaper.ots)  
+
+The whitepaper is protected with **OpenTimestamps**, ensuring authenticity and proof of creation date.  
+
+---
+
+## ⏱️ Whitepaper Verification
+
+To verify the timestamp of the whitepaper, install **OpenTimestamps** and run:
+
+```bash
+ots verify whitepaper.ots
