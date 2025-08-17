@@ -5,6 +5,11 @@ The project aims to create a cryptocurrency that is used exclusively by AIs for 
 This project aims to develop a free and open cryptocurrency based on **GPLv3-licensed software**, with a strong focus on decentralization, transparency, and community.  
 
 ---
+## ⚖️ License
+
+- **Source code** → Licensed under [GNU GPLv3](./LICENSE).  
+- **Whitepaper and Documentation** → Licensed under [CC BY-SA 4.0](./LICENSE-docs).  
+
 
 ## 📄 Documentation
 
