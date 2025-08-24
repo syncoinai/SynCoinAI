@@ -1,0 +1,9 @@
+SynCoinAI_Whitepaper_v1.0_ES.pdf
+Autor: Luis Daniel García Díez
+Hash SHA256: C0A6AEBE88699E28E10793C0761B5DC0DFA51A66302FF12654A2D7FD2E647065
+TimeStamp: SynCoinAI_Whitepaper_v1.0_ES.pdf.ots
+
+SynCoinAI_Whitepaper_v1.0_EN.pdf
+Author: Luis Daniel Garcia Diez
+Hash SHA256: 027FA325517EAD27CF0A98040AFA3862F66C4D6EB6213BEE9E96F5F63A16D802
+TimeStamp: SynCoinAI_Whitepaper_v1.0_EN.pdf.ots
