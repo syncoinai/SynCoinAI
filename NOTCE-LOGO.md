@@ -1,0 +1,28 @@
+# SynCoinAI Logo License Notice
+
+The **SynCoinAI logo** is an official visual element of the SynCoinAI project.  
+
+It is licensed under the **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)** license.  
+
+---
+
+## ✅ Permissions
+You are free to:
+- **Share** — copy and redistribute the logo in any medium or format.  
+- **Adapt** — remix, transform, and build upon the logo for any purpose, even commercially.  
+
+---
+
+## ⚖️ Conditions
+- **Attribution** — You must give appropriate credit to *Luis Daniel García Díez (author of SynCoinAI)*, provide a link to the license, and indicate if changes were made.  
+- **ShareAlike** — If you remix, transform, or build upon the logo, you must distribute your contributions under the same license as the original.  
+
+---
+
+## 📄 License Link
+Full legal text: [https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/)  
+
+---
+
+© 2025 Luis Daniel García Díez — SynCoinAI Project  
+	
