@@ -1,58 +1,77 @@
 from blockchain.chain import Blockchain
-import hashlib
-import time
 
-def simulate_ia_proof(ai_data):
-    data_string = str(ai_data)
-    return hashlib.sha256(data_string.encode()).hexdigest()
+def print_menu():
+    print("\n=== MENU ===")
+    print("1. Minar bloque")
+    print("2. Enviar transacción simple")
+    print("3. Enviar transacción batch")
+    print("4. Ver balance")
+    print("5. Mostrar blockchain")
+    print("6. Validar blockchain")
+    print("0. Salir")
 
 def main():
-    my_chain = Blockchain()
-    print("=== SynCoinAI Interactive Blockchain ===")
+    bc = Blockchain()
+    print("Blockchain SYNC inicializada con supply máximo de 21M SYNC (18 decimales).")
 
     while True:
-        print("\nOpciones:")
-        print("1 - Añadir transacción")
-        print("2 - Minar bloque")
-        print("3 - Mostrar blockchain")
-        print("4 - Mostrar todas las transacciones")
-        print("5 - Validar blockchain")
-        print("0 - Salir")
-
-        choice = input("Elige una opción: ")
+        print_menu()
+        choice = input("Opción: ").strip()
 
         if choice == "1":
-            from_node = input("Nodo emisor: ")
-            to_node = input("Nodo receptor: ")
-            data_type = input("Tipo de datos (model_weights, inference_result, etc.): ")
-            data = input("Datos: ")
-            tx_id = my_chain.add_transaction(from_node, to_node, data, data_type)
-            print(f"Transacción añadida con ID: {tx_id}")
+            miner = input("Miner node ID: ")
+            proof = input("IA proof (string): ")
+            block = bc.mine_block(ia_proof=proof, miner_node=miner)
+            if block:
+                print(f"Bloque minado #{block.index}, hash={block.hash[:12]}...")
 
         elif choice == "2":
-            ai_info = input("Introduce info de IA para el bloque: ")
-            ia_proof = simulate_ia_proof(ai_info)
-            block = my_chain.mine_block(ia_proof, ai_data={"info": ai_info})
-            print(f"Bloque minado! Index: {block.index}, Hash: {block.hash[:10]}...")
+            sender = input("From node: ")
+            receiver = input("To node: ")
+            amount = input("Amount (SYNC): ")
+            try:
+                amount = float(amount)
+            except:
+                print("Cantidad inválida.")
+                continue
+            tx_id = bc.add_transaction(sender, receiver, amount_sync=amount)
+            if tx_id:
+                print(f"Tx enviada con ID {tx_id}")
 
         elif choice == "3":
-            print("=== Blockchain ===")
-            print(my_chain)
+            sender = input("From node: ")
+            batch = []
+            print("Introduce items (vacío para terminar):")
+            while True:
+                to = input("  To node: ").strip()
+                if not to:
+                    break
+                amt = float(input("  Amount (SYNC): "))
+                batch.append({"to_node": to, "amount_sync": amt})
+            if not batch:
+                print("Batch vacío, cancelado.")
+                continue
+            tx_id = bc.add_transaction(sender, batch=batch)
+            if tx_id:
+                print(f"Batch enviado con ID {tx_id}")
 
         elif choice == "4":
-            print("=== Todas las transacciones ===")
-            for tx in my_chain.get_all_transactions():
-                print(tx)
+            node = input("Node ID: ")
+            print(f"Balance {node}: {bc.get_balance_sync_str(node)} SYNC")
 
         elif choice == "5":
-            print("Blockchain válida?", my_chain.is_valid())
+            for block in bc.chain:
+                print(block.to_dict())
+
+        elif choice == "6":
+            print("Blockchain válida" if bc.is_chain_valid() else "Blockchain corrupta!")
 
         elif choice == "0":
             print("Saliendo...")
             break
 
         else:
-            print("Opción no válida, intenta de nuevo.")
+            print("Opción inválida.")
 
 if __name__ == "__main__":
     main()

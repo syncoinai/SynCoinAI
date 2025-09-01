@@ -1,48 +1,37 @@
 from blockchain.chain import Blockchain
-import hashlib
-
-def simulate_ia_proof(ai_data):
-    """
-    Simula la generación de un hash único por la IA
-    ai_data: string o dict representando datos de IA
-    """
-    data_string = str(ai_data)
-    return hashlib.sha256(data_string.encode()).hexdigest()
 
 def main():
     # Crear blockchain
-    my_chain = Blockchain()
+    bc = Blockchain()
 
-    # Añadir transacciones entre nodos de IA
-    my_chain.add_transaction("AI_Node_1", "AI_Node_2", "Model weights v1", data_type="model_weights")
-    my_chain.add_transaction("AI_Node_2", "AI_Node_3", "Inference results", data_type="inference_result")
+    # Minar primer bloque (genera recompensa)
+    bc.mine_block(ia_proof="demo_proof", miner_node="miner1")
 
-    # Generar prueba de IA para primer bloque
-    ia_proof = simulate_ia_proof("First block AI data")
+    # Crear algunas transacciones
+    bc.add_transaction("miner1", "alice", amount_sync=5, data_type="payment", data="primer pago")
+    bc.add_transaction("miner1", "bob", amount_sync=2.5, data_type="payment", data="segundo pago")
+    bc.add_transaction("miner1", data_type="note", data="transacción solo con datos")
 
-    # Minar primer bloque con transacciones y prueba de IA
-    my_chain.mine_block(ia_proof, ai_data={"model": "v1", "accuracy": 0.87})
-
-    # Añadir más transacciones
-    my_chain.add_transaction("AI_Node_3", "AI_Node_1", "Updated model v2", data_type="model_weights")
-
-    # Generar prueba de IA para segundo bloque
-    ia_proof2 = simulate_ia_proof("Second block AI data")
+    # Batch transaction
+    bc.add_transaction(
+        "miner1",
+        batch=[
+            {"to_node": "carol", "amount_sync": 1.0, "data_type": "payment"},
+            {"to_node": "dave", "amount_sync": 0.5, "data_type": "payment"},
+        ]
+    )
 
     # Minar segundo bloque
-    my_chain.mine_block(ia_proof2, ai_data={"model": "v2", "accuracy": 0.92})
+    bc.mine_block(ia_proof="demo_proof2", miner_node="miner1", ai_data={"summary": "bloque con txs"})
 
-    # Mostrar blockchain completa
-    print("=== SynCoinAI Blockchain ===")
-    print(my_chain)
+    # Mostrar balances
+    for user in ["miner1", "alice", "bob", "carol", "dave"]:
+        print(f"Balance {user}: {bc.get_balance_sync_str(user)} SYNC")
 
-    # Validar blockchain
-    print("\nBlockchain valid?", my_chain.is_valid())
-
-    # Mostrar todas las transacciones
-    print("\nAll transactions in blockchain:")
-    for tx in my_chain.get_all_transactions():
-        print(tx)
+    # Mostrar estado de la cadena
+    print("\n=== Blockchain ===")
+    for block in bc.chain:
+        print(block)
 
 if __name__ == "__main__":
     main()
