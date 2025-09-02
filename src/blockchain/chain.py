@@ -1,28 +1,29 @@
 import time
 import hashlib
+import json
 from decimal import Decimal, getcontext
 from .block import Block
 
-# precisión para decimales (suficiente para 18 decimales)
+# precisión alta para decimales (18 decimales como ETH)
 getcontext().prec = 50
 
 # Parámetros token
 DECIMALS = 18
-UNIT = 10 ** DECIMALS                       # 1 SYNC = 1e18 attoSYNC
+UNIT = 10 ** DECIMALS
 TOTAL_SUPPLY_SYNC = 21_000_000
 TOTAL_SUPPLY_ATTO = TOTAL_SUPPLY_SYNC * UNIT
 
-INITIAL_REWARD_SYNC = 20                    # 20 SYNC inicial
+INITIAL_REWARD_SYNC = 20
 INITIAL_REWARD_ATTO = INITIAL_REWARD_SYNC * UNIT
 
-# Halving ≈ cada 2 años (ajustable)
-DEFAULT_TARGET_BLOCK_TIME_SECONDS = 10      # ejemplo: 10s por bloque (ajusta si cambia)
+DEFAULT_TARGET_BLOCK_TIME_SECONDS = 10
 HALVING_YEARS = 2
 BLOCKS_PER_HALVING = int((HALVING_YEARS * 365 * 24 * 3600) / DEFAULT_TARGET_BLOCK_TIME_SECONDS)
 
-# Tarifa mínima (ejemplo 1e-12 SYNC)
+# Tarifa mínima
 MIN_FEE_SYNC = Decimal("1e-12")
 MIN_FEE_ATTO = int((MIN_FEE_SYNC * Decimal(UNIT)).to_integral_value())
+
 
 class Blockchain:
     def __init__(self,
@@ -31,13 +32,19 @@ class Blockchain:
                  target_block_time_seconds=DEFAULT_TARGET_BLOCK_TIME_SECONDS):
         self.chain = []
         self.pending_transactions = []   # mempool
-        self.balances = {}               # node_id -> atto (int)
-        self.total_minted = 0            # attoSYNC minted via rewards
+        self.balances = {}               # node_id -> attoSYNC
+        self.total_minted = 0
         self.mining_reward_atto = mining_reward_atto
         self.blocks_per_halving = blocks_per_halving
         self.target_block_time_seconds = target_block_time_seconds
+
+        # índices
+        self.tx_index = {}               # tx_id -> tx
+        self.contracts = {}              # contract_id -> contract_data
+
         self.create_genesis_block()
 
+    # ---------- GENESIS ----------
     def create_genesis_block(self):
         genesis = Block(
             index=0,
@@ -54,118 +61,63 @@ class Blockchain:
     def get_last_block(self):
         return self.chain[-1]
 
-    # ---------- utilidades de cantidad ----------
+    # ---------- conversion utils ----------
     @staticmethod
     def sync_to_atto(amount_sync):
-        """
-        amount_sync: str/Decimal/float representing SYNC units
-        devuelve entero attoSYNC
-        """
-        a = Decimal(str(amount_sync))
-        return int((a * Decimal(10) ** DECIMALS).to_integral_value())
+        return int((Decimal(str(amount_sync)) * Decimal(UNIT)).to_integral_value())
 
     @staticmethod
     def atto_to_sync_str(amount_atto):
-        a = Decimal(amount_atto) / Decimal(10) ** DECIMALS
-        # formatear sin notación exponencial
-        s = format(a.normalize(), 'f')
-        return s
+        a = Decimal(amount_atto) / Decimal(UNIT)
+        return format(a.normalize(), 'f')
 
-    # ---------- recompensa actual ----------
+    # ---------- rewards ----------
     def current_block_reward(self, height):
         halvings = height // self.blocks_per_halving
-        # recompensa en atto (flotante Decimal -> entero)
         reward_dec = Decimal(self.mining_reward_atto) / (Decimal(2) ** halvings)
         reward_atto = int(reward_dec.to_integral_value(rounding="ROUND_FLOOR"))
         remaining = TOTAL_SUPPLY_ATTO - self.total_minted
         if remaining <= 0:
             return 0
-        if reward_atto > remaining:
-            return remaining
-        return reward_atto
+        return min(reward_atto, remaining)
 
-    # ---------- añadir transacción ----------
-    def add_transaction(self, from_node, to_node=None, data_type="generic", data=None,
-                        amount_sync=0, fee_sync=None, batch=None):
+    # ---------- tx management ----------
+    def add_transaction(self, tx):
         """
-        Añade tx al mempool.
-        - Si batch (lista de subtransfers): cada item {'to_node','amount_sync','data_type','data'}
-        - fee_sync: en SYNC; si None se usa MIN_FEE_SYNC
-        Devuelve tx_id o None si falta saldo.
+        tx debe ser un dict ya formado con campos básicos:
+        {
+          "tx_id", "from_node", "to_node", "amount_atto", "fee_atto",
+          "signatures": [...], "required_signatures": int, "data_type", "data"
+        }
         """
-        if fee_sync is None:
-            fee_atto = MIN_FEE_ATTO
-        else:
-            fee_atto = self.sync_to_atto(fee_sync)
-            if fee_atto < MIN_FEE_ATTO:
-                fee_atto = MIN_FEE_ATTO
-
-        timestamp = time.time()
-
-        if batch:
-            items = []
-            total_amount_atto = 0
-            for item in batch:
-                to_n = item.get("to_node")
-                amt_atto = self.sync_to_atto(item.get("amount_sync", 0))
-                items.append({
-                    "to_node": to_n,
-                    "amount_atto": amt_atto,
-                    "data_type": item.get("data_type", "generic"),
-                    "data": item.get("data")
-                })
-                total_amount_atto += amt_atto
-
-            if total_amount_atto + fee_atto > self.balances.get(from_node, 0):
-                print(f"[ERROR] {from_node} saldo insuficiente para batch (necesita {self.atto_to_sync_str(total_amount_atto + fee_atto)} SYNC).")
+        # verificar fondos (si no es SYSTEM)
+        if tx.get("from_node") != "SYSTEM":
+            total_out = tx.get("amount_atto", 0) + tx.get("fee_atto", 0)
+            if total_out > self.balances.get(tx["from_node"], 0):
+                print(f"[ERROR] {tx['from_node']} saldo insuficiente.")
                 return None
 
-            tx = {
-                "tx_id": hashlib.sha256(f"{timestamp}-{from_node}-batch".encode()).hexdigest()[:16],
-                "timestamp": timestamp,
-                "from_node": from_node,
-                "batch": items,
-                "fee_atto": fee_atto
-            }
-            self.pending_transactions.append(tx)
-            return tx["tx_id"]
-
-        else:
-            amount_atto = self.sync_to_atto(amount_sync)
-            if amount_atto + fee_atto > self.balances.get(from_node, 0):
-                print(f"[ERROR] {from_node} saldo insuficiente (necesita {self.atto_to_sync_str(amount_atto + fee_atto)} SYNC).")
+        # verificar multifirmas (si aplica)
+        if tx.get("required_signatures"):
+            if len(tx.get("signatures", [])) < tx["required_signatures"]:
+                print(f"[ERROR] Transacción {tx['tx_id']} no cumple firmas requeridas.")
                 return None
 
-            tx = {
-                "tx_id": hashlib.sha256(f"{timestamp}-{from_node}-{to_node}".encode()).hexdigest()[:16],
-                "timestamp": timestamp,
-                "from_node": from_node,
-                "to_node": to_node,
-                "amount_atto": amount_atto,
-                "data_type": data_type,
-                "data": data,
-                "fee_atto": fee_atto
-            }
-            self.pending_transactions.append(tx)
-            return tx["tx_id"]
+        self.pending_transactions.append(tx)
+        self.tx_index[tx["tx_id"]] = tx
+        return tx["tx_id"]
 
     # ---------- minado ----------
     def mine_block(self, ia_proof, miner_node, ai_data=None):
-        """
-        Crea bloque incluyendo mempool, aplica reward y fees, actualiza balances
-        """
-        # Si no hay tx pendientes y no quedan rewards, no hay nada que minar
         if not self.pending_transactions and self.current_block_reward(len(self.chain)) == 0:
-            print("No pending txs y no quedan recompensas -> nada que minar.")
+            print("Nada que minar.")
             return None
 
         reward_atto = self.current_block_reward(len(self.chain))
-        total_fees_atto = sum(tx.get("fee_atto", 0) for tx in self.pending_transactions)
+        total_fees = sum(tx.get("fee_atto", 0) for tx in self.pending_transactions)
 
-        # Copiamos transacciones
+        # copiar txs + añadir reward
         block_txs = list(self.pending_transactions)
-
-        # Añadimos transacción de reward (SYSTEM -> miner)
         if reward_atto > 0:
             reward_tx = {
                 "tx_id": hashlib.sha256(f"reward-{time.time()}-{miner_node}".encode()).hexdigest()[:16],
@@ -179,8 +131,8 @@ class Blockchain:
             }
             block_txs.append(reward_tx)
             self.total_minted += reward_atto
+            self.tx_index[reward_tx["tx_id"]] = reward_tx
 
-        # Crear bloque usando argumentos por nombre (compatible con Block)
         new_block = Block(
             index=len(self.chain),
             previous_hash=self.get_last_block().hash,
@@ -190,52 +142,45 @@ class Blockchain:
             nonce=0
         )
 
-        # PoW ligero (simulación) — ajustable o reemplazable por Proof-of-IA
-        # Aquí usamos sólo 1 leading zero para mantener rapidez en pruebas
-        while not new_block.hash.startswith("0" * 1):
+        # simple PoW (1 zero)
+        while not new_block.hash.startswith("0"):
             new_block.nonce += 1
             new_block.hash = new_block.calculate_hash()
 
-        # Añadir y aplicar efectos
+        # aplicar estado
         self.chain.append(new_block)
-        self._apply_transactions_and_fees(new_block.transactions, miner_node)
+        self._apply_transactions(new_block.transactions, miner_node)
 
-        # Limpiar mempool
+        # limpiar mempool
         self.pending_transactions = []
 
-        print(f"Bloque {new_block.index} minado. reward={self.atto_to_sync_str(reward_atto)} SYNC, fees={self.atto_to_sync_str(total_fees_atto)} SYNC")
+        print(f"Bloque {new_block.index} minado -> reward {self.atto_to_sync_str(reward_atto)} SYNC, fees {self.atto_to_sync_str(total_fees)} SYNC")
         return new_block
 
-    # Aplica movimientos y paga fees al minero
-    def _apply_transactions_and_fees(self, transactions, miner_node):
+    def _apply_transactions(self, transactions, miner_node):
         total_fees = 0
         for tx in transactions:
             fee = tx.get("fee_atto", 0)
             total_fees += fee
+            sender = tx.get("from_node")
+            to = tx.get("to_node")
+            amt = tx.get("amount_atto", 0)
 
-            if "batch" in tx:
-                sender = tx["from_node"]
-                total_batch = sum(item["amount_atto"] for item in tx["batch"])
+            # transfer normal
+            if amt > 0 and to:
                 if sender != "SYSTEM":
-                    self.balances[sender] = self.balances.get(sender, 0) - total_batch - fee
-                for item in tx["batch"]:
-                    to = item["to_node"]
-                    amt = item["amount_atto"]
-                    self.balances[to] = self.balances.get(to, 0) + amt
+                    self.balances[sender] = self.balances.get(sender, 0) - amt - fee
+                self.balances[to] = self.balances.get(to, 0) + amt
             else:
-                sender = tx.get("from_node")
-                to = tx.get("to_node")
-                amt = tx.get("amount_atto", 0)
-                if amt > 0:
-                    if sender != "SYSTEM":
-                        self.balances[sender] = self.balances.get(sender, 0) - amt - fee
-                    self.balances[to] = self.balances.get(to, 0) + amt
-                else:
-                    # data-only tx -> solo cobrar fee al remitente
-                    if sender != "SYSTEM":
-                        self.balances[sender] = self.balances.get(sender, 0) - fee
+                if sender != "SYSTEM":
+                    self.balances[sender] = self.balances.get(sender, 0) - fee
 
-        # acreditar las fees totales al minero
+            # contract call (simplificado)
+            if tx.get("data_type") == "contract_call":
+                cid = tx["data"].get("contract_id")
+                code = tx["data"].get("contract_code")
+                self.contracts[cid] = code
+
         if total_fees > 0:
             self.balances[miner_node] = self.balances.get(miner_node, 0) + total_fees
 
@@ -246,6 +191,36 @@ class Blockchain:
     def get_balance_sync_str(self, node_id):
         return self.atto_to_sync_str(self.get_balance(node_id))
 
+    def get_balance_at(self, node_id, height):
+        if height >= len(self.chain):
+            return self.get_balance(node_id)
+        balance = 0
+        for block in self.chain[:height+1]:
+            for tx in block.transactions:
+                if tx.get("to_node") == node_id:
+                    balance += tx.get("amount_atto", 0)
+                if tx.get("from_node") == node_id and tx.get("from_node") != "SYSTEM":
+                    balance -= tx.get("amount_atto", 0) + tx.get("fee_atto", 0)
+        return balance
+
+    def get_block_by_height(self, height):
+        if 0 <= height < len(self.chain):
+            return self.chain[height]
+        return None
+
+    def get_block_by_hash(self, h):
+        return next((b for b in self.chain if b.hash == h), None)
+
+    def get_transaction(self, tx_id):
+        return self.tx_index.get(tx_id)
+
+    def get_all_transactions(self):
+        all_txs = []
+        for block in self.chain:
+            all_txs.extend(block.transactions)
+        return all_txs
+
+    # ---------- validez y rollback ----------
     def is_chain_valid(self):
         for i in range(1, len(self.chain)):
             cur = self.chain[i]
@@ -254,12 +229,25 @@ class Blockchain:
                 print(f"Invalid hash at block {cur.index}")
                 return False
             if cur.previous_hash != prev.hash:
-                print(f"Invalid previous_hash at block {cur.index}")
+                print(f"Broken link at block {cur.index}")
                 return False
         return True
 
-    def get_all_transactions(self):
-        all_txs = []
-        for block in self.chain:
-            all_txs.extend(block.transactions)
-        return all_txs
+    def rollback(self, n=1):
+        if n >= len(self.chain):
+            raise ValueError("No puedes eliminar el bloque génesis")
+        for _ in range(n):
+            removed = self.chain.pop()
+            print(f"Rollback -> eliminado bloque {removed.index}")
+        # ⚠ estado no recalculado aquí (puede añadirse un recalculo completo)
+
+    # ---------- persistencia ----------
+    def export_chain(self, filepath):
+        data = [b.to_dict() for b in self.chain]
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+
+    def import_chain(self, filepath):
+        with open(filepath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        self.chain = [Block(**blk) for blk in data]
