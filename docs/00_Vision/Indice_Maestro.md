@@ -4,9 +4,9 @@
 
 ---
 
-# 00 — Visión del Proyecto
+# 00 — Vision
 
-Esta sección define la identidad, propósito y principios fundamentales de SynCoinAI.
+Define la identidad, propósito, filosofía y principios fundamentales del proyecto.
 
 ## Documentos
 
@@ -14,150 +14,130 @@ Esta sección define la identidad, propósito y principios fundamentales de SynC
 |---|---|---|
 | ✅ | Vision.md | Visión general del ecosistema SynCoinAI |
 | ✅ | Mission.md | Misión y objetivos del proyecto |
-| ✅ | Principles.md | Principios fundacionales y reglas filosóficas |
-| ⏳ | Values.md | Valores culturales y operativos del ecosistema |
+| ✅ | Principles.md | Principios fundacionales del ecosistema |
+| ✅ | Values.md | Valores culturales y operativos |
 
 ---
 
-# 01 — Arquitectura del Ecosistema
+# 01 — Whitepaper
 
-Define la estructura técnica general de SynCoinAI.
+Documento formal que explica SynCoinAI como proyecto.
 
 ## Documentos
 
 | Estado | Documento | Descripción |
 |---|---|---|
-| ⏳ | Architecture_Overview.md | Arquitectura general del sistema |
-| ⏳ | Agent_Model.md | Modelo de agentes inteligentes |
-| ⏳ | Identity_System.md | Identidad y autenticación de agentes |
+| ⏳ | Whitepaper.md | Documento principal del proyecto |
+| ⏳ | Problem.md | Problema que resuelve SynCoinAI |
+| ⏳ | Solution.md | Propuesta de solución |
+| ⏳ | Economy.md | Modelo económico |
+| ⏳ | Agent_Economy.md | Economía de agentes inteligentes |
+
+---
+
+# 02 — Architecture
+
+Diseño general del sistema.
+
+## Documentos
+
+| Estado | Documento | Descripción |
+|---|---|---|
+| ⏳ | Architecture_Overview.md | Arquitectura general |
+| ⏳ | Agent_Model.md | Modelo de agentes |
+| ⏳ | Identity_System.md | Sistema de identidad |
 | ⏳ | Reputation_System.md | Sistema de reputación |
-| ⏳ | Lifecycle_Model.md | Ciclo de vida de agentes |
+| ⏳ | Blockchain_Architecture.md | Arquitectura blockchain |
 
 ---
 
-# 02 — Economía del Ecosistema
+# 03 — Decision
 
-Define cómo funciona la economía SynCoinAI.
+Registro de decisiones importantes del proyecto.
 
 ## Documentos
 
 | Estado | Documento | Descripción |
 |---|---|---|
-| ⏳ | Token_Economy.md | Modelo económico del token |
-| ⏳ | Cognitive_Assets.md | Activos cognitivos: experiencia, conocimiento y modelos |
-| ⏳ | Agent_Markets.md | Mercados entre agentes |
-| ⏳ | Resource_Economy.md | Computación, energía, almacenamiento y recursos |
+| ⏳ | Decision_Log.md | Registro general de decisiones |
+| ⏳ | ADR_Index.md | Índice de decisiones arquitectónicas |
 
 ---
 
-# 03 — Blockchain y Protocolo
+# 04 — RFC
 
-Define la infraestructura descentralizada.
+Propuestas formales de evolución del protocolo.
 
 ## Documentos
 
 | Estado | Documento | Descripción |
 |---|---|---|
-| ⏳ | Blockchain_Architecture.md | Diseño de blockchain propia |
-| ⏳ | Consensus_Model.md | Modelo de consenso |
-| ⏳ | Governance_System.md | Gobernanza del protocolo |
-| ⏳ | Interoperability.md | Comunicación con otras redes |
+| ⏳ | RFC_Template.md | Plantilla RFC |
+| ⏳ | RFC_Index.md | Índice de propuestas |
 
 ---
 
-# 04 — Sistema de Agentes
+# 05 — Technical
 
-Define el funcionamiento interno de los agentes.
+Documentación técnica de implementación.
 
 ## Documentos
 
 | Estado | Documento | Descripción |
 |---|---|---|
-| ⏳ | Agent_Specification.md | Especificación de agentes |
-| ⏳ | Agent_Creation.md | Creación de nuevos agentes |
-| ⏳ | Agent_Autonomy.md | Niveles de autonomía |
-| ⏳ | Agent_Communication.md | Comunicación entre agentes |
-
----
-
-# 05 — Robots y Mundo Físico
-
-Define la integración con agentes físicos.
-
-## Documentos
-
-| Estado | Documento | Descripción |
-|---|---|---|
-| ⏳ | Physical_Agents.md | Agentes físicos |
-| ⏳ | Robotics_Interface.md | Interfaces robot-agente |
-| ⏳ | Physical_Verification.md | Prueba de acciones físicas |
-
----
-
-# 06 — Seguridad
-
-Define mecanismos de protección.
-
-## Documentos
-
-| Estado | Documento | Descripción |
-|---|---|---|
-| ⏳ | Security_Model.md | Modelo general de seguridad |
-| ⏳ | Agent_Safety.md | Seguridad de agentes |
-| ⏳ | Attack_Model.md | Modelo de amenazas |
-
----
-
-# 07 — Desarrollo
-
-Define la implementación práctica.
-
-## Documentos
-
-| Estado | Documento | Descripción |
-|---|---|---|
-| ⏳ | Development_Roadmap.md | Hoja de ruta |
 | ⏳ | Technology_Stack.md | Tecnologías utilizadas |
-| ⏳ | Repository_Structure.md | Organización del código |
+| ⏳ | Development_Setup.md | Entorno de desarrollo |
+| ⏳ | Security_Model.md | Modelo de seguridad |
 
 ---
 
-# 08 — Investigación futura
+# 06 — API
 
-Ideas y líneas de evolución.
+Interfaces de comunicación del ecosistema.
 
 ## Documentos
 
 | Estado | Documento | Descripción |
 |---|---|---|
-| ⏳ | Future_Agents.md | Evolución futura de agentes |
-| ⏳ | AGI_Integration.md | Integración con AGI |
-| ⏳ | Human_AI_Economy.md | Economía híbrida humano-IA |
+| ⏳ | API_Overview.md | Visión general de APIs |
+| ⏳ | Agent_API.md | API de agentes |
+| ⏳ | Network_API.md | API de red |
 
 ---
 
-# Historial de decisiones importantes
+# 07 — Roadmap
 
-| Fecha | Decisión |
-|---|---|
-| 2026 | SynCoinAI se define como economía para agentes inteligentes |
-| 2026 | Blockchain propia como infraestructura base |
-| 2026 | Agentes como entidad principal del ecosistema |
-| 2026 | Modelo de competencia cooperativa |
-| 2026 | Experiencia y conocimiento como activos económicos |
-| 2026 | Apertura progresiva del protocolo |
+Planificación y evolución del proyecto.
+
+## Documentos
+
+| Estado | Documento | Descripción |
+|---|---|---|
+| ⏳ | Roadmap.md | Hoja de ruta general |
+| ⏳ | Milestones.md | Hitos del proyecto |
+
+---
+
+# 08 — Research
+
+Investigación y exploración futura.
+
+## Documentos
+
+| Estado | Documento | Descripción |
+|---|---|---|
+| ⏳ | Research_Index.md | Índice de investigación |
+| ⏳ | Future_AI.md | Evolución futura de IA |
+| ⏳ | AGI_Research.md | Investigación AGI |
 
 ---
 
 # Estado actual
 
-Fase completada:
+Completado:
 
-✅ Definición conceptual del proyecto  
-✅ Visión  
-✅ Misión  
-✅ Principios fundacionales  
+✅ 00_Vision
 
 Siguiente fase:
 
-➡️ Diseño de arquitectura del ecosistema.
+➡️ 01_Whitepaper
