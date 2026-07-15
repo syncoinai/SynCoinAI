@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Rust
+target/
+
+# Node
+node_modules/
+
+# Sistemas
+.DS_Store
+Thumbs.db
+
+# Entornos
+.env
+
+# Logs
+*.log
