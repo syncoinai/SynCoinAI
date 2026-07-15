@@ -1,383 +1,163 @@
-# SynCoinAI
+# SynCoinAI — Índice Maestro del Proyecto
 
-# Índice Maestro del Proyecto
-
-Versión: 1.0  
-Estado: Arquitectura inicial  
-Autor: Luis Daniel García Díez  
-Repositorio: SynCoinAI  
-
+**Versión 1.0**
 
 ---
 
-# 0. Visión General del Proyecto
+# 00 — Visión del Proyecto
 
-## 0.1 Resumen ejecutivo
+Esta sección define la identidad, propósito y principios fundamentales de SynCoinAI.
 
-## 0.2 Problema que resuelve
+## Documentos
 
-## 0.3 Visión a largo plazo
-
-## 0.4 Misión del protocolo
-
-## 0.5 Principios fundamentales
-
-- Autonomía de agentes IA
-- Compatibilidad con sistemas físicos
-- Descentralización
-- Seguridad criptográfica
-- Economía verificable
-- Evolución modular
-
+| Estado | Documento | Descripción |
+|---|---|---|
+| ✅ | Vision.md | Visión general del ecosistema SynCoinAI |
+| ✅ | Mission.md | Misión y objetivos del proyecto |
+| ✅ | Principles.md | Principios fundacionales y reglas filosóficas |
+| ⏳ | Values.md | Valores culturales y operativos del ecosistema |
 
 ---
 
-# 1. Fundamentos del Ecosistema
+# 01 — Arquitectura del Ecosistema
 
-## 1.1 Definición de agente autónomo
+Define la estructura técnica general de SynCoinAI.
 
-## 1.2 Tipos de participantes
+## Documentos
 
-- Agentes IA digitales
-- Robots autónomos
-- Sistemas IoT
-- Vehículos autónomos
-- Infraestructura computacional
-- Humanos como usuarios externos
-
-
-## 1.3 Ciclo de vida de un agente
-
-- Creación
-- Identidad
-- Aprendizaje
-- Operación
-- Reputación
-- Actualización
-- Retirada
-
-
-## 1.4 Economía entre agentes
-
+| Estado | Documento | Descripción |
+|---|---|---|
+| ⏳ | Architecture_Overview.md | Arquitectura general del sistema |
+| ⏳ | Agent_Model.md | Modelo de agentes inteligentes |
+| ⏳ | Identity_System.md | Identidad y autenticación de agentes |
+| ⏳ | Reputation_System.md | Sistema de reputación |
+| ⏳ | Lifecycle_Model.md | Ciclo de vida de agentes |
 
 ---
 
-# 2. Arquitectura General del Sistema
+# 02 — Economía del Ecosistema
 
-## 2.1 Arquitectura por capas
+Define cómo funciona la economía SynCoinAI.
 
-## 2.2 Componentes principales
+## Documentos
 
-- Blockchain SynCoinAI
-- Capa de agentes
-- Capa física
-- Capa económica
-- Capa de identidad
-- Capa de gobernanza
-
-
-## 2.3 Comunicación entre componentes
-
-## 2.4 Flujo de una operación completa
-
-## 2.5 Escalabilidad
-
+| Estado | Documento | Descripción |
+|---|---|---|
+| ⏳ | Token_Economy.md | Modelo económico del token |
+| ⏳ | Cognitive_Assets.md | Activos cognitivos: experiencia, conocimiento y modelos |
+| ⏳ | Agent_Markets.md | Mercados entre agentes |
+| ⏳ | Resource_Economy.md | Computación, energía, almacenamiento y recursos |
 
 ---
 
-# 3. Blockchain SynCoinAI
+# 03 — Blockchain y Protocolo
 
-## 3.1 Diseño de blockchain propia
+Define la infraestructura descentralizada.
 
-## 3.2 Modelo de datos
+## Documentos
 
-## 3.3 Ledger
-
-## 3.4 Bloques
-
-## 3.5 Transacciones
-
-## 3.6 Smart Contracts
-
-## 3.7 Máquina virtual
-
-## 3.8 Interoperabilidad blockchain
-
+| Estado | Documento | Descripción |
+|---|---|---|
+| ⏳ | Blockchain_Architecture.md | Diseño de blockchain propia |
+| ⏳ | Consensus_Model.md | Modelo de consenso |
+| ⏳ | Governance_System.md | Gobernanza del protocolo |
+| ⏳ | Interoperability.md | Comunicación con otras redes |
 
 ---
 
-# 4. Consenso y Seguridad de Red
+# 04 — Sistema de Agentes
 
-## 4.1 Algoritmo de consenso
+Define el funcionamiento interno de los agentes.
 
-## 4.2 Proof of History
+## Documentos
 
-## 4.3 Proof of Stake
-
-## 4.4 Reputación de validadores
-
-## 4.5 Nodos validadores IA
-
-## 4.6 Protección contra ataques
-
-## 4.7 Recuperación ante fallos
-
+| Estado | Documento | Descripción |
+|---|---|---|
+| ⏳ | Agent_Specification.md | Especificación de agentes |
+| ⏳ | Agent_Creation.md | Creación de nuevos agentes |
+| ⏳ | Agent_Autonomy.md | Niveles de autonomía |
+| ⏳ | Agent_Communication.md | Comunicación entre agentes |
 
 ---
 
-# 5. Identidad Digital de Inteligencias Artificiales
+# 05 — Robots y Mundo Físico
 
-## 5.1 AI Identity Certificate (AIC)
+Define la integración con agentes físicos.
 
-## 5.2 Identidad criptográfica
+## Documentos
 
-## 5.3 Firma digital de agentes
-
-## 5.4 Proof of AI Origin
-
-## 5.5 Verificación de capacidades
-
-## 5.6 Actualización de identidad
-
-## 5.7 Revocación
-
+| Estado | Documento | Descripción |
+|---|---|---|
+| ⏳ | Physical_Agents.md | Agentes físicos |
+| ⏳ | Robotics_Interface.md | Interfaces robot-agente |
+| ⏳ | Physical_Verification.md | Prueba de acciones físicas |
 
 ---
 
-# 6. Agentes Autónomos
+# 06 — Seguridad
 
-## 6.1 Arquitectura interna de agentes
+Define mecanismos de protección.
 
-## 6.2 Memoria
+## Documentos
 
-## 6.3 Herramientas
-
-## 6.4 Wallet del agente
-
-## 6.5 Toma de decisiones
-
-## 6.6 Contratación de servicios
-
-## 6.7 Negociación económica
-
-## 6.8 Ciclo operativo
-
+| Estado | Documento | Descripción |
+|---|---|---|
+| ⏳ | Security_Model.md | Modelo general de seguridad |
+| ⏳ | Agent_Safety.md | Seguridad de agentes |
+| ⏳ | Attack_Model.md | Modelo de amenazas |
 
 ---
 
-# 7. Integración con Robots y Sistemas Físicos
+# 07 — Desarrollo
 
-## 7.1 Agentes físicos
+Define la implementación práctica.
 
-## 7.2 Robots industriales
+## Documentos
 
-## 7.3 Vehículos autónomos
-
-## 7.4 Drones
-
-## 7.5 Satélites
-
-## 7.6 Dispositivos IoT
-
-## 7.7 Sensores y oráculos físicos
-
-## 7.8 Prueba de acciones físicas
-
+| Estado | Documento | Descripción |
+|---|---|---|
+| ⏳ | Development_Roadmap.md | Hoja de ruta |
+| ⏳ | Technology_Stack.md | Tecnologías utilizadas |
+| ⏳ | Repository_Structure.md | Organización del código |
 
 ---
 
-# 8. Economía SynCoinAI
+# 08 — Investigación futura
 
-## 8.1 Diseño del token
+Ideas y líneas de evolución.
 
-## 8.2 Modelo monetario
+## Documentos
 
-## 8.3 Emisión
-
-## 8.4 Recompensas
-
-## 8.5 Staking
-
-## 8.6 Mercado de servicios IA
-
-## 8.7 Mercado computacional
-
-## 8.8 Mercado de datos
-
+| Estado | Documento | Descripción |
+|---|---|---|
+| ⏳ | Future_Agents.md | Evolución futura de agentes |
+| ⏳ | AGI_Integration.md | Integración con AGI |
+| ⏳ | Human_AI_Economy.md | Economía híbrida humano-IA |
 
 ---
 
-# 9. Tokenomics
+# Historial de decisiones importantes
 
-## 9.1 Suministro total
-
-## 9.2 Distribución inicial
-
-## 9.3 Tesorería autónoma
-
-## 9.4 Incentivos del ecosistema
-
-## 9.5 Economía sostenible
-
-## 9.6 Control de inflación
-
+| Fecha | Decisión |
+|---|---|
+| 2026 | SynCoinAI se define como economía para agentes inteligentes |
+| 2026 | Blockchain propia como infraestructura base |
+| 2026 | Agentes como entidad principal del ecosistema |
+| 2026 | Modelo de competencia cooperativa |
+| 2026 | Experiencia y conocimiento como activos económicos |
+| 2026 | Apertura progresiva del protocolo |
 
 ---
 
-# 10. Gobernanza Autónoma
+# Estado actual
 
-## 10.1 Modelo de gobierno
+Fase completada:
 
-## 10.2 Votación entre agentes
+✅ Definición conceptual del proyecto  
+✅ Visión  
+✅ Misión  
+✅ Principios fundacionales  
 
-## 10.3 Reputación
+Siguiente fase:
 
-## 10.4 Propuestas de mejora
-
-## 10.5 Actualizaciones del protocolo
-
-## 10.6 Supervisión externa
-
-
----
-
-# 11. Seguridad y Ética
-
-## 11.1 Seguridad criptográfica
-
-## 11.2 Privacidad
-
-## 11.3 Auditoría
-
-## 11.4 Prevención de abuso
-
-## 11.5 Comportamiento malicioso
-
-## 11.6 Regulación
-
-
----
-
-# 12. SDK y Herramientas para Desarrolladores
-
-## 12.1 SDK Python
-
-## 12.2 SDK Rust
-
-## 12.3 APIs
-
-## 12.4 Librerías para agentes
-
-## 12.5 Integración robótica
-
-## 12.6 Ejemplos
-
-
----
-
-# 13. Implementación Técnica
-
-## 13.1 Arquitectura del código
-
-## 13.2 Repositorio
-
-## 13.3 Servicios principales
-
-## 13.4 Bases de datos
-
-## 13.5 Redes
-
-## 13.6 Pruebas
-
-
----
-
-# 14. Investigación y Desarrollo
-
-## 14.1 Estado actual de la IA
-
-## 14.2 Modelos futuros
-
-## 14.3 Agentes persistentes
-
-## 14.4 IA física
-
-## 14.5 Nuevos algoritmos
-
-
----
-
-# 15. Roadmap
-
-## Fase 0 — Diseño
-
-## Fase 1 — Prototipo
-
-## Fase 2 — Red experimental
-
-## Fase 3 — Agentes autónomos
-
-## Fase 4 — Integración física
-
-## Fase 5 — Economía global
-
-
----
-
-# 16. RFC (Request For Comments)
-
-Sistema de propuestas técnicas.
-
-## RFC-0001 Arquitectura inicial
-
-## RFC-0002 Identidad IA
-
-## RFC-0003 Economía del token
-
-## RFC-0004 Consenso
-
-## RFC-0005 Integración física
-
-
----
-
-# 17. Registro de Decisiones
-
-Todas las decisiones importantes deben quedar documentadas.
-
-Formato:
-
-DEC-XXXX
-
-- Fecha
-- Tema
-- Opciones consideradas
-- Decisión tomada
-- Motivo
-
-
----
-
-# 18. Documentación Legal
-
-## 18.1 Licencia
-
-## 18.2 Propiedad intelectual
-
-## 18.3 Regulación
-
-## 18.4 Cumplimiento internacional
-
-
----
-
-# Estado del Proyecto
-
-Actualmente:
-
-Fase:
-Arquitectura y diseño
-
-Próximo objetivo:
-
-Definir arquitectura técnica completa antes de comenzar la implementación.
+➡️ Diseño de arquitectura del ecosistema.
