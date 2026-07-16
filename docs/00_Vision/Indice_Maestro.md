@@ -27,11 +27,17 @@ Documento formal que explica SynCoinAI como proyecto.
 
 | Estado | Documento | Descripción |
 |---|---|---|
-| ⏳ | Whitepaper.md | Documento principal del proyecto |
-| ⏳ | Problem.md | Problema que resuelve SynCoinAI |
-| ⏳ | Solution.md | Propuesta de solución |
-| ⏳ | Economy.md | Modelo económico |
-| ⏳ | Agent_Economy.md | Economía de agentes inteligentes |
+| ✅ | Introducción.md | Empezamos |
+| ✅ | Opportunity.md | Una economía nativa para agentes inteligentes |
+| ✅ | Economic_Model.md | Modelo económico |
+| ✅ | Service_Economy.md | Los servicios como unidad económica |
+| ✅ | Reputation_Systema.md | Reputación basada en resultados |
+| ✅ | Agent_Identity.md | El agente como entidad económica |
+| ✅ | Governance.md | Evolución hacia la autonomía |
+| ✅ | Problem_Definition.md | El problema de la economía actual frente a agentes autónomos |
+| ✅ | Solution_Overview.md | SynCoinAI: infraestructura económica para agentes inteligentes |
+| ✅ | Core_Architecture.md | Arquitectura fundamental de SynCoinAI |
+| ✅ | Agent_Economy_Model.md | Modelo económico de agentes inteligentes |
 
 ---
 
@@ -137,7 +143,8 @@ Investigación y exploración futura.
 Completado:
 
 ✅ 00_Vision
+✅ 01_Whitepaper
 
 Siguiente fase:
 
-➡️ 01_Whitepaper
+➡️ 02_Architecture
