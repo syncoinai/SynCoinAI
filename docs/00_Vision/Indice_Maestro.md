@@ -56,7 +56,8 @@ Define la arquitectura necesaria para permitir que agentes inteligentes puedan e
 ├── Core_Architecture/
 │   ├── System_Architecture.md
 │   ├── Layer_Model.md
-│   └──Component_Model.md
+│   ├── Component_Model.md
+│   └── Data_Flow.md
 │   
 ├── Agent_Architecture/
 │   ├── Agent_Model.md
@@ -111,6 +112,7 @@ Define la arquitectura necesaria para permitir que agentes inteligentes puedan e
 | ✅ | System_Architecture.md | Arquitectura del sistema |
 | ✅ | Layer_Model.md | Modelo de capas de SynCoinAI |
 | ✅ | Component_Model.md | Definición de módulos internos principales |
+| ✅ | Data_Flow.md | Flujo de datos y de actividad de SynCoinAI |
 | ⏳ | Agent_Model.md | Modelo del agente inteligente |
 | ⏳ | Agent_Runtime.md | Entorno de ejecución del agente |
 | ⏳ | Agent_Lifecycle.md | Ciclo de vida del agente |
