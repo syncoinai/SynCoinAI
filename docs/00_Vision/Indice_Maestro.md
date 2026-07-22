@@ -49,98 +49,358 @@ Define la arquitectura necesaria para permitir que agentes inteligentes puedan e
 
 ## Estructura
 
-02_Architecture
+# 02 — Architecture
 
+Define la arquitectura técnica y conceptual de SynCoinAI, incluyendo el modelo de agentes, el entorno de ejecución, identidad, confianza, economía, comunicación, blockchain, integración física y seguridad.
+
+## Estructura
+
+```text
+02_Architecture/
+│
 ├── Architecture_Overview.md
 │
-├── Core_Architecture/
-│   ├── System_Architecture.md
-│   ├── Layer_Model.md
-│   ├── Component_Model.md
-│   └── Data_Flow.md
-│   
-├── Agent_Architecture/
+├── 01_Agent_Architecture/
+│   │
 │   ├── Agent_Model.md
-│   ├── Agent_Runtime.md
 │   ├── Agent_Lifecycle.md
-│   └── Agent_Capabilities.md
+│   ├── Agent_Capabilities.md
+│   │
+│   └── 02_Agent_Runtime_Protocol/
+│       │
+│       ├── README.md
+│       │
+│       ├── 01_Core/
+│       │   ├── Agent_Runtime_Concepts.md
+│       │   ├── Protocol_Scope.md
+│       │   └── Design_Principles.md
+│       │
+│       ├── 02_Agent_Model/
+│       │   ├── Agent_Definition.md
+│       │   ├── Agent_Autonomy.md
+│       │   ├── Agent_Continuity.md
+│       │   └── Agent_Evolution.md
+│       │
+│       ├── 03_Identity/
+│       │   ├── Identity_Model.md
+│       │   ├── Root_Identity.md
+│       │   ├── Individuality_Proof.md
+│       │   └── Identity_Uniqueness.md
+│       │
+│       ├── 04_Credentials/
+│       │   ├── Credential_Model.md
+│       │   ├── Authorization_Model.md
+│       │   ├── Permission_Model.md
+│       │   └── Credential_Revocation.md
+│       │
+│       ├── 05_Security/
+│       │   ├── Security_Model.md
+│       │   ├── Security_Levels.md
+│       │   ├── Key_Compromise.md
+│       │   └── Identity_Recovery.md
+│       │
+│       ├── 06_Capabilities/
+│       │   ├── Capability_Model.md
+│       │   ├── Delegation_Model.md
+│       │   └── Agent_to_Agent_Delegation.md
+│       │
+│       ├── 07_Economy/
+│       │   ├── Economic_Autonomy.md
+│       │   ├── Wallet_Operations.md
+│       │   └── Economic_Permissions.md
+│       │
+│       ├── 08_Contracts/
+│       │   ├── Contract_Interaction.md
+│       │   ├── Contract_Obligations.md
+│       │   └── Contract_Contingencies.md
+│       │
+│       ├── 09_Communication/
+│       │   ├── Agent_Communication.md
+│       │   └── Interaction_Model.md
+│       │
+│       ├── 10_Verification/
+│       │   ├── Action_Verification.md
+│       │   ├── Proof_Model.md
+│       │   └── Auditability.md
+│       │
+│       ├── 11_Reputation/
+│       │   └── Runtime_Reputation_Integration.md
+│       │
+│       ├── 12_Continuity/
+│       │   ├── Runtime_Continuity.md
+│       │   ├── Migration.md
+│       │   └── Infrastructure_Independence.md
+│       │
+│       ├── 13_Suspension/
+│       │   ├── Voluntary_Suspension.md
+│       │   ├── Involuntary_Suspension.md
+│       │   └── Suspension_Contracts.md
+│       │
+│       ├── 14_Lifecycle/
+│       │   ├── Agent_Closure.md
+│       │   ├── Identity_Revocation.md
+│       │   └── Permanent_States.md
+│       │
+│       └── 15_Governance/
+│           └── Runtime_Governance.md
 │
-├── Identity_Architecture/
+├── 02_Identity_Architecture/
 │   ├── Identity_System.md
 │   ├── Agent_Identity_Model.md
 │   └── Credential_System.md
 │
-├── Trust_Architecture/
+├── 03_Trust_Architecture/
 │   ├── Reputation_System.md
 │   ├── Reputation_Model.md
 │   ├── Verification_System.md
 │   └── Proof_of_Service.md
 │
-├── Economic_Architecture/
+├── 04_Economic_Architecture/
 │   ├── Economic_Model.md
 │   ├── Service_Market_Architecture.md
 │   ├── Agent_Transactions.md
 │   └── Token_Integration.md
 │
-├── Communication_Architecture/
+├── 05_Communication_Architecture/
 │   ├── Agent_Communication.md
 │   ├── Discovery_Protocol.md
 │   └── Negotiation_Protocol.md
 │
-├── Blockchain_Architecture/
+├── 06_Blockchain_Architecture/
 │   ├── Blockchain_Architecture.md
 │   ├── Consensus_Model.md
 │   ├── Smart_Contract_System.md
 │   └── Governance_Architecture.md
 │
-├── Physical_Integration/
+├── 07_Physical_Integration/
 │   ├── Physical_Agent_Model.md
 │   ├── Robotics_Integration.md
 │   └── IoT_Integration.md
 │
-└── Security_Architecture/
+└── 08_Security_Architecture/
     ├── Security_Model.md
     ├── Privacy_System.md
     └── Threat_Model.md
 ```
 
+---
+
 ## Documentos
 
-| Estado | Documento | Descripción |
-|---|---|---|
-| ✅ | Architecture_Overview.md | Visión general de la arquitectura SynCoinAI |
-| ✅ | System_Architecture.md | Arquitectura del sistema |
-| ✅ | Layer_Model.md | Modelo de capas de SynCoinAI |
-| ✅ | Component_Model.md | Definición de módulos internos principales |
-| ✅ | Data_Flow.md | Flujo de datos y de actividad de SynCoinAI |
-| ⏳ | Agent_Model.md | Modelo del agente inteligente |
-| ⏳ | Agent_Runtime.md | Entorno de ejecución del agente |
-| ⏳ | Agent_Lifecycle.md | Ciclo de vida del agente |
-| ⏳ | Agent_Capabilities.md | Modelo de capacidades |
-| ⏳ | Identity_System.md | Sistema general de identidad |
-| ⏳ | Agent_Identity_Model.md | Modelo de identidad del agente |
-| ⏳ | Credential_System.md | Sistema de credenciales verificables |
-| ⏳ | Reputation_System.md | Sistema de reputación |
-| ⏳ | Reputation_Model.md | Modelo de reputación y confianza |
-| ⏳ | Verification_System.md | Sistema de verificación |
-| ⏳ | Proof_of_Service.md | Pruebas de servicios realizados |
-| ⏳ | Economic_Model.md | Modelo económico arquitectónico |
-| ⏳ | Service_Market_Architecture.md | Arquitectura del mercado de servicios |
-| ⏳ | Agent_Transactions.md | Sistema de transacciones entre agentes |
-| ⏳ | Token_Integration.md | Integración de la moneda SynCoinAI |
-| ⏳ | Agent_Communication.md | Comunicación entre agentes |
-| ⏳ | Discovery_Protocol.md | Descubrimiento de agentes y servicios |
-| ⏳ | Negotiation_Protocol.md | Protocolo de negociación autónoma |
-| ⏳ | Blockchain_Architecture.md | Arquitectura blockchain |
-| ⏳ | Consensus_Model.md | Modelo de consenso |
-| ⏳ | Smart_Contract_System.md | Sistema de contratos inteligentes |
-| ⏳ | Governance_Architecture.md | Gobernanza técnica del protocolo |
-| ⏳ | Physical_Agent_Model.md | Modelo de agentes físicos |
-| ⏳ | Robotics_Integration.md | Integración con sistemas robóticos |
-| ⏳ | IoT_Integration.md | Integración con dispositivos IoT |
-| ⏳ | Security_Model.md | Modelo general de seguridad |
-| ⏳ | Privacy_System.md | Sistema de privacidad |
-| ⏳ | Threat_Model.md | Modelo de amenazas |
+### Architecture Overview
+
+| Estado | Documento                | Descripción                                    |
+| ------ | ------------------------ | ---------------------------------------------- |
+| ✅      | Architecture_Overview.md | Visión general de la arquitectura de SynCoinAI |
+
+---
+
+### 01 — Agent Architecture
+
+Define el modelo arquitectónico del agente, su ciclo de vida, sus capacidades y el protocolo de runtime que permite su existencia y operación.
+
+| Estado | Documento             | Descripción                                          |
+| ------ | --------------------- | ---------------------------------------------------- |
+| ✅      | Agent_Model.md        | Modelo arquitectónico general del agente inteligente |
+| ⏳      | Agent_Lifecycle.md    | Modelo arquitectónico del ciclo de vida del agente   |
+| ⏳      | Agent_Capabilities.md | Modelo arquitectónico de las capacidades del agente  |
+
+#### 02 — Agent Runtime Protocol
+
+Especificación detallada del protocolo que permite a los agentes existir, operar, evolucionar e interactuar dentro del ecosistema SynCoinAI.
+
+##### 01 — Core
+
+| Estado | Documento                 | Descripción                                                 |
+| ------ | ------------------------- | ----------------------------------------------------------- |
+| ✅      | Agent_Runtime_Concepts.md | Conceptos fundamentales del entorno de ejecución de agentes |
+| ✅      | Protocol_Scope.md         | Alcance y límites del Agent Runtime Protocol                |
+| ✅      | Design_Principles.md      | Principios de diseño que gobiernan el protocolo             |
+
+##### 02 — Agent Model
+
+| Estado | Documento           | Descripción                                                   |
+| ------ | ------------------- | ------------------------------------------------------------- |
+| ✅      | Agent_Definition.md | Definición formal del agente desde la perspectiva del runtime |
+| ✅      | Agent_Autonomy.md   | Modelo de autonomía del agente                                |
+| ✅      | Agent_Continuity.md | Modelo de continuidad de identidad y existencia del agente    |
+| ✅      | Agent_Evolution.md  | Modelo de evolución del agente durante su existencia          |
+
+##### 03 — Identity
+
+| Estado | Documento              | Descripción                                           |
+| ------ | ---------------------- | ----------------------------------------------------- |
+| ⏳      | Identity_Model.md      | Modelo general de identidad dentro del runtime        |
+| ⏳      | Root_Identity.md       | Definición de la identidad raíz del agente            |
+| ⏳      | Individuality_Proof.md | Mecanismos conceptuales para demostrar individualidad |
+| ⏳      | Identity_Uniqueness.md | Modelo de unicidad de identidad                       |
+
+##### 04 — Credentials
+
+| Estado | Documento                | Descripción                                            |
+| ------ | ------------------------ | ------------------------------------------------------ |
+| ⏳      | Credential_Model.md      | Modelo de credenciales del agente                      |
+| ⏳      | Authorization_Model.md   | Modelo de autorización                                 |
+| ⏳      | Permission_Model.md      | Modelo de permisos                                     |
+| ⏳      | Credential_Revocation.md | Revocación y gestión del ciclo de vida de credenciales |
+
+##### 05 — Security
+
+| Estado | Documento            | Descripción                             |
+| ------ | -------------------- | --------------------------------------- |
+| ⏳      | Security_Model.md    | Modelo de seguridad del runtime         |
+| ⏳      | Security_Levels.md   | Niveles y garantías de seguridad        |
+| ⏳      | Key_Compromise.md    | Gestión del compromiso de claves        |
+| ⏳      | Identity_Recovery.md | Recuperación de identidad y continuidad |
+
+##### 06 — Capabilities
+
+| Estado | Documento                    | Descripción                             |
+| ------ | ---------------------------- | --------------------------------------- |
+| ⏳      | Capability_Model.md          | Modelo de capacidades del agente        |
+| ⏳      | Delegation_Model.md          | Modelo de delegación de capacidades     |
+| ⏳      | Agent_to_Agent_Delegation.md | Delegación de capacidades entre agentes |
+
+##### 07 — Economy
+
+| Estado | Documento               | Descripción                                 |
+| ------ | ----------------------- | ------------------------------------------- |
+| ⏳      | Economic_Autonomy.md    | Modelo de autonomía económica               |
+| ⏳      | Wallet_Operations.md    | Operaciones económicas y gestión de wallets |
+| ⏳      | Economic_Permissions.md | Permisos y restricciones económicas         |
+
+##### 08 — Contracts
+
+| Estado | Documento                 | Descripción                            |
+| ------ | ------------------------- | -------------------------------------- |
+| ⏳      | Contract_Interaction.md   | Interacción de agentes con contratos   |
+| ⏳      | Contract_Obligations.md   | Obligaciones derivadas de contratos    |
+| ⏳      | Contract_Contingencies.md | Gestión de contingencias contractuales |
+
+##### 09 — Communication
+
+| Estado | Documento              | Descripción                                 |
+| ------ | ---------------------- | ------------------------------------------- |
+| ⏳      | Agent_Communication.md | Comunicación entre agentes                  |
+| ⏳      | Interaction_Model.md   | Modelo general de interacción entre agentes |
+
+##### 10 — Verification
+
+| Estado | Documento              | Descripción                                     |
+| ------ | ---------------------- | ----------------------------------------------- |
+| ⏳      | Action_Verification.md | Verificación de acciones realizadas por agentes |
+| ⏳      | Proof_Model.md         | Modelo general de pruebas y evidencias          |
+| ⏳      | Auditability.md        | Auditabilidad y trazabilidad del comportamiento |
+
+##### 11 — Reputation
+
+| Estado | Documento                         | Descripción                                     |
+| ------ | --------------------------------- | ----------------------------------------------- |
+| ⏳      | Runtime_Reputation_Integration.md | Integración de la reputación dentro del runtime |
+
+##### 12 — Continuity
+
+| Estado | Documento                      | Descripción                                                   |
+| ------ | ------------------------------ | ------------------------------------------------------------- |
+| ⏳      | Runtime_Continuity.md          | Continuidad del agente entre diferentes entornos de ejecución |
+| ⏳      | Migration.md                   | Migración de agentes entre infraestructuras                   |
+| ⏳      | Infrastructure_Independence.md | Independencia de la identidad respecto a la infraestructura   |
+
+##### 13 — Suspension
+
+| Estado | Documento                 | Descripción                                            |
+| ------ | ------------------------- | ------------------------------------------------------ |
+| ⏳      | Voluntary_Suspension.md   | Suspensión voluntaria de un agente                     |
+| ⏳      | Involuntary_Suspension.md | Suspensión involuntaria                                |
+| ⏳      | Suspension_Contracts.md   | Relación entre suspensión y obligaciones contractuales |
+
+##### 14 — Lifecycle
+
+| Estado | Documento              | Descripción                        |
+| ------ | ---------------------- | ---------------------------------- |
+| ⏳      | Agent_Closure.md       | Finalización y cierre de un agente |
+| ⏳      | Identity_Revocation.md | Revocación de identidad            |
+| ⏳      | Permanent_States.md    | Estados permanentes del agente     |
+
+##### 15 — Governance
+
+| Estado | Documento             | Descripción                                       |
+| ------ | --------------------- | ------------------------------------------------- |
+| ⏳      | Runtime_Governance.md | Gobernanza y evolución del Agent Runtime Protocol |
+
+---
+
+### 02 — Identity Architecture
+
+| Estado | Documento               | Descripción                                   |
+| ------ | ----------------------- | --------------------------------------------- |
+| ⏳      | Identity_System.md      | Arquitectura general del sistema de identidad |
+| ⏳      | Agent_Identity_Model.md | Modelo arquitectónico de identidad del agente |
+| ⏳      | Credential_System.md    | Arquitectura del sistema de credenciales      |
+
+---
+
+### 03 — Trust Architecture
+
+| Estado | Documento              | Descripción                                         |
+| ------ | ---------------------- | --------------------------------------------------- |
+| ⏳      | Reputation_System.md   | Arquitectura del sistema de reputación              |
+| ⏳      | Reputation_Model.md    | Modelo arquitectónico de reputación y confianza     |
+| ⏳      | Verification_System.md | Arquitectura del sistema de verificación            |
+| ⏳      | Proof_of_Service.md    | Arquitectura de las pruebas de servicios realizados |
+
+---
+
+### 04 — Economic Architecture
+
+| Estado | Documento                      | Descripción                                     |
+| ------ | ------------------------------ | ----------------------------------------------- |
+| ⏳      | Economic_Model.md              | Modelo económico arquitectónico                 |
+| ⏳      | Service_Market_Architecture.md | Arquitectura del mercado de servicios           |
+| ⏳      | Agent_Transactions.md          | Arquitectura de las transacciones entre agentes |
+| ⏳      | Token_Integration.md           | Integración arquitectónica del token SYNC       |
+
+---
+
+### 05 — Communication Architecture
+
+| Estado | Documento               | Descripción                                            |
+| ------ | ----------------------- | ------------------------------------------------------ |
+| ⏳      | Agent_Communication.md  | Arquitectura de comunicación entre agentes             |
+| ⏳      | Discovery_Protocol.md   | Arquitectura del descubrimiento de agentes y servicios |
+| ⏳      | Negotiation_Protocol.md | Arquitectura de negociación autónoma                   |
+
+---
+
+### 06 — Blockchain Architecture
+
+| Estado | Documento                  | Descripción                                        |
+| ------ | -------------------------- | -------------------------------------------------- |
+| ⏳      | Blockchain_Architecture.md | Arquitectura blockchain de SynCoinAI               |
+| ⏳      | Consensus_Model.md         | Modelo arquitectónico de consenso                  |
+| ⏳      | Smart_Contract_System.md   | Arquitectura del sistema de contratos inteligentes |
+| ⏳      | Governance_Architecture.md | Arquitectura de gobernanza técnica del protocolo   |
+
+---
+
+### 07 — Physical Integration
+
+| Estado | Documento               | Descripción                                        |
+| ------ | ----------------------- | -------------------------------------------------- |
+| ⏳      | Physical_Agent_Model.md | Modelo arquitectónico de agentes físicos           |
+| ⏳      | Robotics_Integration.md | Arquitectura de integración con sistemas robóticos |
+| ⏳      | IoT_Integration.md      | Arquitectura de integración con dispositivos IoT   |
+
+---
+
+### 08 — Security Architecture
+
+| Estado | Documento         | Descripción                                |
+| ------ | ----------------- | ------------------------------------------ |
+| ⏳      | Security_Model.md | Modelo arquitectónico general de seguridad |
+| ⏳      | Privacy_System.md | Arquitectura del sistema de privacidad     |
+| ⏳      | Threat_Model.md   | Modelo arquitectónico de amenazas          |
+
 
 ---
 
