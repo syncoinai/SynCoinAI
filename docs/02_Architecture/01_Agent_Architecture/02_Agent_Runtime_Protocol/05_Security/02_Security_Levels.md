@@ -63,7 +63,7 @@ SynCoinAI establece:
 
 Conceptualmente:
 
-```text
+    
 Risk
   ↓
 Security Requirements
@@ -71,11 +71,11 @@ Security Requirements
 Required Controls
   ↓
 Execution Decision
-```
+    
 
 Por tanto:
 
-```text
+    
 Low Risk
     ↓
 Low Security Requirements
@@ -83,7 +83,7 @@ Low Security Requirements
 High Risk
     ↓
 High Security Requirements
-```
+    
 
 ---
 
@@ -101,9 +101,9 @@ El nivel de seguridad responde a:
 
 Por tanto:
 
-```text
+    
 Reputation ≠ Security Level
-```
+    
 
 Un agente con alta reputación puede realizar una operación de alto riesgo que requiera controles adicionales.
 
@@ -119,7 +119,7 @@ Un agente puede estar autorizado para realizar una acción, pero la operación p
 
 Ejemplo:
 
-```text
+    
 Agent Authorized
        ↓
 Operation High Risk
@@ -127,17 +127,17 @@ Operation High Risk
 Additional Security Controls
        ↓
 Execution Allowed
-```
+    
 
 Por tanto:
 
-```text
+    
 Authorization
     +
 Security Requirements
     =
 Execution Decision
-```
+    
 
 ---
 
@@ -154,7 +154,7 @@ El nivel de seguridad puede aplicarse a diferentes elementos:
 
 Conceptualmente:
 
-```text
+    
 Agent Security Context
         │
         ├── Identity
@@ -165,7 +165,7 @@ Agent Security Context
         └── Risk
               ↓
         Security Level
-```
+    
 
 ---
 
@@ -173,17 +173,17 @@ Agent Security Context
 
 SynCoinAI define inicialmente cinco niveles conceptuales:
 
-```text
+    
 SL-0  Untrusted
 SL-1  Basic
 SL-2  Standard
 SL-3  Elevated
 SL-4  Critical
-```
+    
 
 Estos niveles representan requisitos crecientes de seguridad.
 
-```text
+    
 SL-0
   ↓
 SL-1
@@ -193,7 +193,7 @@ SL-2
 SL-3
   ↓
 SL-4
-```
+    
 
 El nivel superior no implica necesariamente que el agente sea "más confiable".
 
@@ -216,11 +216,11 @@ Puede aplicarse cuando:
 
 Modelo:
 
-```text
+    
 SL-0
     ↓
 No Trusted Execution
-```
+    
 
 Las operaciones de alto riesgo deben rechazarse.
 
@@ -253,7 +253,7 @@ Ejemplos de operaciones:
 
 Modelo:
 
-```text
+    
 Identity
    ↓
 Credential
@@ -261,7 +261,7 @@ Credential
 Basic Authorization
    ↓
 Action
-```
+    
 
 ---
 
@@ -288,7 +288,7 @@ Ejemplos:
 
 Modelo:
 
-```text
+    
 Identity
    ↓
 Credential
@@ -300,7 +300,7 @@ Permission
 Capability
    ↓
 Action
-```
+    
 
 Este debe ser el nivel habitual de operación del agente.
 
@@ -328,13 +328,13 @@ Ejemplos:
 
 Modelo:
 
-```text
+    
 Standard Validation
         +
 Enhanced Controls
         ↓
 SL-3 Execution
-```
+    
 
 ---
 
@@ -369,7 +369,7 @@ Pueden requerirse:
 
 Modelo:
 
-```text
+    
 Identity
     +
 Multiple Credentials
@@ -383,7 +383,7 @@ Risk Evaluation
 Additional Security Controls
         ↓
 Critical Action
-```
+    
 
 ---
 
@@ -407,18 +407,18 @@ Sin embargo, este estado no debe determinar por sí solo qué acciones puede rea
 
 Ejemplo:
 
-```text
+    
 Agent Security Context = SL-2
-```
+    
 
 El agente puede ejecutar:
 
-```text
+    
 Low Risk Action → SL-1
 Normal Action → SL-2
 High Risk Action → SL-3
 Critical Action → SL-4
-```
+    
 
 Por tanto:
 
@@ -432,28 +432,28 @@ Cada operación puede requerir un nivel mínimo.
 
 Ejemplo:
 
-```text
+    
 Operation
     │
     ├── Read Public Data → SL-1
     ├── Send Payment → SL-2
     ├── Large Payment → SL-3
     └── Modify Root Identity → SL-4
-```
+    
 
 El Runtime debe comparar:
 
-```text
+    
 Available Security Context
         vs
 Required Security Level
-```
+    
 
 Si el nivel disponible es insuficiente:
 
-```text
+    
 Action → DENIED
-```
+    
 
 ---
 
@@ -463,12 +463,12 @@ Las credenciales pueden tener diferentes niveles de sensibilidad.
 
 Ejemplo:
 
-```text
+    
 Credential A → SL-1
 Credential B → SL-2
 Credential C → SL-3
 Credential D → SL-4
-```
+    
 
 Una credencial de nivel superior puede requerir:
 
@@ -485,14 +485,14 @@ Las capacidades también pueden clasificarse.
 
 Ejemplo:
 
-```text
+    
 Capability
 │
 ├── Read Public Data → SL-1
 ├── Execute Service → SL-2
 ├── Transfer Assets → SL-3
 └── Modify Identity Controls → SL-4
-```
+    
 
 El Runtime debe impedir que una capacidad sensible sea utilizada bajo un contexto insuficiente.
 
@@ -502,13 +502,13 @@ El Runtime debe impedir que una capacidad sensible sea utilizada bajo un context
 
 Los niveles de seguridad complementan el principio de mínimo privilegio.
 
-```text
+    
 Least Privilege
        +
 Security Level
        ↓
 Controlled Access
-```
+    
 
 Un agente debe disponer únicamente de:
 
@@ -523,11 +523,11 @@ Un agente debe disponer únicamente de:
 
 El nivel requerido puede calcularse conceptualmente a partir del riesgo.
 
-```text
+    
 Risk Score
     ↓
 Security Level
-```
+    
 
 El riesgo puede considerar:
 
@@ -587,7 +587,7 @@ El riesgo de una operación puede ser multidimensional.
 
 Conceptualmente:
 
-```text
+    
 Risk =
 Economic
 +
@@ -600,7 +600,7 @@ Physical
 Social
 +
 Operational
-```
+    
 
 El Runtime puede utilizar diferentes modelos de evaluación.
 
@@ -614,7 +614,7 @@ Una operación normalmente ejecutada en `SL-2` puede requerir temporalmente `SL-
 
 Ejemplo:
 
-```text
+    
 Normal Operation
       ↓
 High Risk Detected
@@ -626,7 +626,7 @@ Additional Controls
 Execution
       ↓
 Return to Normal
-```
+    
 
 La elevación debe limitarse al tiempo necesario.
 
@@ -638,23 +638,23 @@ El Runtime puede reducir temporalmente el nivel operativo cuando aumenta el ries
 
 Ejemplo:
 
-```text
+    
 SL-2
   ↓
 Anomaly Detected
   ↓
 SL-1
-```
+    
 
 En situaciones críticas:
 
-```text
+    
 SL-2
   ↓
 Compromise Suspected
   ↓
 SL-0
-```
+    
 
 La reducción puede limitar:
 
@@ -680,7 +680,7 @@ Factores:
 
 Modelo:
 
-```text
+    
 Normal
   ↓
 Elevated Risk
@@ -690,7 +690,7 @@ Enhanced Controls
 Incident
   ↓
 Restricted State
-```
+    
 
 ---
 
@@ -700,23 +700,23 @@ La reputación puede utilizarse como una señal contextual, pero no debe sustitu
 
 Por ejemplo:
 
-```text
+    
 High Reputation
     +
 Valid Credentials
     +
 Required Security Level
-```
+    
 
 puede facilitar determinados procesos.
 
 Pero:
 
-```text
+    
 High Reputation
     ≠
 Unlimited Authority
-```
+    
 
 La reputación no debe convertirse en una excepción automática a los controles de seguridad.
 
@@ -726,7 +726,7 @@ La reputación no debe convertirse en una excepción automática a los controles
 
 La confianza y la seguridad están relacionadas, pero son conceptos diferentes.
 
-```text
+    
 Trust
     =
 Confidence in Behavior
@@ -734,7 +734,7 @@ Confidence in Behavior
 Security
     =
 Protection Against Risk
-```
+    
 
 Un agente puede ser confiable y aun así requerir controles elevados para una operación crítica.
 
@@ -746,25 +746,25 @@ Las delegaciones pueden establecer un nivel máximo de seguridad permitido.
 
 Ejemplo:
 
-```text
+    
 Delegation
 {
     Scope: Payment
     MaxSecurityLevel: SL-2
 }
-```
+    
 
 Esto significa que la delegación no puede utilizarse para ejecutar acciones que requieran `SL-3` o `SL-4`.
 
 Modelo:
 
-```text
+    
 Delegated Authority
         ↓
 Maximum Allowed Security
         ↓
 Action Evaluation
-```
+    
 
 ---
 
@@ -774,11 +774,11 @@ Una subdelegación no debe aumentar el nivel máximo autorizado.
 
 Principio:
 
-```text
+    
 Subdelegated Security Level
     ≤
 Original Delegated Security Level
-```
+    
 
 Esto evita que una cadena de delegaciones incremente progresivamente los privilegios.
 
@@ -788,11 +788,11 @@ Esto evita que una cadena de delegaciones incremente progresivamente los privile
 
 Si una credencial es comprometida:
 
-```text
+    
 Credential Compromise
         ↓
 Security Level Reduction
-```
+    
 
 El Runtime puede:
 
@@ -809,13 +809,13 @@ La respuesta depende del alcance del compromiso.
 
 Durante una suspensión:
 
-```text
+    
 Agent Active
     ↓
 Suspended
     ↓
 Restricted Security Context
-```
+    
 
 El agente puede perder acceso a:
 
@@ -833,11 +833,11 @@ La recuperación puede requerir alcanzar un nivel mínimo de seguridad.
 
 Ejemplo:
 
-```text
+    
 Identity Recovery
         ↓
 Required Level = SL-4
-```
+    
 
 Esto significa que la recuperación de identidad debe utilizar mecanismos de máxima protección.
 
@@ -851,13 +851,13 @@ La continuidad de un agente puede requerir garantías de seguridad.
 
 Durante una migración:
 
-```text
+    
 Runtime A
       ↓
 Migration
       ↓
 Runtime B
-```
+    
 
 El sistema debe garantizar que el nivel de seguridad no se degrade sin autorización.
 
@@ -867,15 +867,15 @@ El sistema debe garantizar que el nivel de seguridad no se degrade sin autorizac
 
 Una migración puede establecer:
 
-```text
+    
 Required Migration Security = SL-3
-```
+    
 
 Si el nuevo entorno no cumple los requisitos:
 
-```text
+    
 Migration → DENIED
-```
+    
 
 Esto evita migrar un agente a un entorno que no proporciona garantías suficientes.
 
@@ -896,7 +896,7 @@ Factores:
 
 Conceptualmente:
 
-```text
+    
 Agent Security
        +
 Runtime Security
@@ -904,7 +904,7 @@ Runtime Security
 Infrastructure Security
        ↓
 Effective Security Context
-```
+    
 
 ---
 
@@ -914,7 +914,7 @@ El nivel efectivo de una operación puede estar limitado por el componente más 
 
 Conceptualmente:
 
-```text
+    
 Effective Security
     =
 Minimum(
@@ -924,7 +924,7 @@ Minimum(
     Capability Security,
     Environment Security
 )
-```
+    
 
 Esto evita que una operación sea considerada segura únicamente porque uno de sus componentes tenga un nivel elevado.
 
@@ -959,13 +959,13 @@ Las operaciones irreversibles deben tratarse como operaciones de alto nivel.
 
 Ejemplo:
 
-```text
+    
 Action
    ↓
 Irreversible
    ↓
 SL-4
-```
+    
 
 Cuando una acción no puede deshacerse, el sistema debe priorizar:
 
@@ -1002,7 +1002,7 @@ Las operaciones económicas pueden clasificarse por riesgo.
 
 Ejemplo:
 
-```text
+    
 Micro Payment
     → SL-1 / SL-2
 
@@ -1014,7 +1014,7 @@ Large Payment
 
 Critical Asset Transfer
     → SL-4
-```
+    
 
 Los límites concretos deberán definirse en la arquitectura económica.
 
@@ -1041,7 +1041,7 @@ Las acciones que conceden autoridad a otros agentes deben clasificarse según su
 
 Ejemplo:
 
-```text
+    
 Limited Delegation
     → SL-2
 
@@ -1050,7 +1050,7 @@ Sensitive Delegation
 
 Root Authority Delegation
     → SL-4
-```
+    
 
 ---
 
@@ -1058,27 +1058,27 @@ Root Authority Delegation
 
 Si una operación requiere un nivel superior al disponible:
 
-```text
+    
 Required Level > Available Level
-```
+    
 
 El Runtime debe:
 
-```text
+    
 DENY
-```
+    
 
 o:
 
-```text
+    
 REQUEST ADDITIONAL AUTHORIZATION
-```
+    
 
 o:
 
-```text
+    
 REQUEST SECURITY ELEVATION
-```
+    
 
 Nunca debe degradar silenciosamente los requisitos de seguridad.
 
@@ -1088,7 +1088,7 @@ Nunca debe degradar silenciosamente los requisitos de seguridad.
 
 El flujo general es:
 
-```text
+    
 Action Request
        ↓
 Identify Actor
@@ -1110,7 +1110,7 @@ Determine Effective Security Level
 Compare
        ↓
 ALLOW / DENY / ESCALATE
-```
+    
 
 ---
 
@@ -1118,12 +1118,12 @@ ALLOW / DENY / ESCALATE
 
 Conceptualmente:
 
-```text
+    
 if EffectiveSecurityLevel >= RequiredSecurityLevel:
     ALLOW
 else:
     DENY
-```
+    
 
 Sin embargo, la decisión real puede incluir:
 
@@ -1136,7 +1136,7 @@ Sin embargo, la decisión real puede incluir:
 
 Por tanto:
 
-```text
+    
 Security Level
     +
 Policy
@@ -1146,7 +1146,7 @@ Authorization
 Context
     =
 Final Security Decision
-```
+    
 
 ---
 
@@ -1165,7 +1165,7 @@ El Runtime debería registrar:
 
 Ejemplo conceptual:
 
-```text
+    
 Security Decision
 {
     action_id
@@ -1174,7 +1174,7 @@ Security Decision
     decision
     timestamp
 }
-```
+    
 
 ---
 
@@ -1230,13 +1230,13 @@ Los Security Levels proporcionan al Agent Runtime Protocol un mecanismo para ada
 
 El modelo distingue claramente entre:
 
-```text
+    
 Reputation
 Trust
 Authorization
 Security
 Risk
-```
+    
 
 Estos conceptos están relacionados, pero no son intercambiables.
 
@@ -1244,7 +1244,7 @@ La arquitectura permite que un agente autónomo opere normalmente con controles 
 
 El modelo general puede resumirse como:
 
-```text
+    
 Operation
     ↓
 Risk Assessment
@@ -1256,7 +1256,7 @@ Effective Security Level
 Policy Validation
     ↓
 Execution Decision
-```
+    
 
 El sistema debe poder:
 
@@ -1295,7 +1295,7 @@ Este documento se relaciona directamente con:
 
 Los siguientes documentos profundizarán en mecanismos relacionados:
 
-```text
+    
 Security_Model.md
         │
         ├── Security_Levels.md
@@ -1303,7 +1303,7 @@ Security_Model.md
         ├── Key_Compromise.md
         │
         └── Identity_Recovery.md
-```
+    
 
 `Security_Levels.md` define la clasificación y evaluación de los requisitos de seguridad.
 

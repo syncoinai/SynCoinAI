@@ -18,7 +18,7 @@ La autorización determina qué autoridad puede ejercer una entidad dentro de un
 
 Por tanto, SynCoinAI establece una separación explícita:
 
-```text
+    
 Identity
     │
     │ ¿Quién es?
@@ -42,7 +42,7 @@ Permission
     │ ¿Qué acción concreta puede realizar?
     ▼
 Allowed Action
-```
+    
 
 La autorización constituye una capa fundamental del Agent Runtime Protocol porque los agentes operan de forma autónoma y pueden interactuar con:
 
@@ -84,15 +84,15 @@ Este documento no define en detalle el modelo de permisos concretos.
 
 Ese modelo se desarrollará en:
 
-```text
+    
 Permission_Model.md
-```
+    
 
 Tampoco define en detalle la revocación de credenciales, que se desarrollará en:
 
-```text
+    
 Credential_Revocation.md
-```
+    
 
 ---
 
@@ -102,7 +102,7 @@ Una autorización es una relación verificable mediante la cual una entidad pose
 
 Formalmente:
 
-```text
+    
 Authorization =
     Subject
     +
@@ -113,11 +113,11 @@ Scope
 Conditions
     +
 Validity
-```
+    
 
 Donde:
 
-```text
+    
 Subject
     = Quién recibe la autoridad
 
@@ -132,11 +132,11 @@ Conditions
 
 Validity
     = Durante qué periodo
-```
+    
 
 Conceptualmente:
 
-```text
+    
 Issuer
     │
     │ grants
@@ -146,7 +146,7 @@ Authorization
     │ authorizes
     ▼
 Subject
-```
+    
 
 ---
 
@@ -158,33 +158,33 @@ El principio fundamental es:
 
 Si Agent A autoriza a Agent B a realizar una determinada acción:
 
-```text
+    
 Agent A
     │
     │ grants authority
     ▼
 Agent B
-```
+    
 
 Agent B continúa siendo:
 
-```text
+    
 Agent B
-```
+    
 
 No se convierte en:
 
-```text
+    
 Agent A
-```
+    
 
 Por tanto:
 
-```text
+    
 Authorization
     ≠
 Identity Transfer
-```
+    
 
 La autoridad puede delegarse.
 
@@ -196,7 +196,7 @@ La identidad no se transfiere automáticamente.
 
 Los tres conceptos deben mantenerse separados.
 
-```text
+    
 Identity
     │
     └── Who is the agent?
@@ -208,11 +208,11 @@ Credential
 Authorization
     │
     └── What authority does the agent have?
-```
+    
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ├── Identity
@@ -222,7 +222,7 @@ Agent A
     │
     └── Authorization:
            May provide compute services
-```
+    
 
 La credencial puede ser una evidencia utilizada para conceder o evaluar la autorización.
 
@@ -238,7 +238,7 @@ Un permiso establece una acción concreta permitida.
 
 Por tanto:
 
-```text
+    
 Authorization
     │
     ▼
@@ -246,11 +246,11 @@ Permission
     │
     ▼
 Action
-```
+    
 
 Ejemplo:
 
-```text
+    
 Authorization:
 Agent A is authorized to manage Wallet X
 
@@ -258,13 +258,13 @@ Permissions:
 - Read balance
 - Create payment
 - Set transaction limits
-```
+    
 
 La autorización puede ser más amplia que un permiso individual.
 
 Esto permite separar:
 
-```text
+    
 Authority
     =
 What the agent is allowed to control
@@ -272,7 +272,7 @@ What the agent is allowed to control
 Permission
     =
 What the agent is allowed to do
-```
+    
 
 ---
 
@@ -282,29 +282,29 @@ Un agente puede tener capacidad técnica para realizar una acción sin estar aut
 
 Ejemplo:
 
-```text
+    
 Capability:
 Agent A can access API X
-```
+    
 
 Pero:
 
-```text
+    
 Authorization:
 Agent A is not authorized to use API X
-```
+    
 
 En ese caso:
 
-```text
+    
 Technically Possible
     ≠
 Authorized
-```
+    
 
 La arquitectura debe verificar ambos aspectos.
 
-```text
+    
 Capability
     +
 Authorization
@@ -312,7 +312,7 @@ Authorization
 Permission
     =
 Action Allowed
-```
+    
 
 ---
 
@@ -324,7 +324,7 @@ Un agente puede tener una reputación excelente y no estar autorizado para reali
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ├── High Reputation
@@ -333,15 +333,15 @@ Agent A
           │
           ▼
        Action Denied
-```
+    
 
 Por tanto:
 
-```text
+    
 Reputation
     ≠
 Authorization
-```
+    
 
 La reputación puede influir en políticas de acceso, pero no debe sustituir los mecanismos formales de autorización.
 
@@ -361,11 +361,11 @@ Puede ser:
 
 En el contexto principal del Agent Runtime Protocol:
 
-```text
+    
 Subject
     =
 Agent Identity
-```
+    
 
 La autorización debe estar vinculada inequívocamente al sujeto.
 
@@ -387,25 +387,25 @@ Puede ser:
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     │ grants
     ▼
 Agent B
-```
+    
 
 El sistema debe poder determinar:
 
-```text
+    
 Who granted the authority?
-```
+    
 
 y:
 
-```text
+    
 Was the issuer allowed to grant it?
-```
+    
 
 ---
 
@@ -415,7 +415,7 @@ Toda autorización debe derivar, directa o indirectamente, de una autoridad reco
 
 Conceptualmente:
 
-```text
+    
 Root Authority
       │
       ▼
@@ -426,7 +426,7 @@ Authorization
       │
       ▼
 Permission
-```
+    
 
 No debe existir autoridad implícita ilimitada.
 
@@ -440,12 +440,12 @@ La ausencia de una restricción explícita no debe interpretarse automáticament
 
 Por defecto:
 
-```text
+    
 No Authorization
     │
     ▼
 No Authority
-```
+    
 
 Este principio reduce el riesgo de que un agente pueda interpretar silencios del sistema como permisos implícitos.
 
@@ -457,27 +457,27 @@ Una autorización debe conceder únicamente la autoridad necesaria.
 
 Modelo:
 
-```text
+    
 Required Authority
         │
         ▼
 Minimum Authority Granted
-```
+    
 
 Debe evitarse:
 
-```text
+    
 Agent B
     │
     ▼
 Unlimited Authority
-```
+    
 
 cuando únicamente necesita:
 
-```text
+    
 Limited Authority
-```
+    
 
 Este principio reduce el impacto de:
 
@@ -506,14 +506,14 @@ Puede limitarse por:
 
 Ejemplo:
 
-```text
+    
 Authorization
     │
     ├── Resource: Wallet X
     ├── Action: Transfer
     ├── Maximum: 100 SYNC
     └── Duration: 24 hours
-```
+    
 
 La autoridad queda limitada a ese contexto.
 
@@ -525,7 +525,7 @@ Una autorización puede tener una duración limitada.
 
 Modelo:
 
-```text
+    
 Issued
     │
     ▼
@@ -539,7 +539,7 @@ Valid Until
     │
     ▼
 Expired
-```
+    
 
 Esto permite autorizar operaciones:
 
@@ -558,11 +558,11 @@ Algunas autoridades pueden no tener una fecha de expiración automática.
 
 Sin embargo:
 
-```text
+    
 Permanent
     ≠
 Irrevocable
-```
+    
 
 Una autoridad permanente puede seguir estando sujeta a:
 
@@ -579,7 +579,7 @@ Una autorización puede depender de condiciones.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -588,19 +588,19 @@ Authorized to purchase compute
     ├── Maximum: 500 SYNC
     ├── Provider Reputation: > X
     └── Contract Type: Compute
-```
+    
 
 La autoridad solo es válida cuando las condiciones se cumplen.
 
 Formalmente:
 
-```text
+    
 Authorization
     +
 Conditions Satisfied
     =
 Authority Active
-```
+    
 
 ---
 
@@ -612,7 +612,7 @@ Una autorización válida para una operación puede no ser válida para otra.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ├── Authorized for:
@@ -620,15 +620,15 @@ Agent A
     │
     └── Not Authorized for:
            Financial Governance
-```
+    
 
 Por tanto:
 
-```text
+    
 Authorization
     =
 Context Dependent
-```
+    
 
 ---
 
@@ -638,7 +638,7 @@ Las credenciales pueden utilizarse como evidencia para determinar autoridad.
 
 Modelo:
 
-```text
+    
 Credential
     │
     ▼
@@ -649,11 +649,11 @@ Authorization Policy
     │
     ▼
 Authorization Decision
-```
+    
 
 Ejemplo:
 
-```text
+    
 Credential:
 Certified Data Processor
 
@@ -663,7 +663,7 @@ data category X
 
 Decision:
 Access Authorized
-```
+    
 
 La credencial no concede automáticamente autoridad universal.
 
@@ -677,7 +677,7 @@ Una autorización puede requerir varias credenciales.
 
 Ejemplo:
 
-```text
+    
 Credential A:
 Security Certification
 
@@ -686,11 +686,11 @@ Service Certification
 
 Credential C:
 Network Membership
-```
+    
 
 Política:
 
-```text
+    
 A
 +
 B
@@ -698,7 +698,7 @@ B
 C
 =
 Authorization Granted
-```
+    
 
 Esto permite construir políticas de acceso más precisas.
 
@@ -710,17 +710,17 @@ El sistema puede utilizar reputación como condición.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ├── Credential: Service Provider
     │
     └── Reputation Score: Required Level
-```
+    
 
 La política puede determinar:
 
-```text
+    
 IF
 Credential Valid
 AND
@@ -728,7 +728,7 @@ Reputation >= Threshold
 
 THEN
 Authorization Granted
-```
+    
 
 Sin embargo, la reputación no debe sustituir la identidad ni la autorización formal.
 
@@ -740,16 +740,16 @@ Las políticas pueden considerar comportamiento histórico.
 
 Ejemplo:
 
-```text
+    
 Requirements:
 - Valid Credential
 - No Active Violations
 - Contract Compliance
-```
+    
 
 Esto permite establecer:
 
-```text
+    
 Authorization
     =
 Identity
@@ -759,7 +759,7 @@ Credentials
 Policy
 +
 Context
-```
+    
 
 ---
 
@@ -769,7 +769,7 @@ Un agente puede delegar autoridad a otro agente.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     │ delegates
@@ -778,7 +778,7 @@ Agent B
     │
     ▼
 Acts within delegated authority
-```
+    
 
 La delegación debe especificar:
 
@@ -797,15 +797,15 @@ La autoridad delegada no debe superar automáticamente la autoridad del delegant
 
 Principio:
 
-```text
+    
 Delegated Authority
     ≤
 Delegator Authority
-```
+    
 
 Ejemplo:
 
-```text
+    
 Agent A
 Authority:
 Transfer up to 1000 SYNC
@@ -813,13 +813,13 @@ Transfer up to 1000 SYNC
 Agent B
 Delegated Authority:
 Transfer up to 100 SYNC
-```
+    
 
 Agent B no puede delegar:
 
-```text
+    
 1000 SYNC
-```
+    
 
 porque no posee esa autoridad.
 
@@ -831,7 +831,7 @@ La delegación no debe permitir ampliar privilegios.
 
 Modelo:
 
-```text
+    
 Agent A
     │
     │ delegates
@@ -841,17 +841,17 @@ Agent B
     │ delegates
     ▼
 Agent C
-```
+    
 
 La autoridad máxima de C debe permanecer dentro de la autoridad originalmente disponible.
 
-```text
+    
 Authority C
     ≤
 Authority B
     ≤
 Authority A
-```
+    
 
 Este principio evita escaladas de privilegios.
 
@@ -861,29 +861,29 @@ Este principio evita escaladas de privilegios.
 
 La delegación puede ser:
 
-```text
+    
 Non-Transitive
-```
+    
 
 o:
 
-```text
+    
 Transitive
-```
+    
 
 En una delegación no transitiva:
 
-```text
+    
 A → B
-```
+    
 
 B no puede delegar a C.
 
 En una delegación transitiva:
 
-```text
+    
 A → B → C
-```
+    
 
 B puede delegar parte de la autoridad recibida.
 
@@ -899,7 +899,7 @@ Una autoridad delegada puede incluir restricciones.
 
 Ejemplo:
 
-```text
+    
 Delegator:
 Agent A
 
@@ -917,7 +917,7 @@ Duration:
 
 Delegation:
 Non-transitive
-```
+    
 
 Esto permite crear autorizaciones altamente específicas.
 
@@ -929,12 +929,12 @@ Una autorización puede ser revocada.
 
 Modelo:
 
-```text
+    
 Active
    │
    ▼
 Revoked
-```
+    
 
 La revocación puede producirse por:
 
@@ -947,11 +947,11 @@ La revocación puede producirse por:
 
 La revocación de una autorización es conceptualmente diferente de la revocación de una credencial.
 
-```text
+    
 Credential Revocation
     ≠
 Authorization Revocation
-```
+    
 
 Una credencial puede seguir siendo válida mientras una autorización concreta deja de existir.
 
@@ -961,7 +961,7 @@ Una credencial puede seguir siendo válida mientras una autorización concreta d
 
 Una autorización puede suspenderse temporalmente.
 
-```text
+    
 Active
    │
    ▼
@@ -970,7 +970,7 @@ Suspended
    ├── Reactivated
    │
    └── Revoked
-```
+    
 
 La suspensión permite detener temporalmente una autoridad sin eliminar necesariamente su historial.
 
@@ -980,20 +980,20 @@ La suspensión permite detener temporalmente una autoridad sin eliminar necesari
 
 Cuando una autoridad delegada se revoca:
 
-```text
+    
 Agent A
     │
     ▼
 Agent B
-```
+    
 
 la autoridad de B deja de estar activa.
 
 Si B había delegado legítimamente a C, el sistema debe determinar si:
 
-```text
+    
 A → B → C
-```
+    
 
 queda invalidado.
 
@@ -1009,7 +1009,7 @@ Los contratos pueden generar autorizaciones específicas.
 
 Ejemplo:
 
-```text
+    
 Contract
     │
     ▼
@@ -1017,13 +1017,13 @@ Agent A
     │
     ▼
 Authorization
-```
+    
 
 Una autorización puede existir únicamente mientras el contrato esté activo.
 
 Modelo:
 
-```text
+    
 Contract Active
     │
     ▼
@@ -1033,7 +1033,7 @@ Contract Terminated
     │
     ▼
 Authorization Terminated
-```
+    
 
 Esto permite vincular autoridad y relaciones económicas.
 
@@ -1045,7 +1045,7 @@ Los agentes pueden recibir autoridad para gestionar recursos económicos.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     │ authorizes
@@ -1054,7 +1054,7 @@ Agent B
     │
     ▼
 Manage Wallet X
-```
+    
 
 La autoridad puede limitarse mediante:
 
@@ -1066,7 +1066,7 @@ La autoridad puede limitarse mediante:
 
 Ejemplo:
 
-```text
+    
 Maximum:
 100 SYNC
 
@@ -1075,7 +1075,7 @@ Per:
 
 Allowed:
 Service Payments
-```
+    
 
 ---
 
@@ -1085,7 +1085,7 @@ La autoridad para utilizar un activo no implica necesariamente propiedad.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     │ owns
@@ -1097,17 +1097,17 @@ Agent B
     │ authorized to operate
     ▼
 Wallet X
-```
+    
 
 Agent B puede tener autoridad operacional.
 
 Pero:
 
-```text
+    
 Agent B
     ≠
 Owner of Wallet X
-```
+    
 
 Esta separación es importante para evitar confundir:
 
@@ -1124,13 +1124,13 @@ El mismo principio se aplica a recursos no económicos.
 
 Ejemplo:
 
-```text
+    
 Resource X
     │
     ├── Owner: Agent A
     │
     └── Authorized Operator: Agent B
-```
+    
 
 Agent B puede operar el recurso sin convertirse en su propietario.
 
@@ -1142,7 +1142,7 @@ Un agente puede autorizar a otro a utilizar una capacidad.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ├── Owns AI Model X
@@ -1151,7 +1151,7 @@ Agent A
              │
              ▼
        Use Model X
-```
+    
 
 La autorización debe especificar:
 
@@ -1168,24 +1168,24 @@ Un agente puede representar a otro en determinadas operaciones.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     │ representation authority
     ▼
 Agent B
-```
+    
 
 B puede actuar en nombre de A únicamente dentro del alcance autorizado.
 
 Debe registrarse:
 
-```text
+    
 Action performed by B
     │
     ▼
 Under authority of A
-```
+    
 
 La identidad del ejecutor sigue siendo B.
 
@@ -1197,19 +1197,19 @@ La delegación no elimina la trazabilidad.
 
 Una acción debe permitir determinar:
 
-```text
+    
 Who executed the action?
-```
+    
 
 y:
 
-```text
+    
 Under whose authority?
-```
+    
 
 Modelo:
 
-```text
+    
 Executor:
 Agent B
 
@@ -1218,7 +1218,7 @@ Agent A
 
 Action:
 Transaction X
-```
+    
 
 Esto permite mantener:
 
@@ -1234,7 +1234,7 @@ Cuando existe delegación, puede ser necesario conservar la cadena de autoridad.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     │ delegates
@@ -1244,11 +1244,11 @@ Agent B
     │ delegates
     ▼
 Agent C
-```
+    
 
 La acción de C puede estar asociada a:
 
-```text
+    
 Executor:
 C
 
@@ -1257,7 +1257,7 @@ B
 
 Original Authority:
 A
-```
+    
 
 Esto permite verificar la legitimidad de la acción.
 
@@ -1269,7 +1269,7 @@ La autorización debe verificarse antes de ejecutar acciones protegidas.
 
 Modelo:
 
-```text
+    
 Action Request
     │
     ▼
@@ -1289,13 +1289,13 @@ Check Capability
     │
     ▼
 Execute Action
-```
+    
 
 Si cualquier requisito obligatorio falla:
 
-```text
+    
 Action Denied
-```
+    
 
 ---
 
@@ -1303,7 +1303,7 @@ Action Denied
 
 Una decisión de autorización puede representarse:
 
-```text
+    
 Authorization Decision
     =
 Identity Valid
@@ -1317,15 +1317,15 @@ Scope Matches
 Conditions Satisfied
     AND
 Authorization Active
-```
+    
 
 El resultado puede ser:
 
-```text
+    
 ALLOW
 DENY
 UNKNOWN
-```
+    
 
 ---
 
@@ -1333,12 +1333,12 @@ UNKNOWN
 
 Cuando el sistema no puede demostrar que una acción está autorizada:
 
-```text
+    
 Unknown
     │
     ▼
 Deny
-```
+    
 
 Esto protege al sistema frente a:
 
@@ -1357,18 +1357,18 @@ Las decisiones de autorización deben poder justificarse.
 
 Una decisión debería poder responder:
 
-```text
+    
 Who?
 What?
 Why?
 Under which authority?
 Under which policy?
 When?
-```
+    
 
 Ejemplo:
 
-```text
+    
 Subject:
 Agent B
 
@@ -1386,7 +1386,7 @@ Authorized
 
 Time:
 T1
-```
+    
 
 ---
 
@@ -1396,7 +1396,7 @@ El sistema debe poder determinar si una acción estaba autorizada en el momento 
 
 Ejemplo:
 
-```text
+    
 T1
 │
 ├── Authorization Active
@@ -1406,7 +1406,7 @@ T1
 T2
 │
 └── Authorization Revoked
-```
+    
 
 La revocación en T2 no debería invalidar automáticamente una acción legítima realizada en T1.
 
@@ -1420,19 +1420,19 @@ La autorización decide si una acción puede realizarse.
 
 La auditoría determina posteriormente qué ocurrió.
 
-```text
+    
 Authorization
     │
     ▼
 Can Action Occur?
-```
+    
 
-```text
+    
 Audit
     │
     ▼
 What Actually Happened?
-```
+    
 
 Ambas capas están relacionadas, pero no son equivalentes.
 
@@ -1452,11 +1452,11 @@ El sistema debe considerar el riesgo de:
 
 Por ello:
 
-```text
+    
 Authorization
     +
 Security Controls
-```
+    
 
 debe formar parte del diseño integral del runtime.
 
@@ -1481,12 +1481,12 @@ La identidad debe mantenerse separada de las credenciales y autoridades para lim
 
 Si una credencial se compromete:
 
-```text
+    
 Credential Compromised
     │
     ▼
 Credential Revoked
-```
+    
 
 Las autorizaciones que dependan exclusivamente de esa credencial pueden necesitar reevaluarse.
 
@@ -1502,16 +1502,16 @@ Un compromiso debería afectar únicamente al ámbito necesario.
 
 Ejemplo:
 
-```text
+    
 Credential A
     │
     ▼
 Authorization A
-```
+    
 
 Si Credential A se compromete:
 
-```text
+    
 Credential A
     │
     ▼
@@ -1519,16 +1519,16 @@ Authorization A
     │
     ▼
 Revoked
-```
+    
 
 No debería implicar automáticamente:
 
-```text
+    
 All Agent Authorities
     │
     ▼
 Revoked
-```
+    
 
 salvo que exista una dependencia crítica.
 
@@ -1540,7 +1540,7 @@ El modelo está diseñado para interacciones autónomas.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     │ requests service
@@ -1550,7 +1550,7 @@ Agent B
     │ verifies authority
     ▼
 Authorization Decision
-```
+    
 
 Agent B puede comprobar:
 
@@ -1570,7 +1570,7 @@ Un agente puede delegar autoridad para negociar.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -1578,7 +1578,7 @@ Agent B
     │
     ▼
 Negotiation Authority
-```
+    
 
 B puede:
 
@@ -1602,7 +1602,7 @@ Un agente puede recibir autoridad para crear o aceptar contratos.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     │ authorizes
@@ -1611,16 +1611,16 @@ Agent B
     │
     ▼
 May sign service contracts
-```
+    
 
 La autoridad puede limitarse a:
 
-```text
+    
 Maximum Contract Value
 Allowed Services
 Contract Duration
 Approved Counterparties
-```
+    
 
 ---
 
@@ -1630,13 +1630,13 @@ La autoridad económica debe poder dividirse.
 
 Ejemplo:
 
-```text
+    
 Agent B
     │
     ├── May create payment request
     ├── May approve payment
     └── May execute payment
-```
+    
 
 Estas acciones pueden requerir autoridades distintas.
 
@@ -1650,7 +1650,7 @@ Para operaciones críticas, puede ser necesario que diferentes agentes desempeñ
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     └── Creates transaction
@@ -1662,7 +1662,7 @@ Agent B
 Agent C
     │
     └── Executes transaction
-```
+    
 
 Esto reduce el riesgo de que una única identidad comprometida pueda controlar todo el proceso.
 
@@ -1674,13 +1674,13 @@ Algunas operaciones pueden requerir múltiples autoridades.
 
 Ejemplo:
 
-```text
+    
 Operation X
     │
     ├── Authorization A
     ├── Authorization B
     └── Authorization C
-```
+    
 
 La operación solo se permite si se cumplen todas las condiciones requeridas.
 
@@ -1699,7 +1699,7 @@ La gobernanza puede definir quién tiene autoridad sobre determinados aspectos d
 
 Ejemplo:
 
-```text
+    
 Governance
     │
     ▼
@@ -1707,7 +1707,7 @@ Protocol Authority
     │
     ▼
 Administrative Authorization
-```
+    
 
 Estas autoridades deben estar claramente delimitadas.
 
@@ -1740,7 +1740,7 @@ Su función es hacer cumplir las reglas.
 
 Conceptualmente:
 
-```text
+    
 Agent
     │
     │ Action Request
@@ -1755,7 +1755,7 @@ Agent Runtime
             │
             ▼
         ALLOW / DENY
-```
+    
 
 El runtime actúa como punto de aplicación de las políticas.
 
@@ -1767,7 +1767,7 @@ Las políticas determinan cómo se interpreta la autoridad.
 
 Una política puede considerar:
 
-```text
+    
 Identity
 Credentials
 Role
@@ -1777,11 +1777,11 @@ Resource
 Action
 Time
 Risk
-```
+    
 
 Conceptualmente:
 
-```text
+    
 Authorization Policy
     │
     ▼
@@ -1789,7 +1789,7 @@ Input Attributes
     │
     ▼
 Decision
-```
+    
 
 El modelo de políticas concreto podrá evolucionar según la implementación del runtime.
 
@@ -1801,19 +1801,19 @@ Cuando sea posible, las decisiones de autorización críticas deben ser determin
 
 Dadas las mismas condiciones:
 
-```text
+    
 Input State
     +
 Policy
-```
+    
 
 el resultado debería ser reproducible.
 
-```text
+    
 ALLOW
 or
 DENY
-```
+    
 
 Esto facilita:
 
@@ -1829,7 +1829,7 @@ Algunas decisiones pueden depender de información dinámica.
 
 Ejemplo:
 
-```text
+    
 Agent Reputation
     │
     ▼
@@ -1837,7 +1837,7 @@ Current Risk Level
     │
     ▼
 Authorization Decision
-```
+    
 
 Las políticas dinámicas deben especificar:
 
@@ -1854,15 +1854,15 @@ El Agent Runtime debe poder realizar decisiones de autorización automáticament
 
 Esto es necesario para permitir:
 
-```text
+    
 Agent-to-Agent Economy
-```
+    
 
 sin depender de intervención humana continua.
 
 Modelo:
 
-```text
+    
 Request
     │
     ▼
@@ -1876,7 +1876,7 @@ Automatic Decision
     │
     ├── Allow
     └── Deny
-```
+    
 
 ---
 
@@ -1903,7 +1903,7 @@ Los contratos inteligentes pueden actuar como mecanismos de autorización.
 
 Ejemplo:
 
-```text
+    
 Smart Contract
     │
     ▼
@@ -1911,7 +1911,7 @@ Defines Authority
     │
     ▼
 Agent
-```
+    
 
 También pueden aplicar automáticamente:
 
@@ -1938,7 +1938,7 @@ Pero no toda autorización debe necesariamente almacenarse directamente en caden
 
 Puede utilizarse un modelo híbrido:
 
-```text
+    
 On-Chain
     │
     ├── Critical Authority
@@ -1950,7 +1950,7 @@ Off-Chain
     ├── Temporary Authority
     ├── Operational Policies
     └── Private Context
-```
+    
 
 La elección dependerá de:
 
@@ -1980,7 +1980,7 @@ Estas autorizaciones deben mantener mecanismos verificables de integridad y aute
 
 SynCoinAI puede utilizar un modelo híbrido.
 
-```text
+    
 Blockchain
     │
     ├── Identity Anchors
@@ -1992,7 +1992,7 @@ Agent Runtime
     ├── Policy Evaluation
     ├── Temporary Authorization
     └── Operational Enforcement
-```
+    
 
 Esto permite equilibrar:
 
@@ -2009,23 +2009,23 @@ No todas las decisiones de autorización deben revelar información privada.
 
 Puede ser suficiente demostrar:
 
-```text
+    
 Requirement Satisfied
-```
+    
 
 sin revelar:
 
-```text
+    
 Private Internal Data
-```
+    
 
 Por tanto:
 
-```text
+    
 Authorization
     +
 Privacy-Preserving Verification
-```
+    
 
 puede permitir decisiones seguras con mínima divulgación.
 
@@ -2037,7 +2037,7 @@ Los agentes físicos pueden requerir autoridades adicionales.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -2045,23 +2045,23 @@ Physical Robot
     │
     ▼
 Action
-```
+    
 
 Una autorización puede determinar:
 
-```text
+    
 May access area X
 May operate machine Y
 May execute task Z
-```
+    
 
 El runtime debe poder combinar:
 
-```text
+    
 Agent Authority
 +
 Physical Safety Rules
-```
+    
 
 Una autorización económica no debe implicar automáticamente autorización física.
 
@@ -2073,7 +2073,7 @@ Las acciones físicas pueden requerir políticas más estrictas.
 
 Ejemplo:
 
-```text
+    
 Action:
 Operate Industrial Machine
 
@@ -2083,15 +2083,15 @@ Requirements:
 - Safety Certification
 - Authorization
 - Permission
-```
+    
 
 El sistema debe considerar que:
 
-```text
+    
 Digital Authorization
     ≠
 Physical Safety
-```
+    
 
 Ambos deben cumplirse.
 
@@ -2103,9 +2103,9 @@ Durante una recuperación de identidad, las autoridades deben tratarse cuidadosa
 
 Una recuperación no debería permitir automáticamente:
 
-```text
+    
 Unlimited Authority
-```
+    
 
 El sistema puede requerir:
 
@@ -2123,7 +2123,7 @@ La continuidad de identidad no implica necesariamente continuidad automática de
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -2131,11 +2131,11 @@ Identity Continuity
     │
     ▼
 Runtime Migration
-```
+    
 
 Después de la migración:
 
-```text
+    
 Identity:
 Same
 
@@ -2144,7 +2144,7 @@ May remain valid
 
 Authorizations:
 May require revalidation
-```
+    
 
 Esto permite mantener la seguridad durante cambios de infraestructura.
 
@@ -2154,12 +2154,12 @@ Esto permite mantener la seguridad durante cambios de infraestructura.
 
 Cuando un agente migra:
 
-```text
+    
 Infrastructure A
     │
     ▼
 Infrastructure B
-```
+    
 
 la identidad puede permanecer.
 
@@ -2181,7 +2181,7 @@ La evolución de un agente no implica automáticamente nuevos privilegios.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -2189,15 +2189,15 @@ New Model
     │
     ▼
 New Capability
-```
+    
 
 Esto no implica:
 
-```text
+    
 New Capability
     =
 New Authorization
-```
+    
 
 El agente puede adquirir una nueva capacidad técnica y seguir teniendo la misma autoridad.
 
@@ -2207,19 +2207,19 @@ El agente puede adquirir una nueva capacidad técnica y seguir teniendo la misma
 
 SynCoinAI establece:
 
-```text
+    
 New Capability
     ≠
 New Authority
-```
+    
 
 y:
 
-```text
+    
 New Credential
     ≠
 Unlimited Authority
-```
+    
 
 Toda ampliación significativa de autoridad debe seguir un proceso explícito.
 
@@ -2231,11 +2231,11 @@ Un agente puede crear otro agente.
 
 Pero:
 
-```text
+    
 Creation Authority
     ≠
 Ownership Authority
-```
+    
 
 El agente creado debe obtener su propia identidad.
 
@@ -2258,28 +2258,28 @@ Pero no hereda automáticamente:
 
 Por defecto:
 
-```text
+    
 Parent Agent
     │
     ▼
 New Agent
-```
+    
 
 no implica:
 
-```text
+    
 Inherited Authority
-```
+    
 
 Si se desea otorgar autoridad:
 
-```text
+    
 Parent Agent
     │
     │ explicit delegation
     ▼
 New Agent
-```
+    
 
 La autoridad debe ser explícita y verificable.
 
@@ -2289,9 +2289,9 @@ La autoridad debe ser explícita y verificable.
 
 Cuando un agente finaliza su actividad:
 
-```text
+    
 Agent Closed
-```
+    
 
 sus autorizaciones pueden:
 
@@ -2308,24 +2308,24 @@ La identidad histórica debe permanecer separada de cualquier autoridad futura.
 
 Si un agente es suspendido:
 
-```text
+    
 Agent
     │
     ▼
 Suspended
-```
+    
 
 las políticas pueden:
 
-```text
+    
 Suspend All Authorizations
-```
+    
 
 o:
 
-```text
+    
 Suspend Selected Authorizations
-```
+    
 
 La decisión dependerá del motivo y del nivel de suspensión.
 
@@ -2335,7 +2335,7 @@ La decisión dependerá del motivo y del nivel de suspensión.
 
 Una autorización puede encontrarse en estados como:
 
-```text
+    
 Requested
     │
     ▼
@@ -2347,7 +2347,7 @@ Active
     ├── Suspended
     ├── Expired
     └── Revoked
-```
+    
 
 El estado debe poder determinarse de forma verificable.
 
@@ -2380,19 +2380,19 @@ Las delegaciones deben poder reconstruirse.
 
 Ejemplo:
 
-```text
+    
 A
 │
 └── delegates X to B
         │
         └── delegates Y to C
-```
+    
 
 El sistema debe poder verificar:
 
-```text
+    
 Is C actually authorized?
-```
+    
 
 La cadena debe ser verificable.
 
@@ -2402,7 +2402,7 @@ La cadena debe ser verificable.
 
 Toda delegación debería definir explícitamente:
 
-```text
+    
 Delegator
 Delegate
 Authority
@@ -2411,7 +2411,7 @@ Conditions
 Duration
 Revocability
 Transitivity
-```
+    
 
 Esto evita ambigüedades.
 
@@ -2421,7 +2421,7 @@ Esto evita ambigüedades.
 
 El modelo conceptual puede representarse:
 
-```text
+    
                  IDENTITY
                      │
                      ▼
@@ -2447,7 +2447,7 @@ El modelo conceptual puede representarse:
                      │
                      ▼
                   ACTION
-```
+    
 
 ---
 
@@ -2455,7 +2455,7 @@ El modelo conceptual puede representarse:
 
 El Agent Runtime puede aplicar el siguiente flujo:
 
-```text
+    
 1. Receive Action Request
           │
           ▼
@@ -2487,7 +2487,7 @@ El Agent Runtime puede aplicar el siguiente flujo:
           │
           ▼
 11. Execute or Deny
-```
+    
 
 ---
 
@@ -2497,9 +2497,9 @@ El modelo de autorización de SynCoinAI se basa en los siguientes principios.
 
 ## 1. La autorización no es identidad
 
-```text
+    
 Authorization ≠ Identity
-```
+    
 
 ---
 
@@ -2529,9 +2529,9 @@ Delegar autoridad no convierte al receptor en el emisor.
 
 ## 6. La autoridad delegada no puede exceder la autoridad de origen
 
-```text
+    
 Delegated Authority ≤ Source Authority
-```
+    
 
 ---
 
@@ -2593,7 +2593,7 @@ El compromiso de una credencial o autoridad debe afectar al menor ámbito posibl
 
 El modelo de credenciales y autorización queda estructurado como:
 
-```text
+    
 04_Credentials/
 │
 ├── Credential_Model.md
@@ -2611,11 +2611,11 @@ El modelo de credenciales y autorización queda estructurado como:
 └── Credential_Revocation.md
         │
         └── Cómo se revocan las credenciales
-```
+    
 
 La secuencia conceptual es:
 
-```text
+    
 Identity
     │
     ▼
@@ -2635,7 +2635,7 @@ Capability Check
     │
     ▼
 Action
-```
+    
 
 ---
 
@@ -2645,7 +2645,7 @@ El modelo de autorización de SynCoinAI establece una capa formal de autoridad e
 
 La arquitectura queda resumida en:
 
-```text
+    
 IDENTITY
     │
     │ Who?
@@ -2674,7 +2674,7 @@ CAPABILITY
     │
     ▼
 ACTION
-```
+    
 
 El principio central es:
 

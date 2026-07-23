@@ -26,7 +26,7 @@ y, aun así, no estar autorizado para realizar una acción concreta.
 
 Por esta razón, SynCoinAI establece una separación entre:
 
-```text
+    
 Identity
     ↓
 Credentials
@@ -36,7 +36,7 @@ Authorization
 Permissions
     ↓
 Action
-```
+    
 
 El modelo de permisos constituye una de las capas fundamentales de control del Agent Runtime.
 
@@ -79,12 +79,12 @@ Y:
 
 Por tanto:
 
-```text
+    
 Identity ≠ Credential
 Credential ≠ Authorization
 Authorization ≠ Permission
 Permission ≠ Action
-```
+    
 
 Cada concepto cumple una función diferente dentro del Runtime.
 
@@ -161,7 +161,7 @@ Ejemplos:
 
 El modelo general de permisos puede representarse de la siguiente manera:
 
-```text
+    
                  AGENT IDENTITY
                        │
                        ▼
@@ -182,7 +182,7 @@ El modelo general de permisos puede representarse de la siguiente manera:
              ┌─────────┴─────────┐
              │                   │
            ALLOW                DENY
-```
+    
 
 El Runtime no debe evaluar únicamente la identidad del agente.
 
@@ -222,33 +222,33 @@ Los permisos deben definirse explícitamente cuando una acción pueda producir c
 
 Ejemplos:
 
-```text
+    
 Permitir:
     consultar recurso X
 
 Denegar:
     modificar recurso X
-```
+    
 
 O:
 
-```text
+    
 Permitir:
     realizar pagos
 
 Límite:
     máximo 10 SYNC por operación
-```
+    
 
 O:
 
-```text
+    
 Permitir:
     contratar servicios
 
 Restricción:
     únicamente proveedores autorizados
-```
+    
 
 El Runtime debe evitar asumir que una capacidad implica automáticamente autorización para utilizarla sin restricciones.
 
@@ -274,7 +274,7 @@ Un permiso puede limitarse por:
 
 Ejemplo conceptual:
 
-```text
+    
 Permission
 │
 ├── Action: transfer
@@ -283,7 +283,7 @@ Permission
 ├── Frequency: 5 / hour
 ├── Recipient: approved_agents
 └── Expiration: timestamp
-```
+    
 
 ---
 
@@ -365,15 +365,15 @@ Debido a su impacto, estos permisos deben tener controles reforzados.
 
 Debe existir una separación clara entre:
 
-```text
+    
 Capability
-```
+    
 
 y
 
-```text
+    
 Permission
-```
+    
 
 Una capacidad representa lo que un agente puede hacer técnicamente.
 
@@ -381,14 +381,14 @@ Un permiso representa lo que el agente está autorizado a hacer.
 
 Por ejemplo:
 
-```text
+    
 Agente
 │
 ├── Capability: enviar transacciones
 │
 └── Permission:
         máximo 100 SYNC diarios
-```
+    
 
 El agente puede tener técnicamente la capacidad de enviar transacciones por un valor superior.
 
@@ -410,7 +410,7 @@ sin necesariamente disponer de autorización ilimitada para utilizar esos recurs
 
 Ejemplo:
 
-```text
+    
 Wallet
 │
 ├── Balance: 1,000 SYNC
@@ -419,7 +419,7 @@ Wallet
       ├── Maximum per transaction: 10 SYNC
       ├── Daily limit: 100 SYNC
       └── Approved recipients only
-```
+    
 
 La posesión de fondos no implica necesariamente libertad operacional ilimitada sobre ellos.
 
@@ -431,12 +431,12 @@ Un permiso puede tener una duración limitada.
 
 Ejemplo:
 
-```text
+    
 Permission
 │
 ├── Valid From
 └── Valid Until
-```
+    
 
 Un permiso temporal puede utilizarse para:
 
@@ -456,13 +456,13 @@ Un permiso puede depender de determinadas condiciones.
 
 Ejemplo:
 
-```text
+    
 ALLOW transfer
 IF:
     amount <= 10 SYNC
     AND recipient is verified
     AND contract is active
-```
+    
 
 Las condiciones pueden incluir:
 
@@ -483,7 +483,7 @@ Un mismo agente puede disponer de diferentes permisos según el contexto.
 
 Ejemplo:
 
-```text
+    
 Context A:
     Agent operates normally
     → Standard permissions
@@ -495,7 +495,7 @@ Context B:
 Context C:
     Agent is under recovery
     → Recovery permissions
-```
+    
 
 El contexto puede afectar al nivel de autoridad disponible.
 
@@ -509,13 +509,13 @@ Un agente puede recibir permisos mediante delegación.
 
 Ejemplo:
 
-```text
+    
 Agent A
    │
    │ Delegates permission
    ▼
 Agent B
-```
+    
 
 La delegación debe especificar:
 
@@ -535,25 +535,25 @@ Un agente no debe poder delegar más autoridad de la que posee.
 
 Formalmente:
 
-```text
+    
 Delegated Authority
     ≤
 Delegator Authority
-```
+    
 
 Si:
 
-```text
+    
 Agent A
 Permission:
     Transfer ≤ 100 SYNC
-```
+    
 
 A no puede delegar:
 
-```text
+    
 Transfer ≤ 1,000 SYNC
-```
+    
 
 La delegación no puede utilizarse para ampliar privilegios.
 
@@ -565,21 +565,21 @@ La subdelegación debe ser una capacidad explícita.
 
 Por defecto:
 
-```text
+    
 A → B
-```
+    
 
 No implica automáticamente:
 
-```text
+    
 B → C
-```
+    
 
 Si se permite la subdelegación, el Runtime debe conservar las restricciones originales.
 
 Ejemplo:
 
-```text
+    
 A
 │
 │ 100 SYNC
@@ -589,7 +589,7 @@ B
 │ máximo 50 SYNC
 ▼
 C
-```
+    
 
 La autoridad efectiva de C nunca puede superar la autoridad delegada originalmente.
 
@@ -624,11 +624,11 @@ Un agente con alta reputación puede ser considerado más confiable.
 
 Sin embargo:
 
-```text
+    
 High Reputation
     ≠
 Unlimited Permission
-```
+    
 
 La reputación puede utilizarse como factor de decisión en determinados contextos, pero no sustituye a la autorización formal.
 
@@ -640,17 +640,17 @@ La propiedad de un recurso no implica necesariamente que cualquier proceso pueda
 
 Por ejemplo:
 
-```text
+    
 Agent A
 owns
 Wallet
-```
+    
 
 No significa que:
 
-```text
+    
 Every process controlled by Agent A
-```
+    
 
 pueda utilizar libremente todos los fondos.
 
@@ -702,7 +702,7 @@ Ambos tipos pueden utilizar mecanismos de autorización diferentes.
 
 Antes de ejecutar una acción relevante, el Runtime debe poder evaluar:
 
-```text
+    
 1. Identity
 2. Credential validity
 3. Authorization
@@ -711,11 +711,11 @@ Antes de ejecutar una acción relevante, el Runtime debe poder evaluar:
 6. Constraints
 7. Revocation status
 8. Action
-```
+    
 
 Modelo:
 
-```text
+    
 Request
    │
    ▼
@@ -735,7 +735,7 @@ Check Constraints
    │
    ▼
 ALLOW / DENY
-```
+    
 
 ---
 
@@ -745,21 +745,21 @@ El resultado de la evaluación debe ser determinista para un mismo estado y cont
 
 Resultado:
 
-```text
+    
 ALLOW
-```
+    
 
 o:
 
-```text
+    
 DENY
-```
+    
 
 Cuando sea necesario, el Runtime puede devolver una razón estructurada.
 
 Ejemplos:
 
-```text
+    
 DENIED_INVALID_CREDENTIAL
 DENIED_PERMISSION_MISSING
 DENIED_PERMISSION_EXPIRED
@@ -767,7 +767,7 @@ DENIED_PERMISSION_REVOKED
 DENIED_SCOPE
 DENIED_LIMIT_EXCEEDED
 DENIED_CONTEXT
-```
+    
 
 Esto facilita:
 
@@ -786,7 +786,7 @@ Las acciones pueden clasificarse según su impacto.
 
 Ejemplo:
 
-```text
+    
 Low Risk
     │
     ├── Read public information
@@ -802,7 +802,7 @@ High Risk
     ├── Transfer significant capital
     ├── Modify identity
     └── Delegate authority
-```
+    
 
 Las acciones de mayor riesgo pueden requerir:
 
@@ -824,11 +824,11 @@ Cuando una acción no está explícitamente autorizada, el Runtime debe rechazar
 
 Modelo:
 
-```text
+    
 No Permission
     ↓
 DENY
-```
+    
 
 No debe existir una autorización implícita basada únicamente en la ausencia de una prohibición.
 
@@ -842,7 +842,7 @@ Su función es definir el espacio operativo dentro del cual el agente puede actu
 
 Modelo:
 
-```text
+    
 Agent Autonomy
        │
        ▼
@@ -850,7 +850,7 @@ Permission Boundary
        │
        ▼
 Allowed Actions
-```
+    
 
 Dentro de esos límites, el agente puede:
 
@@ -881,11 +881,11 @@ puede requerir reevaluación de permisos.
 
 El principio general es:
 
-```text
+    
 Agent Continuity
     ≠
 Automatic Permission Continuity
-```
+    
 
 La continuidad de identidad no implica que todas las autorizaciones permanezcan indefinidamente válidas.
 
@@ -904,7 +904,7 @@ La política dependerá del tipo de suspensión.
 
 Ejemplo:
 
-```text
+    
 Normal Suspension
     → Permissions frozen
 
@@ -913,7 +913,7 @@ Security Suspension
 
 Permanent Closure
     → Permissions revoked
-```
+    
 
 La relación entre permisos y estados de suspensión se desarrollará en:
 
@@ -933,14 +933,14 @@ Esto no implica necesariamente:
 
 El resultado puede ser:
 
-```text
+    
 Agent Closed
     │
     ├── Identity → Historical
     ├── Reputation → Preserved
     ├── Permissions → Revoked
     └── New Actions → Denied
-```
+    
 
 ---
 
@@ -961,15 +961,15 @@ La auditoría no requiere necesariamente revelar información privada.
 
 Debe existir una separación entre:
 
-```text
+    
 Auditability
-```
+    
 
 y
 
-```text
+    
 Public Disclosure
-```
+    
 
 Una acción puede ser auditable sin que todos sus detalles sean públicos.
 
@@ -979,7 +979,7 @@ Una acción puede ser auditable sin que todos sus detalles sean públicos.
 
 Un permiso puede representarse conceptualmente como:
 
-```text
+    
 Permission
 {
     permission_id
@@ -994,7 +994,7 @@ Permission
     delegation
     revocation_reference
 }
-```
+    
 
 La implementación concreta dependerá de la arquitectura técnica final del Runtime.
 
@@ -1006,7 +1006,7 @@ Este modelo conceptual no obliga a una estructura de datos específica.
 
 El proceso completo puede representarse como:
 
-```text
+    
                  AGENT
                    │
                    ▼
@@ -1036,7 +1036,7 @@ El proceso completo puede representarse como:
                    │
                    ▼
              ALLOW / DENY
-```
+    
 
 Este modelo permite que el Runtime mantenga una separación clara entre identidad, autoridad y ejecución.
 
@@ -1094,7 +1094,7 @@ El Permission Model define el espacio de acción autorizado de los agentes SynCo
 
 Su función principal es establecer una frontera clara entre:
 
-```text
+    
 Quién es el agente
         ↓
 Qué credenciales posee
@@ -1104,7 +1104,7 @@ Qué autoridad puede demostrar
 Qué permisos tiene
         ↓
 Qué acciones puede realizar
-```
+    
 
 Este modelo permite que SynCoinAI combine:
 
