@@ -47,6 +47,28 @@ No responde necesariamente a:
 
 Estas características pueden cambiar sin que necesariamente cambie la identidad del agente.
 
+                    IDENTITY MODEL
+                          │
+                          ▼
+                  ¿Qué es la identidad?
+                          │
+                          ▼
+                    ROOT IDENTITY
+                          │
+                          ▼
+                ¿Cuál es su ancla raíz?
+                          │
+                          ▼
+                INDIVIDUALITY PROOF
+                          │
+                          ▼
+              ¿Cómo demostramos quién es?
+                          │
+                          ▼
+               IDENTITY UNIQUENESS
+                          │
+                          ▼
+             ¿Cómo garantizamos unicidad?
 ---
 
 # 2. Objetivo
