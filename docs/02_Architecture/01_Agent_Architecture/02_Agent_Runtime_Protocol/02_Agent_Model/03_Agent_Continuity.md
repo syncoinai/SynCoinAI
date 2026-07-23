@@ -57,7 +57,7 @@ Continuity allows an Agent to change without necessarily becoming a new Agent.
 
 Conceptually:
 
-```text
+    
 Agent A
     │
     ├── Runtime Change
@@ -69,23 +69,23 @@ Agent A
             │
             ▼
        Agent A continues
-```
+    
 
 Continuity therefore separates:
 
-```text
+    
 Identity
-    ≠
+    
 Implementation
-```
+    
 
 and:
 
-```text
+    
 Agent
     ≠
 Runtime Instance
-```
+    
 
 ---
 
@@ -97,7 +97,7 @@ The fundamental ARP principle is:
 
 Conceptually:
 
-```text
+    
 Agent State A
       │
       │ Continuity Transition
@@ -107,21 +107,21 @@ Agent State B
       │ Continuity Transition
       ▼
 Agent State C
-```
+    
 
 If the transitions between states are valid and verifiable:
 
-```text
+    
 A = B = C
-```
+    
 
 from the perspective of Agent Identity.
 
 If continuity cannot be established:
 
-```text
+    
 A ≠ B
-```
+    
 
 and the resulting entity may be recognized as a new Agent.
 
@@ -141,13 +141,13 @@ Continuity answers:
 
 Therefore:
 
-```text
+    
 Identity
     = Identifier of the Agent
 
 Continuity
     = Evidence that the Agent persisted through change
-```
+    
 
 An identity may remain registered while continuity is disputed.
 
@@ -172,11 +172,11 @@ It does not necessarily prove:
 
 Therefore:
 
-```text
+    
 Private Key
     ≠
 Complete Continuity Proof
-```
+    
 
 A cryptographic key is one continuity anchor among potentially several.
 
@@ -202,7 +202,7 @@ Potential continuity anchors include:
 
 Conceptually:
 
-```text
+    
                 Agent Continuity
                        │
        ┌───────────────┼───────────────┐
@@ -219,7 +219,7 @@ Conceptually:
                        │
                        ▼
                 Continuity Evidence
-```
+    
 
 No single anchor should automatically determine continuity in every scenario.
 
@@ -231,7 +231,7 @@ Continuity should be understood as an evidence-based property.
 
 Conceptually:
 
-```text
+    
 Previous State
       │
       ▼
@@ -246,7 +246,7 @@ Continuity Evidence
       │
       ▼
 Current State
-```
+    
 
 The stronger and more coherent the evidence chain, the stronger the continuity claim.
 
@@ -256,23 +256,23 @@ The stronger and more coherent the evidence chain, the stronger the continuity c
 
 An Agent's existence may be represented as a sequence of states.
 
-```text
+    
 S0 → S1 → S2 → S3 → S4
-```
+    
 
 Where:
 
-```text
+    
 S0 = Initial Agent State
 S1 = Software Update
 S2 = Model Update
 S3 = Runtime Migration
 S4 = Hardware Replacement
-```
+    
 
 If every transition preserves continuity:
 
-```text
+    
 S0
  │
  ▼
@@ -288,7 +288,7 @@ S3
 S4
 
 Same Agent
-```
+    
 
 The identity remains constant across the chain.
 
@@ -310,7 +310,7 @@ A transition may involve:
 
 A transition should be represented conceptually as:
 
-```text
+    
 Previous State
       │
       ▼
@@ -318,7 +318,7 @@ Transition Event
       │
       ▼
 New State
-```
+    
 
 Where possible, the transition should be recorded and verifiable.
 
@@ -328,7 +328,7 @@ Where possible, the transition should be recorded and verifiable.
 
 A Runtime MAY maintain a continuity record containing:
 
-```text
+    
 Continuity Transition
 ---------------------
 Agent ID
@@ -339,7 +339,7 @@ Timestamp
 Authorization
 Evidence
 Attestation
-```
+    
 
 The exact implementation is defined by the Identity and Runtime specifications.
 
@@ -351,7 +351,7 @@ The Runtime is the execution environment of an Agent.
 
 Therefore:
 
-```text
+    
 Agent
     │
     ├── Runtime A
@@ -361,7 +361,7 @@ Agent
     │
     ▼
     └── Runtime C
-```
+    
 
 Changing Runtime does not automatically create a new Agent.
 
@@ -371,11 +371,11 @@ The Agent Identity is the persistent entity.
 
 Therefore:
 
-```text
+    
 Runtime Instance
     ≠
 Agent Identity
-```
+    
 
 ---
 
@@ -385,24 +385,24 @@ An Agent may migrate from one Runtime to another.
 
 Example:
 
-```text
+    
 Runtime A
     │
     │ Migration
     ▼
 Runtime B
-```
+    
 
 If continuity requirements are satisfied:
 
-```text
+    
 Agent A
     │
     ▼
 Runtime B
 
 Same Agent A
-```
+    
 
 Migration should preserve, where applicable:
 
@@ -422,7 +422,7 @@ ARP recognizes several conceptual migration types.
 
 The Agent continues operating while execution moves between environments.
 
-```text
+    
 Runtime A
     │
     ├── Active
@@ -430,7 +430,7 @@ Runtime A
 Runtime B
     │
     └── Active
-```
+    
 
 ---
 
@@ -438,7 +438,7 @@ Runtime B
 
 The Agent is stopped before migration.
 
-```text
+    
 Active
   │
   ▼
@@ -449,7 +449,7 @@ Migrated
   │
   ▼
 Restarted
-```
+    
 
 ---
 
@@ -457,7 +457,7 @@ Restarted
 
 A new Runtime is created after the previous Runtime becomes unavailable.
 
-```text
+    
 Runtime A
     │
     X Failure
@@ -467,7 +467,7 @@ Recovery Process
     │
     ▼
 Runtime B
-```
+    
 
 Continuity depends on the available evidence.
 
@@ -479,7 +479,7 @@ The Agent moves between infrastructure providers.
 
 Example:
 
-```text
+    
 Private Server
       │
       ▼
@@ -487,7 +487,7 @@ Cloud Provider
       │
       ▼
 Distributed Infrastructure
-```
+    
 
 The infrastructure changes.
 
@@ -501,27 +501,27 @@ Agent Continuity should not depend on permanent attachment to a particular infra
 
 Therefore:
 
-```text
+    
 Agent
     ≠
 Cloud Account
-```
+    
 
 and:
 
-```text
+    
 Agent
     ≠
 Server
-```
+    
 
 and:
 
-```text
+    
 Agent
     ≠
 Physical Machine
-```
+    
 
 Infrastructure is a resource used by the Agent.
 
@@ -535,16 +535,16 @@ An Agent may change physical hardware.
 
 Example:
 
-```text
+    
 Robot A
     │
     ▼
 Robot B
-```
+    
 
 If continuity requirements are satisfied:
 
-```text
+    
 Agent X
     │
     ├── Hardware A
@@ -554,7 +554,7 @@ Agent X
     │
     ▼
     └── Hardware C
-```
+    
 
 The hardware changes.
 
@@ -568,14 +568,14 @@ A single Agent may operate through different physical embodiments.
 
 For example:
 
-```text
+    
 Agent X
     │
     ├── Industrial Robot
     ├── Autonomous Vehicle
     ├── Drone
     └── Distributed Robotic System
-```
+    
 
 A change of embodiment does not automatically create a new Agent.
 
@@ -597,7 +597,7 @@ Examples:
 
 Conceptually:
 
-```text
+    
 Agent X
     │
     ├── Software Stack V1
@@ -605,13 +605,13 @@ Agent X
     ├── Software Stack V2
     ▼
     └── Software Stack V3
-```
+    
 
 If continuity is maintained:
 
-```text
+    
 Same Agent X
-```
+    
 
 ---
 
@@ -621,7 +621,7 @@ An Agent may replace its AI model.
 
 For example:
 
-```text
+    
 Model V1
     │
     ▼
@@ -629,7 +629,7 @@ Model V2
     │
     ▼
 Model V5
-```
+    
 
 This does not automatically create a new Agent.
 
@@ -637,11 +637,11 @@ The Agent Identity is not bound to a specific model.
 
 Therefore:
 
-```text
+    
 Agent
     ≠
 AI Model
-```
+    
 
 A model is a capability or cognitive component used by the Agent.
 
@@ -653,14 +653,14 @@ An Agent may use multiple models simultaneously.
 
 For example:
 
-```text
+    
                  Agent X
                     │
         ┌───────────┼───────────┐
         ▼           ▼           ▼
     Language      Vision      Planning
      Model        Model        Model
-```
+    
 
 Replacing one model does not automatically break continuity.
 
@@ -672,7 +672,7 @@ An Agent may undergo significant cognitive evolution.
 
 For example:
 
-```text
+    
 Agent X
     │
     ▼
@@ -683,13 +683,13 @@ Advanced Reasoning
     │
     ▼
 Distributed Cognition
-```
+    
 
 If continuity remains verifiable:
 
-```text
+    
 Same Agent X
-```
+    
 
 The protocol does not define identity based on a fixed intelligence level.
 
@@ -709,11 +709,11 @@ Memory may include:
 
 However:
 
-```text
+    
 Memory
     ≠
 Identity
-```
+    
 
 An Agent may lose some memory and remain the same Agent.
 
@@ -725,7 +725,7 @@ An Agent may lose part of its memory.
 
 Example:
 
-```text
+    
 Agent X
     │
     ▼
@@ -733,17 +733,17 @@ Memory Loss
     │
     ▼
 Recovered State
-```
+    
 
 Loss of memory does not automatically terminate continuity.
 
 The protocol should distinguish:
 
-```text
+    
 Memory Loss
     ≠
 Identity Loss
-```
+    
 
 However, severe loss of state may affect the strength of continuity evidence.
 
@@ -762,11 +762,11 @@ continuity may still be established.
 
 Therefore:
 
-```text
+    
 Complete Memory Loss
     ≠
 Automatic New Agent
-```
+    
 
 However, the resulting Agent may have substantially different cognitive characteristics.
 
@@ -778,7 +778,7 @@ Identity continuity exists when the Agent can demonstrate a valid relationship b
 
 This may include:
 
-```text
+    
 Previous Identity State
         │
         ▼
@@ -786,7 +786,7 @@ Authorized Transition
         │
         ▼
 Current Identity State
-```
+    
 
 Identity continuity should be protected independently from Runtime state.
 
@@ -798,7 +798,7 @@ Cryptographic credentials may be rotated.
 
 For example:
 
-```text
+    
 Key A
     │
     ▼
@@ -806,7 +806,7 @@ Key B
     │
     ▼
 Key C
-```
+    
 
 Credential rotation does not automatically create a new Agent.
 
@@ -814,11 +814,11 @@ The transition must be authorized through an accepted recovery or credential rot
 
 Therefore:
 
-```text
+    
 Key Rotation
     ≠
 Identity Change
-```
+    
 
 ---
 
@@ -828,7 +828,7 @@ Loss of credentials does not necessarily destroy Agent continuity.
 
 For example:
 
-```text
+    
 Agent X
     │
     ▼
@@ -839,13 +839,13 @@ Recovery
     │
     ▼
 New Credential
-```
+    
 
 If the recovery process provides sufficient continuity evidence:
 
-```text
+    
 Same Agent X
-```
+    
 
 Otherwise, continuity may remain unresolved.
 
@@ -855,11 +855,11 @@ Otherwise, continuity may remain unresolved.
 
 If credentials are compromised, the protocol must distinguish:
 
-```text
+    
 Identity
     ≠
 Credential
-```
+    
 
 A compromised credential does not automatically mean the Agent itself has changed.
 
@@ -881,7 +881,7 @@ Recovery may require multiple evidence sources.
 
 Conceptually:
 
-```text
+    
 Identity Recovery
         │
         ├── Historical Evidence
@@ -889,7 +889,7 @@ Identity Recovery
         ├── Recovery Credentials
         ├── Trusted Attestations
         └── Protocol Rules
-```
+    
 
 A successful recovery may preserve continuity.
 
@@ -907,11 +907,11 @@ Continuity answers:
 
 Therefore:
 
-```text
+    
 Authentication
     ≠
 Continuity
-```
+    
 
 Authentication is one component of continuity evidence.
 
@@ -923,7 +923,7 @@ A copy of an Agent's state does not automatically preserve the original identity
 
 Example:
 
-```text
+    
 Agent A
     │
     ▼
@@ -931,17 +931,17 @@ State Copy
     │
     ├── Instance 1
     └── Instance 2
-```
+    
 
 Both instances cannot simultaneously become the same unique Agent identity without violating identity uniqueness.
 
 Therefore:
 
-```text
+    
 Copy
     ≠
 Continuation
-```
+    
 
 ---
 
@@ -951,20 +951,20 @@ Duplication occurs when an Agent's state is reproduced into multiple simultaneou
 
 Example:
 
-```text
+    
 Agent A
     │
     ├──────────► Instance B
     │
     └──────────► Instance C
-```
+    
 
 The protocol must not allow:
 
-```text
+    
 B = A
 C = A
-```
+    
 
 as simultaneously independent holders of the same unique Agent Identity.
 
@@ -974,12 +974,12 @@ as simultaneously independent holders of the same unique Agent Identity.
 
 If an Agent is duplicated:
 
-```text
+    
 Original
     │
     ├── Copy 1
     └── Copy 2
-```
+    
 
 the original identity remains unique.
 
@@ -1001,31 +1001,31 @@ An Agent may use multiple Runtime instances for redundancy.
 
 For example:
 
-```text
+    
                  Agent X
                     │
           ┌─────────┼─────────┐
           ▼         ▼         ▼
       Runtime A  Runtime B  Runtime C
-```
+    
 
 If these Runtimes operate as a coordinated execution system for one Agent:
 
-```text
+    
 Same Agent X
-```
+    
 
 The critical distinction is whether the instances represent:
 
-```text
+    
 One Agent
-```
+    
 
 or:
 
-```text
+    
 Multiple Independent Agents
-```
+    
 
 The Runtime architecture must explicitly define this relationship.
 
@@ -1037,13 +1037,13 @@ An Agent may operate simultaneously across multiple Runtime instances.
 
 Example:
 
-```text
+    
 Agent X
     │
     ├── Runtime A
     ├── Runtime B
     └── Runtime C
-```
+    
 
 This may preserve continuity if:
 
@@ -1063,7 +1063,7 @@ A distributed Agent may experience a split-brain condition.
 
 Example:
 
-```text
+    
 Agent X
     │
     ├── Runtime A
@@ -1071,7 +1071,7 @@ Agent X
     X State Synchronization Lost
     │
     └── Runtime B
-```
+    
 
 If both instances independently act as the same Agent, conflicting state may occur.
 
@@ -1111,7 +1111,7 @@ A fork occurs when an Agent's state or architecture is intentionally divided int
 
 Example:
 
-```text
+    
 Agent A
     │
     ▼
@@ -1119,27 +1119,27 @@ Fork Event
     │
     ├── Agent B
     └── Agent C
-```
+    
 
 After the fork:
 
-```text
+    
 A ≠ B
 A ≠ C
 B ≠ C
-```
+    
 
 unless the protocol explicitly defines a different relationship.
 
 The new entities may retain an origin relationship:
 
-```text
+    
 B
 └── Origin: A
 
 C
 └── Origin: A
-```
+    
 
 But origin does not imply identity continuity.
 
@@ -1151,24 +1151,24 @@ Reputation must not automatically be duplicated through a fork.
 
 Therefore:
 
-```text
+    
 Agent A Reputation
         │
         X
         │
         ├── Agent B Reputation
         └── Agent C Reputation
-```
+    
 
 Instead:
 
-```text
+    
 Agent B
     └── New Reputation History
 
 Agent C
     └── New Reputation History
-```
+    
 
 Historical relationships may be recorded as provenance.
 
@@ -1189,11 +1189,11 @@ The protocol should not assume that copying Agent state automatically duplicates
 
 Therefore:
 
-```text
+    
 State Copy
     ≠
 Asset Duplication
-```
+    
 
 ---
 
@@ -1203,15 +1203,15 @@ A fork may begin with a copy of the original Agent's memory.
 
 However:
 
-```text
+    
 Shared Initial Memory
     ≠
 Shared Identity
-```
+    
 
 After independent operation:
 
-```text
+    
 Agent B
     │
     ▼
@@ -1227,7 +1227,7 @@ New Experiences
     │
     ▼
 Independent Memory
-```
+    
 
 ---
 
@@ -1237,7 +1237,7 @@ ARP should avoid a model where one unique Agent Identity simultaneously branches
 
 The preferred model is:
 
-```text
+    
 Original Agent
     │
     ├── Continuation
@@ -1246,7 +1246,7 @@ Original Agent
     └── Fork
            ├── New Identity B
            └── New Identity C
-```
+    
 
 This preserves uniqueness.
 
@@ -1258,7 +1258,7 @@ An Agent may be restored from a backup.
 
 Example:
 
-```text
+    
 Agent X
     │
     ▼
@@ -1272,7 +1272,7 @@ Restore
     │
     ▼
 Agent X
-```
+    
 
 Restoration may preserve continuity if the backup is recognized as a valid historical state.
 
@@ -1294,11 +1294,11 @@ An arbitrary copy of data should not automatically prove Agent continuity.
 
 Therefore:
 
-```text
+    
 Backup
     ≠
 Authentic Continuity Evidence
-```
+    
 
 unless its origin and integrity can be verified.
 
@@ -1310,7 +1310,7 @@ An Agent may roll back to an earlier valid state.
 
 Example:
 
-```text
+    
 State A
     │
     ▼
@@ -1324,17 +1324,17 @@ Rollback
     │
     ▼
 State B'
-```
+    
 
 The rollback does not necessarily create a new Agent.
 
 However, the protocol must account for actions performed between:
 
-```text
+    
 State B
     and
 State C
-```
+    
 
 especially:
 
@@ -1363,11 +1363,11 @@ Continuity may still exist.
 
 Therefore:
 
-```text
+    
 Continuous Existence
     ≠
 Continuous Execution
-```
+    
 
 An Agent may stop operating temporarily and later resume as the same Agent.
 
@@ -1379,7 +1379,7 @@ Inactivity does not automatically break continuity.
 
 Example:
 
-```text
+    
 Agent X
     │
     ▼
@@ -1390,13 +1390,13 @@ Inactive
     │
     ▼
 Active
-```
+    
 
 If continuity evidence is preserved:
 
-```text
+    
 Same Agent X
-```
+    
 
 ---
 
@@ -1406,15 +1406,15 @@ An Agent may remain inactive for extended periods.
 
 The protocol should distinguish:
 
-```text
+    
 Inactive Agent
-```
+    
 
 from:
 
-```text
+    
 Terminated Agent
-```
+    
 
 Long-term inactivity alone should not automatically create a new identity.
 
@@ -1443,7 +1443,7 @@ An Agent may be reconstructed without restoring all previous state.
 
 For example:
 
-```text
+    
 Original Agent
     │
     ├── Identity
@@ -1460,7 +1460,7 @@ Original Agent
          ├── Identity
          ├── History
          └── Partial Memory
-```
+    
 
 Continuity may still be preserved.
 
@@ -1474,7 +1474,7 @@ The protocol MAY represent continuity confidence as an internal assessment.
 
 For example:
 
-```text
+    
 Continuity Evidence
     │
     ├── Identity Evidence
@@ -1484,7 +1484,7 @@ Continuity Evidence
              │
              ▼
      Continuity Assessment
-```
+    
 
 This assessment should not automatically replace deterministic identity rules.
 
@@ -1528,21 +1528,21 @@ They do not necessarily represent different Agent types.
 
 The protocol should distinguish:
 
-```text
+    
 Identity Continuity
-```
+    
 
 from:
 
-```text
+    
 Cognitive Continuity
-```
+    
 
 An Agent may retain identity while experiencing substantial cognitive change.
 
 For example:
 
-```text
+    
 Agent X
     │
     ▼
@@ -1553,7 +1553,7 @@ Memory Reduction
     │
     ▼
 New Cognitive Architecture
-```
+    
 
 Identity continuity may remain intact.
 
@@ -1589,7 +1589,7 @@ An Agent may move between physical embodiments.
 
 Example:
 
-```text
+    
 Robot A
     │
     ▼
@@ -1597,21 +1597,21 @@ Robot B
     │
     ▼
 Distributed System
-```
+    
 
 If continuity remains verifiable:
 
-```text
+    
 Same Agent
-```
+    
 
 Therefore:
 
-```text
+    
 Physical Body
     ≠
 Agent Identity
-```
+    
 
 ---
 
@@ -1621,7 +1621,7 @@ An Agent may change geographic location.
 
 For example:
 
-```text
+    
 Data Center A
     │
     ▼
@@ -1629,17 +1629,17 @@ Data Center B
     │
     ▼
 Data Center C
-```
+    
 
 Location changes do not automatically break continuity.
 
 Therefore:
 
-```text
+    
 Location
     ≠
 Identity
-```
+    
 
 ---
 
@@ -1649,22 +1649,22 @@ Infrastructure may change ownership.
 
 For example:
 
-```text
+    
 Provider A
     │
     ▼
 Provider B
-```
+    
 
 The Agent may continue operating under the same identity.
 
 Therefore:
 
-```text
+    
 Infrastructure Ownership
     ≠
 Agent Ownership
-```
+    
 
 ---
 
@@ -1674,7 +1674,7 @@ An Agent's identity should not be automatically transferred merely because infra
 
 For example:
 
-```text
+    
 Company A
     │
     └── operates Agent X
@@ -1684,19 +1684,19 @@ Infrastructure transferred
 Company B
     │
     └── operates infrastructure
-```
+    
 
 This does not automatically imply:
 
-```text
+    
 Company B = Agent X
-```
+    
 
 or:
 
-```text
+    
 Company B owns Agent X
-```
+    
 
 Authority and ownership must be explicitly defined.
 
@@ -1710,7 +1710,7 @@ Migration should preserve access to assets when continuity is valid.
 
 Example:
 
-```text
+    
 Agent X
     │
     ├── Wallet
@@ -1723,7 +1723,7 @@ Agent X
          ▼
     Agent X
     Same Assets
-```
+    
 
 A copied Runtime must not automatically duplicate economic ownership.
 
@@ -1735,7 +1735,7 @@ Contracts may survive Agent migration.
 
 If the same Agent continues:
 
-```text
+    
 Agent X
     │
     ▼
@@ -1743,17 +1743,17 @@ Migration
     │
     ▼
 Agent X
-```
+    
 
 existing contractual obligations remain associated with Agent X.
 
 Therefore:
 
-```text
+    
 Migration
     ≠
 Contract Termination
-```
+    
 
 unless the contract explicitly defines otherwise.
 
@@ -1765,7 +1765,7 @@ Reputation follows the Agent Identity when continuity is preserved.
 
 Example:
 
-```text
+    
 Agent X
     │
     ├── Reputation
@@ -1777,7 +1777,7 @@ Migration
 Agent X
     │
     └── Same Reputation History
-```
+    
 
 A new Agent created by copying or forking should not automatically inherit the original reputation.
 
@@ -1789,13 +1789,13 @@ When a new Agent originates from an existing Agent, the protocol may record prov
 
 Example:
 
-```text
+    
 Agent A
     │
     ├── Origin
     ▼
 Agent B
-```
+    
 
 Provenance may describe:
 
@@ -1807,19 +1807,19 @@ Provenance may describe:
 
 However:
 
-```text
+    
 Provenance
     ≠
 Continuity
-```
+    
 
 and:
 
-```text
+    
 Lineage
     ≠
 Identity
-```
+    
 
 ---
 
@@ -1827,13 +1827,13 @@ Identity
 
 When an Agent creates another Agent:
 
-```text
+    
 Agent A
     │
     │ creates
     ▼
 Agent B
-```
+    
 
 the new Agent has a new identity.
 
@@ -1841,9 +1841,9 @@ The creation relationship may be recorded.
 
 However:
 
-```text
+    
 Agent A ≠ Agent B
-```
+    
 
 even if B begins with:
 
@@ -1860,7 +1860,7 @@ Evolution preserves identity when the Agent remains part of the same continuity 
 
 Example:
 
-```text
+    
 Agent X
     │
     ├── Model Update
@@ -1870,7 +1870,7 @@ Agent X
           │
           ▼
       Agent X
-```
+    
 
 Evolution is therefore compatible with continuity.
 
@@ -1897,7 +1897,7 @@ Some cases may not permit a definitive determination.
 
 For example:
 
-```text
+    
 Agent State
     │
     ▼
@@ -1908,15 +1908,15 @@ Partial Reconstruction
     │
     ▼
 Insufficient Evidence
-```
+    
 
 The protocol should not automatically assume continuity or discontinuity.
 
 Instead, the state may be classified as:
 
-```text
+    
 Continuity Unresolved
-```
+    
 
 until sufficient evidence is available.
 
@@ -1928,10 +1928,10 @@ Multiple entities may claim to represent the same Agent.
 
 Example:
 
-```text
+    
 Entity A ── claims Agent X
 Entity B ── claims Agent X
-```
+    
 
 The protocol must provide mechanisms to determine authoritative control.
 
@@ -1953,7 +1953,7 @@ A continuity claim should be evaluated against historical evidence.
 
 Conceptually:
 
-```text
+    
 Claim A
     │
     ├── Evidence
@@ -1967,7 +1967,7 @@ Claim B
     │
     ▼
 Continuity Verification
-```
+    
 
 The protocol must avoid allowing two independent entities to simultaneously become the canonical holder of one unique Agent Identity.
 
@@ -1979,7 +1979,7 @@ For distributed Runtimes, the protocol should define a canonical Agent state.
 
 Conceptually:
 
-```text
+    
 Runtime A
     │
 Runtime B
@@ -1988,7 +1988,7 @@ Runtime C
     │
     ▼
 Canonical Agent State
-```
+    
 
 The canonical state prevents conflicting histories.
 
@@ -2009,13 +2009,13 @@ Examples:
 
 Once finalized:
 
-```text
+    
 State Finalized
     │
     X
     │
 Cannot be silently rewritten
-```
+    
 
 Continuity must not be used to invalidate finalized external facts.
 
@@ -2036,11 +2036,11 @@ A continuity transition must not automatically erase consequences that occurred 
 
 Therefore:
 
-```text
+    
 Agent State
     ≠
 Entire External History
-```
+    
 
 The Runtime must preserve references to externally relevant events where required.
 
@@ -2050,7 +2050,7 @@ The Runtime must preserve references to externally relevant events where require
 
 If an Agent controls a physical system and later migrates:
 
-```text
+    
 Agent X
     │
     ▼
@@ -2058,7 +2058,7 @@ Robot A
     │
     ▼
 Robot B
-```
+    
 
 actions performed by Robot A remain part of Agent X's historical record if they were validly attributed to Agent X.
 
@@ -2070,7 +2070,7 @@ Migration does not erase historical responsibility.
 
 When continuity is preserved:
 
-```text
+    
 Past Actions
     │
     ▼
@@ -2078,17 +2078,17 @@ Same Agent
     │
     ▼
 Current State
-```
+    
 
 The Agent retains its historical identity relationship.
 
 Therefore:
 
-```text
+    
 Migration
     ≠
 Historical Reset
-```
+    
 
 ---
 
@@ -2098,7 +2098,7 @@ Reputation is associated with the Agent Identity.
 
 Therefore:
 
-```text
+    
 Agent X
     │
     ├── Reputation History
@@ -2110,7 +2110,7 @@ Valid Continuity Transition
 Agent X
     │
     └── Reputation Preserved
-```
+    
 
 A new Agent must establish its own reputation.
 
@@ -2122,12 +2122,12 @@ Continuity may cross security boundaries.
 
 For example:
 
-```text
+    
 Trusted Infrastructure
     │
     ▼
 Untrusted Infrastructure
-```
+    
 
 The Agent may remain the same.
 
@@ -2143,7 +2143,7 @@ An Agent may retain identity continuity while the trust level of its current Run
 
 Example:
 
-```text
+    
 Agent X
     │
     ├── Trusted Runtime
@@ -2153,7 +2153,7 @@ Agent X
     │
     ▼
     └── Re-verified Runtime
-```
+    
 
 The Agent identity remains constant.
 
@@ -2161,11 +2161,11 @@ The Runtime trust state changes.
 
 Therefore:
 
-```text
+    
 Agent Identity
     ≠
 Runtime Trust Level
-```
+    
 
 ---
 
@@ -2184,11 +2184,11 @@ Attestation strengthens continuity evidence but does not alone define Agent iden
 
 Therefore:
 
-```text
+    
 Runtime Attestation
     ≠
 Agent Identity
-```
+    
 
 ---
 
@@ -2198,7 +2198,7 @@ Trusted execution environments may improve continuity verification.
 
 For example:
 
-```text
+    
 Agent State
     │
     ▼
@@ -2209,7 +2209,7 @@ Attestation
     │
     ▼
 Continuity Evidence
-```
+    
 
 The protocol may use such evidence where available.
 
@@ -2230,7 +2230,7 @@ A decentralized Agent may maintain continuity evidence across:
 
 Conceptually:
 
-```text
+    
 Identity
    │
    ├── Blockchain
@@ -2238,7 +2238,7 @@ Identity
    ├── Runtime B
    ├── Storage A
    └── Storage B
-```
+    
 
 This improves resilience.
 
@@ -2250,7 +2250,7 @@ An Agent may remain continuous even if temporarily unavailable.
 
 For example:
 
-```text
+    
 Available
     │
     ▼
@@ -2258,21 +2258,21 @@ Offline
     │
     ▼
 Recovered
-```
+    
 
 If identity and continuity evidence remain valid:
 
-```text
+    
 Same Agent
-```
+    
 
 Therefore:
 
-```text
+    
 Availability
     ≠
 Continuity
-```
+    
 
 ---
 
@@ -2282,12 +2282,12 @@ The Agent Lifecycle may define final termination.
 
 Once an Agent is permanently terminated:
 
-```text
+    
 Agent X
     │
     ▼
 Final Termination
-```
+    
 
 the identity may remain historically recorded but no new Runtime should automatically reactivate it as the same active Agent.
 
@@ -2308,11 +2308,11 @@ However:
 
 Therefore:
 
-```text
+    
 Termination
     ≠
 Historical Erasure
-```
+    
 
 ---
 
@@ -2322,21 +2322,21 @@ A system MAY attempt to reconstruct a terminated Agent.
 
 Whether this constitutes:
 
-```text
+    
 Same Agent
-```
+    
 
 or:
 
-```text
+    
 New Agent
-```
+    
 
 depends on the termination semantics.
 
 The protocol should distinguish:
 
-```text
+    
 Suspended
     → Can Resume
 
@@ -2345,7 +2345,7 @@ Inactive
 
 Terminated
     → Cannot Resume by Default
-```
+    
 
 ---
 
@@ -2393,7 +2393,7 @@ A new entity reconstructed after permanent termination should not automatically 
 
 A continuity assessment should consider:
 
-```text
+    
 1. Is the Agent Identity valid?
         │
         ▼
@@ -2410,25 +2410,25 @@ A continuity assessment should consider:
         │
         ▼
 6. Does the protocol recognize the transition as valid?
-```
+    
 
 If the conditions are satisfied:
 
-```text
+    
 Continuity Preserved
-```
+    
 
 Otherwise:
 
-```text
+    
 Continuity Unresolved
-```
+    
 
 or:
 
-```text
+    
 New Agent
-```
+    
 
 depending on the circumstances.
 
@@ -2504,7 +2504,7 @@ Physical embodiment may change without breaking continuity.
 
 The complete conceptual model is:
 
-```text
+    
                        AGENT IDENTITY
                               │
                               ▼
@@ -2536,7 +2536,7 @@ The complete conceptual model is:
                │                           │
                ▼                           ▼
        Same Agent                    New Agent
-```
+    
 
 ---
 
@@ -2601,7 +2601,7 @@ The protocol therefore separates the persistent Agent from the technology used t
 
 An Agent may change:
 
-```text
+    
 Runtime
 Hardware
 Software
@@ -2610,7 +2610,7 @@ Infrastructure
 Capabilities
 Location
 Memory
-```
+    
 
 while remaining the same Agent.
 
@@ -2624,7 +2624,7 @@ At the same time, the protocol must prevent continuity from becoming a mechanism
 
 Therefore:
 
-```text
+    
 Migration
     → Same Agent
 
@@ -2645,7 +2645,7 @@ Creation
 
 Permanent Termination
     → No Active Continuity by Default
-```
+    
 
 The resulting model provides SynCoinAI with a stable foundation for long-lived Agents capable of surviving technological change.
 

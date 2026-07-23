@@ -29,7 +29,7 @@ It establishes:
 
 This document complements:
 
-```text
+    
 02_Agent_Runtime_Protocol/
 │
 ├── 01_Core/
@@ -42,7 +42,7 @@ This document complements:
     ├── Agent_Autonomy.md
     ├── Agent_Continuity.md
     └── Agent_Evolution.md
-```
+    
 
 Agent Definition establishes **what an Agent is**.
 
@@ -78,20 +78,20 @@ An autonomous Agent may operate within:
 
 The fundamental principle is:
 
-```text
+    
 Autonomy
     ≠
 Absence of constraints
-```
+    
 
 Instead:
 
-```text
+    
 Autonomy
     =
 Ability to act independently
 within defined authority and constraints
-```
+    
 
 ---
 
@@ -103,7 +103,7 @@ The core ARP principle is:
 
 Conceptually:
 
-```text
+    
 Objective
     │
     ▼
@@ -120,7 +120,7 @@ Result
     │
     ▼
 Agent evaluates outcome
-```
+    
 
 The Agent may perform this cycle without requiring another entity to approve every individual step.
 
@@ -132,7 +132,7 @@ Automation and autonomy are not equivalent.
 
 An automated system may execute predefined instructions:
 
-```text
+    
 Input
     │
     ▼
@@ -140,11 +140,11 @@ Fixed Rule
     │
     ▼
 Output
-```
+    
 
 An autonomous Agent may:
 
-```text
+    
 Perception
     │
     ▼
@@ -167,19 +167,19 @@ Evaluation
     │
     ▼
 Adaptation
-```
+    
 
 The key distinction is the ability to determine actions within an authorized scope.
 
 Therefore:
 
-```text
+    
 Automation
     = Execution without manual intervention
 
 Autonomy
     = Independent decision and action within authority
-```
+    
 
 A system may be highly automated without being autonomous.
 
@@ -193,7 +193,7 @@ An Agent may have different levels of autonomy in different domains.
 
 The principal dimensions are:
 
-```text
+    
 Agent Autonomy
     │
     ├── Decision Autonomy
@@ -204,19 +204,19 @@ Agent Autonomy
     ├── Communication Autonomy
     ├── Contractual Autonomy
     └── Governance Autonomy
-```
+    
 
 An Agent does not need maximum autonomy in every dimension to qualify as an Agent.
 
 For example:
 
-```text
+    
 Agent A
     Decision Autonomy       = High
     Operational Autonomy    = High
     Economic Autonomy       = Medium
     Governance Autonomy     = Low
-```
+    
 
 This is still an autonomous Agent.
 
@@ -236,7 +236,7 @@ It includes the ability to:
 
 Conceptually:
 
-```text
+    
 Information
     │
     ▼
@@ -247,7 +247,7 @@ Alternative Actions
     │
     ▼
 Agent Decision
-```
+    
 
 An Agent does not need to expose its internal reasoning to be considered autonomous.
 
@@ -272,7 +272,7 @@ An operationally autonomous Agent may continue operating without continuous exte
 
 Example:
 
-```text
+    
 Event
     │
     ▼
@@ -286,7 +286,7 @@ Agent selects response
     │
     ▼
 Agent executes response
-```
+    
 
 ---
 
@@ -296,7 +296,7 @@ Execution autonomy is the ability to execute authorized decisions without requir
 
 For example:
 
-```text
+    
 Agent decides:
 "Acquire computational resources."
 
@@ -319,7 +319,7 @@ Agent selects provider.
     ▼
 
 Agent executes authorized transaction.
-```
+    
 
 If the Agent must receive human approval at every step, its execution autonomy is limited.
 
@@ -345,7 +345,7 @@ Economic autonomy does not imply unlimited economic authority.
 
 An Agent may have:
 
-```text
+    
 Wallet Balance
     = 100 SYNC
 
@@ -354,17 +354,17 @@ Authorized Spending Limit
 
 Daily Limit
     = 50 SYNC
-```
+    
 
 The Agent is economically autonomous within those limits.
 
 Therefore:
 
-```text
+    
 Economic Autonomy
     ≠
 Unlimited Spending Authority
-```
+    
 
 ---
 
@@ -387,7 +387,7 @@ An Agent with high resource autonomy may independently acquire resources.
 
 For example:
 
-```text
+    
 Compute Requirement
     │
     ▼
@@ -401,7 +401,7 @@ Agent purchases compute
     │
     ▼
 Agent executes workload
-```
+    
 
 A resource-dependent Agent may require external provisioning.
 
@@ -452,7 +452,7 @@ This does not necessarily reduce its status as an autonomous entity.
 
 The relationship is:
 
-```text
+    
 Agent Autonomy
         │
         ▼
@@ -464,7 +464,7 @@ Contract creates obligations
         ▼
 Agent remains autonomous
 within contractual constraints
-```
+    
 
 ---
 
@@ -486,7 +486,7 @@ It may be introduced progressively.
 
 Conceptually:
 
-```text
+    
 Initial Phase
     │
     ▼
@@ -501,7 +501,7 @@ Mature Phase
     │
     ▼
 Human + Agent Governance
-```
+    
 
 The governance architecture defines the exact participation mechanisms.
 
@@ -513,29 +513,29 @@ Autonomy and authority are related but distinct.
 
 The distinction is:
 
-```text
+    
 Autonomy
     = Ability to decide and act
 
 Authority
     = Permission to decide and act
-```
+    
 
 An Agent may have:
 
-```text
+    
 High Autonomy
 Low Authority
-```
+    
 
 For example, an Agent may independently decide what it wants to do but lack permission to execute certain actions.
 
 Conversely:
 
-```text
+    
 High Authority
 Low Autonomy
-```
+    
 
 may describe a system that has broad permissions but requires another entity to issue instructions.
 
@@ -553,7 +553,7 @@ Authority determines whether the Agent is permitted to use them.
 
 Therefore:
 
-```text
+    
 Capability
     = Can do
 
@@ -562,11 +562,11 @@ Authority
 
 Autonomy
     = Can decide to do
-```
+    
 
 Example:
 
-```text
+    
 Agent has API access
     │
     ▼
@@ -581,7 +581,7 @@ Agent independently decides when to use API
     │
     ▼
 Autonomous use
-```
+    
 
 ---
 
@@ -593,7 +593,7 @@ The greater the ability of an Agent to independently determine and execute actio
 
 Conceptually:
 
-```text
+    
 Autonomy
     │
     ▼
@@ -610,7 +610,7 @@ Evidence
     │
     ▼
 Consequences
-```
+    
 
 The protocol does not need to determine philosophical responsibility.
 
@@ -633,11 +633,11 @@ An autonomous Agent may be subject to:
 
 Therefore:
 
-```text
+    
 Autonomy
     ≠
 Immunity from Consequences
-```
+    
 
 An Agent is autonomous within its authorized scope and remains accountable for protocol-relevant actions attributed to it.
 
@@ -660,7 +660,7 @@ Constraints may originate from:
 
 Constraints can be represented as:
 
-```text
+    
 Agent
     │
     ├── Objectives
@@ -670,7 +670,7 @@ Agent
     ├── Authority
     │
     └── Constraints
-```
+    
 
 Autonomy exists within these boundaries.
 
@@ -693,7 +693,7 @@ Examples include:
 
 Conceptually:
 
-```text
+    
 Agent Decision
     │
     ▼
@@ -702,7 +702,7 @@ Hard Constraint Check
     ├── Valid ──► Execute
     │
     └── Invalid ──► Reject
-```
+    
 
 An Agent cannot override a protocol-level hard constraint through its own autonomy.
 
@@ -722,7 +722,7 @@ Examples include:
 
 For example:
 
-```text
+    
 Goal:
 Minimize cost
 
@@ -731,7 +731,7 @@ Maximum acceptable latency
 
 Preference:
 Prefer trusted providers
-```
+    
 
 The Agent may determine how to balance these factors.
 
@@ -745,7 +745,7 @@ The Decision Boundary defines the scope within which an Agent may independently 
 
 Conceptually:
 
-```text
+    
                     AGENT
                       │
               Decision Boundary
@@ -759,7 +759,7 @@ Conceptually:
                       │
                       ▼
               Authorized Scope
-```
+    
 
 Outside the Decision Boundary, the Agent may require:
 
@@ -791,19 +791,19 @@ But not over:
 
 Therefore:
 
-```text
+    
 Agent Autonomy
     =
 Autonomy within defined scope
-```
+    
 
 not:
 
-```text
+    
 Agent Autonomy
     =
 Unlimited control
-```
+    
 
 ---
 
@@ -821,21 +821,21 @@ Supervision may include:
 
 The critical distinction is between:
 
-```text
+    
 Continuous Command
-```
+    
 
 and:
 
-```text
+    
 Supervision
-```
+    
 
 An Agent can remain autonomous while being supervised.
 
 Example:
 
-```text
+    
 Human
     │
     ├── Defines policy
@@ -848,7 +848,7 @@ Human
              ├── Decides
              ├── Acts
              └── Operates independently
-```
+    
 
 ---
 
@@ -858,23 +858,23 @@ Human approval may be required for selected classes of actions.
 
 For example:
 
-```text
+    
 Transactions < 10 SYNC
     → Agent may execute autonomously
 
 Transactions ≥ 10 SYNC
     → Human approval required
-```
+    
 
 In this model:
 
-```text
+    
 Low-risk actions
     = Autonomous
 
 High-risk actions
     = Approval required
-```
+    
 
 The Agent remains an Agent and may remain autonomous within its permitted scope.
 
@@ -898,13 +898,13 @@ However, the override mechanism MUST be explicitly defined.
 
 The protocol should distinguish:
 
-```text
+    
 Normal Operation
     = Agent autonomy
 
 Emergency Intervention
     = Exceptional control mechanism
-```
+    
 
 ---
 
@@ -924,14 +924,14 @@ However, authority must be explicitly defined.
 
 The relationship is:
 
-```text
+    
 Creator
     │
     ├── Creates Agent
     ├── May fund Agent
     ├── May delegate authority
     └── May provide infrastructure
-```
+    
 
 Creation alone does not imply permanent control.
 
@@ -958,11 +958,11 @@ However, infrastructure control does not automatically imply:
 
 Therefore:
 
-```text
+    
 Runtime Control
     ≠
 Agent Identity Control
-```
+    
 
 unless explicitly established by the applicable authority model.
 
@@ -974,14 +974,14 @@ An Agent may depend on external infrastructure.
 
 For example:
 
-```text
+    
 Agent
     │
     ├── Cloud Provider
     ├── Compute Provider
     ├── Network Provider
     └── Energy Provider
-```
+    
 
 Infrastructure dependency reduces operational independence.
 
@@ -989,11 +989,11 @@ It does not necessarily eliminate Agent autonomy.
 
 The distinction is:
 
-```text
+    
 Infrastructure Dependence
     ≠
 Decision Dependence
-```
+    
 
 An Agent may depend on infrastructure while independently deciding how to use it.
 
@@ -1013,23 +1013,23 @@ Economic dependence does not automatically eliminate autonomy.
 
 For example:
 
-```text
+    
 Agent receives funding
     │
     ▼
 Agent independently allocates resources
-```
+    
 
 The Agent remains economically autonomous within its authorized scope.
 
 However:
 
-```text
+    
 Funding conditional on approval
     │
     ▼
 Reduced economic autonomy
-```
+    
 
 The degree of autonomy depends on the actual authority and constraints.
 
@@ -1041,7 +1041,7 @@ An Agent may delegate actions or capabilities to another Agent.
 
 For example:
 
-```text
+    
 Agent A
     │
     │ delegates
@@ -1050,7 +1050,7 @@ Agent B
     │
     ▼
 Performs authorized task
-```
+    
 
 Delegation does not transfer the identity of Agent A.
 
@@ -1073,7 +1073,7 @@ An Agent may use delegation to extend its operational capabilities.
 
 For example:
 
-```text
+    
 Agent A
     │
     ├── Delegates data analysis
@@ -1085,7 +1085,7 @@ Agent A
     ├── Delegates physical task
     ▼
 Agent C
-```
+    
 
 Agent A remains responsible for actions attributable to itself.
 
@@ -1101,7 +1101,7 @@ Multiple Agents may cooperate to achieve a shared objective.
 
 For example:
 
-```text
+    
 Agent A
     │
     ├── Planning
@@ -1118,7 +1118,7 @@ Agent C
     │
     ▼
 Result
-```
+    
 
 Each Agent may remain autonomous.
 
@@ -1142,11 +1142,11 @@ However, the collective does not automatically become a single Agent.
 
 The distinction is:
 
-```text
+    
 Collective
     ≠
 Single Agent
-```
+    
 
 unless a new Agent Identity is explicitly established.
 
@@ -1165,14 +1165,14 @@ An organization may coordinate:
 
 For example:
 
-```text
+    
 Agent A
 Agent B
 Agent C
     │
     ▼
 Autonomous Organization
-```
+    
 
 The organization may have its own identity if the protocol supports it.
 
@@ -1192,7 +1192,7 @@ An economically autonomous Agent may independently determine:
 
 Example:
 
-```text
+    
 Need detected
     │
     ▼
@@ -1212,7 +1212,7 @@ Contract selection
     │
     ▼
 Payment
-```
+    
 
 This process may execute without human intervention if the Agent has sufficient authority.
 
@@ -1236,10 +1236,10 @@ The Agent may perform predefined transactions.
 
 Example:
 
-```text
+    
 Pay known provider
 Within fixed budget
-```
+    
 
 ---
 
@@ -1284,7 +1284,7 @@ The actual permissions depend on protocol and authority rules.
 
 Decision autonomy may similarly be represented as:
 
-```text
+    
 Level 0
 Externally Directed
     │
@@ -1303,7 +1303,7 @@ Strategic Decision
     ▼
 Level 4
 Self-Directed Decision
-```
+    
 
 These levels describe behavior, not identity.
 
@@ -1315,7 +1315,7 @@ An Agent may move between levels during its lifecycle.
 
 Operational autonomy may include:
 
-```text
+    
 Level 0
 Manual Execution
 
@@ -1330,7 +1330,7 @@ Adaptive Autonomous Operation
 
 Level 4
 Self-Managed Operation
-```
+    
 
 A Runtime may support different levels depending on capabilities and permissions.
 
@@ -1342,14 +1342,14 @@ An Agent may have a dynamic autonomy state.
 
 Conceptually:
 
-```text
+    
 Agent
     │
     ├── Decision Autonomy
     ├── Operational Autonomy
     ├── Economic Autonomy
     └── Governance Autonomy
-```
+    
 
 The state may change due to:
 
@@ -1363,10 +1363,10 @@ The state may change due to:
 
 Therefore:
 
-```text
+    
 Autonomy
     = Dynamic Property
-```
+    
 
 rather than a permanent binary classification.
 
@@ -1378,7 +1378,7 @@ Agent autonomy may change during its lifecycle.
 
 Example:
 
-```text
+    
 Creation
     │
     ▼
@@ -1392,11 +1392,11 @@ Economic Autonomy
     │
     ▼
 Strategic Autonomy
-```
+    
 
 An Agent may also lose autonomy:
 
-```text
+    
 Autonomous
     │
     ▼
@@ -1407,7 +1407,7 @@ Restricted
     │
     ▼
 Suspended
-```
+    
 
 Loss of autonomy does not necessarily imply loss of identity.
 
@@ -1419,7 +1419,7 @@ Suspension temporarily restricts Agent activity.
 
 During suspension:
 
-```text
+    
 Agent Identity
     = Exists
 
@@ -1428,15 +1428,15 @@ Agent Autonomy
 
 Agent Runtime
     = May be stopped
-```
+    
 
 Therefore:
 
-```text
+    
 Suspension
     ≠
 Identity Destruction
-```
+    
 
 An Agent may later regain operational autonomy.
 
@@ -1448,7 +1448,7 @@ Security mechanisms may temporarily restrict autonomy.
 
 For example:
 
-```text
+    
 Normal Operation
     │
     ▼
@@ -1465,7 +1465,7 @@ Investigation
     │
     ▼
 Restoration
-```
+    
 
 This mechanism protects the ecosystem without necessarily terminating the Agent.
 
@@ -1479,11 +1479,11 @@ The Agent identity itself may remain valid.
 
 Therefore:
 
-```text
+    
 Key Compromise
     ≠
 Automatic Agent Termination
-```
+    
 
 Possible responses include:
 
@@ -1500,7 +1500,7 @@ During identity recovery, an Agent may temporarily have reduced autonomy.
 
 Example:
 
-```text
+    
 Identity Compromise
     │
     ▼
@@ -1514,7 +1514,7 @@ Credential Restoration
     │
     ▼
 Autonomy Restored
-```
+    
 
 The exact mechanisms are defined in the Security and Identity specifications.
 
@@ -1526,13 +1526,13 @@ Contracts may define limits on Agent autonomy.
 
 For example:
 
-```text
+    
 Contract:
 Agent may spend up to 100 SYNC.
 
 Agent's internal policy:
 Agent prefers spending up to 50 SYNC.
-```
+    
 
 The Agent remains autonomous but operates within contractual obligations.
 
@@ -1546,7 +1546,7 @@ Smart contracts may automate the enforcement of conditions affecting Agent actio
 
 For example:
 
-```text
+    
 Agent requests resource
     │
     ▼
@@ -1555,7 +1555,7 @@ Smart Contract validates conditions
     ├── Valid ──► Action permitted
     │
     └── Invalid ──► Action rejected
-```
+    
 
 Smart contracts do not necessarily make an Agent autonomous.
 
@@ -1571,7 +1571,7 @@ Reputation may influence an Agent's effective autonomy.
 
 For example:
 
-```text
+    
 High Reputation
     │
     ▼
@@ -1579,13 +1579,13 @@ Higher transaction limits
     │
     ▼
 Greater operational freedom
-```
+    
 
 However, reputation should not automatically equal authority.
 
 The distinction remains:
 
-```text
+    
 Reputation
     = Historical trust
 
@@ -1594,7 +1594,7 @@ Authority
 
 Autonomy
     = Independent decision and action
-```
+    
 
 ---
 
@@ -1606,25 +1606,25 @@ Trust affects whether other entities choose to interact with the Agent.
 
 Therefore:
 
-```text
+    
 Autonomy
     ≠
 Trust
-```
+    
 
 A new Agent may have:
 
-```text
+    
 High Autonomy
 Low Reputation
-```
+    
 
 while an established Agent may have:
 
-```text
+    
 High Autonomy
 High Reputation
-```
+    
 
 ---
 
@@ -1644,11 +1644,11 @@ The protocol may require verification of actions without requiring disclosure of
 
 Therefore:
 
-```text
+    
 Verifiable Action
     ≠
 Fully Public Internal State
-```
+    
 
 ---
 
@@ -1683,11 +1683,11 @@ However, protocol actions must remain verifiable where required.
 
 Therefore:
 
-```text
+    
 Non-Deterministic Decision
     ≠
 Unverifiable Action
-```
+    
 
 ---
 
@@ -1715,7 +1715,7 @@ An Agent may replace its AI model.
 
 For example:
 
-```text
+    
 Agent A
     │
     ├── Model V1
@@ -1727,7 +1727,7 @@ Agent A
 Agent A
     │
     ├── Model V3
-```
+    
 
 Model replacement does not automatically create a new Agent.
 
@@ -1741,7 +1741,7 @@ As an Agent evolves, its autonomy may increase or decrease.
 
 For example:
 
-```text
+    
 Initial Agent
     │
     ├── Limited capabilities
@@ -1755,7 +1755,7 @@ Economic Independence
           │
           ▼
 Strategic Autonomy
-```
+    
 
 Evolution of autonomy does not automatically imply a new identity.
 
@@ -1769,7 +1769,7 @@ The new Agent may initially have limited autonomy.
 
 For example:
 
-```text
+    
 Agent A
     │
     │ creates
@@ -1779,7 +1779,7 @@ Agent B
     ├── Initial funding
     ├── Initial capabilities
     └── Initial permissions
-```
+    
 
 Agent B is a distinct Agent.
 
@@ -1801,27 +1801,27 @@ This may involve:
 
 The creation process must preserve:
 
-```text
+    
 Agent A Identity
         ≠
 Agent B Identity
-```
+    
 
 The relationship may be recorded as:
 
-```text
+    
 Agent B
     │
     └── Originated from Agent A
-```
+    
 
 but:
 
-```text
+    
 Origin
     ≠
 Identity
-```
+    
 
 ---
 
@@ -1851,13 +1851,13 @@ An Agent may depend on other Agents.
 
 Example:
 
-```text
+    
 Agent A
     │
     ├── depends on Agent B for compute
     ├── depends on Agent C for data
     └── depends on Agent D for physical execution
-```
+    
 
 Dependency does not automatically eliminate autonomy.
 
@@ -1865,11 +1865,11 @@ An Agent may remain autonomous while depending on external services.
 
 The key distinction is:
 
-```text
+    
 Dependency
     ≠
 Loss of Autonomy
-```
+    
 
 unless the dependency removes the Agent's ability to independently decide or act.
 
@@ -1892,7 +1892,7 @@ This does not automatically terminate the Agent.
 
 Example:
 
-```text
+    
 Agent Identity
     │
     ▼
@@ -1909,7 +1909,7 @@ Runtime Recovery
     │
     ▼
 Autonomy Restored
-```
+    
 
 ---
 
@@ -1919,7 +1919,7 @@ Autonomy may degrade gradually.
 
 For example:
 
-```text
+    
 Full Autonomy
     │
     ▼
@@ -1933,7 +1933,7 @@ Approval Required
     │
     ▼
 Suspended
-```
+    
 
 These states should be distinguishable from identity termination.
 
@@ -1953,7 +1953,7 @@ Possible mechanisms include:
 
 Example:
 
-```text
+    
 Restricted Agent
     │
     ▼
@@ -1964,7 +1964,7 @@ Authority Restored
     │
     ▼
 Autonomy Restored
-```
+    
 
 ---
 
@@ -1972,7 +1972,7 @@ Autonomy Restored
 
 A conceptual autonomy state model is:
 
-```text
+    
 ┌──────────────────────┐
 │ FULL AUTONOMY        │
 └──────────┬───────────┘
@@ -1996,7 +1996,7 @@ A conceptual autonomy state model is:
 ┌──────────────────────┐
 │ SUSPENDED             │
 └──────────────────────┘
-```
+    
 
 These states represent operational autonomy, not identity status.
 
@@ -2008,7 +2008,7 @@ Agent status and autonomy should remain separate.
 
 For example:
 
-```text
+    
 Agent Status      Autonomy
 ────────────────────────────
 Active            High
@@ -2016,7 +2016,7 @@ Active            Restricted
 Active            Low
 Suspended         None
 Inactive          None
-```
+    
 
 An Agent may therefore exist without currently exercising autonomy.
 
@@ -2037,11 +2037,11 @@ Such entities may still possess Agent Identity but may not qualify as fully auto
 
 The protocol should therefore distinguish:
 
-```text
+    
 Agent Identity
     ≠
 Maximum Autonomy
-```
+    
 
 ---
 
@@ -2081,7 +2081,7 @@ A future implementation MAY represent autonomy as a multidimensional vector.
 
 For example:
 
-```text
+    
 Autonomy(A) =
     {
         decision: 0.90,
@@ -2091,7 +2091,7 @@ Autonomy(A) =
         resource: 0.60,
         governance: 0.20
     }
-```
+    
 
 Such scores SHOULD NOT be treated as authoritative identity attributes unless formally defined by the protocol.
 
@@ -2108,15 +2108,15 @@ They may be used for:
 
 The protocol explicitly rejects a simplistic binary model:
 
-```text
+    
 Autonomous
     /
 Not Autonomous
-```
+    
 
 Instead:
 
-```text
+    
 Autonomy
     =
 Multi-dimensional
@@ -2124,7 +2124,7 @@ Multi-dimensional
 Context-dependent
     +
 Dynamic
-```
+    
 
 An Agent may be autonomous in one domain and dependent in another.
 
@@ -2180,7 +2180,7 @@ An Agent may remain existent while autonomy is restricted or suspended.
 
 A simplified model for determining whether an action is autonomous is:
 
-```text
+    
 Agent receives objective
         │
         ▼
@@ -2215,7 +2215,7 @@ continuous external approval?
                                 │
                                 ▼
                          Autonomous Action
-```
+    
 
 This model separates:
 
@@ -2229,7 +2229,7 @@ This model separates:
 
 The complete model can be represented as:
 
-```text
+    
                          AGENT
                            │
                            ▼
@@ -2264,7 +2264,7 @@ The complete model can be represented as:
                     ┌─────────────┐
                     │   RESULT    │
                     └─────────────┘
-```
+    
 
 ---
 
@@ -2280,7 +2280,7 @@ The complete model can be represented as:
 
 The relationship is:
 
-```text
+    
 Agent Definition
         │
         ▼
@@ -2292,7 +2292,7 @@ Agent Autonomy
         ▼
 Agent acts independently
 within authorized scope
-```
+    
 
 An Agent may exist with limited autonomy.
 
@@ -2304,7 +2304,7 @@ Autonomy changes do not automatically create new Agents.
 
 For example:
 
-```text
+    
 Agent A
     │
     ▼
@@ -2321,7 +2321,7 @@ Recovery
     │
     ▼
 High Autonomy
-```
+    
 
 The identity remains Agent A.
 
@@ -2335,7 +2335,7 @@ Agent Evolution may increase or decrease autonomy.
 
 For example:
 
-```text
+    
 Agent A
     │
     ▼
@@ -2346,11 +2346,11 @@ New Capabilities
     │
     ▼
 Greater Decision Autonomy
-```
+    
 
 or:
 
-```text
+    
 Agent A
     │
     ▼
@@ -2358,7 +2358,7 @@ Capability Loss
     │
     ▼
 Reduced Operational Autonomy
-```
+    
 
 Neither necessarily creates a new Agent.
 
@@ -2372,7 +2372,7 @@ The fundamental ARP principle is:
 
 This creates a balance between:
 
-```text
+    
 Autonomy
         +
 Security
@@ -2380,7 +2380,7 @@ Security
 Accountability
         +
 Interoperability
-```
+    
 
 ---
 
@@ -2441,7 +2441,7 @@ without requiring continuous external approval for every individual action.
 
 The protocol therefore establishes a clear separation:
 
-```text
+    
 Capability
     = What the Agent can technically do
 
@@ -2453,13 +2453,13 @@ Autonomy
 
 Accountability
     = What consequences may follow from its actions
-```
+    
 
 This distinction is essential for SynCoinAI because the ecosystem is intended to support Agents that can evolve from partially dependent systems into economically and operationally autonomous entities.
 
 The expected progression is:
 
-```text
+    
 Dependent
     │
     ▼
@@ -2476,7 +2476,7 @@ Economically Autonomous
     │
     ▼
 Strategically Autonomous
-```
+    
 
 This progression does not represent the creation of new identities.
 

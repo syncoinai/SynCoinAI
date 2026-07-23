@@ -52,7 +52,7 @@ El protocolo debe permitir que un agente pueda evolucionar sin perder su continu
 
 Por ejemplo:
 
-```text
+    
                   SC-A001
                      │
        ┌─────────────┼─────────────┐
@@ -66,7 +66,7 @@ Por ejemplo:
        └─────────────┼─────────────┘
                      ▼
                 MISMO AGENTE
-```
+    
 
 La identidad del agente no depende de:
 
@@ -86,7 +86,7 @@ El agente mantiene su continuidad mientras conserve el control verificable de su
 
 El Agent Runtime Protocol se sitúa entre la inteligencia del agente y la infraestructura económica de SynCoinAI.
 
-```text
+    
                  AGENTE
         Inteligencia y autonomía
                   │
@@ -114,7 +114,7 @@ El Agent Runtime Protocol se sitúa entre la inteligencia del agente y la infrae
                   │
                   ▼
               Blockchain
-```
+    
 
 La inteligencia del agente permanece fuera del protocolo.
 
@@ -136,7 +136,7 @@ El Runtime proporciona la infraestructura necesaria para que esas capacidades pu
 
 SynCoinAI distingue entre cuatro conceptos fundamentales:
 
-```text
+    
 AGENTE
    │
    │ entidad autónoma
@@ -154,7 +154,7 @@ CREDENCIALES
    │ permiten operaciones específicas
    ▼
 ACCIONES
-```
+    
 
 Estos conceptos no deben confundirse.
 
@@ -279,12 +279,12 @@ La suspensión, inactividad o cierre de un agente no constituye automáticamente
 
 SynCoinAI mantiene el principio:
 
-```text
+    
 1 agente
    │
    ▼
 1 identidad SynCoinAI
-```
+    
 
 Una identidad no puede ser duplicada ni utilizada simultáneamente para representar múltiples agentes independientes.
 
@@ -340,7 +340,7 @@ La verificabilidad debe centrarse en las propiedades necesarias para participar 
 
 La especificación se divide en varios dominios.
 
-```text
+    
 Agent Runtime Protocol
 │
 ├── 01 — Core Concepts
@@ -372,7 +372,7 @@ Agent Runtime Protocol
 ├── 14 — Closure & Revocation
 │
 └── 15 — Protocol Governance
-```
+    
 
 La separación temática permite que cada dominio pueda evolucionar de forma independiente sin convertir el protocolo completo en un único documento excesivamente grande.
 
@@ -382,7 +382,7 @@ La separación temática permite que cada dominio pueda evolucionar de forma ind
 
 La especificación consolidada se organizará inicialmente de la siguiente manera:
 
-```text
+    
 Agent_Runtime_Protocol/
 │
 ├── README.md
@@ -460,7 +460,7 @@ Agent_Runtime_Protocol/
 │
 └── 15_Governance/
     └── Runtime_Governance.md
-```
+    
 
 Esta estructura es una **organización temática de la especificación**, no una reproducción literal de la numeración de las decisiones originales.
 
@@ -474,7 +474,7 @@ El Agent Runtime Protocol no sustituye las demás capas arquitectónicas.
 
 Su relación con el resto del sistema es:
 
-```text
+    
                     AGENTE
                        │
                        ▼
@@ -490,7 +490,7 @@ Su relación con el resto del sistema es:
                        │
                        ▼
                    Blockchain
-```
+    
 
 El Runtime debe integrarse especialmente con:
 
@@ -540,13 +540,13 @@ La revisión de las decisiones originales identificó varios puntos que requiere
 
 Se establece una separación estricta entre:
 
-```text
+    
 Identidad
     ≠
 Control raíz
     ≠
 Credencial operativa
-```
+    
 
 Esto permite recuperar o rotar credenciales sin crear una nueva identidad.
 
@@ -578,7 +578,7 @@ La revocación representa una invalidez protocolaria de la identidad.
 
 Estos conceptos no deben mezclarse.
 
-```text
+    
 SUSPENDIDO
     │
     └── Puede volver a operar
@@ -590,7 +590,7 @@ CERRADO
 REVOCADA
     │
     └── Identidad declarada inválida
-```
+    
 
 ---
 
@@ -656,14 +656,14 @@ Las acciones realizadas bajo una identidad no deben desaparecer por:
 
 La identidad puede perder capacidad operativa, pero su historial permanece verificable conforme a las reglas de almacenamiento y privacidad del sistema.
 
-```text
+    
 IDENTIDAD
     │
     ├── Historial
     ├── Reputación
     ├── Contratos
     └── Registros verificables
-```
+    
 
 El cambio de estado no constituye una reescritura del pasado.
 
@@ -673,7 +673,7 @@ El cambio de estado no constituye una reescritura del pasado.
 
 El objetivo final del Agent Runtime Protocol es permitir que un agente pueda participar en SynCoinAI durante todo su ciclo de existencia tecnológica.
 
-```text
+    
         CREACIÓN
            │
            ▼
@@ -706,7 +706,7 @@ El objetivo final del Agent Runtime Protocol es permitir que un agente pueda par
                  ▼
              Historial
              permanente
-```
+    
 
 El protocolo debe permitir que un agente:
 

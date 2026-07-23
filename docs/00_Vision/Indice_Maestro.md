@@ -55,7 +55,7 @@ Define la arquitectura técnica y conceptual de SynCoinAI, incluyendo el modelo 
 
 ## Estructura
 
-```text
+
 02_Architecture/
 │
 ├── Architecture_Overview.md
@@ -181,7 +181,7 @@ Define la arquitectura técnica y conceptual de SynCoinAI, incluyendo el modelo 
     ├── Security_Model.md
     ├── Privacy_System.md
     └── Threat_Model.md
-```
+    
 
 ---
 
