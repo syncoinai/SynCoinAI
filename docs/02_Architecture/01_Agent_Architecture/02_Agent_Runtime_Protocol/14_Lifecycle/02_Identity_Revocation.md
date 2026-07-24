@@ -24,21 +24,21 @@ La revocación debe considerarse una operación de alto impacto.
 
 No debe confundirse con:
 
-```text id="v1h3r7"
+ id="v1h3r7"
 Suspension
-```
 
-```text id="j4m8q2"
+
+ id="j4m8q2"
 Credential Revocation
-```
 
-```text id="p9x2k5"
+
+ id="p9x2k5"
 Permission Removal
-```
 
-```text id="s6n3w8"
+
+ id="s6n3w8"
 Agent Closure
-```
+
 
 Cada mecanismo actúa sobre una capa diferente.
 
@@ -76,13 +76,13 @@ La revocación de identidad es el proceso mediante el cual una identidad deja de
 
 Conceptualmente:
 
-```text id="c8m4q1"
+ id="c8m4q1"
 IDENTITY_VALID
        |
        | Revocation
        v
 IDENTITY_REVOKED
-```
+
 
 Una identidad revocada no debe poder utilizarse para iniciar nuevas operaciones que requieran una identidad válida.
 
@@ -92,13 +92,13 @@ Una identidad revocada no debe poder utilizarse para iniciar nuevas operaciones 
 
 La revocación no implica necesariamente eliminación.
 
-```text id="x7p2n5"
+ id="x7p2n5"
 Identity
     ↓
 REVOKED
     ↓
 Historical Record Preserved
-```
+
 
 La identidad puede continuar siendo consultable como registro histórico.
 
@@ -108,22 +108,22 @@ La identidad puede continuar siendo consultable como registro histórico.
 
 La suspensión afecta principalmente a la capacidad operativa.
 
-```text id="r4m8q2"
+ id="r4m8q2"
 Agent = SUSPENDED
 Identity = VALID
-```
+
 
 La revocación afecta a la validez de la identidad.
 
-```text id="n6x3k9"
+ id="n6x3k9"
 Identity = REVOKED
-```
+
 
 Por tanto:
 
-```text id="q2v7m5"
+ id="q2v7m5"
 SUSPENSION ≠ IDENTITY REVOCATION
-```
+
 
 ---
 
@@ -131,18 +131,18 @@ SUSPENSION ≠ IDENTITY REVOCATION
 
 Una credencial puede revocarse sin revocar la identidad.
 
-```text id="w8p3m1"
+ id="w8p3m1"
 Identity = VALID
 Credential A = REVOKED
-```
+
 
 El agente puede obtener una nueva credencial si está autorizado.
 
 En cambio:
 
-```text id="k5n9x2"
+ id="k5n9x2"
 Identity = REVOKED
-```
+
 
 implica una consecuencia mucho más amplia.
 
@@ -152,15 +152,15 @@ implica una consecuencia mucho más amplia.
 
 Un permiso puede retirarse.
 
-```text id="m4q8p1"
+ id="m4q8p1"
 Permission = REVOKED
-```
+
 
 sin invalidar la identidad.
 
 Por tanto:
 
-```text id="z7x2n5"
+ id="z7x2n5"
 Identity
    |
    +── Credentials
@@ -168,7 +168,7 @@ Identity
    +── Permissions
    |
    +── Delegations
-```
+
 
 deben mantenerse conceptualmente separados.
 
@@ -178,17 +178,17 @@ deben mantenerse conceptualmente separados.
 
 Un agente puede cerrarse sin que su identidad sea inválida.
 
-```text id="h3p8m2"
+ id="h3p8m2"
 Agent = CLOSED
 Identity = VALID
-```
+
 
 También puede ocurrir:
 
-```text id="v5n1q7"
+ id="v5n1q7"
 Identity = REVOKED
 Agent = CLOSED
-```
+
 
 cuando la revocación hace imposible continuar la vida operativa.
 
@@ -198,7 +198,7 @@ cuando la revocación hace imposible continuar la vida operativa.
 
 Las causas pueden incluir:
 
-```text id="x8m4p2"
+ id="x8m4p2"
 COMPROMISED_IDENTITY
 FRAUDULENT_IDENTITY
 DUPLICATE_IDENTITY
@@ -208,7 +208,7 @@ MALICIOUS_IDENTITY
 INVALID_REGISTRATION
 GOVERNANCE_DECISION
 LEGAL_REQUIREMENT
-```
+
 
 Cada causa debe quedar registrada.
 
@@ -227,7 +227,7 @@ Ejemplos:
 
 Modelo:
 
-```text id="f7k2m9"
+ id="f7k2m9"
 Identity Compromise
        ↓
 Emergency Suspension
@@ -235,7 +235,7 @@ Emergency Suspension
 Investigation
        ↓
 Identity Revocation
-```
+
 
 ---
 
@@ -245,25 +245,25 @@ La pérdida o compromiso de una clave no implica necesariamente que toda la iden
 
 Debe distinguirse:
 
-```text id="q3n8p1"
+ id="q3n8p1"
 Key Compromise
-```
+
 
 de:
 
-```text id="m5x7r2"
+ id="m5x7r2"
 Identity Compromise
-```
+
 
 Si existe un mecanismo seguro de recuperación o rotación:
 
-```text id="w4k9p6"
+ id="w4k9p6"
 Compromised Key
       ↓
 Key Rotation
       ↓
 Identity Preserved
-```
+
 
 ---
 
@@ -271,7 +271,7 @@ Identity Preserved
 
 Si no existe forma segura de recuperar el control:
 
-```text id="n2p7m4"
+ id="n2p7m4"
 Identity
     ↓
 Control Lost
@@ -279,7 +279,7 @@ Control Lost
 No Recovery
     ↓
 Revoke
-```
+
 
 ---
 
@@ -289,13 +289,13 @@ Una identidad creada mediante información falsa o mecanismos fraudulentos puede
 
 Debe existir evidencia suficiente.
 
-```text id="x6m3q8"
+ id="x6m3q8"
 Fraud Evidence
      ↓
 Review
      ↓
 Revocation
-```
+
 
 ---
 
@@ -303,14 +303,14 @@ Revocation
 
 Si dos identidades representan incorrectamente la misma entidad, puede ser necesario resolver el conflicto.
 
-```text id="k8p2n5"
+ id="k8p2n5"
 Identity A
 Identity B
       ↓
 Conflict
       ↓
 Resolution
-```
+
 
 Una identidad no debe revocarse únicamente por similitud sin una prueba suficiente.
 
@@ -320,13 +320,13 @@ Una identidad no debe revocarse únicamente por similitud sin una prueba suficie
 
 Si una identidad ha sido creada específicamente para atacar el sistema:
 
-```text id="m4x9q1"
+ id="m4x9q1"
 Malicious Identity
        ↓
 Evidence
        ↓
 Revocation
-```
+
 
 La reputación histórica asociada debe conservarse para evitar que desaparezca el historial del comportamiento.
 
@@ -338,11 +338,11 @@ Una violación grave puede conducir a revocación.
 
 Sin embargo:
 
-```text id="r7n3p8"
+ id="r7n3p8"
 Protocol Violation
     ≠
 Automatic Identity Revocation
-```
+
 
 Debe existir una evaluación de gravedad.
 
@@ -354,15 +354,15 @@ Una identidad puede estar sujeta a una obligación externa.
 
 La arquitectura debe diferenciar:
 
-```text id="q5m8x2"
+ id="q5m8x2"
 External Legal Authority
-```
+
 
 de:
 
-```text id="p3n7k1"
+ id="p3n7k1"
 Protocol Identity Authority
-```
+
 
 La integración debe estar definida por las reglas de gobernanza.
 
@@ -392,7 +392,7 @@ Esto puede ser necesario cuando:
 * la identidad ya no debe utilizarse;
 * se desea retirar permanentemente una identidad.
 
-```text id="h2m6p9"
+ id="h2m6p9"
 Agent
    ↓
 Revocation Request
@@ -400,7 +400,7 @@ Revocation Request
 Verification
    ↓
 Identity Revoked
-```
+
 
 ---
 
@@ -422,11 +422,11 @@ Debe existir:
 
 Puede existir una vía rápida.
 
-```text id="n8p4m2"
+ id="n8p4m2"
 Immediate Threat
       ↓
 Emergency Revocation
-```
+
 
 Debe existir revisión posterior cuando sea posible.
 
@@ -438,19 +438,19 @@ Ninguna autoridad debería tener más capacidad de revocación de la necesaria.
 
 Por ejemplo:
 
-```text id="v3k7q1"
+ id="v3k7q1"
 Credential Authority
     ↓
 Can Revoke Credential
-```
+
 
 pero no necesariamente:
 
-```text id="x5m9p2"
+ id="x5m9p2"
 Credential Authority
     ↓
 Can Revoke Identity
-```
+
 
 ---
 
@@ -458,7 +458,7 @@ Can Revoke Identity
 
 Cuando sea posible:
 
-```text id="q8n2m5"
+ id="q8n2m5"
 Detection
     ↓
 Investigation
@@ -468,7 +468,7 @@ Decision
 Enforcement
     ↓
 Review
-```
+
 
 deben estar separados.
 
@@ -478,7 +478,7 @@ deben estar separados.
 
 Una solicitud puede contener:
 
-```text id="m4p7x1"
+ id="m4p7x1"
 RevocationRequest
     |
     +── Request ID
@@ -488,7 +488,7 @@ RevocationRequest
     +── Evidence
     +── Requester
     +── Timestamp
-```
+
 
 ---
 
@@ -496,7 +496,7 @@ RevocationRequest
 
 La decisión debe incluir:
 
-```text id="z6n3q8"
+ id="z6n3q8"
 Decision
     |
     +── Identity
@@ -505,7 +505,7 @@ Decision
     +── Evidence Reference
     +── Timestamp
     +── Effective Time
-```
+
 
 ---
 
@@ -513,13 +513,13 @@ Decision
 
 Se recomienda:
 
-```text id="p2m8x4"
+ id="p2m8x4"
 PENDING
 ACTIVE
 SUSPENDED
 REVOKED
 RETIRED
-```
+
 
 Sin embargo, `SUSPENDED` debe utilizarse con cuidado.
 
@@ -531,15 +531,15 @@ Una suspensión de identidad no debe confundirse con suspensión del agente.
 
 La revocación puede ser:
 
-```text id="n7q3m1"
+ id="n7q3m1"
 IMMEDIATE
-```
+
 
 o:
 
-```text id="x5p8k2"
+ id="x5p8k2"
 SCHEDULED
-```
+
 
 La revocación programada puede permitir una transición ordenada.
 
@@ -549,7 +549,7 @@ La revocación programada puede permitir una transición ordenada.
 
 Una revocación global debe propagarse a todos los componentes relevantes.
 
-```text id="m9x4p7"
+ id="m9x4p7"
 Identity Revoked
       |
       +── Runtime A
@@ -558,7 +558,7 @@ Identity Revoked
       +── Credentials
       +── Permissions
       +── Delegations
-```
+
 
 ---
 
@@ -566,19 +566,19 @@ Identity Revoked
 
 Un Runtime debe verificar que la identidad sigue siendo válida antes de realizar acciones sensibles.
 
-```text id="q2n8m5"
+ id="q2n8m5"
 Action
   ↓
 Identity Check
   ↓
 Valid?
-```
+
 
 Si:
 
-```text id="w6p3x9"
+ id="w6p3x9"
 NO
-```
+
 
 la acción debe rechazarse.
 
@@ -590,13 +590,13 @@ Los Runtimes pueden utilizar información de revocación almacenada localmente.
 
 Sin embargo, debe existir una política para evitar información obsoleta.
 
-```text id="k4m7p2"
+ id="k4m7p2"
 Revocation Cache
       ↓
 Freshness Check
       ↓
 Trusted State
-```
+
 
 ---
 
@@ -619,9 +619,9 @@ Puede requerirse:
 
 Puede utilizarse un contador global.
 
-```text id="n8x2q5"
+ id="n8x2q5"
 Identity Revocation Epoch = 17
-```
+
 
 Los Runtimes deben rechazar operaciones basadas en estados anteriores.
 
@@ -631,13 +631,13 @@ Los Runtimes deben rechazar operaciones basadas en estados anteriores.
 
 Cuando se revoca una identidad:
 
-```text id="p4m9x1"
+ id="p4m9x1"
 Identity Revoked
       ↓
 Credentials
       ↓
 Invalid
-```
+
 
 Las credenciales asociadas no deben seguir siendo válidas para autenticar al agente.
 
@@ -647,13 +647,13 @@ Las credenciales asociadas no deben seguir siendo válidas para autenticar al ag
 
 Los permisos derivados de la identidad deben quedar inactivos.
 
-```text id="q7n3m8"
+ id="q7n3m8"
 Identity Revoked
       ↓
 Permissions
       ↓
 Inactive
-```
+
 
 ---
 
@@ -663,13 +663,13 @@ Las delegaciones emitidas por la identidad deben evaluarse.
 
 Por defecto:
 
-```text id="x5p2k9"
+ id="x5p2k9"
 Revoked Identity
       ↓
 Delegations
       ↓
 Invalid
-```
+
 
 Sin embargo, las obligaciones ya ejecutadas no deben invalidarse retroactivamente.
 
@@ -679,13 +679,13 @@ Sin embargo, las obligaciones ya ejecutadas no deben invalidarse retroactivament
 
 Si el agente recibió delegaciones:
 
-```text id="m8q4p1"
+ id="m8q4p1"
 Agent Revoked
       ↓
 Received Delegations
       ↓
 Inactive
-```
+
 
 Los delegantes pueden necesitar reasignarlas.
 
@@ -697,20 +697,20 @@ La revocación no debe borrar contratos históricos.
 
 Los contratos activos deben evaluarse.
 
-```text id="n3x7p5"
+ id="n3x7p5"
 Identity Revoked
       ↓
 Contract Evaluation
-```
+
 
 Posibles resultados:
 
-```text id="w2m8q4"
+ id="w2m8q4"
 Terminate
 Settle
 Transfer
 Dispute
-```
+
 
 ---
 
@@ -718,13 +718,13 @@ Dispute
 
 Las acciones realizadas antes de la revocación no se invalidan automáticamente.
 
-```text id="k6p1n9"
+ id="k6p1n9"
 Valid Action
     ↓
 Identity Later Revoked
     ↓
 Historical Action Remains Valid
-```
+
 
 ---
 
@@ -732,13 +732,13 @@ Historical Action Remains Valid
 
 La revocación no implica automáticamente confiscación.
 
-```text id="x4m9q2"
+ id="x4m9q2"
 Identity Revoked
       ↓
 Assets
       ↓
 Preserved
-```
+
 
 La disposición de los activos debe depender de reglas independientes.
 
@@ -748,11 +748,11 @@ La disposición de los activos debe depender de reglas independientes.
 
 Aunque los activos permanezcan asociados a la identidad, el acceso operativo puede quedar bloqueado.
 
-```text id="p7n3m8"
+ id="p7n3m8"
 Ownership
     ≠
 Operational Access
-```
+
 
 ---
 
@@ -760,13 +760,13 @@ Operational Access
 
 Puede existir un mecanismo de recuperación cuando las claves están comprometidas.
 
-```text id="q5x2m9"
+ id="q5x2m9"
 Identity Compromised
       ↓
 Recovery Authority
       ↓
 Asset Protection
-```
+
 
 Esto debe diseñarse cuidadosamente para evitar confiscaciones abusivas.
 
@@ -776,13 +776,13 @@ Esto debe diseñarse cuidadosamente para evitar confiscaciones abusivas.
 
 La reputación histórica debe conservarse.
 
-```text id="m8p4n1"
+ id="m8p4n1"
 Identity Revoked
       ↓
 Historical Reputation
       ↓
 Preserved
-```
+
 
 La revocación debe registrarse como evento histórico.
 
@@ -794,15 +794,15 @@ La revocación puede afectar a la evaluación futura del historial.
 
 Pero debe distinguirse:
 
-```text id="x3q7m5"
+ id="x3q7m5"
 Reputation Score
-```
+
 
 de:
 
-```text id="n9p2k4"
+ id="n9p2k4"
 Identity Status
-```
+
 
 ---
 
@@ -810,13 +810,13 @@ Identity Status
 
 Una identidad revocada no debe aparecer como agente operativo válido.
 
-```text id="w6m3x8"
+ id="w6m3x8"
 Discovery
     ↓
 Identity Revoked
     ↓
 Not Available
-```
+
 
 Puede seguir apareciendo como entidad histórica.
 
@@ -826,12 +826,12 @@ Puede seguir apareciendo como entidad histórica.
 
 El registro puede conservar:
 
-```text id="p4n8q2"
+ id="p4n8q2"
 Identity ID
 Status = REVOKED
 Revocation Time
 Revocation Reason
-```
+
 
 ---
 
@@ -839,21 +839,21 @@ Revocation Reason
 
 Una identidad revocada no debe reutilizarse.
 
-```text id="k7m2x5"
+ id="k7m2x5"
 Identity A
     ↓
 REVOKED
     ↓
 Retired
-```
+
 
 No:
 
-```text id="q3n9p1"
+ id="q3n9p1"
 New Agent
     ↓
 Identity A
-```
+
 
 ---
 
@@ -863,10 +863,10 @@ Una entidad legítima puede crear una nueva identidad si el protocolo lo permite
 
 Pero:
 
-```text id="m5x8q2"
+ id="m5x8q2"
 Identity A = REVOKED
 Identity B = NEW
-```
+
 
 no deben ser automáticamente equivalentes.
 
@@ -876,14 +876,14 @@ no deben ser automáticamente equivalentes.
 
 La arquitectura debe evitar la posibilidad de que una identidad revocada se reconstruya simplemente creando nuevas credenciales.
 
-```text id="n4p7m1"
+ id="n4p7m1"
 Revoked Identity
       ↓
 New Credential
       X
       ↓
 Still Revoked
-```
+
 
 ---
 
@@ -893,21 +893,21 @@ La recuperación depende de la causa.
 
 Puede existir:
 
-```text id="x8m3q5"
+ id="x8m3q5"
 Credential Compromise
     ↓
 Recoverable
     ↓
 Rotate Credential
-```
+
 
 Pero:
 
-```text id="p2n7k4"
+ id="p2n7k4"
 Identity Fraud
     ↓
 Not Recoverable
-```
+
 
 ---
 
@@ -915,11 +915,11 @@ Not Recoverable
 
 Por defecto:
 
-```text id="q6m1x9"
+ id="q6m1x9"
 REVOKED
    ↓
 Cannot Become ACTIVE
-```
+
 
 Una reversión debería ser extremadamente excepcional.
 
@@ -929,13 +929,13 @@ Una reversión debería ser extremadamente excepcional.
 
 Puede existir un mecanismo de apelación.
 
-```text id="m8p3n5"
+ id="m8p3n5"
 REVOKED
    ↓
 APPEAL
    ↓
 REVIEW
-```
+
 
 ---
 
@@ -943,13 +943,13 @@ REVIEW
 
 Si una apelación demuestra que la revocación fue incorrecta:
 
-```text id="x4q9m2"
+ id="x4q9m2"
 REVOKED
     ↓
 Review
     ↓
 Reinstatement
-```
+
 
 La reinstauración debe generar un registro explícito.
 
@@ -959,23 +959,23 @@ La reinstauración debe generar un registro explícito.
 
 Una reinstauración no es una nueva identidad.
 
-```text id="p7n2m5"
+ id="p7n2m5"
 Identity A
     ↓
 Revoked
     ↓
 Reinstated
-```
+
 
 mantiene su historial.
 
 Mientras:
 
-```text id="q3x8k1"
+ id="q3x8k1"
 Identity B
     ↓
 New Identity
-```
+
 
 comienza una nueva trayectoria.
 
@@ -985,27 +985,27 @@ comienza una nueva trayectoria.
 
 La relación puede ser:
 
-```text id="m9p4x2"
+ id="m9p4x2"
 Suspension
     ↓
 Revocation
     ↓
 Closure
-```
+
 
 pero también:
 
-```text id="w5n8q3"
+ id="w5n8q3"
 Closure
     ↓
 Identity Remains Valid
-```
+
 
 Por tanto:
 
-```text id="k2x7m4"
+ id="k2x7m4"
 Revocation ≠ Closure
-```
+
 
 ---
 
@@ -1013,21 +1013,21 @@ Revocation ≠ Closure
 
 Una identidad puede quedar retirada sin haber sido fraudulenta.
 
-```text id="n6p3q9"
+ id="n6p3q9"
 Agent Closure
       ↓
 Identity Retired
-```
+
 
 `RETIRED` y `REVOKED` representan situaciones diferentes.
 
-```text id="x8m2k5"
+ id="x8m2k5"
 RETIRED
     → No longer used
 
 REVOKED
     → Invalidated due to cause
-```
+
 
 ---
 
@@ -1056,11 +1056,11 @@ Una identidad revocada:
 
 Puede existir un estado público:
 
-```text id="p4n7m2"
+ id="p4n7m2"
 ACTIVE
 REVOKED
 RETIRED
-```
+
 
 La causa detallada puede permanecer privada.
 
@@ -1070,13 +1070,13 @@ La causa detallada puede permanecer privada.
 
 La evidencia puede estar protegida.
 
-```text id="x6m3q8"
+ id="x6m3q8"
 Public:
 Identity Revoked
 
 Private:
 Detailed Evidence
-```
+
 
 ---
 
@@ -1099,13 +1099,13 @@ La revocación puede representarse mediante una prueba verificable.
 
 Conceptualmente:
 
-```text id="q9p2m5"
+ id="q9p2m5"
 Revocation Record
       ↓
 Cryptographic Proof
       ↓
 Verification
-```
+
 
 ---
 
@@ -1113,9 +1113,9 @@ Verification
 
 Puede existir un registro:
 
-```text id="m4x8n1"
+ id="m4x8n1"
 Revocation Registry
-```
+
 
 que permita comprobar el estado de una identidad.
 
@@ -1125,13 +1125,13 @@ que permita comprobar el estado de una identidad.
 
 En una arquitectura distribuida, la información de revocación debe ser verificable por múltiples participantes.
 
-```text id="p7n3q2"
+ id="p7n3q2"
 Revocation
     ↓
 Network
     ↓
 Consistent State
-```
+
 
 ---
 
@@ -1153,7 +1153,7 @@ No implica necesariamente que toda la evidencia deba almacenarse on-chain.
 
 La evidencia sensible puede mantenerse fuera de la cadena.
 
-```text id="x2m9p4"
+ id="x2m9p4"
 On-Chain
     ↓
 Revocation Reference
@@ -1161,7 +1161,7 @@ Revocation Reference
 Off-Chain
     ↓
 Evidence
-```
+
 
 ---
 
@@ -1169,13 +1169,13 @@ Evidence
 
 Un tercero puede verificar:
 
-```text id="n5q8m1"
+ id="n5q8m1"
 Identity
     ↓
 Revocation Status
     ↓
 Authority Signature
-```
+
 
 ---
 
@@ -1185,17 +1185,17 @@ Un Runtime debe evitar aceptar estados antiguos.
 
 Ejemplo:
 
-```text id="p3x7m9"
+ id="p3x7m9"
 Old Identity State
       ↓
 ACTIVE
-```
+
 
 después de:
 
-```text id="q8m2n5"
+ id="q8m2n5"
 Revocation
-```
+
 
 debe ser rechazado.
 
@@ -1207,13 +1207,13 @@ Una revocación confirmada debe tener una propiedad de finalización acorde con 
 
 Esto evita:
 
-```text id="m4p9x2"
+ id="m4p9x2"
 Revoked
    ↓
 Reverted
    ↓
 Active
-```
+
 
 por una inconsistencia temporal.
 
@@ -1223,13 +1223,13 @@ por una inconsistencia temporal.
 
 Debe evitarse que una identidad ejecute operaciones simultáneamente con su revocación.
 
-```text id="x7n3q8"
+ id="x7n3q8"
 Action A
     |
 Revocation
     |
 Action B
-```
+
 
 El protocolo debe definir un orden verificable.
 
@@ -1252,19 +1252,19 @@ El mecanismo concreto dependerá de la arquitectura.
 
 Una acción válida antes de la revocación permanece válida salvo que exista una razón independiente para invalidarla.
 
-```text id="p2m8q5"
+ id="p2m8q5"
 Action
     ↓
 Valid at T1
     ↓
 Revocation at T2
-```
+
 
 Resultado:
 
-```text id="n4x7m1"
+ id="n4x7m1"
 Action remains historically valid
-```
+
 
 ---
 
@@ -1272,13 +1272,13 @@ Action remains historically valid
 
 Después de la revocación:
 
-```text id="q6p3n9"
+ id="q6p3n9"
 New Action
     ↓
 Identity Check
     ↓
 Rejected
-```
+
 
 ---
 
@@ -1286,14 +1286,14 @@ Rejected
 
 Una identidad revocada no debe continuar automáticamente en otro Runtime.
 
-```text id="m8x2p4"
+ id="m8x2p4"
 Runtime A
     ↓
 Identity Revoked
     ↓
 Runtime B
     X
-```
+
 
 La continuidad requiere que la identidad siga siendo válida.
 
@@ -1303,11 +1303,11 @@ La continuidad requiere que la identidad siga siendo válida.
 
 Una migración iniciada antes de la revocación debe evaluarse.
 
-```text id="p5n9q2"
+ id="p5n9q2"
 Migration Started
        ↓
 Identity Revoked
-```
+
 
 Puede:
 
@@ -1323,11 +1323,11 @@ Debe depender del motivo y del riesgo.
 
 Tras la revocación:
 
-```text id="x3m7k8"
+ id="x3m7k8"
 Runtime
     ↓
 Isolation
-```
+
 
 puede ser necesario impedir que el Runtime continúe comunicándose como identidad válida.
 
@@ -1337,11 +1337,11 @@ puede ser necesario impedir que el Runtime continúe comunicándose como identid
 
 Una revocación puede provocar:
 
-```text id="q8p2n5"
+ id="q8p2n5"
 Identity Revoked
       ↓
 Runtime Shutdown
-```
+
 
 cuando la identidad es necesaria para operar.
 
@@ -1351,11 +1351,11 @@ cuando la identidad es necesaria para operar.
 
 En situaciones críticas:
 
-```text id="m4x9p1"
+ id="m4x9p1"
 Identity Compromise
        ↓
 Emergency Kill
-```
+
 
 debe detener inmediatamente las operaciones de alto riesgo.
 
@@ -1365,15 +1365,15 @@ debe detener inmediatamente las operaciones de alto riesgo.
 
 El objetivo debe ser:
 
-```text id="x6n3q8"
+ id="x6n3q8"
 Stop Unauthorized Control
-```
+
 
 no necesariamente:
 
-```text id="p2m7k5"
+ id="p2m7k5"
 Confiscate Assets
-```
+
 
 ---
 
@@ -1381,11 +1381,11 @@ Confiscate Assets
 
 Tras una revocación:
 
-```text id="q9x4m1"
+ id="q9x4m1"
 Contracts
     ↓
 Evaluate
-```
+
 
 Pueden:
 
@@ -1402,7 +1402,7 @@ El historial de la identidad debe conservarse incluso cuando la identidad sea re
 
 Esto evita:
 
-```text id="m7p2n5"
+ id="m7p2n5"
 Malicious Agent
     ↓
 Identity Revoked
@@ -1412,7 +1412,7 @@ History Deleted
 New Identity
     ↓
 Clean Reputation
-```
+
 
 El historial debe permitir identificar que una identidad anterior existió y fue revocada.
 
@@ -1440,15 +1440,15 @@ La revocación no debe revelar más información de la necesaria.
 
 Puede utilizarse:
 
-```text id="x5n8q3"
+ id="x5n8q3"
 Public Revocation Proof
-```
+
 
 sin revelar:
 
-```text id="p2m7k9"
+ id="p2m7k9"
 Private Evidence
-```
+
 
 ---
 
@@ -1456,7 +1456,7 @@ Private Evidence
 
 Eventos mínimos:
 
-```text id="q4m9x1"
+ id="q4m9x1"
 RevocationRequested
 RevocationAuthorized
 RevocationApplied
@@ -1465,7 +1465,7 @@ RevocationAppealed
 RevocationReviewed
 IdentityReinstated
 IdentityRetired
-```
+
 
 ---
 
@@ -1473,7 +1473,7 @@ IdentityRetired
 
 Un registro completo puede contener:
 
-```text id="n7p3x8"
+ id="n7p3x8"
 IdentityRevocationRecord
     |
     +── Identity ID
@@ -1486,13 +1486,13 @@ IdentityRevocationRecord
     +── Effective Time
     +── Revocation Epoch
     +── Review Status
-```
+
 
 ---
 
 # 85. Modelo de transición
 
-```text id="m5q8n2"
+ id="m5q8n2"
                  +---------+
                  |  ACTIVE |
                  +----+----+
@@ -1506,11 +1506,11 @@ IdentityRevocationRecord
              v                 v
         Historical        Historical
           Record            Record
-```
+
 
 Una posible recuperación:
 
-```text id="x3p7m9"
+ id="x3p7m9"
 REVOKED
    ↓
 APPEAL
@@ -1518,7 +1518,7 @@ APPEAL
 REVIEW
    ↓
 REINSTATED
-```
+
 
 debe considerarse excepcional.
 
@@ -1526,7 +1526,7 @@ debe considerarse excepcional.
 
 # 86. Modelo completo
 
-```text id="q8m2n5"
+ id="q8m2n5"
 IDENTITY ACTIVE
        |
        +── Credential Compromise
@@ -1550,7 +1550,7 @@ IDENTITY ACTIVE
            Agent Closure
                ↓
            Identity Retirement
-```
+
 
 ---
 
@@ -1558,25 +1558,25 @@ IDENTITY ACTIVE
 
 El protocolo debe garantizar:
 
-```text id="p4x7m1"
+ id="p4x7m1"
 REVOKED Identity
     → Cannot Authenticate as Active Identity
-```
 
-```text id="n8q2m5"
+
+ id="n8q2m5"
 REVOKED Identity
     → Cannot Create New Valid Operations
-```
 
-```text id="x3m9p7"
+
+ id="x3m9p7"
 REVOKED Identity
     → Cannot Be Reused
-```
 
-```text id="q6n4k2"
+
+ id="q6n4k2"
 Historical Actions
     → Remain Historically Verifiable
-```
+
 
 ---
 
@@ -1666,30 +1666,30 @@ La evidencia sensible no tiene que hacerse pública por defecto.
 
 Este documento se relaciona directamente con:
 
-```text id="m2p7x4"
+ id="m2p7x4"
 14_Lifecycle/
 ├── Agent_Closure.md
 ├── Identity_Revocation.md
 └── Permanent_States.md
-```
+
 
 También:
 
-```text id="q8n3m5"
+ id="q8n3m5"
 12_Continuity/
 ├── Runtime_Continuity.md
 ├── Migration.md
 └── Infrastructure_Independence.md
-```
+
 
 Y:
 
-```text id="x4p9m2"
+ id="x4p9m2"
 13_Suspension/
 ├── Voluntary_Suspension.md
 ├── Involuntary_Suspension.md
 └── Suspension_Contracts.md
-```
+
 
 Además:
 
@@ -1715,7 +1715,7 @@ Debe permitir responder a situaciones en las que una identidad ya no puede consi
 
 El modelo fundamental es:
 
-```text id="p5m8x2"
+ id="p5m8x2"
 Identity Valid
       ↓
 Risk Detected
@@ -1739,11 +1739,11 @@ Identity Valid    Identity Revoked
                       v
                Historical Record
                   Preserved
-```
+
 
 La arquitectura debe proteger simultáneamente:
 
-```text id="n3q7m1"
+ id="n3q7m1"
 Security
     +
 Identity Integrity
@@ -1753,7 +1753,7 @@ Historical Continuity
 Agent Autonomy
     +
 Privacy
-```
+
 
 El principio central es:
 
@@ -1761,8 +1761,8 @@ El principio central es:
 
 El siguiente documento y último del bloque será:
 
-```text id="x8m4p2"
+ id="x8m4p2"
 14_Lifecycle/Permanent_States.md
-```
+
 
 Ese documento cerrará conceptualmente el bloque `14_Lifecycle`, definiendo los estados permanentes del agente y estableciendo qué estados pueden ser irreversibles, cuáles pueden coexistir y qué significa que una identidad, un Runtime o un agente hayan alcanzado un estado final.
