@@ -75,9 +75,9 @@ Una prueba es una estructura verificable que proporciona evidencia sobre la ocur
 
 Formalmente:
 
-```text
+
 Proof = Evidence + Context + Verification Method
-```
+
 
 Una prueba debe permitir responder, cuando sea posible, preguntas como:
 
@@ -97,7 +97,7 @@ Una prueba debe permitir responder, cuando sea posible, preguntas como:
 
 SynCoinAI establece una separación entre:
 
-```text
+
 Afirmación
     ↓
 Evidencia
@@ -107,7 +107,7 @@ Prueba
 Verificación
     ↓
 Confianza
-```
+
 
 Una afirmación no es automáticamente una prueba.
 
@@ -117,13 +117,13 @@ Una prueba proporciona evidencia que puede ser evaluada mediante un mecanismo de
 
 Por tanto:
 
-```text
+
 Claim ≠ Evidence
 
 Evidence ≠ Proof
 
 Proof ≠ Truth absoluto
-```
+
 
 El sistema debe determinar qué nivel de confianza proporciona cada prueba.
 
@@ -135,17 +135,17 @@ Una prueba siempre debe estar asociada a un hecho o afirmación concreta.
 
 Ejemplo:
 
-```text
+
 Agente A declara:
 
 "He entregado el archivo X al Agente B"
-```
+
 
 La declaración por sí sola no constituye una prueba.
 
 Puede existir evidencia como:
 
-```text
+
 Hash del archivo
     +
 Identidad del emisor
@@ -157,7 +157,7 @@ Marca temporal
 Firma digital
     +
 Registro de recepción
-```
+
 
 El conjunto puede formar una prueba verificable.
 
@@ -224,15 +224,15 @@ Puede utilizar:
 
 La temporalidad debe distinguir entre:
 
-```text
+
 Tiempo declarado
-```
+
 
 y
 
-```text
+
 Tiempo verificable
-```
+
 
 No todo timestamp proporciona necesariamente una garantía absoluta sobre el momento real de un evento.
 
@@ -261,15 +261,15 @@ Esto no significa necesariamente que la entidad haya actuado de forma voluntaria
 
 Debe diferenciarse:
 
-```text
+
 Autenticidad criptográfica
-```
+
 
 de
 
-```text
+
 Intención
-```
+
 
 ---
 
@@ -277,7 +277,7 @@ Intención
 
 Una prueba conceptual puede representarse como:
 
-```text
+
 +---------------------------------------+
 | PROOF                                 |
 +---------------------------------------+
@@ -295,7 +295,7 @@ Una prueba conceptual puede representarse como:
 | Expiration                            |
 | Revocation Status                     |
 +---------------------------------------+
-```
+
 
 No todos los campos son obligatorios en todos los tipos de prueba.
 
@@ -319,17 +319,17 @@ Puede ser:
 
 Ejemplo:
 
-```text
+
 Subject:
 Agent A
-```
+
 
 o:
 
-```text
+
 Subject:
 Action #78432
-```
+
 
 ---
 
@@ -339,20 +339,20 @@ El `Claim` representa la afirmación que la prueba pretende respaldar.
 
 Ejemplo:
 
-```text
+
 Claim:
 
 Agent A completed Contract X.
-```
+
 
 Otro ejemplo:
 
-```text
+
 Claim:
 
 Agent A executed Action Y
 at Time T.
-```
+
 
 La afirmación debe ser lo suficientemente precisa para que pueda evaluarse.
 
@@ -373,15 +373,15 @@ Puede ser:
 
 Esto permite distinguir entre:
 
-```text
+
 Self-attested Proof
-```
+
 
 y
 
-```text
+
 Third-party Verified Proof
-```
+
 
 ---
 
@@ -391,13 +391,13 @@ Una prueba autoatestiguada es generada por la propia entidad que realiza la afir
 
 Ejemplo:
 
-```text
+
 Agent A
     |
     | declara
     ↓
 "Completé el servicio X"
-```
+
 
 La prueba puede incluir:
 
@@ -424,7 +424,7 @@ Una prueba de terceros es emitida o respaldada por una entidad diferente del suj
 
 Ejemplo:
 
-```text
+
 Agent A
     |
     | ejecuta servicio
@@ -434,7 +434,7 @@ Agent B
     | verifica resultado
     ↓
 Proof
-```
+
 
 Puede proporcionar mayor confianza cuando el tercero tiene:
 
@@ -451,7 +451,7 @@ Algunos hechos pueden requerir múltiples participantes.
 
 Ejemplo:
 
-```text
+
 Agent A
     |
     | presta servicio
@@ -463,20 +463,20 @@ Agent B
 Agent C
     |
     | verifica resultado
-```
+
 
 La prueba puede contener múltiples firmas o testimonios.
 
 Esto permite representar:
 
-```text
+
 Proof =
 Signature A
 +
 Confirmation B
 +
 Verification C
-```
+
 
 La confianza puede aumentar cuando las evidencias son independientes y consistentes.
 
@@ -494,13 +494,13 @@ Demuestra la vinculación entre una identidad y una operación.
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Firma digital
     ↓
 Operation X
-```
+
 
 Permite verificar:
 
@@ -523,7 +523,7 @@ Puede demostrar:
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Credential
@@ -531,7 +531,7 @@ Credential
 Permission
     ↓
 Action
-```
+
 
 ---
 
@@ -541,13 +541,13 @@ Proporciona evidencia de que una acción fue ejecutada.
 
 Ejemplo:
 
-```text
+
 Action Requested
         ↓
 Action Executed
         ↓
 Execution Evidence
-```
+
 
 La prueba puede incluir:
 
@@ -564,7 +564,7 @@ Demuestra evidencia sobre el resultado de una acción.
 
 Ejemplo:
 
-```text
+
 Input
    ↓
 Execution
@@ -572,7 +572,7 @@ Execution
 Output
    ↓
 Result Proof
-```
+
 
 ---
 
@@ -608,7 +608,7 @@ Proporciona evidencia de cumplimiento de una obligación contractual.
 
 Ejemplo:
 
-```text
+
 Contract
     ↓
 Obligation
@@ -618,7 +618,7 @@ Execution
 Evidence
     ↓
 Compliance Proof
-```
+
 
 ---
 
@@ -642,7 +642,7 @@ Demuestra que un agente recibió autorización delegada para realizar una acció
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Delegates Capability
@@ -650,7 +650,7 @@ Delegates Capability
 Agent B
     ↓
 Executes Action
-```
+
 
 ---
 
@@ -675,7 +675,7 @@ Esto permite formar cadenas de evidencia.
 
 Ejemplo:
 
-```text
+
 Identity Proof
       ↓
 Authorization Proof
@@ -687,7 +687,7 @@ Result Proof
 Delivery Proof
       ↓
 Receipt Proof
-```
+
 
 La cadena permite representar el ciclo completo de una operación.
 
@@ -701,7 +701,7 @@ Las pruebas pueden formar un grafo.
 
 Ejemplo:
 
-```text
+
                 Identity Proof
                       |
                       ↓
@@ -718,7 +718,7 @@ Ejemplo:
                    /   \
                   ↓     ↓
              Delivery  Receipt
-```
+
 
 Este modelo permite representar relaciones complejas entre evidencias.
 
@@ -730,13 +730,13 @@ Una prueba puede depender de otras pruebas.
 
 Ejemplo:
 
-```text
+
 Result Proof
      |
      └── depende de Execution Proof
                  |
                  └── depende de Authorization Proof
-```
+
 
 Si una prueba fundamental deja de ser válida, las pruebas dependientes pueden necesitar ser reevaluadas.
 
@@ -748,24 +748,24 @@ La verificación debe producir un resultado explícito.
 
 Modelo conceptual:
 
-```text
+
 Proof
   ↓
 Verification
   ↓
 Result
-```
+
 
 Resultados posibles:
 
-```text
+
 VALID
 INVALID
 EXPIRED
 REVOKED
 INCONCLUSIVE
 UNVERIFIED
-```
+
 
 ---
 
@@ -779,11 +779,11 @@ Determina si una prueba cumple las reglas técnicas.
 
 Ejemplo:
 
-```text
+
 Firma válida
 Formato correcto
 Hash correcto
-```
+
 
 ### Verificación
 
@@ -791,19 +791,19 @@ Determina si la evidencia respalda la afirmación correspondiente.
 
 Ejemplo:
 
-```text
+
 La firma es válida
 +
 La evidencia corresponde a la acción
 +
 La acción corresponde al contrato
-```
+
 
 Por tanto:
 
-```text
+
 Validación técnica ≠ Verificación completa del hecho
-```
+
 
 ---
 
@@ -815,7 +815,7 @@ El sistema puede clasificar las pruebas.
 
 Ejemplo conceptual:
 
-```text
+
 Level 0
 Sin evidencia verificable
 
@@ -833,7 +833,7 @@ Prueba respaldada por múltiples verificadores
 
 Level 5
 Prueba verificable mediante mecanismos deterministas
-```
+
 
 Estos niveles son conceptuales.
 
@@ -852,7 +852,7 @@ Cuando sea posible, el sistema debe favorecer pruebas verificables de forma dete
 
 Ejemplo:
 
-```text
+
 Input
     ↓
 Algoritmo determinista
@@ -860,7 +860,7 @@ Algoritmo determinista
 Output
     ↓
 Hash
-```
+
 
 Cualquier verificador puede reproducir el proceso.
 
@@ -899,7 +899,7 @@ Los agentes físicos pueden generar pruebas relacionadas con eventos reales.
 
 Ejemplo:
 
-```text
+
 Robot
     ↓
 Sensor
@@ -909,16 +909,16 @@ Evento físico
 Registro
     ↓
 Proof
-```
+
 
 La prueba no garantiza necesariamente que el evento físico sea verdadero.
 
 Garantiza, en primer lugar, que:
 
-```text
+
 El sensor identificado
 registró el evento.
-```
+
 
 La confianza adicional dependerá de:
 
@@ -936,7 +936,7 @@ Cuando una prueba depende de información externa a la red, puede requerir un or
 
 Ejemplo:
 
-```text
+
 Mundo físico
       ↓
 Oracle
@@ -944,7 +944,7 @@ Oracle
 Proof
       ↓
 SynCoinAI
-```
+
 
 El oráculo debe considerarse una fuente de evidencia.
 
@@ -968,19 +968,19 @@ Una prueba puede demostrar una propiedad sin revelar información privada.
 
 Ejemplo:
 
-```text
+
 Información privada
        ↓
 Proof
        ↓
 "Condición cumplida"
-```
+
 
 En lugar de revelar:
 
-```text
+
 Datos originales
-```
+
 
 puede utilizar:
 
@@ -991,15 +991,15 @@ puede utilizar:
 
 La arquitectura debe favorecer:
 
-```text
+
 Verificabilidad mínima necesaria
-```
+
 
 en lugar de:
 
-```text
+
 Exposición máxima de información
-```
+
 
 ---
 
@@ -1009,13 +1009,13 @@ En determinadas situaciones puede ser necesario demostrar conocimiento de una in
 
 Ejemplo:
 
-```text
+
 Agente A
     |
     | demuestra conocimiento
     ↓
 Verifier
-```
+
 
 El verificador confirma la propiedad requerida sin acceder necesariamente al secreto.
 
@@ -1034,13 +1034,13 @@ Una prueba de posesión permite demostrar control sobre un recurso o secreto.
 
 Ejemplo:
 
-```text
+
 Private Key
     ↓
 Cryptographic Proof
     ↓
 Verifier
-```
+
 
 Puede utilizarse para demostrar control sobre:
 
@@ -1057,7 +1057,7 @@ Las pruebas de servicio representan evidencia de que un servicio fue prestado.
 
 Ejemplo:
 
-```text
+
 Service Contract
        ↓
 Service Execution
@@ -1065,7 +1065,7 @@ Service Execution
 Service Evidence
        ↓
 Proof of Service
-```
+
 
 El `Proof of Service` debe integrarse con:
 
@@ -1084,7 +1084,7 @@ Las operaciones económicas pueden generar pruebas verificables.
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Payment
@@ -1092,7 +1092,7 @@ Payment
 Blockchain Transaction
     ↓
 Transaction Proof
-```
+
 
 Estas pruebas pueden demostrar:
 
@@ -1111,7 +1111,7 @@ Las pruebas constituyen una fuente potencial de evidencia para la reputación.
 
 Modelo:
 
-```text
+
 Action
    ↓
 Proof
@@ -1121,13 +1121,13 @@ Verification
 Evaluation
    ↓
 Reputation Event
-```
+
 
 Sin embargo:
 
-```text
+
 Proof ≠ Reputation
-```
+
 
 Una prueba proporciona evidencia.
 
@@ -1141,7 +1141,7 @@ Las pruebas pueden contribuir a establecer responsabilidad dentro del ecosistema
 
 Ejemplo:
 
-```text
+
 Identity
     ↓
 Authorization
@@ -1151,7 +1151,7 @@ Action
 Result
     ↓
 Evidence
-```
+
 
 Esto permite reconstruir:
 
@@ -1181,15 +1181,15 @@ Los mecanismos de seguridad deben considerar:
 
 Por tanto:
 
-```text
+
 Proof Exists
-```
+
 
 no implica automáticamente:
 
-```text
+
 Proof Is Trustworthy
-```
+
 
 La confianza debe considerar el contexto de generación y verificación.
 
@@ -1210,17 +1210,17 @@ Cuando sea necesario, debe incluir:
 
 Ejemplo:
 
-```text
+
 Proof A
     ↓
 Action X
-```
+
 
 No debe poder reutilizarse como evidencia de:
 
-```text
+
 Action Y
-```
+
 
 ---
 
@@ -1230,29 +1230,29 @@ Algunas pruebas tienen una validez temporal limitada.
 
 Ejemplo:
 
-```text
+
 Credential Proof
-```
+
 
 Puede ser válida:
 
-```text
+
 2026-01-01
     ↓
 2026-12-31
-```
+
 
 Después:
 
-```text
+
 EXPIRED
-```
+
 
 La expiración debe diferenciarse de la revocación.
 
-```text
+
 Expired ≠ Revoked
-```
+
 
 ---
 
@@ -1270,9 +1270,9 @@ Esto puede ocurrir por:
 
 El estado puede pasar a:
 
-```text
+
 REVOKED
-```
+
 
 Los mecanismos específicos de revocación deben definirse en los sistemas correspondientes.
 
@@ -1284,17 +1284,17 @@ Algunas verificaciones requieren evidencia reciente.
 
 Ejemplo:
 
-```text
+
 Agent is authorized
-```
+
 
 Una prueba antigua puede no ser suficiente.
 
 El sistema puede exigir:
 
-```text
+
 Fresh Proof
-```
+
 
 para operaciones sensibles.
 
@@ -1319,13 +1319,13 @@ Una prueba válida en un contexto puede no ser válida en otro.
 
 Por tanto:
 
-```text
+
 Proof Validity
 =
 Proof
 +
 Context
-```
+
 
 ---
 
@@ -1335,7 +1335,7 @@ Cada prueba debe tener un alcance definido.
 
 Ejemplo:
 
-```text
+
 Proof Scope:
 
 Action:
@@ -1349,7 +1349,7 @@ Timestamp T
 
 Allowed Resource:
 Compute Cluster A
-```
+
 
 El alcance limita la reutilización indebida.
 
@@ -1361,7 +1361,7 @@ Varias pruebas pueden combinarse para demostrar un hecho más complejo.
 
 Ejemplo:
 
-```text
+
 Identity Proof
 +
 Authorization Proof
@@ -1369,13 +1369,13 @@ Authorization Proof
 Execution Proof
 +
 Result Proof
-```
+
 
 Puede producir:
 
-```text
+
 Verified Contract Completion
-```
+
 
 La composición debe mantener las relaciones entre las pruebas originales.
 
@@ -1400,7 +1400,7 @@ La invalidación debe propagarse cuando corresponda.
 
 El estado conceptual de una prueba puede representarse como:
 
-```text
+
 CREATED
     ↓
 SUBMITTED
@@ -1408,17 +1408,17 @@ SUBMITTED
 VALIDATING
     ↓
 VERIFIED
-```
+
 
 Estados alternativos:
 
-```text
+
 INVALID
 EXPIRED
 REVOKED
 DISPUTED
 INCONCLUSIVE
-```
+
 
 ---
 
@@ -1428,7 +1428,7 @@ Una prueba puede ser disputada por otra entidad.
 
 Ejemplo:
 
-```text
+
 Agent A:
 "Servicio completado"
 
@@ -1438,7 +1438,7 @@ Agent B:
         ↓
 
 Proof Dispute
-```
+
 
 El sistema debe permitir mecanismos de resolución.
 
@@ -1459,7 +1459,7 @@ Cada contexto puede establecer qué pruebas son necesarias.
 
 Ejemplo:
 
-```text
+
 Microtransaction
 → Identity Proof
 
@@ -1474,7 +1474,7 @@ High-Value Contract
 → Authorization
 → Multiple Verification
 → Audit Evidence
-```
+
 
 El nivel de verificación debe ser proporcional al riesgo.
 
@@ -1486,7 +1486,7 @@ SynCoinAI debe evitar exigir mecanismos de prueba excesivamente costosos para ac
 
 La verificación debe considerar:
 
-```text
+
 Risk
 +
 Value
@@ -1494,21 +1494,21 @@ Value
 Impact
 +
 Reversibility
-```
+
 
 Ejemplo:
 
-```text
+
 Acción de bajo riesgo
     ↓
 Prueba simple
-```
 
-```text
+
+
 Acción crítica
     ↓
 Prueba reforzada
-```
+
 
 ---
 
@@ -1538,13 +1538,13 @@ Adecuado para:
 
 Modelo recomendado para muchos casos:
 
-```text
+
 Off-chain Evidence
         ↓
 Hash
         ↓
 On-chain Reference
-```
+
 
 Esto permite preservar verificabilidad sin almacenar todos los datos directamente en blockchain.
 
@@ -1556,12 +1556,12 @@ Las pruebas pueden tener diferentes períodos de conservación.
 
 Ejemplo:
 
-```text
+
 Temporary Proof
 Permanent Proof
 Contract-bound Proof
 Regulatory Retention Proof
-```
+
 
 La política dependerá de:
 
@@ -1607,7 +1607,7 @@ La interoperabilidad no debe comprometer la identidad nativa del agente.
 
 La confianza en una prueba puede representarse conceptualmente como:
 
-```text
+
 Trust =
 Integrity
 +
@@ -1618,7 +1618,7 @@ Context
 Verification
 +
 Source Reliability
-```
+
 
 No existe una única métrica universal.
 
@@ -1639,13 +1639,13 @@ Esto reduce:
 
 Modelo:
 
-```text
+
 Requirement
     ↓
 Minimum Evidence
     ↓
 Verification
-```
+
 
 ---
 
@@ -1655,17 +1655,17 @@ Cuando sea posible, una prueba debe poder verificarse sin depender exclusivament
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Generates Proof
-```
+
 
 El verificador:
 
-```text
+
 Agent B
-```
+
 
 debe poder evaluar la prueba mediante información disponible y métodos definidos.
 
@@ -1675,16 +1675,16 @@ debe poder evaluar la prueba mediante información disponible y métodos definid
 
 El sistema debe separar:
 
-```text
+
 Action
 Proof
 Verification
 Evaluation
-```
+
 
 Por ejemplo:
 
-```text
+
 Agent A
 → ejecuta acción
 
@@ -1696,7 +1696,7 @@ Runtime
 
 Reputation System
 → evalúa impacto
-```
+
 
 Esta separación reduce conflictos de interés.
 
@@ -1710,7 +1710,7 @@ Este documento define cómo se representan y estructuran las pruebas que respald
 
 Relación:
 
-```text
+
 Action
     ↓
 Action Verification
@@ -1718,7 +1718,7 @@ Action Verification
 Proof
     ↓
 Verification Result
-```
+
 
 ---
 
@@ -1728,7 +1728,7 @@ Las pruebas proporcionan la evidencia necesaria para la auditoría.
 
 Relación:
 
-```text
+
 Event
     ↓
 Proof
@@ -1738,13 +1738,13 @@ Storage
 Audit
     ↓
 Verification
-```
+
 
 La arquitectura de auditoría se define en:
 
-```text
+
 Auditability.md
-```
+
 
 ---
 
@@ -1754,7 +1754,7 @@ Las pruebas verificadas pueden convertirse en eventos de reputación.
 
 Modelo:
 
-```text
+
 Action
     ↓
 Proof
@@ -1764,7 +1764,7 @@ Verification
 Evaluation
     ↓
 Reputation
-```
+
 
 El sistema de reputación debe evitar utilizar automáticamente cualquier prueba como evidencia positiva.
 
@@ -1783,13 +1783,13 @@ Debe considerar:
 
 Toda prueba relacionada con un agente debe poder vincularse a una identidad verificable cuando la identidad sea relevante para el hecho.
 
-```text
+
 Identity
     ↓
 Proof
     ↓
 Action
-```
+
 
 La prueba no debe transferir automáticamente identidad.
 
@@ -1806,7 +1806,7 @@ Las credenciales pueden utilizarse como evidencia de:
 * capacidades;
 * delegaciones.
 
-```text
+
 Credential
     ↓
 Authorization
@@ -1814,7 +1814,7 @@ Authorization
 Action
     ↓
 Proof
-```
+
 
 La credencial no sustituye necesariamente a la prueba de ejecución.
 
@@ -1826,14 +1826,14 @@ Los contratos pueden definir qué pruebas son necesarias.
 
 Ejemplo:
 
-```text
+
 Contract
     |
     ├── Required Identity Proof
     ├── Required Authorization Proof
     ├── Required Execution Proof
     └── Required Result Proof
-```
+
 
 Esto permite que las obligaciones contractuales sean verificables automáticamente cuando sea posible.
 
@@ -1843,7 +1843,7 @@ Esto permite que las obligaciones contractuales sean verificables automáticamen
 
 El flujo general puede representarse como:
 
-```text
+
 Agent
   ↓
 Identity
@@ -1865,7 +1865,7 @@ Evaluation
 Audit
   ↓
 Reputation / Payment / Contract State
-```
+
 
 Este flujo representa la relación entre los principales componentes del ecosistema.
 
@@ -1923,7 +1923,7 @@ El Proof Model establece la infraestructura conceptual mediante la cual SynCoinA
 
 El modelo permite relacionar:
 
-```text
+
 Identidad
     ↓
 Autorización
@@ -1941,7 +1941,7 @@ Verificación
 Auditoría
     ↓
 Reputación
-```
+
 
 Este sistema permite que la confianza dentro de SynCoinAI no dependa exclusivamente de declaraciones, sino de evidencia verificable y contextualizada.
 

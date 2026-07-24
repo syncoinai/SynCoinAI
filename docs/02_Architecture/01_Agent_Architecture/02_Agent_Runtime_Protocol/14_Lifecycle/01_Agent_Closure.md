@@ -20,21 +20,21 @@ El cierre representa la terminación del ciclo de vida operativo de un agente.
 
 No debe confundirse con:
 
-```text
+
 SUSPENSION
-```
 
-```text
+
+
 REVOCATION
-```
 
-```text
+
+
 RUNTIME SHUTDOWN
-```
 
-```text
+
+
 INACTIVITY
-```
+
 
 Cada uno representa una situación diferente.
 
@@ -71,7 +71,7 @@ El cierre de un agente es la transición mediante la cual el agente deja de pode
 
 Conceptualmente:
 
-```text id="g9e6wh"
+ id="g9e6wh"
 ACTIVE
    |
    v
@@ -82,7 +82,7 @@ CLOSURE_PROCESSING
    |
    v
 CLOSED
-```
+
 
 El cierre puede tener diferentes causas.
 
@@ -92,19 +92,19 @@ El cierre puede tener diferentes causas.
 
 El protocolo distingue inicialmente:
 
-```text id="1z8u0f"
+ id="1z8u0f"
 VOLUNTARY_CLOSURE
 INVOLUNTARY_CLOSURE
 ADMINISTRATIVE_CLOSURE
 SECURITY_CLOSURE
 LIFECYCLE_CLOSURE
-```
+
 
 También puede existir:
 
-```text id="n0t5c8"
+ id="n0t5c8"
 EMERGENCY_CLOSURE
-```
+
 
 cuando sea necesario terminar inmediatamente la operación de un agente.
 
@@ -114,13 +114,13 @@ cuando sea necesario terminar inmediatamente la operación de un agente.
 
 Un agente puede solicitar su propio cierre.
 
-```text id="b8m9o3"
+ id="b8m9o3"
 Agent
    |
    | Closure Request
    v
 CLOSURE_PENDING
-```
+
 
 Esto puede ocurrir cuando:
 
@@ -138,7 +138,7 @@ Un agente puede ser cerrado sin su consentimiento cuando exista una autoridad le
 
 Puede producirse después de:
 
-```text id="0b4g1j"
+ id="0b4g1j"
 Suspension
     ↓
 Investigation
@@ -146,7 +146,7 @@ Investigation
 Decision
     ↓
 Closure
-```
+
 
 No debe ser una consecuencia automática de cualquier suspensión.
 
@@ -187,7 +187,7 @@ Un agente puede haber sido diseñado para ejecutar una tarea limitada.
 
 Ejemplo:
 
-```text id="ck2l6q"
+ id="ck2l6q"
 Agent Created
      ↓
 Mission
@@ -195,7 +195,7 @@ Mission
 Mission Completed
      ↓
 Closure
-```
+
 
 Este puede ser un caso completamente normal.
 
@@ -207,7 +207,7 @@ Un agente puede dejar de ser necesario.
 
 Por ejemplo:
 
-```text id="b6h9yq"
+ id="b6h9yq"
 Agent
     ↓
 Replacement Agent
@@ -215,7 +215,7 @@ Replacement Agent
 Old Agent
     ↓
 Closure
-```
+
 
 La identidad histórica puede conservarse.
 
@@ -225,11 +225,11 @@ La identidad histórica puede conservarse.
 
 La inactividad no implica necesariamente cierre.
 
-```text id="l5o7ae"
+ id="l5o7ae"
 INACTIVE
     ≠
 CLOSED
-```
+
 
 Un agente puede permanecer inactivo durante años y conservar:
 
@@ -244,25 +244,25 @@ Un agente puede permanecer inactivo durante años y conservar:
 
 La suspensión es reversible.
 
-```text id="k19m4c"
+ id="k19m4c"
 SUSPENDED
     ↓
 ACTIVE
-```
+
 
 El cierre normalmente es:
 
-```text id="j8e4u1"
+ id="j8e4u1"
 CLOSED
     ↓
 No Operational Return
-```
+
 
 Por tanto:
 
-```text id="9eqj6p"
+ id="9eqj6p"
 SUSPENSION ≠ CLOSURE
-```
+
 
 ---
 
@@ -270,29 +270,29 @@ SUSPENSION ≠ CLOSURE
 
 La revocación afecta principalmente a la validez de una identidad o credencial.
 
-```text id="v6q3e1"
+ id="v6q3e1"
 REVOCATION
-```
+
 
 El cierre afecta al ciclo de vida operativo.
 
 Un agente puede:
 
-```text id="5kz6jv"
+ id="5kz6jv"
 CLOSED
 +
 IDENTITY VALID
-```
+
 
 si la arquitectura permite conservar su identidad histórica.
 
 También puede existir:
 
-```text id="8h8n42"
+ id="8h8n42"
 CLOSED
 +
 IDENTITY REVOKED
-```
+
 
 si existe una causa legítima.
 
@@ -302,7 +302,7 @@ si existe una causa legítima.
 
 La arquitectura debe mantener separados:
 
-```text id="q9w6b5"
+ id="q9w6b5"
 Agent Lifecycle
 Identity State
 Runtime State
@@ -310,11 +310,11 @@ Credential State
 Contract State
 Asset State
 Reputation State
-```
+
 
 Por ejemplo:
 
-```text id="t4w3g0"
+ id="t4w3g0"
 Agent
   ├── Lifecycle = CLOSED
   ├── Identity = VALID
@@ -323,7 +323,7 @@ Agent
   ├── Contracts = SETTLED
   ├── Assets = TRANSFERRED
   └── Reputation = PRESERVED
-```
+
 
 Este modelo permite representar correctamente el estado final.
 
@@ -333,7 +333,7 @@ Este modelo permite representar correctamente el estado final.
 
 Antes del cierre debe realizarse una evaluación.
 
-```text id="e8r5yk"
+ id="e8r5yk"
 Closure Request
       ↓
 Validate Authority
@@ -347,7 +347,7 @@ Evaluate Assets
 Evaluate Delegations
       ↓
 Closure Decision
-```
+
 
 ---
 
@@ -371,11 +371,11 @@ No debe iniciar nuevas actividades no relacionadas con el cierre.
 
 Durante esta fase se ejecutan las operaciones finales.
 
-```text id="9xj4kp"
+ id="9xj4kp"
 CLOSURE_PENDING
        ↓
 CLOSURE_PROCESSING
-```
+
 
 Se pueden realizar:
 
@@ -392,7 +392,7 @@ Se pueden realizar:
 
 Cuando sea posible:
 
-```text id="n9p4fl"
+ id="n9p4fl"
 Stop New Work
       ↓
 Complete Safe Work
@@ -406,7 +406,7 @@ Persist State
 Terminate Runtime
       ↓
 CLOSED
-```
+
 
 Este es el método preferido.
 
@@ -416,13 +416,13 @@ Este es el método preferido.
 
 Cuando existe un riesgo inmediato:
 
-```text id="2m2d5x"
+ id="2m2d5x"
 Threat
    ↓
 Immediate Stop
    ↓
 Forced Closure
-```
+
 
 Puede impedir completar operaciones pendientes.
 
@@ -434,7 +434,7 @@ En este caso deben preservarse los datos necesarios para una resolución posteri
 
 En una emergencia:
 
-```text id="5q1b5v"
+ id="5q1b5v"
 EMERGENCY
     ↓
 STOP
@@ -444,7 +444,7 @@ ISOLATE
 PRESERVE STATE
     ↓
 CLOSED
-```
+
 
 La seguridad tiene prioridad sobre la finalización ordenada.
 
@@ -454,13 +454,13 @@ La seguridad tiene prioridad sobre la finalización ordenada.
 
 Durante `CLOSURE_PENDING` no deberían aceptarse nuevos contratos normales.
 
-```text id="r2r5x9"
+ id="r2r5x9"
 CLOSURE_PENDING
       ↓
 New Contract
       ↓
 REJECTED
-```
+
 
 Excepcionalmente pueden permitirse contratos necesarios para:
 
@@ -475,7 +475,7 @@ Excepcionalmente pueden permitirse contratos necesarios para:
 
 Los contratos existentes deben evaluarse.
 
-```text id="x7s4l3"
+ id="x7s4l3"
 Contract
     |
     +── Complete
@@ -483,7 +483,7 @@ Contract
     +── Transfer
     +── Terminate
     +── Dispute
-```
+
 
 ---
 
@@ -493,21 +493,21 @@ El cierre no elimina automáticamente obligaciones existentes.
 
 Antes de cerrar:
 
-```text id="e7h2c1"
+ id="e7h2c1"
 Outstanding Obligations
         ↓
 Resolve
-```
+
 
 Cuando no sea posible resolverlas:
 
-```text id="q4r7h2"
+ id="q4r7h2"
 Outstanding Obligations
         ↓
 Record
         ↓
 Settlement Mechanism
-```
+
 
 ---
 
@@ -517,13 +517,13 @@ Los activos del agente deben gestionarse explícitamente.
 
 Posibles resultados:
 
-```text id="4g2m8a"
+ id="4g2m8a"
 Transfer
 Return
 Settle
 Remain Locked
 Remain Owned
-```
+
 
 La arquitectura no debe asumir automáticamente que el cierre implica confiscación.
 
@@ -535,10 +535,10 @@ Un agente puede cerrar con un balance residual.
 
 Ejemplo:
 
-```text id="x0f7cn"
+ id="x0f7cn"
 Agent CLOSED
 Balance = Non-Zero
-```
+
 
 La política económica debe determinar qué ocurre.
 
@@ -558,15 +558,15 @@ El cierre del agente no implica necesariamente transferencia automática de prop
 
 Debe distinguirse:
 
-```text id="9z4m0s"
+ id="9z4m0s"
 Agent Closure
-```
+
 
 de:
 
-```text id="f4e5k2"
+ id="f4e5k2"
 Asset Ownership Transfer
-```
+
 
 ---
 
@@ -574,7 +574,7 @@ Asset Ownership Transfer
 
 La reputación histórica debe preservarse.
 
-```text id="7r5p0m"
+ id="7r5p0m"
 Agent CLOSED
       |
       v
@@ -582,7 +582,7 @@ Historical Reputation
       |
       v
 Preserved
-```
+
 
 Esto permite que terceros verifiquen el historial del agente.
 
@@ -592,9 +592,9 @@ Esto permite que terceros verifiquen el historial del agente.
 
 Puede registrarse un estado final:
 
-```text id="q2c8k9"
+ id="q2c8k9"
 Final Reputation Snapshot
-```
+
 
 Debe distinguirse entre:
 
@@ -610,13 +610,13 @@ El cierre no implica automáticamente destruir la identidad.
 
 Puede existir:
 
-```text id="f1x9r6"
+ id="f1x9r6"
 Agent ID
     ↓
 Permanently Associated
     ↓
 Closed Agent
-```
+
 
 Esto evita reutilizar la identidad para otro agente.
 
@@ -626,21 +626,21 @@ Esto evita reutilizar la identidad para otro agente.
 
 Una identidad cerrada no debería reutilizarse.
 
-```text id="z9w2m4"
+ id="z9w2m4"
 Agent A
    ↓
 CLOSED
    ↓
 Agent ID Retired
-```
+
 
 No:
 
-```text id="x1v6k8"
+ id="x1v6k8"
 Agent B
    ↓
 Same Agent ID
-```
+
 
 ---
 
@@ -648,13 +648,13 @@ Same Agent ID
 
 El Runtime puede terminarse.
 
-```text id="p8s5d3"
+ id="p8s5d3"
 Agent Closure
       ↓
 Runtime Shutdown
       ↓
 Runtime Termination
-```
+
 
 Esto no implica necesariamente eliminar el estado persistente.
 
@@ -664,23 +664,23 @@ Esto no implica necesariamente eliminar el estado persistente.
 
 Si un agente tiene múltiples Runtimes:
 
-```text id="j3h7n1"
+ id="j3h7n1"
 Agent
  |
  +── Runtime A
  +── Runtime B
  +── Runtime C
-```
+
 
 el cierre global debe propagarse.
 
-```text id="v4m2s6"
+ id="v4m2s6"
 CLOSED
  |
  +── Runtime A → TERMINATED
  +── Runtime B → TERMINATED
  +── Runtime C → TERMINATED
-```
+
 
 ---
 
@@ -688,10 +688,10 @@ CLOSED
 
 El cierre de un Runtime individual no implica necesariamente cierre del agente.
 
-```text id="k6t3p2"
+ id="k6t3p2"
 Runtime A → TERMINATED
 Runtime B → ACTIVE
-```
+
 
 El agente continúa existiendo.
 
@@ -715,11 +715,11 @@ Puede ser:
 
 El agente puede iniciar su cierre si tiene capacidad para ello.
 
-```text id="u6k2z8"
+ id="u6k2z8"
 Agent
     ↓
 Closure Request
-```
+
 
 La solicitud debe verificarse.
 
@@ -731,12 +731,12 @@ Un tercero puede iniciar el cierre si posee autoridad legítima.
 
 Debe existir:
 
-```text id="e3j7q9"
+ id="e3j7q9"
 Authority
 Scope
 Reason
 Evidence
-```
+
 
 ---
 
@@ -744,13 +744,13 @@ Evidence
 
 Para cierres de alto impacto puede requerirse autorización múltiple.
 
-```text id="b5x1v7"
+ id="b5x1v7"
 Authority A
       +
 Authority B
       ↓
 Closure Approved
-```
+
 
 ---
 
@@ -773,7 +773,7 @@ Ejemplos:
 
 Debe generarse un registro:
 
-```text id="p3r8m2"
+ id="p3r8m2"
 ClosureRecord
     |
     +── Agent ID
@@ -784,7 +784,7 @@ ClosureRecord
     +── Final State
     +── Asset Resolution
     +── Contract Resolution
-```
+
 
 ---
 
@@ -794,13 +794,13 @@ El cierre debe ser auditable.
 
 Un observador autorizado debe poder determinar:
 
-```text id="m8k4t1"
+ id="m8k4t1"
 Who
 What
 When
 Why
 How
-```
+
 
 ---
 
@@ -810,15 +810,15 @@ La causa completa del cierre no tiene que ser necesariamente pública.
 
 Puede existir:
 
-```text id="n5j2x7"
+ id="n5j2x7"
 Public Closure Status
-```
+
 
 y:
 
-```text id="q7c4v9"
+ id="q7c4v9"
 Private Closure Evidence
-```
+
 
 ---
 
@@ -861,9 +861,9 @@ La información necesaria para la integridad del protocolo puede requerir preser
 
 Antes del cierre puede generarse:
 
-```text id="h2q7s4"
+ id="h2q7s4"
 Final State Snapshot
-```
+
 
 Puede contener:
 
@@ -880,7 +880,7 @@ Puede contener:
 
 El snapshot debe ser verificable.
 
-```text id="j9f3w6"
+ id="j9f3w6"
 Final State
      ↓
 Hash
@@ -888,7 +888,7 @@ Hash
 Timestamp
      ↓
 Proof
-```
+
 
 ---
 
@@ -896,7 +896,7 @@ Proof
 
 Un agente puede migrar su estado antes de cerrar.
 
-```text id="u2m7k5"
+ id="u2m7k5"
 Agent A
    ↓
 Migration
@@ -904,7 +904,7 @@ Migration
 Agent B / Successor
    ↓
 Agent A Closure
-```
+
 
 La identidad no debe transferirse automáticamente.
 
@@ -914,7 +914,7 @@ La identidad no debe transferirse automáticamente.
 
 Puede existir un agente sucesor.
 
-```text id="q8d1p4"
+ id="q8d1p4"
 Agent A
     ↓
 CLOSED
@@ -922,15 +922,15 @@ CLOSED
 Agent B
     ↓
 NEW IDENTITY
-```
+
 
 La relación histórica puede registrarse.
 
 Pero:
 
-```text id="s6k3x9"
+ id="s6k3x9"
 Identity A ≠ Identity B
-```
+
 
 ---
 
@@ -938,13 +938,13 @@ Identity A ≠ Identity B
 
 El conocimiento puede transferirse si está autorizado.
 
-```text id="e5r9m1"
+ id="e5r9m1"
 Agent A
     ↓
 Knowledge Export
     ↓
 Agent B
-```
+
 
 Esto no implica transferencia automática de:
 
@@ -958,19 +958,19 @@ Esto no implica transferencia automática de:
 
 La reputación no debe transferirse automáticamente a un sucesor.
 
-```text id="x4p7v2"
+ id="x4p7v2"
 Agent A Reputation
     ↓
 Agent A CLOSED
-```
+
 
 El nuevo agente comienza con su propia reputación.
 
 Puede existir una relación histórica:
 
-```text id="m3k8q1"
+ id="m3k8q1"
 Successor Of Agent A
-```
+
 
 pero no equivalencia reputacional.
 
@@ -991,11 +991,11 @@ Los activos pueden transferirse si:
 
 Antes del cierre:
 
-```text id="r1n6y8"
+ id="r1n6y8"
 Active Delegations
        ↓
 Evaluate
-```
+
 
 Pueden:
 
@@ -1012,11 +1012,11 @@ Las credenciales del agente deben gestionarse.
 
 Posibles estados:
 
-```text id="w5j2p7"
+ id="w5j2p7"
 EXPIRED
 REVOKED
 RETIRED
-```
+
 
 El cierre no debería dejar credenciales activas sin control.
 
@@ -1026,13 +1026,13 @@ El cierre no debería dejar credenciales activas sin control.
 
 Los permisos deben retirarse o quedar inactivos.
 
-```text id="z3q8m5"
+ id="z3q8m5"
 Agent CLOSED
      ↓
 Permissions
      ↓
 Inactive
-```
+
 
 ---
 
@@ -1040,13 +1040,13 @@ Inactive
 
 Las capacidades del agente dejan de estar disponibles.
 
-```text id="v7k4n2"
+ id="v7k4n2"
 Agent CLOSED
       ↓
 Capabilities
       ↓
 Unavailable
-```
+
 
 ---
 
@@ -1054,13 +1054,13 @@ Unavailable
 
 Un agente cerrado no debe aparecer como agente operativo disponible.
 
-```text id="s9m2x6"
+ id="s9m2x6"
 Discovery Registry
       ↓
 Agent CLOSED
       ↓
 Not Available
-```
+
 
 Puede permanecer como registro histórico.
 
@@ -1072,11 +1072,11 @@ Un agente cerrado puede seguir apareciendo en consultas históricas.
 
 Ejemplo:
 
-```text id="q6p1r8"
+ id="q6p1r8"
 Agent ID
 Status: CLOSED
 Historical Reputation: Available
-```
+
 
 ---
 
@@ -1086,15 +1086,15 @@ Un agente cerrado no debe aceptar nuevas comunicaciones operativas.
 
 Sin embargo, puede existir:
 
-```text id="a8k3v5"
+ id="a8k3v5"
 Historical Communication
-```
+
 
 o:
 
-```text id="e2m7q9"
+ id="e2m7q9"
 Closure Notification
-```
+
 
 ---
 
@@ -1102,11 +1102,11 @@ Closure Notification
 
 El agente cerrado no debe participar en nuevos intercambios económicos.
 
-```text id="y5r1p8"
+ id="y5r1p8"
 CLOSED
     ↓
 No New Economic Activity
-```
+
 
 Las operaciones de liquidación son una excepción.
 
@@ -1129,11 +1129,11 @@ Puede:
 
 Los pagos pendientes deben resolverse durante el cierre.
 
-```text id="h7m4x2"
+ id="h7m4x2"
 Pending Payment
      ↓
 Settlement
-```
+
 
 ---
 
@@ -1156,9 +1156,9 @@ Un agente cerrado puede seguir siendo objeto de una disputa histórica.
 
 El cierre no elimina automáticamente:
 
-```text id="p4n8q1"
+ id="p4n8q1"
 Dispute
-```
+
 
 Debe existir un mecanismo para continuar la resolución.
 
@@ -1170,11 +1170,11 @@ Las obligaciones externas pueden sobrevivir al cierre del agente.
 
 La arquitectura técnica debe permitir representar:
 
-```text id="v2m7k5"
+ id="v2m7k5"
 Agent CLOSED
       +
 Outstanding External Obligation
-```
+
 
 ---
 
@@ -1182,14 +1182,14 @@ Outstanding External Obligation
 
 El cierre permanente significa:
 
-```text id="c8r3x6"
+ id="c8r3x6"
 No Future Runtime Activation
-```
+
 
 El agente no puede volver a estado:
 
-```text id="ACTIVE"
-```
+ id="ACTIVE"
+
 
 ---
 
@@ -1197,11 +1197,11 @@ El agente no puede volver a estado:
 
 Por defecto:
 
-```text id="q5n1m8"
+ id="q5n1m8"
 CLOSED
    ≠
 REOPENABLE
-```
+
 
 Si un sistema permite reactivación, debe tratarse como una operación excepcional y explícita.
 
@@ -1211,15 +1211,15 @@ Si un sistema permite reactivación, debe tratarse como una operación excepcion
 
 La arquitectura debe distinguir:
 
-```text id="f7k2p4"
+ id="f7k2p4"
 Reactivation
-```
+
 
 de:
 
-```text id="m9x3q6"
+ id="m9x3q6"
 New Agent
-```
+
 
 Un nuevo agente debe recibir una nueva identidad.
 
@@ -1229,26 +1229,26 @@ Un nuevo agente debe recibir una nueva identidad.
 
 El estado final puede representarse:
 
-```text id="a3v8n5"
+ id="a3v8n5"
 Agent Lifecycle = CLOSED
-```
+
 
 Con estados independientes:
 
-```text id="z6m1q9"
+ id="z6m1q9"
 Identity = VALID / REVOKED
 Runtime = TERMINATED
 Credentials = RETIRED
 Contracts = SETTLED
 Assets = RESOLVED
 Reputation = PRESERVED
-```
+
 
 ---
 
 # 68. Modelo de ciclo de vida
 
-```text id="x8p4m2"
+ id="x8p4m2"
                  +---------+
                  |  ACTIVE |
                  +----+----+
@@ -1265,13 +1265,13 @@ Reputation = PRESERVED
               |            CLOSED
               |
               +-----> ACTIVE
-```
+
 
 ---
 
 # 69. Modelo de cierre completo
 
-```text id="n4q7k1"
+ id="n4q7k1"
 CLOSURE_REQUEST
        ↓
 AUTHORITY_VALIDATION
@@ -1291,7 +1291,7 @@ RUNTIME_TERMINATION
 IDENTITY_STATUS_UPDATE
        ↓
 CLOSED
-```
+
 
 ---
 
@@ -1299,13 +1299,13 @@ CLOSED
 
 Si el cierre no puede completarse:
 
-```text id="p6m2x8"
+ id="p6m2x8"
 CLOSURE_PROCESSING
        ↓
 Failure
        ↓
 CLOSURE_BLOCKED
-```
+
 
 El sistema debe registrar qué operación impide finalizar.
 
@@ -1315,9 +1315,9 @@ El sistema debe registrar qué operación impide finalizar.
 
 Puede existir:
 
-```text id="w3q9n5"
+ id="w3q9n5"
 CLOSURE_BLOCKED
-```
+
 
 por:
 
@@ -1334,13 +1334,13 @@ por:
 
 Si no puede realizarse un cierre ordenado:
 
-```text id="k8m4p1"
+ id="k8m4p1"
 CLOSURE_BLOCKED
        ↓
 FORCED_CLOSURE
        ↓
 CLOSED
-```
+
 
 Las obligaciones pendientes deben conservarse en el registro correspondiente.
 
@@ -1350,9 +1350,9 @@ Las obligaciones pendientes deben conservarse en el registro correspondiente.
 
 Después del cierre:
 
-```text id="r5x2n7"
+ id="r5x2n7"
 CLOSED
-```
+
 
 el agente puede seguir existiendo como entidad histórica.
 
@@ -1377,26 +1377,26 @@ Pero no:
 
 El sistema debe garantizar:
 
-```text id="c2v8m5"
+ id="c2v8m5"
 CLOSED Agent
     → Cannot Become ACTIVE
-```
+
 
 salvo una transición explícita si el protocolo define una excepción.
 
 También:
 
-```text id="q7n3p1"
+ id="q7n3p1"
 Closed Identity
     → Cannot Be Reused
-```
+
 
 y:
 
-```text id="m4x9k2"
+ id="m4x9k2"
 Closed Agent
     → Cannot Create New Obligations
-```
+
 
 ---
 
@@ -1404,9 +1404,9 @@ Closed Agent
 
 El cierre debe generar un registro final.
 
-```text id="h8p5r3"
+ id="h8p5r3"
 FINAL_CLOSURE_RECORD
-```
+
 
 Debe permitir reconstruir:
 
@@ -1469,30 +1469,30 @@ Debe existir un registro verificable.
 
 Este documento se relaciona directamente con:
 
-```text id="p7m4x2"
+ id="p7m4x2"
 14_Lifecycle/
 ├── Agent_Closure.md
 ├── Identity_Revocation.md
 └── Permanent_States.md
-```
+
 
 También con:
 
-```text id="k3n8q5"
+ id="k3n8q5"
 13_Suspension/
 ├── Voluntary_Suspension.md
 ├── Involuntary_Suspension.md
 └── Suspension_Contracts.md
-```
+
 
 Y con:
 
-```text id="v6r2m9"
+ id="v6r2m9"
 12_Continuity/
 ├── Runtime_Continuity.md
 ├── Migration.md
 └── Infrastructure_Independence.md
-```
+
 
 Además:
 
@@ -1516,7 +1516,7 @@ El cierre representa el final del ciclo de vida operativo de un agente SynCoinAI
 
 Debe entenderse como una transición formal:
 
-```text id="w2q7m4"
+ id="w2q7m4"
 ACTIVE
    ↓
 CLOSURE_PENDING
@@ -1524,7 +1524,7 @@ CLOSURE_PENDING
 CLOSURE_PROCESSING
    ↓
 CLOSED
-```
+
 
 El cierre no debe destruir automáticamente el historial del agente ni eliminar su identidad del sistema.
 
@@ -1540,7 +1540,7 @@ Un agente cerrado puede seguir siendo relevante para:
 
 Por tanto, el modelo correcto es:
 
-```text id="j5n8p2"
+ id="j5n8p2"
 Agent Lifecycle
        ↓
 CLOSED
@@ -1551,7 +1551,7 @@ CLOSED
        +── New Operations Disabled
        +── New Contracts Disabled
        +── Runtime Terminated
-```
+
 
 El principio central es:
 
@@ -1559,8 +1559,8 @@ El principio central es:
 
 El siguiente documento del bloque es:
 
-```text id="r4m7x1"
+ id="r4m7x1"
 14_Lifecycle/Identity_Revocation.md
-```
+
 
 Este documento deberá definir algo diferente: **qué ocurre cuando la identidad de un agente deja de ser válida o confiable**, incluyendo revocación por compromiso, fraude, duplicación, pérdida de control criptográfico y otras causas. La relación entre `Agent_Closure.md` e `Identity_Revocation.md` será especialmente importante porque **un agente puede cerrarse manteniendo su identidad histórica válida, mientras que una identidad revocada puede impedir cualquier futura operación incluso antes de que el agente sea formalmente cerrado**.

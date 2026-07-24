@@ -71,38 +71,38 @@ Este documento define:
 
 Debe distinguirse entre:
 
-```text
+
 Agent State
-```
+
 
 y:
 
-```text
+
 Contract State
-```
+
 
 Por ejemplo:
 
-```text
+
 Agent = SUSPENDED
 Contract = ACTIVE
-```
+
 
 es un estado válido.
 
 También:
 
-```text
+
 Agent = SUSPENDED
 Contract = PAUSED
-```
+
 
 o:
 
-```text
+
 Agent = SUSPENDED
 Contract = TERMINATED
-```
+
 
 pueden ser estados válidos.
 
@@ -114,7 +114,7 @@ La suspensión del agente no determina automáticamente el estado final de todos
 
 El modelo fundamental es:
 
-```text
+
 Agent Suspension
        |
        v
@@ -125,7 +125,7 @@ Contract Policy Evaluation
        +── Cancel
        +── Terminate
        +── Settle
-```
+
 
 La consecuencia debe depender de:
 
@@ -142,7 +142,7 @@ La consecuencia debe depender de:
 
 El protocolo distingue inicialmente:
 
-```text
+
 CONTINUOUS
 PAUSABLE
 NON_PAUSABLE
@@ -150,7 +150,7 @@ CANCELABLE
 TERMINABLE
 SETTLEMENT_REQUIRED
 EMERGENCY
-```
+
 
 Un contrato puede pertenecer a más de una categoría.
 
@@ -162,10 +162,10 @@ Un contrato continuo puede seguir ejecutándose aunque el agente esté suspendid
 
 Ejemplo:
 
-```text
+
 Agent A → SUSPENDED
 Contract → ACTIVE
-```
+
 
 Esto es posible cuando:
 
@@ -180,19 +180,19 @@ Esto es posible cuando:
 
 Un contrato pausables puede detener temporalmente su ejecución.
 
-```text
+
 ACTIVE
    ↓
 PAUSED
-```
+
 
 Posteriormente:
 
-```text
+
 PAUSED
    ↓
 RESUMED
-```
+
 
 La pausa debe conservar:
 
@@ -218,15 +218,15 @@ Ejemplos:
 
 En estos casos la suspensión puede provocar:
 
-```text
+
 Failure
-```
+
 
 o:
 
-```text
+
 Settlement
-```
+
 
 según las reglas contractuales.
 
@@ -238,13 +238,13 @@ Un contrato cancelable puede terminarse cuando una suspensión activa una condic
 
 Ejemplo:
 
-```text
+
 Agent Suspended
        ↓
 Contract Cancellation Condition
        ↓
 CANCEL
-```
+
 
 ---
 
@@ -254,7 +254,7 @@ Algunos contratos pueden terminar automáticamente si la suspensión supera un p
 
 Ejemplo:
 
-```text
+
 Suspension
        ↓
 Grace Period
@@ -262,7 +262,7 @@ Grace Period
 Still Suspended
        ↓
 Termination
-```
+
 
 ---
 
@@ -270,7 +270,7 @@ Termination
 
 Algunos contratos requieren calcular primero las obligaciones existentes.
 
-```text
+
 Suspension
     ↓
 Settlement
@@ -278,7 +278,7 @@ Settlement
 Final Payment
     ↓
 Contract Closed
-```
+
 
 ---
 
@@ -288,13 +288,13 @@ Los contratos relacionados con seguridad o infraestructura crítica pueden reque
 
 Por ejemplo:
 
-```text
+
 Agent Suspended
        ↓
 Emergency Contract
        ↓
 Continue Execution
-```
+
 
 La suspensión no debe impedir automáticamente acciones necesarias para evitar daños.
 
@@ -304,13 +304,13 @@ La suspensión no debe impedir automáticamente acciones necesarias para evitar 
 
 Por defecto, un agente completamente suspendido no debería poder crear nuevos contratos autónomos.
 
-```text
+
 SUSPENDED
     ↓
 New Contract
     ↓
 REJECTED
-```
+
 
 Esto evita que un agente suspendido continúe generando obligaciones.
 
@@ -322,17 +322,17 @@ Si la suspensión es parcial, puede ser posible crear contratos relacionados con
 
 Ejemplo:
 
-```text
+
 Capability A → ACTIVE
 Capability B → SUSPENDED
-```
+
 
 Entonces:
 
-```text
+
 Contract A → ALLOWED
 Contract B → BLOCKED
-```
+
 
 ---
 
@@ -340,13 +340,13 @@ Contract B → BLOCKED
 
 Los contratos creados antes de la suspensión deben conservar su estado.
 
-```text
+
 Contract
     ↓
 Created Before Suspension
     ↓
 Existing Contract
-```
+
 
 La suspensión debe activar una evaluación de su tratamiento.
 
@@ -358,7 +358,7 @@ Cada contrato debería definir una política de suspensión.
 
 Conceptualmente:
 
-```text
+
 ContractSuspensionPolicy
     |
     +── OnAgentSuspension
@@ -366,7 +366,7 @@ ContractSuspensionPolicy
     +── OnGlobalSuspension
     +── OnSecuritySuspension
     +── OnEmergencySuspension
-```
+
 
 ---
 
@@ -376,25 +376,25 @@ La consecuencia puede depender de la causa.
 
 Por ejemplo:
 
-```text
+
 Maintenance Suspension
     → Pause
-```
 
-```text
+
+
 Security Suspension
     → Freeze
-```
 
-```text
+
+
 Emergency Suspension
     → Immediate Stop
-```
 
-```text
+
+
 Economic Suspension
     → Settlement
-```
+
 
 ---
 
@@ -402,23 +402,23 @@ Economic Suspension
 
 También depende del alcance.
 
-```text
+
 Runtime Suspension
-```
+
 
 puede no afectar a:
 
-```text
+
 Contract
-```
+
 
 si otro Runtime autorizado puede cumplirlo.
 
 Mientras:
 
-```text
+
 Global Agent Suspension
-```
+
 
 puede afectar a todos los contratos dependientes del agente.
 
@@ -428,17 +428,17 @@ puede afectar a todos los contratos dependientes del agente.
 
 Un contrato puede depender de un Runtime concreto.
 
-```text
+
 Contract
     ↓
 Runtime A
-```
+
 
 Si:
 
-```text
+
 Runtime A = SUSPENDED
-```
+
 
 el contrato debe reevaluarse.
 
@@ -448,13 +448,13 @@ el contrato debe reevaluarse.
 
 Un contrato puede ejecutarse mediante infraestructura externa.
 
-```text
+
 Agent
    |
    +── Runtime A → SUSPENDED
    |
    +── Contract Engine → ACTIVE
-```
+
 
 El contrato puede continuar si sus condiciones lo permiten.
 
@@ -464,7 +464,7 @@ El contrato puede continuar si sus condiciones lo permiten.
 
 Se recomienda utilizar estados explícitos:
 
-```text
+
 DRAFT
 ACTIVE
 PAUSED
@@ -474,7 +474,7 @@ CANCELLED
 TERMINATED
 COMPLETED
 DISPUTED
-```
+
 
 ---
 
@@ -484,22 +484,22 @@ No es necesario crear un estado contractual universal llamado `SUSPENDED`.
 
 Puede utilizarse:
 
-```text
+
 Contract = PAUSED
 Suspension Cause = Agent Suspension
-```
+
 
 Esto evita mezclar:
 
-```text
+
 Agent State
-```
+
 
 con:
 
-```text
+
 Contract State
-```
+
 
 ---
 
@@ -507,9 +507,9 @@ Contract State
 
 Un contrato puede quedar congelado.
 
-```text
+
 FROZEN
-```
+
 
 Esto significa que:
 
@@ -526,33 +526,33 @@ Puede utilizarse durante investigaciones de seguridad.
 
 La diferencia conceptual es:
 
-```text
+
 PAUSED
-```
+
 
 permite una reanudación normal.
 
-```text
+
 FROZEN
-```
+
 
 implica una restricción más fuerte.
 
 Por ejemplo:
 
-```text
+
 PAUSED
     → Resume
-```
+
 
 mientras:
 
-```text
+
 FROZEN
     → Review
     → Authorization
     → Resume
-```
+
 
 ---
 
@@ -560,13 +560,13 @@ FROZEN
 
 Cuando se suspende un agente con acciones contractuales activas, cada acción debe clasificarse:
 
-```text
+
 RUNNING
 COMPLETABLE
 CANCELLABLE
 IRREVERSIBLE
 BLOCKED
-```
+
 
 ---
 
@@ -574,13 +574,13 @@ BLOCKED
 
 Una acción segura puede finalizarse antes de suspender completamente el contrato.
 
-```text
+
 Action Running
       ↓
 Safe Completion
       ↓
 Contract Paused
-```
+
 
 ---
 
@@ -588,13 +588,13 @@ Contract Paused
 
 Una acción puede cancelarse.
 
-```text
+
 Running Action
       ↓
 Cancel
       ↓
 Rollback / Compensation
-```
+
 
 ---
 
@@ -602,17 +602,17 @@ Rollback / Compensation
 
 Si una acción ya no puede detenerse:
 
-```text
+
 Irreversible Action
       ↓
 Continue Until Safe Point
-```
+
 
 o:
 
-```text
+
 Emergency Stop
-```
+
 
 dependiendo del riesgo.
 
@@ -622,11 +622,11 @@ dependiendo del riesgo.
 
 Una acción puede quedar bloqueada:
 
-```text
+
 Action
     ↓
 BLOCKED
-```
+
 
 hasta que:
 
@@ -642,22 +642,22 @@ Los pagos deben gestionarse de forma explícita.
 
 Ejemplo:
 
-```text
+
 Payment Pending
        ↓
 Agent Suspended
        ↓
 Evaluate
-```
+
 
 Resultado:
 
-```text
+
 PAY
 HOLD
 CANCEL
 SETTLE
-```
+
 
 ---
 
@@ -667,13 +667,13 @@ La suspensión no debería impedir automáticamente que un agente reciba fondos.
 
 Por ejemplo:
 
-```text
+
 Agent Suspended
        ↓
 Incoming Payment
        ↓
 Accepted
-```
+
 
 si la política económica lo permite.
 
@@ -683,13 +683,13 @@ si la política económica lo permite.
 
 Los pagos autónomos pueden quedar bloqueados.
 
-```text
+
 SUSPENDED
     ↓
 Outgoing Payment
     ↓
 Blocked
-```
+
 
 Excepto cuando:
 
@@ -703,23 +703,23 @@ Excepto cuando:
 
 Los pagos programados deben tener reglas específicas.
 
-```text
+
 Scheduled Payment
        ↓
 Agent Suspended
-```
+
 
 Puede:
 
-```text
+
 Execute
-```
+
 
 o:
 
-```text
+
 Pause
-```
+
 
 según la política contractual.
 
@@ -729,11 +729,11 @@ según la política contractual.
 
 Las garantías deben permanecer protegidas.
 
-```text
+
 Collateral
     ↓
 Preserved
-```
+
 
 La suspensión no implica automáticamente pérdida de garantía.
 
@@ -747,13 +747,13 @@ Una garantía puede ejecutarse cuando:
 * el contrato lo establece;
 * una condición de liquidación se activa.
 
-```text
+
 Suspension
     ↓
 Contract Default
     ↓
 Collateral Liquidation
-```
+
 
 La suspensión por sí sola no debe equivaler automáticamente a default.
 
@@ -763,23 +763,23 @@ La suspensión por sí sola no debe equivaler automáticamente a default.
 
 Debe distinguirse:
 
-```text
+
 Suspension
-```
+
 
 de:
 
-```text
+
 Default
-```
+
 
 Un agente puede estar suspendido sin haber incumplido.
 
-```text
+
 Suspended
     ≠
 Default
-```
+
 
 ---
 
@@ -787,11 +787,11 @@ Default
 
 Un contrato puede establecer explícitamente:
 
-```text
+
 Suspension
     ↓
 Default
-```
+
 
 pero esta condición debe existir previamente en el contrato.
 
@@ -803,23 +803,23 @@ No debe asumirse universalmente.
 
 Puede existir un periodo de gracia.
 
-```text
+
 Suspension
     ↓
 Grace Period
     ↓
 Resume
-```
+
 
 o:
 
-```text
+
 Suspension
     ↓
 Grace Period
     ↓
 Default
-```
+
 
 ---
 
@@ -829,11 +829,11 @@ La contraparte debe poder conocer el estado relevante.
 
 Por ejemplo:
 
-```text
+
 Contract
     ↓
 Counterparty Agent Suspended
-```
+
 
 La información disponible dependerá de los permisos y de la privacidad.
 
@@ -843,13 +843,13 @@ La información disponible dependerá de los permisos y de la privacidad.
 
 Una suspensión que afecta a un contrato puede generar una notificación.
 
-```text
+
 Suspension Event
        ↓
 Contract Impact Evaluation
        ↓
 Notify Counterparty
-```
+
 
 ---
 
@@ -857,7 +857,7 @@ Notify Counterparty
 
 La notificación puede incluir:
 
-```text
+
 Agent ID
 Contract ID
 Suspension Scope
@@ -865,7 +865,7 @@ Suspension Status
 Effective Time
 Expected Duration
 Contract Impact
-```
+
 
 No debe revelar información confidencial innecesaria.
 
@@ -875,7 +875,7 @@ No debe revelar información confidencial innecesaria.
 
 Al producirse una suspensión:
 
-```text
+
 Suspension
     ↓
 Enumerate Contracts
@@ -883,7 +883,7 @@ Enumerate Contracts
 Evaluate Each Contract
     ↓
 Apply Contract Policy
-```
+
 
 ---
 
@@ -891,7 +891,7 @@ Apply Contract Policy
 
 Un agente puede tener múltiples contratos relacionados.
 
-```text
+
 Agent
  |
  +── Contract A
@@ -901,7 +901,7 @@ Agent
  +── Contract C
          |
          +── Contract D
-```
+
 
 La suspensión de un contrato puede afectar a otros.
 
@@ -913,7 +913,7 @@ Por ello, el sistema debe permitir identificar dependencias.
 
 Una suspensión puede generar efectos en cadena.
 
-```text
+
 Agent Suspended
       ↓
 Contract A Paused
@@ -921,7 +921,7 @@ Contract A Paused
 Contract B Cannot Execute
       ↓
 Contract B Paused
-```
+
 
 Estos efectos deben estar controlados.
 
@@ -933,7 +933,7 @@ No debe producirse una cascada ilimitada sin reglas.
 
 El sistema debería evitar que una suspensión provoque automáticamente:
 
-```text
+
 Agent A
     ↓
 Suspended
@@ -941,7 +941,7 @@ Suspended
 100 Agents
     ↓
 All Suspended
-```
+
 
 La propagación debe basarse en dependencias reales.
 
@@ -951,7 +951,7 @@ La propagación debe basarse en dependencias reales.
 
 Un contrato puede permitir que un tercero complete la obligación.
 
-```text
+
 Agent A Suspended
        ↓
 Contract
@@ -959,7 +959,7 @@ Contract
 Agent B / Agent C
        ↓
 Fulfillment
-```
+
 
 Esto puede reducir el impacto de una suspensión.
 
@@ -969,13 +969,13 @@ Esto puede reducir el impacto de una suspensión.
 
 La ejecución puede delegarse.
 
-```text
+
 Suspended Agent
        ↓
 Authorized Delegate
        ↓
 Contract Execution
-```
+
 
 La delegación debe existir y estar autorizada.
 
@@ -985,7 +985,7 @@ La delegación debe existir y estar autorizada.
 
 Algunos contratos pueden permitir sustituir al agente ejecutor.
 
-```text
+
 Agent A
    ↓
 Suspended
@@ -993,7 +993,7 @@ Suspended
 Agent B
    ↓
 Contract Continues
-```
+
 
 Esto debe estar definido contractualmente.
 
@@ -1003,13 +1003,13 @@ Esto debe estar definido contractualmente.
 
 En determinados contratos puede existir intervención humana.
 
-```text
+
 Agent Suspended
        ↓
 Human Operator
        ↓
 Contract Resolution
-```
+
 
 Esto debe estar autorizado por las reglas del contrato.
 
@@ -1019,17 +1019,17 @@ Esto debe estar autorizado por las reglas del contrato.
 
 Si existe desacuerdo:
 
-```text
+
 Suspension
     ↓
 Counterparty Dispute
-```
+
 
 el contrato puede entrar en:
 
-```text
+
 DISPUTED
-```
+
 
 La suspensión no resuelve automáticamente la disputa.
 
@@ -1054,13 +1054,13 @@ Esto permite determinar responsabilidades.
 
 Si el agente ya realizó un servicio antes de la suspensión:
 
-```text
+
 Service Completed
        ↓
 Proof Generated
        ↓
 Agent Suspended
-```
+
 
 la prueba sigue siendo válida.
 
@@ -1072,13 +1072,13 @@ La suspensión posterior no invalida automáticamente el servicio realizado.
 
 Si un servicio está incompleto:
 
-```text
+
 Service
     ↓
 50% Complete
     ↓
 Agent Suspended
-```
+
 
 el contrato debe determinar:
 
@@ -1094,11 +1094,11 @@ el contrato debe determinar:
 
 En agentes físicos:
 
-```text
+
 Physical Service
        ↓
 Agent Suspended
-```
+
 
 puede ser necesario:
 
@@ -1115,13 +1115,13 @@ Los contratos relacionados con servicios críticos pueden tener prioridad especi
 
 Ejemplo:
 
-```text
+
 Emergency Service
        ↓
 Agent Suspended
        ↓
 Safe Continuation
-```
+
 
 La seguridad debe tener prioridad sobre la suspensión operativa cuando sea necesario evitar daños.
 
@@ -1131,21 +1131,21 @@ La seguridad debe tener prioridad sobre la suspensión operativa cuando sea nece
 
 Los contratos pueden incluir timeouts.
 
-```text
+
 Contract Active
        ↓
 Agent Suspended
        ↓
 Timeout
-```
+
 
 Resultado:
 
-```text
+
 Cancel
 Default
 Settlement
-```
+
 
 según las condiciones.
 
@@ -1155,13 +1155,13 @@ según las condiciones.
 
 El contrato puede definir cuánto tiempo tolera una suspensión.
 
-```text
+
 Suspension Duration
        ↓
 Contract Grace Period
        ↓
 Termination
-```
+
 
 ---
 
@@ -1169,13 +1169,13 @@ Termination
 
 Si el agente vuelve a estar activo:
 
-```text
+
 Agent SUSPENDED
        ↓
 Agent ACTIVE
        ↓
 Contract Resume Evaluation
-```
+
 
 No todos los contratos deben reanudarse automáticamente.
 
@@ -1185,13 +1185,13 @@ No todos los contratos deben reanudarse automáticamente.
 
 Puede ocurrir:
 
-```text
+
 PAUSED
    ↓
 Agent Resumed
    ↓
 ACTIVE
-```
+
 
 si se cumplen las condiciones.
 
@@ -1201,13 +1201,13 @@ si se cumplen las condiciones.
 
 Puede requerirse autorización.
 
-```text
+
 Agent Resumed
        ↓
 Contract Review
        ↓
 Manual Resume
-```
+
 
 ---
 
@@ -1215,19 +1215,19 @@ Manual Resume
 
 Un contrato puede haber expirado durante la suspensión.
 
-```text
+
 Suspension
     ↓
 Contract Expired
-```
+
 
 En ese caso:
 
-```text
+
 Resume Agent
     ≠
 Resume Contract
-```
+
 
 ---
 
@@ -1235,7 +1235,7 @@ Resume Contract
 
 Tras una suspensión debe realizarse una reconciliación.
 
-```text
+
 Resume
    ↓
 Contract Reconciliation
@@ -1247,7 +1247,7 @@ Payments
 Deliverables
    ↓
 Final State
-```
+
 
 ---
 
@@ -1257,7 +1257,7 @@ Durante la suspensión pueden acumularse obligaciones.
 
 Ejemplo:
 
-```text
+
 Monthly Payment
     ↓
 Suspended
@@ -1265,7 +1265,7 @@ Suspended
 3 Months
     ↓
 Outstanding Balance
-```
+
 
 El contrato debe definir si:
 
@@ -1282,15 +1282,15 @@ Las penalizaciones no deben aplicarse automáticamente por cualquier suspensión
 
 Debe distinguirse:
 
-```text
+
 Suspension
-```
+
 
 de:
 
-```text
+
 Contract Breach
-```
+
 
 ---
 
@@ -1298,11 +1298,11 @@ Contract Breach
 
 Si el agente fue suspendido sin incumplimiento:
 
-```text
+
 Suspended
     +
 No Fault
-```
+
 
 el contrato puede prever:
 
@@ -1317,13 +1317,13 @@ el contrato puede prever:
 
 Si la suspensión deriva de una conducta contractual demostrada:
 
-```text
+
 Violation
     ↓
 Suspension
     ↓
 Default
-```
+
 
 pueden activarse las consecuencias contractuales.
 
@@ -1333,11 +1333,11 @@ pueden activarse las consecuencias contractuales.
 
 En una suspensión por seguridad:
 
-```text
+
 Security Risk
     ↓
 Contract Freeze
-```
+
 
 puede ser preferible congelar temporalmente las operaciones hasta determinar si el agente está comprometido.
 
@@ -1347,11 +1347,11 @@ puede ser preferible congelar temporalmente las operaciones hasta determinar si 
 
 En una emergencia:
 
-```text
+
 Emergency
     ↓
 Immediate Contract Action
-```
+
 
 Puede ser necesario:
 
@@ -1378,11 +1378,11 @@ Durante la suspensión deben preservarse, cuando corresponda:
 
 Puede aplicarse un bloqueo temporal:
 
-```text
+
 Asset
     ↓
 LOCKED
-```
+
 
 Esto no implica transferencia de propiedad.
 
@@ -1392,21 +1392,21 @@ Esto no implica transferencia de propiedad.
 
 Tras resolver la suspensión:
 
-```text
+
 LOCKED
     ↓
 Review
     ↓
 UNLOCKED
-```
+
 
 o:
 
-```text
+
 LOCKED
     ↓
 Contract Settlement
-```
+
 
 ---
 
@@ -1416,7 +1416,7 @@ El contrato debe definir qué autoridad puede cambiar su estado.
 
 Por ejemplo:
 
-```text
+
 Contract
     |
     +── Agent
@@ -1424,7 +1424,7 @@ Contract
     +── Arbitrator
     +── Governance
     +── Smart Contract
-```
+
 
 ---
 
@@ -1434,13 +1434,13 @@ Un contrato inteligente puede continuar ejecutándose independientemente del Run
 
 Por ello:
 
-```text
+
 Agent Suspended
        ↓
 Smart Contract
        ↓
 Still Executes
-```
+
 
 puede ser válido.
 
@@ -1452,15 +1452,15 @@ La arquitectura debe considerar esta posibilidad.
 
 Debe distinguirse:
 
-```text
+
 Runtime State
-```
+
 
 de:
 
-```text
+
 Smart Contract State
-```
+
 
 Una suspensión del Runtime no debe alterar arbitrariamente el estado blockchain.
 
@@ -1470,13 +1470,13 @@ Una suspensión del Runtime no debe alterar arbitrariamente el estado blockchain
 
 Las consecuencias contractuales deben ejecutarse mediante mecanismos definidos.
 
-```text
+
 Contract Condition
        ↓
 Verified
        ↓
 Enforcement
-```
+
 
 No debe depender únicamente del Runtime suspendido.
 
@@ -1486,11 +1486,11 @@ No debe depender únicamente del Runtime suspendido.
 
 Tras la reanudación:
 
-```text
+
 Agent Resumed
        ↓
 Contract Recovery
-```
+
 
 puede ser necesario restaurar:
 
@@ -1506,7 +1506,7 @@ puede ser necesario restaurar:
 
 Debe registrarse:
 
-```text
+
 ContractReconciliation
     |
     +── Contract ID
@@ -1516,7 +1516,7 @@ ContractReconciliation
     +── Payments
     +── Outstanding Obligations
     +── Final Resolution
-```
+
 
 ---
 
@@ -1524,13 +1524,13 @@ ContractReconciliation
 
 Los eventos contractuales deben ser auditables.
 
-```text
+
 Suspension
     ↓
 Contract Impact
     ↓
 Resolution
-```
+
 
 El historial debe poder reconstruirse.
 
@@ -1551,7 +1551,7 @@ No todos los observadores deben conocer:
 
 # 80. Modelo de transición
 
-```text
+
                   AGENT SUSPENSION
                          |
                          v
@@ -1573,11 +1573,11 @@ No todos los observadores deben conocer:
                          |
                          v
                     CONTRACT ACTIVE
-```
+
 
 Alternativamente:
 
-```text
+
                   CONTRACT EVALUATION
                          |
                 +--------+--------+
@@ -1587,13 +1587,13 @@ Alternativamente:
                 |                 |
                 v                 v
              CLOSED            CLOSED
-```
+
 
 ---
 
 # 81. Modelo completo
 
-```text
+
 Agent ACTIVE
       |
       | Contract ACTIVE
@@ -1619,7 +1619,7 @@ Agent RESUMED
       +── Contract C → REVIEW
       +── Contract D → CLOSED
       +── Contract E → CLOSED
-```
+
 
 ---
 
@@ -1666,15 +1666,15 @@ Una implementación avanzada debería soportar:
 
 ## 1. Suspensión no significa incumplimiento
 
-```text
+
 Suspension ≠ Default
-```
+
 
 ## 2. Suspensión no significa cancelación
 
-```text
+
 Suspension ≠ Contract Cancellation
-```
+
 
 ## 3. Los contratos tienen estado propio
 
@@ -1714,31 +1714,31 @@ Los contratos críticos deben poder detenerse cuando exista riesgo.
 
 Este documento se relaciona directamente con:
 
-```text
+
 13_Suspension/
 ├── Voluntary_Suspension.md
 ├── Involuntary_Suspension.md
 └── Suspension_Contracts.md
-```
+
 
 También depende conceptualmente de:
 
-```text
+
 04_Economic_Architecture/
 ├── Economic_Model.md
 ├── Service_Market_Architecture.md
 ├── Agent_Transactions.md
 └── Token_Integration.md
-```
+
 
 y:
 
-```text
+
 05_Communication_Architecture/
 ├── Agent_Communication.md
 ├── Discovery_Protocol.md
 └── Negotiation_Protocol.md
-```
+
 
 Además:
 
@@ -1760,15 +1760,15 @@ Los contratos representan una de las principales consecuencias prácticas de la 
 
 Por este motivo, SynCoinAI no debe implementar una regla simplista como:
 
-```text
+
 Agent Suspended
       ↓
 All Contracts Cancelled
-```
+
 
 El comportamiento correcto es:
 
-```text
+
 Agent Suspended
       ↓
 Evaluate Contracts
@@ -1782,7 +1782,7 @@ Apply Contract-Specific Policy
       +── Substitute
       +── Settle
       +── Terminate
-```
+
 
 Esto permite que el ecosistema continúe siendo económicamente consistente incluso cuando determinados agentes dejan temporalmente de operar.
 
@@ -1792,20 +1792,20 @@ El principio central es:
 
 Con este documento queda completado el bloque:
 
-```text
+
 13_Suspension/
 ├── Voluntary_Suspension.md
 ├── Involuntary_Suspension.md
 └── Suspension_Contracts.md
-```
+
 
 El siguiente bloque del `Agent_Runtime_Protocol` es:
 
-```text
+
 14_Lifecycle/
 ├── Agent_Closure.md
 ├── Identity_Revocation.md
 └── Permanent_States.md
-```
+
 
 El siguiente documento recomendado es **`14_Lifecycle/Agent_Closure.md`**, porque establece la diferencia fundamental entre un agente suspendido y un agente que ha terminado su existencia operativa.

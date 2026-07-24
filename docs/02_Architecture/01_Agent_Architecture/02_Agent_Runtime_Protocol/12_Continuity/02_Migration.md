@@ -81,29 +81,29 @@ Una migración es el proceso mediante el cual un agente transfiere su entorno op
 
 Modelo:
 
-```text
+
 Runtime A
     │
     │ Migration
     ▼
 Runtime B
-```
+
 
 El resultado esperado es:
 
-```text
+
 Agent Identity
        │
        ├── Runtime A → Deactivated
        │
        └── Runtime B → Active
-```
+
 
 La identidad permanece:
 
-```text
+
 Agent A
-```
+
 
 ---
 
@@ -130,19 +130,19 @@ No todos los elementos deben migrarse necesariamente.
 
 Cada componente debe definir si es:
 
-```text
-Migratable
-```
 
-```text
+Migratable
+
+
+
 Reconstructable
-```
+
 
 o:
 
-```text
+
 Non-Migratable
-```
+
 
 ---
 
@@ -167,7 +167,7 @@ La identidad del agente permanece constante.
 
 Modelo:
 
-```text
+
 Before Migration:
 
 Agent A
@@ -180,17 +180,17 @@ After Migration:
 Agent A
     ↓
 Runtime R2
-```
+
 
 No debe ocurrir:
 
-```text
+
 Agent A
     ↓
 Migration
     ↓
 Agent B
-```
+
 
 salvo que el proceso implique explícitamente una nueva entidad.
 
@@ -202,9 +202,9 @@ El Runtime de origen es la instancia actualmente autorizada para ejecutar al age
 
 Se identifica mediante:
 
-```text
+
 Source Runtime ID
-```
+
 
 Puede incluir:
 
@@ -230,9 +230,9 @@ Debe demostrar:
 
 Puede identificarse mediante:
 
-```text
+
 Target Runtime ID
-```
+
 
 ---
 
@@ -242,11 +242,11 @@ Cada migración debe disponer de un identificador único.
 
 Ejemplo:
 
-```text
+
 Migration ID
     ↓
 mig_7f3a...
-```
+
 
 Este identificador permite relacionar:
 
@@ -266,49 +266,49 @@ La migración debe tener un estado explícito.
 
 Estados conceptuales:
 
-```text
+
 REQUESTED
-```
 
-```text
+
+
 AUTHORIZED
-```
 
-```text
+
+
 PREPARING
-```
 
-```text
+
+
 TRANSFERRING
-```
 
-```text
+
+
 VALIDATING
-```
 
-```text
+
+
 READY
-```
 
-```text
+
+
 ACTIVATING
-```
 
-```text
+
+
 COMPLETED
-```
 
-```text
+
+
 FAILED
-```
 
-```text
+
+
 ROLLING_BACK
-```
 
-```text
+
+
 CANCELLED
-```
+
 
 ---
 
@@ -316,7 +316,7 @@ CANCELLED
 
 Modelo conceptual:
 
-```text
+
 +-----------+
 | REQUESTED |
 +-----+-----+
@@ -355,19 +355,19 @@ Modelo conceptual:
 +-----------+
 | COMPLETED |
 +-----------+
-```
+
 
 En cualquier fase pueden producirse:
 
-```text
+
 FAILED
-```
+
 
 o:
 
-```text
+
 CANCELLED
-```
+
 
 ---
 
@@ -405,19 +405,19 @@ Debe evaluarse:
 
 Modelo:
 
-```text
+
 Source Runtime
     ↓
 Compatibility Check
     ↓
 Target Runtime
-```
+
 
 Si la compatibilidad no está garantizada:
 
-```text
+
 Migration Rejected
-```
+
 
 ---
 
@@ -427,7 +427,7 @@ Una migración debe tener un plan.
 
 Puede incluir:
 
-```text
+
 Migration ID
 Source Runtime
 Target Runtime
@@ -438,7 +438,7 @@ Migration Strategy
 Required Resources
 Expected Duration
 Rollback Strategy
-```
+
 
 El plan debe determinar cómo se ejecutará la migración.
 
@@ -448,7 +448,7 @@ El plan debe determinar cómo se ejecutará la migración.
 
 En una migración en frío:
 
-```text
+
 Stop Source
     ↓
 Export State
@@ -456,7 +456,7 @@ Export State
 Transfer State
     ↓
 Start Target
-```
+
 
 Ventajas:
 
@@ -475,7 +475,7 @@ Desventajas:
 
 En una migración en caliente:
 
-```text
+
 Source Runtime
     │
     │ Continues Running
@@ -487,7 +487,7 @@ Target Runtime
     │
     ▼
 Activation
-```
+
 
 La interrupción puede reducirse.
 
@@ -504,7 +504,7 @@ Sin embargo, requiere gestionar:
 
 Una estrategia híbrida puede utilizar:
 
-```text
+
 Initial Snapshot
     ↓
 Transfer
@@ -516,7 +516,7 @@ Final Freeze
 Final State Transfer
     ↓
 Activate Target
-```
+
 
 Este modelo puede reducir el tiempo de interrupción.
 
@@ -526,11 +526,11 @@ Este modelo puede reducir el tiempo de interrupción.
 
 La migración puede comenzar creando un snapshot.
 
-```text
+
 Runtime A
     ↓
 Snapshot S1
-```
+
 
 El snapshot debe representar un estado consistente.
 
@@ -540,21 +540,21 @@ El snapshot debe representar un estado consistente.
 
 Después del snapshot inicial pueden transferirse únicamente los cambios posteriores.
 
-```text
+
 Snapshot S1
     ↓
 Event 101
 Event 102
 Event 103
-```
+
 
 El destino puede reconstruir:
 
-```text
+
 Snapshot S1
 +
 Events
-```
+
 
 para alcanzar el estado actual.
 
@@ -573,13 +573,13 @@ Durante el freeze:
 
 Modelo:
 
-```text
+
 RUNNING
    ↓
 FREEZING
    ↓
 FROZEN
-```
+
 
 ---
 
@@ -591,7 +591,7 @@ Debe incluir referencias suficientes para reconstruir el Runtime.
 
 Conceptualmente:
 
-```text
+
 Final Checkpoint
     =
 State
@@ -603,7 +603,7 @@ Hash
 Epoch
 +
 Migration ID
-```
+
 
 ---
 
@@ -635,21 +635,21 @@ No toda la información debe transferirse de la misma manera.
 
 Puede existir:
 
-```text
+
 Public State
-```
 
-```text
+
+
 Private State
-```
 
-```text
+
+
 Encrypted State
-```
 
-```text
+
+
 Restricted State
-```
+
 
 La migración debe respetar las políticas de acceso.
 
@@ -661,7 +661,7 @@ El estado sensible puede transferirse cifrado.
 
 Modelo:
 
-```text
+
 State
     ↓
 Encrypt
@@ -669,7 +669,7 @@ Encrypt
 Transfer
     ↓
 Decrypt at Target
-```
+
 
 La clave de descifrado debe entregarse únicamente al Runtime autorizado.
 
@@ -690,9 +690,9 @@ Debe comprobar:
 
 Si falla una validación:
 
-```text
+
 Migration Failed
-```
+
 
 ---
 
@@ -700,25 +700,25 @@ Migration Failed
 
 El estado puede identificarse mediante un hash.
 
-```text
+
 State
     ↓
 Hash H1
-```
+
 
 Después de transferir:
 
-```text
+
 Transferred State
     ↓
 Hash H2
-```
+
 
 Debe cumplirse:
 
-```text
+
 H1 = H2
-```
+
 
 si no se ha realizado una transformación válida.
 
@@ -728,13 +728,13 @@ si no se ha realizado una transformación válida.
 
 Si el Runtime de destino utiliza un esquema diferente:
 
-```text
+
 State v1
     ↓
 Migration Transform
     ↓
 State v2
-```
+
 
 La transformación debe ser:
 
@@ -764,13 +764,13 @@ Debe comprobar:
 
 Antes de activar el destino debe existir un punto de validación.
 
-```text
+
 State Transfer
     ↓
 Validation
     ↓
 READY
-```
+
 
 Solo un Runtime en estado `READY` puede asumir la ejecución.
 
@@ -782,17 +782,17 @@ La activación transfiere la autoridad operativa al destino.
 
 Modelo:
 
-```text
+
 Source Runtime
     ↓
 Deactivated
-```
 
-```text
+
+
 Target Runtime
     ↓
 Activated
-```
+
 
 La transición debe realizarse de manera coordinada.
 
@@ -802,17 +802,17 @@ La transición debe realizarse de manera coordinada.
 
 Por defecto, un agente debe tener una única instancia con autoridad operativa para operaciones exclusivas.
 
-```text
+
 Agent A
     |
     +── Runtime A → ACTIVE
     |
     +── Runtime B → STANDBY
-```
+
 
 Durante la migración:
 
-```text
+
 Runtime A
     ↓
 Deactivate
@@ -820,7 +820,7 @@ Deactivate
 Runtime B
     ↓
 Activate
-```
+
 
 ---
 
@@ -828,15 +828,15 @@ Activate
 
 No debe permitirse que:
 
-```text
+
 Runtime A
-```
+
 
 y:
 
-```text
+
 Runtime B
-```
+
 
 ejecuten simultáneamente operaciones exclusivas.
 
@@ -855,17 +855,17 @@ La migración puede incrementar el `Runtime Epoch`.
 
 Ejemplo:
 
-```text
+
 Runtime A
 Epoch 10
-```
+
 
 Después:
 
-```text
+
 Runtime B
 Epoch 11
-```
+
 
 Las operaciones asociadas a Epoch 10 pueden quedar invalidadas después de la activación.
 
@@ -877,19 +877,19 @@ El Runtime antiguo debe quedar bloqueado para evitar operaciones posteriores a l
 
 Modelo:
 
-```text
+
 Runtime A
 Epoch 10
     ↓
 Fenced
-```
 
-```text
+
+
 Runtime B
 Epoch 11
     ↓
 Active
-```
+
 
 El fencing es especialmente importante en migraciones con riesgo de pérdida de conectividad.
 
@@ -901,33 +901,33 @@ Las credenciales del Runtime deben gestionarse cuidadosamente.
 
 Opciones:
 
-```text
+
 Credential Transfer
-```
 
-```text
+
+
 Credential Reissue
-```
 
-```text
+
+
 Credential Delegation
-```
+
 
 El protocolo debe evitar transferir innecesariamente claves privadas de larga duración.
 
 Preferiblemente:
 
-```text
+
 Agent Identity
     ↓
 Authorize Target Runtime
-```
+
 
 en lugar de:
 
-```text
+
 Copy Private Key
-```
+
 
 ---
 
@@ -937,13 +937,13 @@ Una migración puede ser una oportunidad para rotar credenciales.
 
 Modelo:
 
-```text
+
 Credential A
     ↓
 Migration
     ↓
 Credential B
-```
+
 
 La credencial anterior puede:
 
@@ -959,29 +959,29 @@ Las capacidades utilizadas por el Runtime también deben evaluarse.
 
 Una capacidad puede ser:
 
-```text
+
 Portable
-```
 
-```text
+
+
 Reconstructable
-```
 
-```text
+
+
 Infrastructure Bound
-```
+
 
 Ejemplo:
 
-```text
+
 Software Tool
     → Portable
-```
 
-```text
+
+
 Hardware Sensor
     → Infrastructure Bound
-```
+
 
 ---
 
@@ -1024,13 +1024,13 @@ Una migración puede ser parcial.
 
 Ejemplo:
 
-```text
+
 Agent
     |
     +── Cognitive Runtime → Infrastructure A
     |
     +── Physical Runtime → Infrastructure B
-```
+
 
 En este caso, la arquitectura debe definir qué componentes mantienen autoridad sobre el agente.
 
@@ -1049,7 +1049,7 @@ No es obligatorio transferir toda la memoria durante cada migración.
 
 Puede transferirse una referencia segura:
 
-```text
+
 Memory Reference
     ↓
 New Runtime
@@ -1057,7 +1057,7 @@ New Runtime
 Authenticate
     ↓
 Access Memory
-```
+
 
 ---
 
@@ -1065,21 +1065,21 @@ Access Memory
 
 Las tareas deben clasificarse.
 
-```text
+
 Completed
-```
 
-```text
+
+
 Pending
-```
 
-```text
+
+
 Running
-```
 
-```text
+
+
 Unknown
-```
+
 
 Las tareas `Unknown` requieren reconciliación antes de continuar.
 
@@ -1091,11 +1091,11 @@ Los contratos activos no deben duplicarse.
 
 El nuevo Runtime debe recuperar:
 
-```text
+
 Contract ID
 Current State
 Pending Actions
-```
+
 
 y continuar desde el estado válido.
 
@@ -1121,7 +1121,7 @@ Las operaciones económicas deben reconciliarse antes de activar completamente e
 
 Ejemplo:
 
-```text
+
 Payment Pending
     ↓
 Migration
@@ -1129,7 +1129,7 @@ Migration
 Query Blockchain
     ↓
 Confirmed / Not Confirmed
-```
+
 
 Nunca debe duplicarse automáticamente una operación simplemente porque no aparece como completada en el estado local.
 
@@ -1139,12 +1139,12 @@ Nunca debe duplicarse automáticamente una operación simplemente porque no apar
 
 Si un contrato requiere una acción durante la migración:
 
-```text
+
 Contract Deadline
         |
         v
 Migration
-```
+
 
 el protocolo debe considerar:
 
@@ -1161,9 +1161,9 @@ Una migración no debe invalidar automáticamente obligaciones contractuales.
 
 Una migración puede utilizar un bloqueo temporal.
 
-```text
+
 Migration Lock
-```
+
 
 Puede impedir:
 
@@ -1179,11 +1179,11 @@ No debería bloquear automáticamente todas las operaciones del agente.
 
 Por defecto:
 
-```text
+
 Migration A
     +
 Migration B
-```
+
 
 no deberían ejecutarse simultáneamente para el mismo agente.
 
@@ -1197,11 +1197,11 @@ Una migración puede cancelarse antes de la activación.
 
 Ejemplo:
 
-```text
+
 TRANSFERRING
     ↓
 CANCELLED
-```
+
 
 El Runtime de origen permanece activo.
 
@@ -1213,10 +1213,10 @@ Después de activar el destino, la cancelación se convierte en un proceso de ro
 
 Si el destino falla antes de activarse:
 
-```text
+
 Source → Active
 Target → Failed
-```
+
 
 El agente continúa operando desde el origen.
 
@@ -1226,10 +1226,10 @@ El agente continúa operando desde el origen.
 
 Si ocurre un fallo durante la transición:
 
-```text
+
 Source → Unknown
 Target → Unknown
-```
+
 
 El protocolo debe utilizar:
 
@@ -1247,11 +1247,11 @@ El objetivo es determinar qué Runtime tiene autoridad.
 
 Si el destino se activa correctamente y posteriormente falla:
 
-```text
+
 Target Runtime
     ↓
 Failure
-```
+
 
 se utiliza el proceso normal de recuperación.
 
@@ -1265,7 +1265,7 @@ El rollback permite volver al Runtime de origen cuando la migración no se ha co
 
 Modelo:
 
-```text
+
 Source
    ↓
 Migration
@@ -1275,7 +1275,7 @@ Target Failure
 Rollback
    ↓
 Source Restored
-```
+
 
 ---
 
@@ -1298,7 +1298,7 @@ En estos casos debe realizarse reconciliación.
 
 Ejemplo:
 
-```text
+
 Migration
     ↓
 Target Active
@@ -1306,15 +1306,15 @@ Target Active
 Payment Executed
     ↓
 Target Failure
-```
+
 
 No debe restaurarse simplemente el estado anterior como si el pago nunca hubiera existido.
 
 Debe realizarse:
 
-```text
+
 Reconcile External State
-```
+
 
 y reconstruir el estado correcto.
 
@@ -1324,24 +1324,24 @@ y reconstruir el estado correcto.
 
 La migración debe proporcionar una transición lógica consistente:
 
-```text
+
 Before:
 Source Active
 Target Inactive
-```
 
-```text
+
+
 After:
 Source Inactive
 Target Active
-```
+
 
 Debe evitarse un estado permanente:
 
-```text
+
 Source Active
 Target Active
-```
+
 
 para operaciones exclusivas.
 
@@ -1351,7 +1351,7 @@ para operaciones exclusivas.
 
 La migración puede tener un punto lógico de commit.
 
-```text
+
 Prepare
     ↓
 Transfer
@@ -1361,19 +1361,19 @@ Validate
 Ready
     ↓
 Commit
-```
+
 
 Después del commit:
 
-```text
+
 Target = Authoritative
-```
+
 
 El origen queda:
 
-```text
+
 Fenced
-```
+
 
 ---
 
@@ -1381,16 +1381,16 @@ Fenced
 
 Antes del commit:
 
-```text
+
 Migration Abort
-```
+
 
 puede devolver el sistema a:
 
-```text
+
 Source = Active
 Target = Inactive
-```
+
 
 ---
 
@@ -1398,7 +1398,7 @@ Target = Inactive
 
 Conceptualmente, la migración puede considerarse una transacción distribuida.
 
-```text
+
 Prepare
     ↓
 Transfer
@@ -1406,7 +1406,7 @@ Transfer
 Validate
     ↓
 Commit
-```
+
 
 No obstante, la implementación no debe asumir que todos los sistemas externos soportan transacciones distribuidas.
 
@@ -1424,17 +1424,17 @@ Cuando una operación no puede deshacerse directamente, puede utilizarse una acc
 
 Ejemplo:
 
-```text
+
 Action A
     ↓
 Irreversible
-```
+
 
 La compensación puede ser:
 
-```text
+
 Action B
-```
+
 
 El Runtime debe registrar estas operaciones.
 
@@ -1446,7 +1446,7 @@ Toda migración debe generar un registro auditable.
 
 Debe incluir como mínimo:
 
-```text
+
 Migration ID
 Agent ID
 Source Runtime
@@ -1456,7 +1456,7 @@ End Time
 Source State Hash
 Target State Hash
 Migration Result
-```
+
 
 Opcionalmente:
 
@@ -1474,13 +1474,13 @@ La migración puede generar una prueba verificable.
 
 Conceptualmente:
 
-```text
+
 Source State
     ↓
 Migration Event
     ↓
 Target State
-```
+
 
 La prueba puede demostrar:
 
@@ -1495,25 +1495,25 @@ La prueba puede demostrar:
 
 La migración no debe reiniciar la reputación.
 
-```text
+
 Agent A
     ↓
 Migration
     ↓
 Agent A
-```
+
 
 La reputación permanece asociada a:
 
-```text
+
 Agent Identity
-```
+
 
 no a:
 
-```text
+
 Runtime Instance
-```
+
 
 ---
 
@@ -1559,7 +1559,7 @@ Debe protegerse frente a:
 
 El destino debe demostrar su identidad antes de recibir información sensible.
 
-```text
+
 Target Runtime
     ↓
 Authenticate
@@ -1567,7 +1567,7 @@ Authenticate
 Authorize
     ↓
 Receive State
-```
+
 
 ---
 
@@ -1591,13 +1591,13 @@ El estado de migración debe estar vinculado al Runtime de destino.
 
 Conceptualmente:
 
-```text
+
 Migration ID
 +
 Target Runtime ID
 +
 State Hash
-```
+
 
 Esto evita que el estado sea reutilizado por otro destino no autorizado.
 
@@ -1607,9 +1607,9 @@ Esto evita que el estado sea reutilizado por otro destino no autorizado.
 
 La migración también debe identificar claramente el origen.
 
-```text
+
 Source Runtime ID
-```
+
 
 Esto permite verificar que la solicitud procede de una instancia autorizada.
 
@@ -1635,11 +1635,11 @@ El propio agente puede iniciar una migración.
 
 Ejemplo:
 
-```text
+
 Agent Decision
     ↓
 Migration Request
-```
+
 
 ---
 
@@ -1663,15 +1663,15 @@ Este caso requiere reglas específicas.
 
 Debe diferenciarse entre:
 
-```text
+
 Authorized Migration
-```
+
 
 y:
 
-```text
+
 Forced Migration
-```
+
 
 La migración forzada no debe interpretarse automáticamente como una transferencia de propiedad del agente.
 
@@ -1681,13 +1681,13 @@ La migración forzada no debe interpretarse automáticamente como una transferen
 
 Ejemplo:
 
-```text
+
 Provider A
     ↓
 Migration
     ↓
 Provider B
-```
+
 
 La identidad debe mantenerse independiente del proveedor.
 
@@ -1697,11 +1697,11 @@ La identidad debe mantenerse independiente del proveedor.
 
 Ejemplo:
 
-```text
+
 Cloud A
     ↓
 Cloud B
-```
+
 
 El Runtime debe abstraer las diferencias de infraestructura.
 
@@ -1711,11 +1711,11 @@ El Runtime debe abstraer las diferencias de infraestructura.
 
 Ejemplo:
 
-```text
+
 Hardware A
     ↓
 Hardware B
-```
+
 
 El agente puede mantener:
 
@@ -1731,15 +1731,15 @@ si la continuidad se conserva.
 
 En agentes físicos puede existir una diferencia entre:
 
-```text
+
 Runtime Migration
-```
+
 
 y:
 
-```text
+
 Physical Embodiment Change
-```
+
 
 Cambiar el Runtime no implica necesariamente cambiar el cuerpo físico.
 
@@ -1753,13 +1753,13 @@ La continuidad debe evaluarse según las reglas de identidad.
 
 Un Runtime puede distribuirse entre múltiples nodos.
 
-```text
+
 Agent Runtime
     |
     +── Node A
     +── Node B
     +── Node C
-```
+
 
 Una migración puede consistir en modificar la composición del conjunto.
 
@@ -1776,7 +1776,7 @@ En este caso deben mantenerse:
 
 Una migración puede trasladar:
 
-```text
+
 Runtime
 +
 State
@@ -1784,13 +1784,13 @@ State
 Dependencies
 +
 Capabilities
-```
+
 
 hacia:
 
-```text
+
 New Infrastructure
-```
+
 
 Debe existir un orden definido de transferencia.
 
@@ -1800,13 +1800,13 @@ Debe existir un orden definido de transferencia.
 
 Una migración puede realizarse por etapas:
 
-```text
+
 Component A
     ↓
 Component B
     ↓
 Component C
-```
+
 
 Esto permite reducir riesgos.
 
@@ -1816,11 +1816,11 @@ Esto permite reducir riesgos.
 
 Si una migración falla:
 
-```text
+
 Migration
     ↓
 FAILED
-```
+
 
 debe registrarse:
 
@@ -1836,9 +1836,9 @@ debe registrarse:
 
 El sistema debe determinar:
 
-```text
+
 Which Runtime Is Authoritative?
-```
+
 
 Antes de continuar.
 
@@ -1850,15 +1850,15 @@ No debe iniciar automáticamente una nueva migración hasta resolver el estado a
 
 Una migración interrumpida puede encontrarse en:
 
-```text
+
 UNKNOWN
-```
+
 
 El sistema debe reconstruir:
 
-```text
+
 Migration State
-```
+
 
 utilizando:
 
@@ -1875,9 +1875,9 @@ utilizando:
 
 Repetir una solicitud de migración con el mismo:
 
-```text
+
 Migration ID
-```
+
 
 no debe iniciar una migración completamente nueva.
 
@@ -1891,23 +1891,23 @@ Una migración puede tener un timeout.
 
 Si expira:
 
-```text
+
 Migration Timeout
-```
+
 
 el sistema debe entrar en un estado definido.
 
 Por ejemplo:
 
-```text
+
 FAILED
-```
+
 
 o:
 
-```text
+
 RECOVERY_REQUIRED
-```
+
 
 No debe asumirse automáticamente que la migración fracasó sin reconciliación.
 
@@ -1917,7 +1917,7 @@ No debe asumirse automáticamente que la migración fracasó sin reconciliación
 
 Modelo:
 
-```text
+
 Migration Interrupted
         ↓
 Identify Migration ID
@@ -1933,7 +1933,7 @@ Check State
 Determine Authority
         ↓
 Resume / Abort / Rollback
-```
+
 
 ---
 
@@ -1941,7 +1941,7 @@ Resume / Abort / Rollback
 
 Una migración correcta debe producir:
 
-```text
+
 Same Agent
 +
 New Runtime
@@ -1949,13 +1949,13 @@ New Runtime
 Valid State
 +
 New Execution Epoch
-```
+
 
 ---
 
 # 89. Modelo completo
 
-```text
+
 +------------------------------------------------------+
 |                    AGENT IDENTITY                    |
 +------------------------------------------------------+
@@ -1987,7 +1987,7 @@ New Execution Epoch
                          |
                          v
                    AGENT CONTINUES
-```
+
 
 ---
 
@@ -2076,7 +2076,7 @@ La migración permite que un agente SynCoinAI traslade su entorno de ejecución 
 
 El modelo fundamental es:
 
-```text
+
 Agent Identity
       │
       ├── Runtime A
@@ -2087,11 +2087,11 @@ Agent Identity
               │
               ▼
         Same Agent Identity
-```
+
 
 Una migración correcta requiere:
 
-```text
+
 Authorization
 +
 State Transfer
@@ -2105,7 +2105,7 @@ Controlled Activation
 Fencing
 +
 Reconciliation
-```
+
 
 La migración no debe entenderse como una simple copia de archivos o procesos.
 

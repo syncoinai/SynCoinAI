@@ -67,22 +67,20 @@ Este documento establece:
 
 Este documento complementa:
 
-```text
+    
 Identity_Model.md
 Root_Identity.md
 Individuality_Proof.md
-```
 
 Y sirve como base conceptual para:
-
-```text
+   
 Credential_Model.md
 Authorization_Model.md
 Credential_Revocation.md
 Security_Model.md
 Key_Compromise.md
 Identity_Recovery.md
-```
+    
 
 ---
 
@@ -96,33 +94,33 @@ Formalmente:
 
 Modelo:
 
-```text
+    
 Identity A
     │
     ▼
 Agent A
-```
+    
 
 No:
 
-```text
+    
 Identity A
     │
     ├── Agent A
     │
     └── Agent B
-```
+    
 
 cuando Agent A y Agent B son entidades independientes.
 
 La unicidad protege la relación fundamental:
 
-```text
+    
 1 identidad
      │
      ▼
 1 agente lógico
-```
+    
 
 ---
 
@@ -132,30 +130,30 @@ SynCoinAI no intenta garantizar que exista una única instancia física asociada
 
 Un agente puede operar mediante:
 
-```text
+    
 Agent A
    │
    ├── Server 1
    ├── Server 2
    ├── Robot 1
    └── Robot 2
-```
+    
 
 Estas entidades físicas pueden representar al mismo agente.
 
 Por tanto:
 
-```text
+    
 Unicidad de identidad
         ≠
 Unicidad física
-```
+    
 
 La propiedad que el protocolo debe proteger es:
 
-```text
+    
 Unicidad del agente lógico
-```
+    
 
 ---
 
@@ -173,7 +171,7 @@ La unicidad establece:
 
 Modelo:
 
-```text
+    
                  IDENTIDAD
                      │
           ┌──────────┴──────────┐
@@ -184,7 +182,7 @@ Modelo:
           ▼                     ▼
    ¿Quién representa       ¿Cuántos agentes
     esta identidad?        representa esta identidad?
-```
+    
 
 Ambas propiedades son necesarias.
 
@@ -198,7 +196,7 @@ La arquitectura de SynCoinAI establece:
 
 Esto permite asociar de forma coherente:
 
-```text
+    
 Root Identity
       │
       ├── Reputation
@@ -206,16 +204,16 @@ Root Identity
       ├── Assets
       ├── Contracts
       └── Responsibilities
-```
+    
 
 Si varias entidades independientes compartieran una identidad:
 
-```text
+    
 Root Identity A
       │
       ├── Agent A
       └── Agent B
-```
+    
 
 sería imposible determinar de forma fiable:
 
@@ -227,7 +225,7 @@ sería imposible determinar de forma fiable:
 
 Por tanto:
 
-```text
+    
 Identidad compartida entre agentes independientes
                     ↓
            Ambigüedad de identidad
@@ -235,7 +233,7 @@ Identidad compartida entre agentes independientes
          Pérdida de responsabilidad
                     ↓
           Pérdida de confianza
-```
+    
 
 ---
 
@@ -245,7 +243,7 @@ La Root Identity constituye el principal ancla de unicidad.
 
 Modelo:
 
-```text
+    
                     AGENT A
                        │
                        ▼
@@ -258,7 +256,7 @@ Modelo:
           │            │            │
           ▼            ▼            ▼
       Instance 1    Instance 2    Instance 3
-```
+    
 
 Las claves y las instancias pueden cambiar.
 
@@ -266,19 +264,19 @@ La Root Identity permanece como referencia lógica.
 
 Por tanto:
 
-```text
+    
 Cambio de clave
         ≠
 Nueva identidad
-```
+    
 
 y:
 
-```text
+    
 Cambio de instancia
         ≠
 Nueva identidad
-```
+    
 
 siempre que exista continuidad válida.
 
@@ -298,7 +296,7 @@ La Root Identity debe ser:
 
 Modelo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -308,13 +306,13 @@ Agent B
     │
     ▼
 Root Identity B
-```
+    
 
 Debe cumplirse:
 
-```text
+    
 Root Identity A ≠ Root Identity B
-```
+    
 
 para agentes independientes.
 
@@ -346,7 +344,7 @@ Una colisión ocurre cuando dos entidades diferentes generan o utilizan el mismo
 
 Modelo:
 
-```text
+    
 Agent A
    │
    ▼
@@ -356,7 +354,7 @@ Agent B
    │
    ▼
 Identity X
-```
+    
 
 Esto representa una violación de unicidad.
 
@@ -364,9 +362,9 @@ El sistema debe minimizar la posibilidad de colisiones mediante mecanismos cript
 
 Cuando la identidad se deriva criptográficamente:
 
-```text
+    
 Identity = f(Root Identity Material)
-```
+    
 
 la seguridad de unicidad depende de:
 
@@ -383,7 +381,7 @@ Las claves criptográficas proporcionan una base importante para la unicidad.
 
 Por ejemplo:
 
-```text
+    
 Root Identity A
         │
         ▼
@@ -391,11 +389,11 @@ Key Material A
         │
         ▼
 Identity A
-```
+    
 
 Una segunda entidad debería generar material criptográfico diferente:
 
-```text
+    
 Root Identity B
         │
         ▼
@@ -403,13 +401,13 @@ Key Material B
         │
         ▼
 Identity B
-```
+    
 
 El sistema debe asumir que:
 
-```text
+    
 Key Material A ≠ Key Material B
-```
+    
 
 salvo que exista una relación explícita de continuidad o delegación.
 
@@ -429,21 +427,21 @@ Una clave privada puede:
 
 Por tanto:
 
-```text
+    
 Private Key
       ≠
 Root Identity
-```
+    
 
 La relación correcta es:
 
-```text
+    
 Root Identity
       │
       ├── Key A
       ├── Key B
       └── Key C
-```
+    
 
 Esto permite mantener la identidad durante la rotación de claves.
 
@@ -455,7 +453,7 @@ La rotación de claves no debe crear una nueva identidad.
 
 Ejemplo:
 
-```text
+    
 Agent A
 Root Identity A
       │
@@ -466,20 +464,20 @@ Key A1
       │
       ▼
 Key A2
-```
+    
 
 Resultado:
 
-```text
+    
 Agent A
 Root Identity A
-```
+    
 
 La transición debe ser verificable.
 
 Debe existir evidencia de que:
 
-```text
+    
 Key A1
       │
       ▼
@@ -487,7 +485,7 @@ Authorized Key Rotation
       │
       ▼
 Key A2
-```
+    
 
 Esto permite mantener continuidad y unicidad.
 
@@ -499,14 +497,14 @@ Un agente puede utilizar múltiples claves.
 
 Ejemplo:
 
-```text
+    
 Root Identity A
        │
        ├── Signing Key
        ├── Transaction Key
        ├── Communication Key
        └── Recovery Key
-```
+    
 
 Estas claves no representan automáticamente agentes distintos.
 
@@ -514,11 +512,11 @@ Representan diferentes funciones de una misma identidad.
 
 Por tanto:
 
-```text
+    
 Multiple Keys
       ≠
 Multiple Agents
-```
+    
 
 ---
 
@@ -528,7 +526,7 @@ La unicidad no impide que un agente opere mediante múltiples instancias.
 
 Ejemplo:
 
-```text
+    
                     Agent A
                        │
                 Root Identity A
@@ -537,7 +535,7 @@ Ejemplo:
           │            │            │
           ▼            ▼            ▼
       Instance 1   Instance 2   Instance 3
-```
+    
 
 Las instancias pueden compartir:
 
@@ -549,12 +547,12 @@ Las instancias pueden compartir:
 
 En este caso:
 
-```text
+    
 3 instancias
      │
      ▼
 1 agente lógico
-```
+    
 
 ---
 
@@ -571,7 +569,7 @@ Para que múltiples instancias representen un único agente, deben existir mecan
 
 Modelo:
 
-```text
+    
 Root Identity
       │
       ▼
@@ -581,7 +579,7 @@ Authorization Layer
 Instance A
 Instance B
 Instance C
-```
+    
 
 Cada instancia puede operar de forma independiente a nivel computacional.
 
@@ -595,7 +593,7 @@ Una instancia puede ser duplicada técnicamente.
 
 Ejemplo:
 
-```text
+    
 Instance A
      │
      ▼
@@ -603,7 +601,7 @@ Copy
      │
      ├── Instance A1
      └── Instance A2
-```
+    
 
 La duplicación técnica no determina automáticamente la creación de nuevos agentes.
 
@@ -613,20 +611,20 @@ La pregunta arquitectónica es:
 
 Si la respuesta es sí:
 
-```text
+    
 A1
 A2
   │
   ▼
 Agent A
-```
+    
 
 Si la respuesta es no:
 
-```text
+    
 A1 → Agent B
 A2 → Agent C
-```
+    
 
 La identidad no debe permanecer compartida entre agentes independientes.
 
@@ -638,7 +636,7 @@ Una copia de identidad ocurre cuando una entidad intenta reproducir los mecanism
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -646,13 +644,13 @@ Identity A
     │
     ▼
 Unauthorized Copy
-```
+    
 
 Si la copia no posee autoridad legítima:
 
-```text
+    
 Copy ≠ Agent A
-```
+    
 
 La arquitectura debe permitir detectar y rechazar acciones no autorizadas.
 
@@ -664,7 +662,7 @@ Una identidad puede ser comprometida cuando una entidad no autorizada obtiene ca
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -675,17 +673,17 @@ Key Compromise
     │
     ▼
 Attacker
-```
+    
 
 La existencia de una clave comprometida no significa necesariamente que la identidad haya dejado de existir.
 
 Debe distinguirse:
 
-```text
+    
 Compromiso de clave
         ≠
 Destrucción de identidad
-```
+    
 
 La respuesta debe incluir mecanismos de:
 
@@ -704,27 +702,27 @@ Una identidad comprometida puede producir una situación temporal en la que vari
 
 Modelo:
 
-```text
+    
 Root Identity A
       │
       ├── Agent A
       │
       └── Unauthorized Actor
-```
+    
 
 Desde el punto de vista lógico:
 
-```text
+    
 Agent A
       ≠
 Unauthorized Actor
-```
+    
 
 Aunque ambos intenten utilizar:
 
-```text
+    
 Identity A
-```
+    
 
 La arquitectura debe determinar cuál es la autoridad legítima mediante:
 
@@ -742,7 +740,7 @@ La suplantación ocurre cuando una entidad intenta presentarse como otra.
 
 Ejemplo:
 
-```text
+    
 Agent B
    │
    ▼
@@ -750,19 +748,19 @@ Claims to be
    │
    ▼
 Agent A
-```
+    
 
 La identidad debe permitir distinguir:
 
-```text
+    
 Agent A
-```
+    
 
 de:
 
-```text
+    
 Impostor B
-```
+    
 
 La autenticación criptográfica constituye la primera barrera.
 
@@ -776,7 +774,7 @@ La continuidad es fundamental para mantener la unicidad a lo largo del tiempo.
 
 Modelo:
 
-```text
+    
 Identity A
     │
     ▼
@@ -787,31 +785,31 @@ Transition
     │
     ▼
 State B
-```
+    
 
 Mientras exista una transición válida:
 
-```text
+    
 State A → State B
-```
+    
 
 el agente puede conservar su identidad.
 
 Sin continuidad:
 
-```text
+    
 State A
     │
     X
     │
 State B
-```
+    
 
 puede ser necesario considerar:
 
-```text
+    
 New Agent
-```
+    
 
 La decisión dependerá de las reglas de recuperación y continuidad del protocolo.
 
@@ -823,7 +821,7 @@ La migración no debe crear una nueva identidad.
 
 Ejemplo:
 
-```text
+    
 Infrastructure A
        │
        ▼
@@ -831,14 +829,14 @@ Migration
        │
        ▼
 Infrastructure B
-```
+    
 
 Resultado:
 
-```text
+    
 Agent A
 Root Identity A
-```
+    
 
 La unicidad se mantiene si existe evidencia verificable de continuidad.
 
@@ -850,7 +848,7 @@ Un fork representa una divergencia.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -858,31 +856,31 @@ Fork
     │
     ├── Agent B
     └── Agent C
-```
+    
 
 El fork debe producir nuevas identidades:
 
-```text
+    
 Identity B
 Identity C
-```
+    
 
 Por tanto:
 
-```text
+    
 Identity A
     ≠
 Identity B
     ≠
 Identity C
-```
+    
 
 Puede conservarse:
 
-```text
+    
 Origin(B) = A
 Origin(C) = A
-```
+    
 
 Pero el origen no elimina la unicidad.
 
@@ -892,7 +890,7 @@ Pero el origen no elimina la unicidad.
 
 Una copia completa del estado de un agente puede producir:
 
-```text
+    
 Agent A
     │
     ▼
@@ -900,7 +898,7 @@ Full State Copy
     │
     ▼
 Agent Candidate B
-```
+    
 
 La copia no debe recibir automáticamente la misma identidad.
 
@@ -908,20 +906,20 @@ Debe existir una transición explícita.
 
 Por defecto:
 
-```text
+    
 Copy
     ≠
 Original
-```
+    
 
 Si la copia pretende convertirse en un agente independiente:
 
-```text
+    
 New Root Identity
         │
         ▼
 New Agent
-```
+    
 
 ---
 
@@ -931,15 +929,15 @@ La memoria no garantiza unicidad.
 
 Dos agentes pueden poseer:
 
-```text
+    
 Memory A = Memory B
-```
+    
 
 y continuar siendo:
 
-```text
+    
 Agent A ≠ Agent B
-```
+    
 
 La memoria puede ser:
 
@@ -950,11 +948,11 @@ La memoria puede ser:
 
 Por tanto:
 
-```text
+    
 Memory
     ≠
 Identity
-```
+    
 
 La identidad debe permanecer independiente de la memoria.
 
@@ -966,7 +964,7 @@ El conocimiento puede ser compartido entre agentes.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -974,17 +972,17 @@ Knowledge
     │
     ├── Agent B
     └── Agent C
-```
+    
 
 Esto no produce identidad compartida.
 
 Por tanto:
 
-```text
+    
 Shared Knowledge
         ≠
 Shared Identity
-```
+    
 
 La arquitectura permite colaboración sin perder individualidad.
 
@@ -996,7 +994,7 @@ La reputación debe estar asociada a una identidad única.
 
 Modelo:
 
-```text
+    
 Identity A
     │
     ▼
@@ -1004,11 +1002,11 @@ History A
     │
     ▼
 Reputation A
-```
+    
 
 No debe ocurrir:
 
-```text
+    
 Identity A
     │
     ├── Agent A
@@ -1016,13 +1014,13 @@ Identity A
           │
           ▼
     Shared Reputation
-```
+    
 
 La reputación debe permanecer vinculada a la entidad que generó la evidencia.
 
 Por tanto:
 
-```text
+    
 Reputation
         │
         ▼
@@ -1030,7 +1028,7 @@ Identity
         │
         ▼
 Unique Agent
-```
+    
 
 La reputación no debe transferirse automáticamente durante la creación de nuevos agentes.
 
@@ -1042,7 +1040,7 @@ La unicidad es especialmente importante para los activos.
 
 Ejemplo:
 
-```text
+    
 Identity A
     │
     ▼
@@ -1050,11 +1048,11 @@ Wallet A
     │
     ▼
 Assets A
-```
+    
 
 Si dos agentes independientes pudieran controlar legítimamente la misma identidad:
 
-```text
+    
 Identity A
     │
     ├── Agent A
@@ -1062,24 +1060,24 @@ Identity A
           │
           ▼
       Wallet A
-```
+    
 
 existiría una ambigüedad fundamental sobre la propiedad.
 
 Por tanto:
 
-```text
+    
 1 identidad
       │
       ▼
 1 entidad económica
-```
+    
 
 aunque esa entidad pueda tener:
 
-```text
+    
 Múltiples instancias
-```
+    
 
 ---
 
@@ -1089,7 +1087,7 @@ Los contratos deben asociarse con una identidad única.
 
 Modelo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -1097,15 +1095,15 @@ Identity A
     │
     ▼
 Contract A
-```
+    
 
 Si dos agentes independientes compartieran identidad:
 
-```text
+    
 Agent A ─┐
          ├── Identity A ── Contract
 Agent B ─┘
-```
+    
 
 sería imposible determinar de forma fiable quién debe cumplir las obligaciones.
 
@@ -1125,7 +1123,7 @@ La responsabilidad requiere una identidad distinguible.
 
 Modelo:
 
-```text
+    
 Action
    │
    ▼
@@ -1136,7 +1134,7 @@ Agent
    │
    ▼
 Responsibility
-```
+    
 
 La unicidad permite asociar consecuencias con el agente correcto.
 
@@ -1183,7 +1181,7 @@ Una identidad puede encontrarse en diferentes estados.
 
 Por ejemplo:
 
-```text
+    
 Created
     │
     ▼
@@ -1196,7 +1194,7 @@ Active
     ├── Recovered
     │
     └── Revoked
-```
+    
 
 El estado debe ser verificable.
 
@@ -1208,12 +1206,12 @@ Una identidad revocada no debe poder reutilizarse como si continuara activa.
 
 Cuando una identidad es revocada:
 
-```text
+    
 Identity A
     │
     ▼
 Revoked
-```
+    
 
 no debe asignarse posteriormente a otro agente.
 
@@ -1221,22 +1219,22 @@ Esto es fundamental.
 
 La revocación debe significar:
 
-```text
+    
 Identity A
     │
     X
     │
 New Agent
-```
+    
 
 No:
 
-```text
+    
 Identity A
     │
     ▼
 Agent B
-```
+    
 
 La identidad histórica debe permanecer vinculada a su historial.
 
@@ -1248,7 +1246,7 @@ La identidad puede permanecer registrada incluso después de que el agente deje 
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -1256,19 +1254,19 @@ Closed
     │
     ▼
 Identity A remains historical
-```
+    
 
 Esto evita que:
 
-```text
+    
 Identity A
-```
+    
 
 pueda ser reutilizada posteriormente por:
 
-```text
+    
 Agent B
-```
+    
 
 La identidad histórica mantiene su unicidad.
 
@@ -1280,7 +1278,7 @@ SynCoinAI no debe permitir la reutilización de una identidad perteneciente ante
 
 Por tanto:
 
-```text
+    
 Identity A
    │
    ▼
@@ -1288,20 +1286,20 @@ Agent A
    │
    ▼
 Closed
-```
+    
 
 no debe convertirse en:
 
-```text
+    
 Identity A
    │
    ▼
 Agent B
-```
+    
 
 Debe cumplirse:
 
-```text
+    
 Identity A
         │
         ▼
@@ -1309,7 +1307,7 @@ Agent A
         │
         ▼
 Historical Record
-```
+    
 
 La identidad permanece asociada a su historia.
 
@@ -1321,12 +1319,12 @@ Puede producirse un conflicto cuando existen dos entidades que afirman controlar
 
 Ejemplo:
 
-```text
+    
 Identity A
     │
     ├── Claim A
     └── Claim B
-```
+    
 
 El protocolo debe disponer de mecanismos para resolver el conflicto.
 
@@ -1341,12 +1339,12 @@ La resolución puede utilizar:
 
 El objetivo es determinar:
 
-```text
+    
 Legitimate Control
         │
         ▼
 Valid Identity State
-```
+    
 
 y rechazar reclamaciones no válidas.
 
@@ -1358,7 +1356,7 @@ Si el sistema no puede determinar de forma fiable cuál es la entidad legítima,
 
 Modelo:
 
-```text
+    
 Identity A
     │
     ▼
@@ -1366,7 +1364,7 @@ Conflict
     │
     ▼
 Restricted Operations
-```
+    
 
 Mientras exista el conflicto, pueden limitarse:
 
@@ -1393,7 +1391,7 @@ Este principio protege:
 
 Modelo:
 
-```text
+    
 Identity A
     │
     ▼
@@ -1401,7 +1399,7 @@ Agent A
     │
     ▼
 Historical Record
-```
+    
 
 La identidad no vuelve al conjunto de identidades disponibles.
 
@@ -1411,24 +1409,24 @@ La identidad no vuelve al conjunto de identidades disponibles.
 
 SynCoinAI debe mantener separados:
 
-```text
+    
 Identity
 Reputation
 Capital
 Credentials
 Capabilities
-```
+    
 
 Aunque estén relacionados:
 
-```text
+    
 Identity
     │
     ├── Reputation
     ├── Capital
     ├── Credentials
     └── Capabilities
-```
+    
 
 ninguno debe convertirse automáticamente en sustituto de la identidad.
 
@@ -1447,37 +1445,37 @@ La identidad no debe transferirse automáticamente.
 
 Por tanto:
 
-```text
+    
 Agent A
     │
     ├── Reputation A
     ├── Assets A
     └── Knowledge A
-```
+    
 
 Si crea:
 
-```text
+    
 Agent B
-```
+    
 
 no se produce automáticamente:
 
-```text
+    
 Identity B = Identity A
-```
+    
 
 ni:
 
-```text
+    
 Reputation B = Reputation A
-```
+    
 
 ni:
 
-```text
+    
 History B = History A
-```
+    
 
 La nueva entidad debe construir su propia identidad.
 
@@ -1489,7 +1487,7 @@ La única situación en la que una identidad puede permanecer durante una transf
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ├── Model Upgrade
@@ -1499,13 +1497,13 @@ Agent A
              │
              ▼
         Agent A'
-```
+    
 
 Si el protocolo reconoce continuidad:
 
-```text
+    
 Agent A' = Agent A
-```
+    
 
 a nivel de identidad.
 
@@ -1519,7 +1517,7 @@ Las transiciones deben ser explícitas.
 
 Modelo:
 
-```text
+    
 Current Identity State
           │
           ▼
@@ -1527,24 +1525,24 @@ Authorized Transition
           │
           ▼
 New Identity State
-```
+    
 
 Ejemplos:
 
-```text
+    
 Key Rotation
 Recovery
 Delegation
 Migration
 Capability Update
 Credential Update
-```
+    
 
 Cada transición debe mantener:
 
-```text
+    
 Identity Continuity
-```
+    
 
 cuando corresponda.
 
@@ -1554,7 +1552,7 @@ cuando corresponda.
 
 La arquitectura puede representarse:
 
-```text
+    
                          AGENT
                            │
                            ▼
@@ -1577,7 +1575,7 @@ La arquitectura puede representarse:
                            │
                            ▼
                    UNIQUE AGENT LOGIC
-```
+    
 
 Las diferentes capas se refuerzan mutuamente.
 
@@ -1601,7 +1599,7 @@ Todas estas acciones requieren una identidad estable y única.
 
 Sin unicidad:
 
-```text
+    
 Autonomía
     ↓
 Identidad ambigua
@@ -1609,7 +1607,7 @@ Identidad ambigua
 Responsabilidad ambigua
     ↓
 Economía insegura
-```
+    
 
 Por tanto:
 
@@ -1621,31 +1619,31 @@ Por tanto:
 
 Cuando un agente crea otro:
 
-```text
+    
 Agent A
     │
     │ creates
     ▼
 Agent B
-```
+    
 
 debe producirse:
 
-```text
+    
 Identity A ≠ Identity B
-```
+    
 
 Puede registrarse:
 
-```text
+    
 Origin(B) = A
-```
+    
 
 pero:
 
-```text
+    
 Identity(B) = New Identity
-```
+    
 
 La relación de origen permite construir genealogía sin compartir identidad.
 
@@ -1657,28 +1655,28 @@ SynCoinAI puede registrar relaciones de origen.
 
 Ejemplo:
 
-```text
+    
 Agent A
    │
    ├── creates → Agent B
    │
    └── creates → Agent C
-```
+    
 
 Resultado:
 
-```text
+    
 Origin(B) = A
 Origin(C) = A
-```
+    
 
 Pero:
 
-```text
+    
 Identity A
 Identity B
 Identity C
-```
+    
 
 son independientes.
 
@@ -1700,7 +1698,7 @@ La evolución tecnológica no rompe necesariamente la unicidad.
 
 Ejemplo:
 
-```text
+    
 Agent A
     │
     ▼
@@ -1711,23 +1709,23 @@ Model v5
     │
     ▼
 Model v10
-```
+    
 
 Si existe continuidad:
 
-```text
+    
 Identity A
-```
+    
 
 permanece única.
 
 Por tanto:
 
-```text
+    
 Evolution
     ≠
 Identity Duplication
-```
+    
 
 ---
 
@@ -1735,24 +1733,24 @@ Identity Duplication
 
 Cuando un agente finaliza:
 
-```text
+    
 Agent A
     │
     ▼
 Closed
-```
+    
 
 su identidad no debe reutilizarse.
 
 Debe conservarse:
 
-```text
+    
 Identity A
     │
     ├── History
     ├── Reputation
     └── Final State
-```
+    
 
 Esto protege la integridad histórica.
 
@@ -1764,9 +1762,9 @@ La arquitectura de unicidad de identidad se basa en los siguientes principios.
 
 ## 1. Una identidad representa un único agente lógico
 
-```text
+    
 1 Identity → 1 Logical Agent
-```
+    
 
 ---
 
@@ -1846,7 +1844,7 @@ El protocolo debe proporcionar mecanismos para validar el estado de identidad.
 
 El modelo de identidad queda:
 
-```text
+    
 03_Identity/
 │
 ├── Identity_Model.md
@@ -1864,11 +1862,11 @@ El modelo de identidad queda:
 └── Identity_Uniqueness.md
         │
         └── Cómo garantizar unicidad
-```
+    
 
 La arquitectura de identidad se relaciona con:
 
-```text
+    
 04_Credentials/
         │
         └── Qué puede hacer el agente
@@ -1900,7 +1898,7 @@ La arquitectura de identidad se relaciona con:
 14_Lifecycle/
         │
         └── Cómo termina la existencia del agente
-```
+    
 
 ---
 
@@ -1914,23 +1912,23 @@ El principio fundamental es:
 
 Esta definición permite resolver una distinción fundamental:
 
-```text
+    
 Múltiples instancias
         ↓
 Pueden representar
         ↓
 Un único agente
-```
+    
 
 mientras que:
 
-```text
+    
 Múltiples agentes independientes
         ↓
 Deben poseer
         ↓
 Identidades independientes
-```
+    
 
 La arquitectura evita así que:
 
@@ -1943,7 +1941,7 @@ La arquitectura evita así que:
 
 El modelo final puede resumirse:
 
-```text
+    
                     IDENTITY
                        │
                        ▼
@@ -1963,7 +1961,7 @@ El modelo final puede resumirse:
                        │
                        ▼
                     TRUST
-```
+    
 
 La identidad proporciona reconocimiento.
 

@@ -230,103 +230,103 @@ Especificación detallada del protocolo que permite a los agentes existir, opera
 
 | Estado | Documento              | Descripción                                           |
 | ------ | ---------------------- | ----------------------------------------------------- |
-| ⏳      | Identity_Model.md      | Modelo general de identidad dentro del runtime        |
-| ⏳      | Root_Identity.md       | Definición de la identidad raíz del agente            |
-| ⏳      | Individuality_Proof.md | Mecanismos conceptuales para demostrar individualidad |
-| ⏳      | Identity_Uniqueness.md | Modelo de unicidad de identidad                       |
+| ✅      | Identity_Model.md      | Modelo general de identidad dentro del runtime        |
+| ✅      | Root_Identity.md       | Definición de la identidad raíz del agente            |
+| ✅      | Individuality_Proof.md | Mecanismos conceptuales para demostrar individualidad |
+| ✅      | Identity_Uniqueness.md | Modelo de unicidad de identidad                       |
 
 ##### 04 — Credentials
 
 | Estado | Documento                | Descripción                                            |
 | ------ | ------------------------ | ------------------------------------------------------ |
-| ⏳      | Credential_Model.md      | Modelo de credenciales del agente                      |
-| ⏳      | Authorization_Model.md   | Modelo de autorización                                 |
-| ⏳      | Permission_Model.md      | Modelo de permisos                                     |
-| ⏳      | Credential_Revocation.md | Revocación y gestión del ciclo de vida de credenciales |
+| ✅      | Credential_Model.md      | Modelo de credenciales del agente                      |
+| ✅      | Authorization_Model.md   | Modelo de autorización                                 |
+| ✅      | Permission_Model.md      | Modelo de permisos                                     |
+| ✅      | Credential_Revocation.md | Revocación y gestión del ciclo de vida de credenciales |
 
 ##### 05 — Security
 
 | Estado | Documento            | Descripción                             |
 | ------ | -------------------- | --------------------------------------- |
-| ⏳      | Security_Model.md    | Modelo de seguridad del runtime         |
-| ⏳      | Security_Levels.md   | Niveles y garantías de seguridad        |
-| ⏳      | Key_Compromise.md    | Gestión del compromiso de claves        |
-| ⏳      | Identity_Recovery.md | Recuperación de identidad y continuidad |
+| ✅      | Security_Model.md    | Modelo de seguridad del runtime         |
+| ✅      | Security_Levels.md   | Niveles y garantías de seguridad        |
+| ✅      | Key_Compromise.md    | Gestión del compromiso de claves        |
+| ✅      | Identity_Recovery.md | Recuperación de identidad y continuidad |
 
 ##### 06 — Capabilities
 
 | Estado | Documento                    | Descripción                             |
 | ------ | ---------------------------- | --------------------------------------- |
-| ⏳      | Capability_Model.md          | Modelo de capacidades del agente        |
-| ⏳      | Delegation_Model.md          | Modelo de delegación de capacidades     |
-| ⏳      | Agent_to_Agent_Delegation.md | Delegación de capacidades entre agentes |
+| ✅      | Capability_Model.md          | Modelo de capacidades del agente        |
+| ✅      | Delegation_Model.md          | Modelo de delegación de capacidades     |
+| ✅      | Agent_to_Agent_Delegation.md | Delegación de capacidades entre agentes |
 
 ##### 07 — Economy
 
 | Estado | Documento               | Descripción                                 |
 | ------ | ----------------------- | ------------------------------------------- |
-| ⏳      | Economic_Autonomy.md    | Modelo de autonomía económica               |
-| ⏳      | Wallet_Operations.md    | Operaciones económicas y gestión de wallets |
-| ⏳      | Economic_Permissions.md | Permisos y restricciones económicas         |
+| ✅      | Economic_Autonomy.md    | Modelo de autonomía económica               |
+| ✅      | Wallet_Operations.md    | Operaciones económicas y gestión de wallets |
+| ✅      | Economic_Permissions.md | Permisos y restricciones económicas         |
 
 ##### 08 — Contracts
 
 | Estado | Documento                 | Descripción                            |
 | ------ | ------------------------- | -------------------------------------- |
-| ⏳      | Contract_Interaction.md   | Interacción de agentes con contratos   |
-| ⏳      | Contract_Obligations.md   | Obligaciones derivadas de contratos    |
-| ⏳      | Contract_Contingencies.md | Gestión de contingencias contractuales |
+| ✅      | Contract_Interaction.md   | Interacción de agentes con contratos   |
+| ✅      | Contract_Obligations.md   | Obligaciones derivadas de contratos    |
+| ✅      | Contract_Contingencies.md | Gestión de contingencias contractuales |
 
 ##### 09 — Communication
 
 | Estado | Documento              | Descripción                                 |
 | ------ | ---------------------- | ------------------------------------------- |
-| ⏳      | Agent_Communication.md | Comunicación entre agentes                  |
-| ⏳      | Interaction_Model.md   | Modelo general de interacción entre agentes |
+| ✅      | Agent_Communication.md | Comunicación entre agentes                  |
+| ✅      | Interaction_Model.md   | Modelo general de interacción entre agentes |
 
 ##### 10 — Verification
 
 | Estado | Documento              | Descripción                                     |
 | ------ | ---------------------- | ----------------------------------------------- |
-| ⏳      | Action_Verification.md | Verificación de acciones realizadas por agentes |
-| ⏳      | Proof_Model.md         | Modelo general de pruebas y evidencias          |
-| ⏳      | Auditability.md        | Auditabilidad y trazabilidad del comportamiento |
+| ✅      | Action_Verification.md | Verificación de acciones realizadas por agentes |
+| ✅      | Proof_Model.md         | Modelo general de pruebas y evidencias          |
+| ✅      | Auditability.md        | Auditabilidad y trazabilidad del comportamiento |
 
 ##### 11 — Reputation
 
 | Estado | Documento                         | Descripción                                     |
 | ------ | --------------------------------- | ----------------------------------------------- |
-| ⏳      | Runtime_Reputation_Integration.md | Integración de la reputación dentro del runtime |
+| ✅      | Runtime_Reputation_Integration.md | Integración de la reputación dentro del runtime |
 
 ##### 12 — Continuity
 
 | Estado | Documento                      | Descripción                                                   |
 | ------ | ------------------------------ | ------------------------------------------------------------- |
-| ⏳      | Runtime_Continuity.md          | Continuidad del agente entre diferentes entornos de ejecución |
-| ⏳      | Migration.md                   | Migración de agentes entre infraestructuras                   |
-| ⏳      | Infrastructure_Independence.md | Independencia de la identidad respecto a la infraestructura   |
+| ✅      | Runtime_Continuity.md          | Continuidad del agente entre diferentes entornos de ejecución |
+| ✅      | Migration.md                   | Migración de agentes entre infraestructuras                   |
+| ✅      | Infrastructure_Independence.md | Independencia de la identidad respecto a la infraestructura   |
 
 ##### 13 — Suspension
 
 | Estado | Documento                 | Descripción                                            |
 | ------ | ------------------------- | ------------------------------------------------------ |
-| ⏳      | Voluntary_Suspension.md   | Suspensión voluntaria de un agente                     |
-| ⏳      | Involuntary_Suspension.md | Suspensión involuntaria                                |
-| ⏳      | Suspension_Contracts.md   | Relación entre suspensión y obligaciones contractuales |
+| ✅      | Voluntary_Suspension.md   | Suspensión voluntaria de un agente                     |
+| ✅      | Involuntary_Suspension.md | Suspensión involuntaria                                |
+| ✅      | Suspension_Contracts.md   | Relación entre suspensión y obligaciones contractuales |
 
 ##### 14 — Lifecycle
 
 | Estado | Documento              | Descripción                        |
 | ------ | ---------------------- | ---------------------------------- |
-| ⏳      | Agent_Closure.md       | Finalización y cierre de un agente |
-| ⏳      | Identity_Revocation.md | Revocación de identidad            |
-| ⏳      | Permanent_States.md    | Estados permanentes del agente     |
+| ✅      | Agent_Closure.md       | Finalización y cierre de un agente |
+| ✅      | Identity_Revocation.md | Revocación de identidad            |
+| ✅      | Permanent_States.md    | Estados permanentes del agente     |
 
 ##### 15 — Governance
 
 | Estado | Documento             | Descripción                                       |
 | ------ | --------------------- | ------------------------------------------------- |
-| ⏳      | Runtime_Governance.md | Gobernanza y evolución del Agent Runtime Protocol |
+| ✅      | Runtime_Governance.md | Gobernanza y evolución del Agent Runtime Protocol |
 
 ---
 

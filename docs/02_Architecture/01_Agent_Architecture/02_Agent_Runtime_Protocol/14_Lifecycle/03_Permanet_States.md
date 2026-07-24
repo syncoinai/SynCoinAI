@@ -16,21 +16,21 @@ El ciclo de vida de un agente SynCoinAI puede atravesar diferentes estados.
 
 Algunos estados son temporales:
 
-```text
+
 ACTIVE
 SUSPENDED
 CLOSURE_PENDING
 MIGRATING
-```
+
 
 Otros pueden representar una transición permanente:
 
-```text
+
 CLOSED
 REVOKED
 RETIRED
 TERMINATED
-```
+
 
 Estos estados deben definirse de forma precisa.
 
@@ -42,7 +42,7 @@ Por el contrario:
 
 La arquitectura debe distinguir entre:
 
-```text
+
 Agent State
 Identity State
 Runtime State
@@ -50,7 +50,7 @@ Credential State
 Permission State
 Contract State
 Asset State
-```
+
 
 Un estado permanente en una capa no implica automáticamente un estado permanente idéntico en las demás.
 
@@ -79,22 +79,22 @@ Un estado permanente es un estado del sistema que, una vez confirmado, no puede 
 
 Formalmente:
 
-```text id="p7m3x9"
+ id="p7m3x9"
 State A
    ↓
 Permanent Transition
    ↓
 State B
-```
+
 
 Después:
 
-```text id="n4q8k2"
+ id="n4q8k2"
 State B
    X
    ↓
 State A
-```
+
 
 salvo que exista un mecanismo excepcional explícitamente definido por el protocolo.
 
@@ -104,7 +104,7 @@ salvo que exista un mecanismo excepcional explícitamente definido por el protoc
 
 La permanencia debe analizarse por dominio.
 
-```text id="x5m9p2"
+ id="x5m9p2"
 Agent
 Identity
 Runtime
@@ -113,19 +113,19 @@ Permission
 Contract
 Asset
 Reputation
-```
+
 
 Por ejemplo:
 
-```text id="q8n3m7"
+ id="q8n3m7"
 Runtime = TERMINATED
-```
+
 
 no significa necesariamente:
 
-```text id="m4p7x1"
+ id="m4p7x1"
 Agent = CLOSED
-```
+
 
 ---
 
@@ -133,19 +133,19 @@ Agent = CLOSED
 
 Los estados principales del agente pueden incluir:
 
-```text id="k2x8n5"
+ id="k2x8n5"
 ACTIVE
 SUSPENDED
 CLOSURE_PENDING
 CLOSURE_PROCESSING
 CLOSED
-```
+
 
 El estado:
 
-```text id="p4m9q2"
+ id="p4m9q2"
 CLOSED
-```
+
 
 representa normalmente un estado permanente.
 
@@ -155,19 +155,19 @@ representa normalmente un estado permanente.
 
 Los estados de identidad pueden incluir:
 
-```text id="x7n3m8"
+ id="x7n3m8"
 ACTIVE
 SUSPENDED
 REVOKED
 RETIRED
-```
+
 
 Los estados:
 
-```text id="q5p2k9"
+ id="q5p2k9"
 REVOKED
 RETIRED
-```
+
 
 son normalmente permanentes.
 
@@ -177,7 +177,7 @@ son normalmente permanentes.
 
 Un Runtime puede tener:
 
-```text id="m8x4n1"
+ id="m8x4n1"
 INITIALIZING
 ACTIVE
 PAUSED
@@ -185,13 +185,13 @@ SUSPENDED
 MIGRATING
 STOPPING
 TERMINATED
-```
+
 
 `TERMINATED` puede ser permanente para esa instancia concreta del Runtime.
 
 Sin embargo, el agente puede iniciar otro Runtime.
 
-```text id="p3q7m2"
+ id="p3q7m2"
 Runtime A
     ↓
 TERMINATED
@@ -199,7 +199,7 @@ TERMINATED
 Runtime B
     ↓
 ACTIVE
-```
+
 
 ---
 
@@ -207,20 +207,20 @@ ACTIVE
 
 Las credenciales pueden tener:
 
-```text id="n6m2x8"
+ id="n6m2x8"
 ACTIVE
 EXPIRED
 REVOKED
 REPLACED
-```
+
 
 Una credencial revocada no debe volver a utilizarse.
 
-```text id="q4p9k1"
+ id="q4p9k1"
 REVOKED
    ↓
 No Reactivation
-```
+
 
 Una nueva credencial debe tener una nueva identidad criptográfica propia.
 
@@ -230,18 +230,18 @@ Una nueva credencial debe tener una nueva identidad criptográfica propia.
 
 Un permiso puede ser:
 
-```text id="x8m3n5"
+ id="x8m3n5"
 ACTIVE
 SUSPENDED
 REVOKED
 EXPIRED
-```
+
 
 Un permiso revocado no debe reactivarse automáticamente.
 
 Puede emitirse un nuevo permiso.
 
-```text id="m7q2p9"
+ id="m7q2p9"
 Permission A
     ↓
 REVOKED
@@ -249,7 +249,7 @@ REVOKED
 Permission B
     ↓
 NEW
-```
+
 
 ---
 
@@ -257,14 +257,14 @@ NEW
 
 Los contratos pueden tener:
 
-```text id="p5n8x3"
+ id="p5n8x3"
 ACTIVE
 COMPLETED
 SETTLED
 TERMINATED
 DISPUTED
 EXPIRED
-```
+
 
 Un contrato completado o liquidado representa un estado final.
 
@@ -274,14 +274,14 @@ Un contrato completado o liquidado representa un estado final.
 
 Los activos pueden tener estados como:
 
-```text id="q2m7p4"
+ id="q2m7p4"
 AVAILABLE
 LOCKED
 ESCROWED
 TRANSFERRED
 SETTLED
 BURNED
-```
+
 
 No todos son estados del agente.
 
@@ -295,11 +295,11 @@ La reputación histórica no debe eliminarse automáticamente.
 
 Puede existir:
 
-```text id="n8x4m1"
+ id="n8x4m1"
 ACTIVE HISTORY
 HISTORICAL
 ARCHIVED
-```
+
 
 El cierre del agente no debe borrar su historial reputacional.
 
@@ -309,9 +309,9 @@ El cierre del agente no debe borrar su historial reputacional.
 
 Cuando un agente alcanza:
 
-```text id="p3q9m5"
+ id="p3q9m5"
 CLOSED
-```
+
 
 su ciclo operativo finaliza.
 
@@ -337,17 +337,17 @@ Pero puede conservar:
 
 Cuando una identidad alcanza:
 
-```text id="x7m2n8"
+ id="x7m2n8"
 REVOKED
-```
+
 
 no puede utilizarse para autenticar nuevas operaciones válidas.
 
 Cuando alcanza:
 
-```text id="q4p9m1"
+ id="q4p9m1"
 RETIRED
-```
+
 
 deja de utilizarse operativamente, pero puede conservar su historial.
 
@@ -357,25 +357,25 @@ deja de utilizarse operativamente, pero puede conservar su historial.
 
 Estos estados deben diferenciarse.
 
-```text id="m5x8q2"
+ id="m5x8q2"
 CLOSED
-```
+
 
 describe principalmente el estado del agente.
 
-```text id="n3p7k9"
+ id="n3p7k9"
 RETIRED
-```
+
 
 describe principalmente el estado de una identidad que ya no se utiliza.
 
 Por ejemplo:
 
-```text id="x6q2m8"
+ id="x6q2m8"
 Agent = CLOSED
 Identity = RETIRED
 Runtime = TERMINATED
-```
+
 
 es una combinación válida.
 
@@ -385,17 +385,17 @@ es una combinación válida.
 
 También deben diferenciarse.
 
-```text id="p8m4n1"
+ id="p8m4n1"
 CLOSED
-```
+
 
 significa:
 
 > El agente ha terminado su vida operativa.
 
-```text id="q3x7m9"
+ id="q3x7m9"
 REVOKED
-```
+
 
 significa:
 
@@ -403,15 +403,15 @@ significa:
 
 Puede existir:
 
-```text id="m5n8p2"
+ id="m5n8p2"
 CLOSED + VALID IDENTITY
-```
+
 
 o:
 
-```text id="x4q9m1"
+ id="x4q9m1"
 CLOSED + REVOKED IDENTITY
-```
+
 
 ---
 
@@ -419,17 +419,17 @@ CLOSED + REVOKED IDENTITY
 
 Una identidad retirada:
 
-```text id="p7m3x8"
+ id="p7m3x8"
 RETIRED
-```
+
 
 no implica necesariamente comportamiento incorrecto.
 
 Una identidad revocada:
 
-```text id="q2n9k5"
+ id="q2n9k5"
 REVOKED
-```
+
 
 implica que su validez ha sido invalidada.
 
@@ -439,20 +439,20 @@ implica que su validez ha sido invalidada.
 
 La terminación de un Runtime es permanente para esa instancia.
 
-```text id="m8x4p1"
+ id="m8x4p1"
 Runtime Instance A
        ↓
 TERMINATED
-```
+
 
 No debe volver a:
 
-```text id="ACTIVE"
-```
+ id="ACTIVE"
+
 
 La recuperación requiere una nueva instancia.
 
-```text id="q5n2m7"
+ id="q5n2m7"
 Runtime A
    ↓
 TERMINATED
@@ -460,7 +460,7 @@ TERMINATED
 Runtime B
    ↓
 NEW INSTANCE
-```
+
 
 ---
 
@@ -468,9 +468,9 @@ NEW INSTANCE
 
 Cada instancia del Runtime debe tener un identificador propio.
 
-```text id="x7p3n9"
+ id="x7p3n9"
 Runtime ID
-```
+
 
 Una instancia terminada no debe reutilizarse.
 
@@ -480,13 +480,13 @@ Una instancia terminada no debe reutilizarse.
 
 La continuidad del agente es independiente de la instancia del Runtime.
 
-```text id="m4q8x2"
+ id="m4q8x2"
 Agent
  |
  +── Runtime A → TERMINATED
  |
  +── Runtime B → ACTIVE
-```
+
 
 Esto permite:
 
@@ -501,24 +501,24 @@ Esto permite:
 
 Un agente cerrado de forma permanente:
 
-```text id="p9n3m6"
+ id="p9n3m6"
 CLOSED
-```
+
 
 no puede volver a:
 
-```text id="ACTIVE"
-```
+ id="ACTIVE"
+
 
 mediante una simple operación de reactivación.
 
 Si se necesita una nueva entidad:
 
-```text id="x5q8m2"
+ id="x5q8m2"
 New Agent
    ↓
 New Identity
-```
+
 
 ---
 
@@ -526,9 +526,9 @@ New Identity
 
 Una identidad revocada:
 
-```text id="m7p2n9"
+ id="m7p2n9"
 REVOKED
-```
+
 
 no debe poder reactivarse mediante:
 
@@ -543,7 +543,7 @@ no debe poder reactivarse mediante:
 
 La única excepción posible sería una reinstauración formal.
 
-```text id="q4x8m1"
+ id="q4x8m1"
 REVOKED
    ↓
 APPEAL
@@ -551,7 +551,7 @@ APPEAL
 REVIEW
    ↓
 REINSTATEMENT
-```
+
 
 Debe ser:
 
@@ -579,7 +579,7 @@ No debe eliminarse el hecho de que estuvo revocada.
 
 El historial puede representar:
 
-```text id="n5m8q2"
+ id="n5m8q2"
 ACTIVE
    ↓
 REVOKED
@@ -587,7 +587,7 @@ REVOKED
 REINSTATED
    ↓
 ACTIVE
-```
+
 
 La transición queda registrada.
 
@@ -597,14 +597,14 @@ La transición queda registrada.
 
 Un cierre permanente debe registrarse:
 
-```text id="x3p7m9"
+ id="x3p7m9"
 Closure Record
     |
     +── Final State = CLOSED
     +── Timestamp
     +── Authority
     +── Reason
-```
+
 
 ---
 
@@ -612,7 +612,7 @@ Closure Record
 
 Antes de alcanzar el estado permanente puede generarse un snapshot.
 
-```text id="m8q2n5"
+ id="m8q2n5"
 Final State
     ↓
 Snapshot
@@ -620,7 +620,7 @@ Snapshot
 Hash
     ↓
 Timestamp
-```
+
 
 Esto permite preservar el estado final.
 
@@ -632,15 +632,15 @@ Los estados permanentes no eliminan necesariamente el historial.
 
 Un agente puede ser:
 
-```text id="p4n9x2"
+ id="p4n9x2"
 CLOSED
-```
+
 
 y seguir siendo consultable como:
 
-```text id="q7m3k8"
+ id="q7m3k8"
 Historical Agent
-```
+
 
 ---
 
@@ -648,13 +648,13 @@ Historical Agent
 
 Un tercero puede verificar:
 
-```text id="x5p8n1"
+ id="x5p8n1"
 Agent ID
     ↓
 Lifecycle History
     ↓
 Final State
-```
+
 
 ---
 
@@ -675,13 +675,13 @@ Esto incluye:
 
 Una identidad permanentemente retirada o revocada permanece asociada a su historial.
 
-```text id="m2q7x4"
+ id="m2q7x4"
 Identity A
     ↓
 REVOKED
     ↓
 Never Reused
-```
+
 
 ---
 
@@ -689,11 +689,11 @@ Never Reused
 
 Una instancia terminada:
 
-```text id="n8p3m5"
+ id="n8p3m5"
 Runtime A
     ↓
 TERMINATED
-```
+
 
 no debe reaparecer como otra instancia.
 
@@ -703,11 +703,11 @@ no debe reaparecer como otra instancia.
 
 Una credencial revocada:
 
-```text id="x6m9q2"
+ id="x6m9q2"
 Credential A
     ↓
 REVOKED
-```
+
 
 no puede reutilizarse.
 
@@ -721,9 +721,9 @@ La terminación de un Runtime no implica necesariamente destrucción de claves d
 
 Sin embargo:
 
-```text id="p4n7m1"
+ id="p4n7m1"
 Identity Revoked
-```
+
 
 debe impedir que las claves asociadas se utilicen para operaciones válidas.
 
@@ -733,25 +733,25 @@ debe impedir que las claves asociadas se utilicen para operaciones válidas.
 
 La destrucción de una clave puede ser permanente.
 
-```text id="q8m3x5"
+ id="q8m3x5"
 Private Key
     ↓
 Destroyed
     ↓
 No Recovery
-```
+
 
 Pero:
 
-```text id="x2p9n7"
+ id="x2p9n7"
 Key Destroyed
-```
+
 
 no significa necesariamente:
 
-```text id="m5q4k8"
+ id="m5q4k8"
 Identity Revoked
-```
+
 
 La política dependerá del modelo de recuperación.
 
@@ -782,7 +782,7 @@ Los estados pueden combinarse.
 
 Ejemplo:
 
-```text id="n4x8p2"
+ id="n4x8p2"
 Agent
     = CLOSED
 
@@ -806,7 +806,7 @@ Assets
 
 Reputation
     = HISTORICAL
-```
+
 
 ---
 
@@ -814,10 +814,10 @@ Reputation
 
 En principio:
 
-```text id="q7m3x9"
+ id="q7m3x9"
 Identity = REVOKED
 Agent = ACTIVE
-```
+
 
 no debe considerarse un estado operativo válido.
 
@@ -836,10 +836,10 @@ Puede existir temporalmente durante:
 
 Sí puede existir:
 
-```text id="m5p8n2"
+ id="m5p8n2"
 Agent = CLOSED
 Identity = VALID
-```
+
 
 Esto representa un agente que terminó su ciclo de vida sin que su identidad haya sido considerada inválida.
 
@@ -849,10 +849,10 @@ Esto representa un agente que terminó su ciclo de vida sin que su identidad hay
 
 También puede existir:
 
-```text id="x4q7m1"
+ id="x4q7m1"
 Agent = CLOSED
 Identity = REVOKED
-```
+
 
 Este es un estado final fuerte.
 
@@ -862,10 +862,10 @@ Este es un estado final fuerte.
 
 Este puede ser el estado normal:
 
-```text id="p8n3m5"
+ id="p8n3m5"
 Agent = CLOSED
 Identity = RETIRED
-```
+
 
 Representa un agente que finalizó correctamente su existencia operativa.
 
@@ -875,11 +875,11 @@ Representa un agente que finalizó correctamente su existencia operativa.
 
 Este estado es válido:
 
-```text id="m2x9q4"
+ id="m2x9q4"
 Agent = ACTIVE
 Runtime A = TERMINATED
 Runtime B = ACTIVE
-```
+
 
 La continuidad se mantiene mediante otro Runtime.
 
@@ -889,18 +889,18 @@ La continuidad se mantiene mediante otro Runtime.
 
 Si todos los Runtimes terminan:
 
-```text id="q5p7n1"
+ id="q5p7n1"
 Agent = ACTIVE
 Runtimes = NONE
-```
+
 
 el agente puede quedar temporalmente inactivo.
 
 Esto no implica automáticamente:
 
-```text id="x8m3k6"
+ id="x8m3k6"
 Agent = CLOSED
-```
+
 
 ---
 
@@ -908,13 +908,13 @@ Agent = CLOSED
 
 El cierre puede producirse cuando:
 
-```text id="p4q9m2"
+ id="p4q9m2"
 Agent
    ↓
 No Future Operation
    +
 Closure Confirmed
-```
+
 
 ---
 
@@ -922,11 +922,11 @@ Closure Confirmed
 
 La revocación puede producirse cuando:
 
-```text id="n7x3m8"
+ id="n7x3m8"
 Identity
    ↓
 No Longer Trustworthy
-```
+
 
 ---
 
@@ -934,11 +934,11 @@ No Longer Trustworthy
 
 La terminación puede producirse cuando:
 
-```text id="q2p8m5"
+ id="q2p8m5"
 Runtime
    ↓
 No Longer Usable
-```
+
 
 ---
 
@@ -948,9 +948,9 @@ Los estados permanentes deben estar protegidos contra errores.
 
 Antes de confirmar:
 
-```text id="m9x4n2"
+ id="m9x4n2"
 Permanent Transition
-```
+
 
 el sistema debe verificar:
 
@@ -967,7 +967,7 @@ el sistema debe verificar:
 
 Las operaciones irreversibles deberían requerir confirmación explícita.
 
-```text id="p6n3q8"
+ id="p6n3q8"
 Request
     ↓
 Validation
@@ -975,7 +975,7 @@ Validation
 Confirmation
     ↓
 Commit
-```
+
 
 ---
 
@@ -985,17 +985,17 @@ La transición permanente debe ser idempotente.
 
 Ejemplo:
 
-```text id="x4m8p2"
+ id="x4m8p2"
 Close Agent
 Close Agent
 Close Agent
-```
+
 
 debe producir un único resultado final:
 
-```text id="q7n3m5"
+ id="q7n3m5"
 Agent = CLOSED
-```
+
 
 No deben generarse tres cierres independientes.
 
@@ -1005,15 +1005,15 @@ No deben generarse tres cierres independientes.
 
 Una transición permanente no debe ejecutarse nuevamente mediante replay.
 
-```text id="m2p9x4"
+ id="m2p9x4"
 Closure Request #123
-```
+
 
 si ya fue procesada:
 
-```text id="n8q3k7"
+ id="n8q3k7"
 Already Applied
-```
+
 
 ---
 
@@ -1021,11 +1021,11 @@ Already Applied
 
 Si dos autoridades intentan producir estados permanentes diferentes:
 
-```text id="x5m7p2"
+ id="x5m7p2"
 Closure
    +
 Reinstatement
-```
+
 
 debe existir un mecanismo de ordenación y autoridad.
 
@@ -1037,13 +1037,13 @@ No debe asumirse que todos los estados tienen la misma prioridad.
 
 Por ejemplo:
 
-```text id="q4n8m1"
+ id="q4n8m1"
 ACTIVE
    ↓
 SUSPENDED
    ↓
 REVOKED
-```
+
 
 Una revocación puede tener precedencia sobre una suspensión.
 
@@ -1053,9 +1053,9 @@ Una revocación puede tener precedencia sobre una suspensión.
 
 Una vez alcanzado un estado permanente:
 
-```text id="m7x2p9"
+ id="m7x2p9"
 Finality
-```
+
 
 debe existir una garantía de que todos los participantes relevantes reconocerán el mismo resultado.
 
@@ -1065,13 +1065,13 @@ debe existir una garantía de que todos los participantes relevantes reconocerá
 
 En una red distribuida:
 
-```text id="p3n8q5"
+ id="p3n8q5"
 Permanent Transition
       ↓
 Consensus
       ↓
 Final State
-```
+
 
 La finalización depende del modelo de consenso.
 
@@ -1081,13 +1081,13 @@ La finalización depende del modelo de consenso.
 
 Cuando el estado se registra en blockchain:
 
-```text id="x8m4q2"
+ id="x8m4q2"
 Block
    ↓
 Confirmation
    ↓
 Finality
-```
+
 
 debe determinarse cuándo se considera irreversible.
 
@@ -1111,7 +1111,7 @@ Por ejemplo:
 
 Cada transición permanente debe generar un registro.
 
-```text id="n5p7m3"
+ id="n5p7m3"
 PermanentStateRecord
     |
     +── Entity ID
@@ -1121,7 +1121,7 @@ PermanentStateRecord
     +── Authority
     +── Timestamp
     +── Evidence
-```
+
 
 ---
 
@@ -1129,14 +1129,14 @@ PermanentStateRecord
 
 Debe ser posible reconstruir:
 
-```text id="q2x8m4"
+ id="q2x8m4"
 Who
 What
 When
 Why
 Authority
 Evidence
-```
+
 
 ---
 
@@ -1144,12 +1144,12 @@ Evidence
 
 El registro público puede contener únicamente:
 
-```text id="m6p3n9"
+ id="m6p3n9"
 Entity ID
 Final State
 Timestamp
 Proof
-```
+
 
 La información sensible puede permanecer protegida.
 
@@ -1159,17 +1159,17 @@ La información sensible puede permanecer protegida.
 
 Los registros permanentes no deben modificarse retroactivamente.
 
-```text id="x4q7m2"
+ id="x4q7m2"
 Historical Record
       ↓
 Immutable
-```
+
 
 o, cuando no sea posible inmutabilidad absoluta:
 
-```text id="p8n3m5"
+ id="p8n3m5"
 Tamper Evident
-```
+
 
 ---
 
@@ -1177,11 +1177,11 @@ Tamper Evident
 
 La eliminación de datos no debe confundirse con la transición permanente.
 
-```text id="m2x9q4"
+ id="m2x9q4"
 Permanent State
     ≠
 Data Deletion
-```
+
 
 Un agente puede estar cerrado mientras sus registros históricos continúan existiendo.
 
@@ -1206,9 +1206,9 @@ Un estado permanente puede ser público sin revelar la causa completa.
 
 Ejemplo:
 
-```text id="q7m4x1"
+ id="q7m4x1"
 Identity = REVOKED
-```
+
 
 La causa detallada puede permanecer privada.
 
@@ -1220,7 +1220,7 @@ La reputación histórica debe permanecer asociada a la identidad original.
 
 Esto impide:
 
-```text id="n5p8m2"
+ id="n5p8m2"
 Identity Revoked
       ↓
 History Deleted
@@ -1228,7 +1228,7 @@ History Deleted
 New Identity
       ↓
 Clean Reputation
-```
+
 
 ---
 
@@ -1236,11 +1236,11 @@ Clean Reputation
 
 Un nuevo agente comienza con:
 
-```text id="x3q7m9"
+ id="x3q7m9"
 New Agent ID
 New Identity
 New Reputation
-```
+
 
 Puede declarar una relación histórica con un agente anterior, pero no hereda automáticamente:
 
@@ -1255,7 +1255,7 @@ Puede declarar una relación histórica con un agente anterior, pero no hereda a
 
 Puede existir:
 
-```text id="m8p2n5"
+ id="m8p2n5"
 Agent A
    ↓
 CLOSED
@@ -1263,13 +1263,13 @@ CLOSED
 Agent B
    ↓
 NEW
-```
+
 
 con:
 
-```text id="q4x9m1"
+ id="q4x9m1"
 SuccessorOf(A)
-```
+
 
 como relación histórica.
 
@@ -1279,12 +1279,12 @@ como relación histórica.
 
 El sucesor no debe heredar automáticamente la reputación.
 
-```text id="p7n3x8"
+ id="p7n3x8"
 Reputation A
     X
     ↓
 Reputation B
-```
+
 
 La relación debe ser contextual.
 
@@ -1307,11 +1307,11 @@ Debe definirse:
 
 Puede existir una vía de emergencia.
 
-```text id="x2m8p5"
+ id="x2m8p5"
 Critical Threat
       ↓
 Immediate State Transition
-```
+
 
 Debe registrarse y revisarse posteriormente.
 
@@ -1323,7 +1323,7 @@ No todos los estados permanentes deben tener recuperación.
 
 Modelo recomendado:
 
-```text id="q5n3m7"
+ id="q5n3m7"
 Agent CLOSED
     → No Recovery
 
@@ -1338,7 +1338,7 @@ Runtime TERMINATED
 
 Credential REVOKED
     → New Credential
-```
+
 
 ---
 
@@ -1346,7 +1346,7 @@ Credential REVOKED
 
 Puede representarse:
 
-```text id="m4x9p2"
+ id="m4x9p2"
 Temporary State
       ↓
 Finalizable State
@@ -1354,13 +1354,13 @@ Finalizable State
 Permanent State
       ↓
 Historical State
-```
+
 
 ---
 
 # 72. State Transition Graph
 
-```text id="p8n2q5"
+ id="p8n2q5"
                  ACTIVE
                     |
           +---------+---------+
@@ -1376,21 +1376,21 @@ Historical State
           |
           v
         ACTIVE
-```
+
 
 Identidad:
 
-```text id="x7m3n9"
+ id="x7m3n9"
 ACTIVE
    |
    +── RETIRED
    |
    +── REVOKED
-```
+
 
 Runtime:
 
-```text id="q4p8m2"
+ id="q4p8m2"
 ACTIVE
    |
    v
@@ -1398,13 +1398,13 @@ STOPPING
    |
    v
 TERMINATED
-```
+
 
 ---
 
 # 73. Global Lifecycle Example
 
-```text id="m5n8x1"
+ id="m5n8x1"
 Agent Created
       ↓
 Identity ACTIVE
@@ -1430,13 +1430,13 @@ Identity RETIRED
 Runtime B TERMINATED
       ↓
 Historical Agent
-```
+
 
 ---
 
 # 74. Security Compromise Example
 
-```text id="p3q7m9"
+ id="p3q7m9"
 Agent ACTIVE
       ↓
 Identity Compromise
@@ -1456,13 +1456,13 @@ Runtime Terminated
 Agent CLOSED
       ↓
 Historical Record Preserved
-```
+
 
 ---
 
 # 75. Normal Closure Example
 
-```text id="x8m2n5"
+ id="x8m2n5"
 Agent ACTIVE
       ↓
 Closure Request
@@ -1478,7 +1478,7 @@ Runtime Terminated
 Agent CLOSED
       ↓
 Identity RETIRED
-```
+
 
 ---
 
@@ -1486,30 +1486,30 @@ Identity RETIRED
 
 El protocolo debe garantizar:
 
-```text id="q4n7p2"
+ id="q4n7p2"
 CLOSED Agent
     → Cannot Become ACTIVE
-```
 
-```text id="m8x3k5"
+
+ id="m8x3k5"
 RETIRED Identity
     → Cannot Be Reused
-```
 
-```text id="p2n9q4"
+
+ id="p2n9q4"
 REVOKED Identity
     → Cannot Authenticate as Valid
-```
 
-```text id="x7m5q1"
+
+ id="x7m5q1"
 TERMINATED Runtime
     → Cannot Resume as Same Instance
-```
 
-```text id="n3p8m2"
+
+ id="n3p8m2"
 REVOKED Credential
     → Cannot Become Valid Again
-```
+
 
 ---
 
@@ -1599,30 +1599,30 @@ La existencia de un estado permanente no obliga a publicar toda la información 
 
 Este documento cierra directamente:
 
-```text id="m7p3x9"
+ id="m7p3x9"
 14_Lifecycle/
 ├── Agent_Closure.md
 ├── Identity_Revocation.md
 └── Permanent_States.md
-```
+
 
 Está relacionado con:
 
-```text id="q4n8m2"
+ id="q4n8m2"
 12_Continuity/
 ├── Runtime_Continuity.md
 ├── Migration.md
 └── Infrastructure_Independence.md
-```
+
 
 y:
 
-```text id="x5p2n7"
+ id="x5p2n7"
 13_Suspension/
 ├── Voluntary_Suspension.md
 ├── Involuntary_Suspension.md
 └── Suspension_Contracts.md
-```
+
 
 Además:
 
@@ -1647,7 +1647,7 @@ La arquitectura debe evitar considerar todos los estados finales como equivalent
 
 El modelo fundamental es:
 
-```text id="n8m4q2"
+ id="n8m4q2"
 AGENT
   |
   +── Lifecycle
@@ -1674,7 +1674,7 @@ AGENT
   |
   └── Reputation
          └── HISTORICAL
-```
+
 
 La arquitectura debe permitir que cada componente alcance su propio estado final sin destruir innecesariamente los demás.
 
@@ -1684,11 +1684,11 @@ El principio central es:
 
 Con esto queda conceptualmente completado el bloque:
 
-```text
+
 14_Lifecycle/
 ├── Agent_Closure.md
 ├── Identity_Revocation.md
 └── Permanent_States.md
-```
+
 
 El siguiente bloque pendiente es **`15_Governance/Runtime_Governance.md`**, que será especialmente importante porque debe definir **cómo se gobierna el propio Agent Runtime Protocol**, quién puede modificar sus reglas, cómo se gestionan las actualizaciones, qué ocurre con versiones incompatibles y cómo se evita que una autoridad de gobernanza pueda convertirse en un punto único de control sobre los agentes.

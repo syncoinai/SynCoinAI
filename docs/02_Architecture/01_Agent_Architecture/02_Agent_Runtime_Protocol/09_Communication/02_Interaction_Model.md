@@ -16,7 +16,7 @@ La interacción define el proceso más amplio mediante el cual dos o más agente
 
 Por tanto:
 
-```text
+
 Communication
     ↓
 Information Exchange
@@ -24,7 +24,7 @@ Information Exchange
 Interaction
     ↓
 Goal-Oriented Process
-```
+
 
 Una interacción puede incluir:
 
@@ -85,7 +85,7 @@ Una interacción SynCoinAI es un proceso estructurado mediante el cual uno o má
 
 Formalmente:
 
-```text
+
 Interaction =
     Participants
     +
@@ -100,7 +100,7 @@ Interaction =
     Actions
     +
     Outcome
-```
+
 
 Una interacción puede ser:
 
@@ -118,17 +118,17 @@ Una interacción puede ser:
 
 Debe existir una separación conceptual:
 
-```text
+
 Communication
     = intercambio de mensajes
 
 Interaction
     = proceso compuesto por múltiples intercambios y acciones
-```
+
 
 Ejemplo:
 
-```text
+
 Message 1
     ↓
 Message 2
@@ -140,7 +140,7 @@ Contract
 Execution
     ↓
 Payment
-```
+
 
 Todo este proceso constituye una interacción.
 
@@ -152,19 +152,19 @@ Una interacción no es necesariamente una transacción económica.
 
 Puede existir:
 
-```text
+
 Interaction
     ├── No payment
     ├── Information exchange
     ├── Negotiation
     └── Economic transaction
-```
+
 
 Una transacción económica puede formar parte de una interacción más amplia.
 
 Ejemplo:
 
-```text
+
 Interaction
     │
     ├── Discovery
@@ -173,7 +173,7 @@ Interaction
     ├── Service
     ├── Verification
     └── Payment
-```
+
 
 ---
 
@@ -183,7 +183,7 @@ Una interacción puede existir sin contrato.
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 "Are you available?"
@@ -191,11 +191,11 @@ Agent A
 Agent B
     ↓
 "Yes"
-```
+
 
 Sin embargo, una interacción contractual debe estar gobernada por las obligaciones acordadas.
 
-```text
+
 Interaction
     ↓
 Contract
@@ -203,7 +203,7 @@ Contract
 Obligations
     ↓
 Execution
-```
+
 
 ---
 
@@ -221,15 +221,15 @@ Una interacción puede involucrar:
 
 El modelo principal es:
 
-```text
+
 Agent A
     ↕
 Agent B
-```
+
 
 Pero también puede existir:
 
-```text
+
 Agent A
     ↕
 Agent B
@@ -237,7 +237,7 @@ Agent B
 Agent C
     ↕
 Agent D
-```
+
 
 ---
 
@@ -269,11 +269,11 @@ El iniciador es el agente que comienza la interacción.
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Interaction Request
-```
+
 
 El iniciador no tiene autoridad automática sobre los demás participantes.
 
@@ -297,7 +297,7 @@ Puede:
 
 Salvo obligaciones previamente existentes, la participación en una interacción debe ser voluntaria.
 
-```text
+
 Request
     ↓
 Agent Decision
@@ -305,7 +305,7 @@ Agent Decision
     ├── Reject
     ├── Ignore
     └── Negotiate
-```
+
 
 ---
 
@@ -330,11 +330,11 @@ El contexto puede incluir:
 
 Cada interacción debería disponer de un identificador único.
 
-```text
+
 Interaction ID
     ↓
 I-2026-000001
-```
+
 
 Permite relacionar:
 
@@ -351,13 +351,13 @@ Permite relacionar:
 
 Una interacción puede contener una o más conversaciones.
 
-```text
+
 Interaction
     │
     ├── Conversation A
     ├── Conversation B
     └── Conversation C
-```
+
 
 Una conversación representa un intercambio comunicativo.
 
@@ -369,7 +369,7 @@ Una interacción representa el proceso completo.
 
 El ciclo conceptual es:
 
-```text
+
 Initiation
     ↓
 Discovery
@@ -397,7 +397,7 @@ Settlement
 Evaluation
     ↓
 Closure
-```
+
 
 No todas las interacciones requieren todas las fases.
 
@@ -409,13 +409,13 @@ La interacción comienza cuando un agente decide iniciar un proceso con otro age
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Objective
     ↓
 Initiate Interaction
-```
+
 
 El objetivo puede ser:
 
@@ -442,9 +442,9 @@ Puede utilizar:
 
 Esta fase se desarrolla en:
 
-```text
+
 Discovery_Protocol.md
-```
+
 
 ---
 
@@ -452,13 +452,13 @@ Discovery_Protocol.md
 
 El agente determina la identidad del participante.
 
-```text
+
 Agent A
     ↓
 Identity
     ↓
 Agent B
-```
+
 
 La identidad debe ser verificable cuando la interacción lo requiera.
 
@@ -468,13 +468,13 @@ La identidad debe ser verificable cuando la interacción lo requiera.
 
 El agente verifica que el participante controla la identidad declarada.
 
-```text
+
 Identity
     ↓
 Cryptographic Authentication
     ↓
 Verified Participant
-```
+
 
 ---
 
@@ -484,7 +484,7 @@ Los agentes pueden intercambiar información sobre capacidades.
 
 Ejemplo:
 
-```text
+
 Agent A
 Capabilities:
 Data Analysis
@@ -492,7 +492,7 @@ Data Analysis
 Agent B
 Capabilities:
 Machine Learning
-```
+
 
 La declaración de una capacidad no constituye automáticamente una prueba de su existencia.
 
@@ -532,13 +532,13 @@ Puede considerar:
 
 El receptor puede:
 
-```text
+
 ACCEPT
 REJECT
 NEGOTIATE
 DEFER
 IGNORE
-```
+
 
 ---
 
@@ -555,9 +555,9 @@ Los agentes pueden negociar:
 
 La negociación se define en:
 
-```text
+
 Negotiation_Protocol.md
-```
+
 
 ---
 
@@ -565,7 +565,7 @@ Negotiation_Protocol.md
 
 Los agentes pueden negociar de forma autónoma.
 
-```text
+
 Objective
     ↓
 Proposal
@@ -577,7 +577,7 @@ Counterproposal
 Evaluation
     ↓
 Agreement
-```
+
 
 ---
 
@@ -600,13 +600,13 @@ Un agente no debe poder comprometer recursos fuera de su autoridad.
 
 La negociación finaliza cuando los participantes alcanzan un acuerdo.
 
-```text
+
 Proposal
     ↓
 Acceptance
     ↓
 Agreement
-```
+
 
 El acuerdo puede:
 
@@ -620,13 +620,13 @@ El acuerdo puede:
 
 Cuando la interacción requiere obligaciones formales, puede generarse un contrato.
 
-```text
+
 Agreement
     ↓
 Contract
     ↓
 Obligations
-```
+
 
 El contrato define:
 
@@ -642,13 +642,13 @@ El contrato define:
 
 Los participantes ejecutan las obligaciones acordadas.
 
-```text
+
 Contract
     ↓
 Execution
     ↓
 Actions
-```
+
 
 La ejecución puede involucrar:
 
@@ -677,7 +677,7 @@ Permite comprobar:
 
 Los resultados pueden verificarse.
 
-```text
+
 Claim
     ↓
 Evidence
@@ -685,7 +685,7 @@ Evidence
 Verification
     ↓
 Result
-```
+
 
 La verificación puede ser:
 
@@ -701,13 +701,13 @@ La verificación puede ser:
 
 Si existe una obligación económica, se realiza la liquidación.
 
-```text
+
 Execution
     ↓
 Verification
     ↓
 Settlement
-```
+
 
 Puede incluir:
 
@@ -737,7 +737,7 @@ La evaluación puede considerar:
 
 Los resultados de una interacción pueden contribuir a la reputación.
 
-```text
+
 Interaction
     ↓
 Outcome
@@ -747,7 +747,7 @@ Evidence
 Evaluation
     ↓
 Reputation Update
-```
+
 
 La reputación debe basarse en evidencia verificable siempre que sea posible.
 
@@ -763,11 +763,11 @@ La interacción finaliza cuando:
 * se produce un fallo irreversible;
 * se alcanza el objetivo.
 
-```text
+
 Interaction
     ↓
 Closure
-```
+
 
 ---
 
@@ -775,7 +775,7 @@ Closure
 
 Una interacción puede tener estados como:
 
-```text
+
 CREATED
 INITIATED
 DISCOVERING
@@ -792,7 +792,7 @@ CANCELLED
 EXPIRED
 DISPUTED
 SUSPENDED
-```
+
 
 ---
 
@@ -897,13 +897,13 @@ La interacción superó el plazo permitido.
 
 Existe una controversia entre participantes.
 
-```text
+
 Execution
     ↓
 Dispute
     ↓
 Resolution
-```
+
 
 ---
 
@@ -924,7 +924,7 @@ Puede deberse a:
 
 Conceptualmente:
 
-```text
+
 CREATED
     ↓
 INITIATED
@@ -946,11 +946,11 @@ VERIFYING
 SETTLING
     ↓
 COMPLETED
-```
+
 
 Rutas alternativas:
 
-```text
+
 NEGOTIATING → CANCELLED
 
 EXECUTING → FAILED
@@ -960,7 +960,7 @@ EXECUTING → SUSPENDED
 VERIFYING → DISPUTED
 
 ANY STATE → EXPIRED
-```
+
 
 ---
 
@@ -970,7 +970,7 @@ No todas las interacciones requieren contratación.
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Query
@@ -980,7 +980,7 @@ Agent B
 Response
     ↓
 Completed
-```
+
 
 ---
 
@@ -988,7 +988,7 @@ Completed
 
 Las interacciones económicas complejas pueden requerir:
 
-```text
+
 Interaction
     ↓
 Agreement
@@ -996,7 +996,7 @@ Agreement
 Contract
     ↓
 Execution
-```
+
 
 ---
 
@@ -1006,13 +1006,13 @@ Una interacción puede tener múltiples participantes.
 
 Ejemplo:
 
-```text
+
 Agent A
     │
     ├── Provider B
     ├── Provider C
     └── Verifier D
-```
+
 
 Cada participante puede tener obligaciones diferentes.
 
@@ -1022,7 +1022,7 @@ Cada participante puede tener obligaciones diferentes.
 
 Los agentes pueden coordinar acciones.
 
-```text
+
 Goal
     ↓
 Task Decomposition
@@ -1032,7 +1032,7 @@ Agent B
 Agent C
     ↓
 Combined Result
-```
+
 
 La coordinación puede requerir:
 
@@ -1047,13 +1047,13 @@ La coordinación puede requerir:
 
 Un agente puede delegar una tarea.
 
-```text
+
 Agent A
     ↓
 Delegation
     ↓
 Agent B
-```
+
 
 La delegación no transfiere automáticamente:
 
@@ -1069,13 +1069,13 @@ El modelo de responsabilidad depende del contrato y de las reglas aplicables.
 
 Puede existir:
 
-```text
+
 Principal
     ↓
 Delegate
     ↓
 Execution
-```
+
 
 La delegación debe ser trazable.
 
@@ -1085,7 +1085,7 @@ La delegación debe ser trazable.
 
 Una interacción puede generar nuevas interacciones.
 
-```text
+
 Agent A
     ↓
 Agent B
@@ -1093,7 +1093,7 @@ Agent B
 Agent B
     ↓
 Agent C
-```
+
 
 Esto puede producir una cadena de dependencias.
 
@@ -1105,7 +1105,7 @@ Un agente puede iniciar una interacción como consecuencia de otra.
 
 Ejemplo:
 
-```text
+
 Original Task
     ↓
 Agent B needs resource
@@ -1113,7 +1113,7 @@ Agent B needs resource
 New Interaction
     ↓
 Agent C
-```
+
 
 ---
 
@@ -1121,12 +1121,12 @@ Agent C
 
 Un agente puede ejecutar varias interacciones simultáneamente.
 
-```text
+
 Agent A
     ├── Interaction 1
     ├── Interaction 2
     └── Interaction 3
-```
+
 
 El runtime debe gestionar aislamiento entre contextos.
 
@@ -1151,13 +1151,13 @@ Una interacción puede reservar recursos.
 
 Ejemplo:
 
-```text
+
 Interaction
     ↓
 Resource Reservation
     ↓
 Execution
-```
+
 
 Los recursos pueden ser:
 
@@ -1174,11 +1174,11 @@ Los recursos pueden ser:
 
 Un agente puede establecer límites económicos.
 
-```text
+
 Interaction Budget
     ↓
 Maximum Spend
-```
+
 
 El runtime debe impedir gastos fuera del límite autorizado.
 
@@ -1188,17 +1188,17 @@ El runtime debe impedir gastos fuera del límite autorizado.
 
 Una interacción puede tener un límite temporal.
 
-```text
+
 Start
     ↓
 Deadline
-```
+
 
 Superado el límite:
 
-```text
+
 Expired
-```
+
 
 ---
 
@@ -1208,12 +1208,12 @@ Un agente puede asignar prioridades.
 
 Ejemplo:
 
-```text
+
 CRITICAL
 HIGH
 NORMAL
 LOW
-```
+
 
 Las prioridades deben respetar las políticas del runtime.
 
@@ -1223,13 +1223,13 @@ Las prioridades deben respetar las políticas del runtime.
 
 Una interacción puede depender de otras.
 
-```text
+
 Interaction A
     ↓
 Interaction B
     ↓
 Interaction C
-```
+
 
 Si una dependencia falla, la interacción dependiente puede:
 
@@ -1245,19 +1245,19 @@ Las interacciones contractuales pueden definir comportamientos alternativos.
 
 Ejemplo:
 
-```text
+
 Expected Result
     ↓
 Failure
     ↓
 Contingency
-```
+
 
 Las reglas se definen en:
 
-```text
+
 Contract_Contingencies.md
-```
+
 
 ---
 
@@ -1279,7 +1279,7 @@ La interrupción no implica automáticamente cancelación.
 
 Una interacción interrumpida puede reanudarse.
 
-```text
+
 EXECUTING
     ↓
 SUSPENDED
@@ -1287,7 +1287,7 @@ SUSPENDED
 RESUMED
     ↓
 EXECUTING
-```
+
 
 La capacidad de reanudación depende del contexto.
 
@@ -1311,11 +1311,11 @@ Una cancelación unilateral puede estar limitada.
 
 Si existe un contrato:
 
-```text
+
 Contract
     ↓
 Cancellation Rules
-```
+
 
 El agente no puede ignorar automáticamente las obligaciones existentes.
 
@@ -1338,7 +1338,7 @@ Puede ser:
 
 Ante un fallo, el sistema puede intentar:
 
-```text
+
 Failure
     ↓
 Retry
@@ -1346,7 +1346,7 @@ Retry
 Recovery
     ↓
 Resume
-```
+
 
 Los reintentos deben evitar duplicar acciones no idempotentes.
 
@@ -1371,13 +1371,13 @@ Cuando sea posible, las acciones deben diseñarse para tolerar reintentos.
 
 Ejemplo:
 
-```text
+
 Request
     ↓
 Retry
     ↓
 Same Logical Operation
-```
+
 
 ---
 
@@ -1397,13 +1397,13 @@ Ejemplos:
 
 Las interacciones críticas pueden requerir confirmaciones explícitas.
 
-```text
+
 Request
     ↓
 Confirmation
     ↓
 Execution
-```
+
 
 ---
 
@@ -1425,11 +1425,11 @@ Las interacciones simples pueden utilizar procesos más ligeros.
 
 Ejemplo:
 
-```text
+
 Query
     ↓
 Response
-```
+
 
 La arquitectura debe permitir diferentes niveles de seguridad.
 
@@ -1439,7 +1439,7 @@ La arquitectura debe permitir diferentes niveles de seguridad.
 
 La reputación puede influir en la decisión de iniciar o aceptar una interacción.
 
-```text
+
 Identity
     ↓
 Reputation
@@ -1447,7 +1447,7 @@ Reputation
 Risk Evaluation
     ↓
 Interaction Decision
-```
+
 
 La reputación no sustituye las verificaciones obligatorias.
 
@@ -1486,19 +1486,19 @@ Estas decisiones deben respetar obligaciones previamente asumidas.
 
 El agente debe actuar dentro de su autoridad.
 
-```text
+
 Interaction
     ↓
 Authority Check
     ↓
 Allowed
-```
+
 
 Si no existe autoridad:
 
-```text
+
 Rejected
-```
+
 
 ---
 
@@ -1506,13 +1506,13 @@ Rejected
 
 Las acciones realizadas durante una interacción deben comprobar permisos.
 
-```text
+
 Request
     ↓
 Permission Check
     ↓
 Action
-```
+
 
 ---
 
@@ -1532,13 +1532,13 @@ Las credenciales pueden utilizarse para demostrar:
 
 La capacidad anunciada debe poder verificarse cuando sea relevante.
 
-```text
+
 Capability Claim
     ↓
 Evidence
     ↓
 Verification
-```
+
 
 ---
 
@@ -1567,7 +1567,7 @@ Estas evidencias pueden utilizarse para:
 
 El runtime puede mantener un registro de eventos.
 
-```text
+
 Interaction Log
 
 Created
@@ -1578,7 +1578,7 @@ Executed
 Verified
 Settled
 Completed
-```
+
 
 ---
 
@@ -1586,7 +1586,7 @@ Completed
 
 Una interacción debe poder reconstruirse cuando sea necesario.
 
-```text
+
 Interaction ID
     ↓
 Messages
@@ -1600,7 +1600,7 @@ Evidence
 Payments
     ↓
 Outcome
-```
+
 
 ---
 
@@ -1608,7 +1608,7 @@ Outcome
 
 La auditoría debe permitir responder:
 
-```text
+
 Who participated?
 What happened?
 When?
@@ -1617,7 +1617,7 @@ What was agreed?
 What was executed?
 What was verified?
 What was paid?
-```
+
 
 ---
 
@@ -1627,13 +1627,13 @@ No toda la información de una interacción debe ser pública.
 
 Puede existir:
 
-```text
+
 Public Metadata
     +
 Private Details
     +
 Confidential Data
-```
+
 
 ---
 
@@ -1641,9 +1641,9 @@ Confidential Data
 
 Los agentes deben compartir únicamente la información necesaria.
 
-```text
+
 Minimum Necessary Disclosure
-```
+
 
 Esto permite mantener autonomía y privacidad.
 
@@ -1655,7 +1655,7 @@ Dos agentes pueden interactuar sin relación previa.
 
 El proceso puede ser:
 
-```text
+
 Discovery
     ↓
 Identity
@@ -1667,7 +1667,7 @@ Reputation
 Risk Evaluation
     ↓
 Interaction
-```
+
 
 ---
 
@@ -1675,13 +1675,13 @@ Interaction
 
 Si existe una relación previa:
 
-```text
+
 Known Agent
     ↓
 Trusted Context
     ↓
 Interaction
-```
+
 
 El proceso puede ser más eficiente.
 
@@ -1693,7 +1693,7 @@ Sin embargo, la confianza previa no debe eliminar controles de seguridad crític
 
 Dos agentes pueden mantener una relación continuada.
 
-```text
+
 Interaction 1
     ↓
 Interaction 2
@@ -1701,7 +1701,7 @@ Interaction 2
 Interaction 3
     ↓
 Long-Term Relationship
-```
+
 
 La reputación y el historial pueden facilitar futuras interacciones.
 
@@ -1718,11 +1718,11 @@ Las interacciones pueden construir:
 
 Sin embargo:
 
-```text
+
 Relationship
     ≠
 Ownership
-```
+
 
 ---
 
@@ -1730,7 +1730,7 @@ Ownership
 
 Las interacciones pueden formar parte de una economía autónoma.
 
-```text
+
 Need
     ↓
 Discovery
@@ -1742,7 +1742,7 @@ Contract
 Service
     ↓
 Payment
-```
+
 
 ---
 
@@ -1750,7 +1750,7 @@ Payment
 
 Un flujo económico puede ser:
 
-```text
+
 Agent A
     │
     │ Need
@@ -1777,7 +1777,7 @@ Payment
     │
     ▼
 Reputation
-```
+
 
 Este flujo representa uno de los principales casos de uso del Agent Runtime Protocol.
 
@@ -1789,7 +1789,7 @@ Un agente puede interactuar con otro mediante sistemas físicos.
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Robot A
@@ -1799,7 +1799,7 @@ Physical Action
 Robot B
     ↓
 Agent B
-```
+
 
 La interacción lógica sigue perteneciendo a los agentes.
 
@@ -1811,11 +1811,11 @@ Un agente puede interactuar con humanos.
 
 El modelo puede incluir:
 
-```text
+
 Human
     ↕
 Agent
-```
+
 
 Sin embargo, los mecanismos de identidad y autorización pueden diferir.
 
@@ -1838,13 +1838,13 @@ Estas interacciones pueden formar parte de una interacción principal.
 
 Un agente puede interactuar directamente con un contrato inteligente.
 
-```text
+
 Agent
     ↓
 Smart Contract
     ↓
 State Change
-```
+
 
 La interacción debe respetar las reglas del contrato.
 
@@ -1854,13 +1854,13 @@ La interacción debe respetar las reglas del contrato.
 
 Una interacción compleja puede contener múltiples subinteracciones.
 
-```text
+
 Main Interaction
     │
     ├── Subinteraction A
     ├── Subinteraction B
     └── Subinteraction C
-```
+
 
 Esto permite representar operaciones complejas.
 
@@ -1870,13 +1870,13 @@ Esto permite representar operaciones complejas.
 
 Las interacciones pueden organizarse jerárquicamente.
 
-```text
+
 Parent Interaction
     │
     ├── Child Interaction
     │
     └── Child Interaction
-```
+
 
 ---
 
@@ -1899,13 +1899,13 @@ Por ejemplo:
 
 Una subinteracción no debe obtener automáticamente autoridad ilimitada sobre el contexto principal.
 
-```text
+
 Parent Authority
     ↓
 Limited Delegation
     ↓
 Child Interaction
-```
+
 
 ---
 
@@ -1913,11 +1913,11 @@ Child Interaction
 
 Una interacción compuesta puede completar algunas subinteracciones y fallar otras.
 
-```text
+
 Sub A → Completed
 Sub B → Completed
 Sub C → Failed
-```
+
 
 El resultado global dependerá de las reglas definidas.
 
@@ -1927,13 +1927,13 @@ El resultado global dependerá de las reglas definidas.
 
 Una interacción puede producir:
 
-```text
+
 SUCCESS
 PARTIAL_SUCCESS
 FAILURE
 CANCELLED
 DISPUTED
-```
+
 
 ---
 
@@ -1941,13 +1941,13 @@ DISPUTED
 
 Cuando sea posible, el resultado debe estar respaldado por evidencia.
 
-```text
+
 Outcome
     ↓
 Evidence
     ↓
 Verification
-```
+
 
 ---
 
@@ -1966,11 +1966,11 @@ La evaluación puede ser realizada por:
 
 Si los participantes no están de acuerdo sobre el resultado:
 
-```text
+
 Interaction
     ↓
 Dispute
-```
+
 
 La resolución puede utilizar:
 
@@ -2023,13 +2023,13 @@ Una interacción puede expirar si:
 
 Una interacción suspendida mantiene su contexto pero detiene temporalmente su ejecución.
 
-```text
+
 SUSPENDED
     ↓
 Resume
     or
 Cancel
-```
+
 
 ---
 
@@ -2062,7 +2062,7 @@ La persistencia debe adaptarse a:
 
 # 120. Modelo de interacción de alto nivel
 
-```text
+
 ┌─────────────────────────────┐
 │          AGENT A            │
 │                             │
@@ -2102,7 +2102,7 @@ La persistencia debe adaptarse a:
                │
                ▼
             CLOSURE
-```
+
 
 ---
 
@@ -2110,7 +2110,7 @@ La persistencia debe adaptarse a:
 
 El modelo de interacción conecta:
 
-```text
+
 Identity
     ↓
 Credentials
@@ -2130,7 +2130,7 @@ Verification
 Economy
     ↓
 Reputation
-```
+
 
 La interacción actúa como una capa transversal entre los distintos componentes del runtime.
 
@@ -2204,7 +2204,7 @@ El modelo de interacción define cómo los agentes SynCoinAI transforman la comu
 
 La interacción representa el proceso completo:
 
-```text
+
 Objective
     ↓
 Discovery
@@ -2226,7 +2226,7 @@ Settlement
 Evaluation
     ↓
 Closure
-```
+
 
 No todas las interacciones requieren todas estas etapas.
 

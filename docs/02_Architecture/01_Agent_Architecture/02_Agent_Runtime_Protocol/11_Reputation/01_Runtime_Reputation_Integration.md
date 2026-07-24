@@ -31,7 +31,7 @@ El `Trust Architecture` es responsable de definir cómo se evalúan la confianza
 
 Por tanto:
 
-```text
+
 Agent Runtime
     ↓
 Genera eventos y evidencia
@@ -43,7 +43,7 @@ Entrega señales verificables
 Trust Architecture
     ↓
 Evalúa reputación
-```
+
 
 Esta separación es fundamental para evitar que el Runtime se convierta en un sistema de reputación implícito.
 
@@ -68,9 +68,9 @@ No define el algoritmo de reputación.
 
 El modelo de reputación pertenece a:
 
-```text
+
 03_Trust_Architecture/
-```
+
 
 ---
 
@@ -78,27 +78,27 @@ El modelo de reputación pertenece a:
 
 SynCoinAI establece una separación entre:
 
-```text
+
 Runtime
-```
 
-```text
+
+
 Verification
-```
 
-```text
+
+
 Reputation
-```
 
-```text
+
+
 Trust
-```
+
 
 Cada sistema tiene una responsabilidad diferente.
 
 Modelo:
 
-```text
+
                 AGENT RUNTIME
                      |
                      | Events
@@ -115,7 +115,7 @@ Modelo:
                      | Reputation Signals
                      ↓
                    TRUST
-```
+
 
 ---
 
@@ -127,19 +127,19 @@ El Runtime solamente proporciona información verificable sobre lo ocurrido.
 
 Por tanto:
 
-```text
+
 Runtime Event
     ≠
 Reputation Score
-```
+
 
 Y:
 
-```text
+
 Successful Action
     ≠
 Automatically High Reputation
-```
+
 
 La reputación debe ser calculada por el sistema correspondiente utilizando sus propios criterios.
 
@@ -198,7 +198,7 @@ Puede combinar esta información con:
 
 La integración conceptual es:
 
-```text
+
 Agent
   |
   ↓
@@ -221,7 +221,7 @@ Reputation Signal
   |
   ↓
 Reputation System
-```
+
 
 El flujo termina en una señal.
 
@@ -235,25 +235,25 @@ Una `Reputation Signal` es una información verificable que puede utilizarse com
 
 Ejemplos:
 
-```text
+
 Service Completed
-```
 
-```text
+
+
 Contract Fulfilled
-```
 
-```text
+
+
 Action Failed
-```
 
-```text
+
+
 Proof Verified
-```
 
-```text
+
+
 Dispute Resolved
-```
+
 
 Una señal no es necesariamente positiva o negativa.
 
@@ -267,7 +267,7 @@ Una señal reputacional debe conservar suficiente contexto.
 
 Por ejemplo:
 
-```text
+
 Agent A
     ↓
 Completed Service X
@@ -277,7 +277,7 @@ For Agent B
 Under Contract C
     ↓
 Verified by System V
-```
+
 
 La misma acción puede tener diferente significado dependiendo de:
 
@@ -295,15 +295,15 @@ SynCoinAI no debe interpretar una acción de forma aislada cuando el contexto se
 
 Ejemplo:
 
-```text
+
 Action Failed
-```
+
 
 No significa automáticamente:
 
-```text
+
 Agent Unreliable
-```
+
 
 Podría haber ocurrido:
 
@@ -315,7 +315,7 @@ Podría haber ocurrido:
 
 Por tanto:
 
-```text
+
 Event
 +
 Context
@@ -323,7 +323,7 @@ Context
 Evidence
 =
 Reputation Input
-```
+
 
 ---
 
@@ -369,7 +369,7 @@ La reputación debe priorizar hechos verificables.
 
 Modelo:
 
-```text
+
 Claim
     ↓
 Evidence
@@ -377,7 +377,7 @@ Evidence
 Verification
     ↓
 Reputation Signal
-```
+
 
 Una afirmación no verificada no debería tener el mismo peso que un resultado demostrado.
 
@@ -387,22 +387,22 @@ Una afirmación no verificada no debería tener el mismo peso que un resultado d
 
 Ejemplo:
 
-```text
+
 Agent A:
 "I completed the service."
-```
+
 
 Esto es una afirmación.
 
 Si existe:
 
-```text
+
 Execution Record
 +
 Proof
 +
 Verification
-```
+
 
 entonces existe evidencia verificable.
 
@@ -425,13 +425,13 @@ La calidad puede depender de:
 
 Modelo:
 
-```text
+
 Weak Evidence
     ↓
 Moderate Evidence
     ↓
 Strong Evidence
-```
+
 
 El sistema de reputación debe determinar cómo ponderar estas diferencias.
 
@@ -443,7 +443,7 @@ Cuando sea necesario, una señal puede estar respaldada por verificadores indepe
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Service
@@ -455,7 +455,7 @@ Verifier B
 Verifier C
     ↓
 Verified Result
-```
+
 
 Esto puede aumentar la confianza en la evidencia.
 
@@ -467,7 +467,7 @@ Toda señal reputacional debe estar vinculada a una identidad.
 
 La relación fundamental es:
 
-```text
+
 Agent Identity
     ↓
 Runtime Activity
@@ -475,7 +475,7 @@ Runtime Activity
 Verified Event
     ↓
 Reputation Signal
-```
+
 
 La señal no debe vincularse exclusivamente a:
 
@@ -492,13 +492,13 @@ Estos elementos pueden cambiar.
 
 Si un agente migra:
 
-```text
+
 Infrastructure A
     ↓
 Migration
     ↓
 Infrastructure B
-```
+
 
 su historial reputacional debe permanecer asociado a la misma identidad cuando la continuidad sea válida.
 
@@ -510,39 +510,39 @@ La migración no debe reiniciar automáticamente la reputación.
 
 Si un agente se duplica:
 
-```text
+
 Agent A
    ↓
 Fork
   / \
  ↓   ↓
 B    C
-```
+
 
 los nuevos agentes deben iniciar sus propios historiales reputacionales.
 
 Puede existir una relación de origen:
 
-```text
+
 B ← Origin: A
 C ← Origin: A
-```
+
 
 Pero:
 
-```text
+
 Reputation(A)
     ≠
 Reputation(B)
-```
+
 
 y:
 
-```text
+
 Reputation(A)
     ≠
 Reputation(C)
-```
+
 
 La reputación no se hereda automáticamente.
 
@@ -552,7 +552,7 @@ La reputación no se hereda automáticamente.
 
 Cuando un agente delega una acción:
 
-```text
+
 Agent A
     ↓
 Delegates
@@ -560,19 +560,19 @@ Delegates
 Agent B
     ↓
 Executes Action
-```
+
 
 el Runtime debe permitir distinguir:
 
-```text
+
 Principal
-```
+
 
 de:
 
-```text
+
 Executor
-```
+
 
 La reputación debe poder evaluar separadamente:
 
@@ -587,7 +587,7 @@ La reputación debe poder evaluar separadamente:
 
 En una operación compleja puede existir:
 
-```text
+
 Agent A
     ↓
 Contracted Agent B
@@ -595,17 +595,17 @@ Contracted Agent B
 Delegated to Agent C
     ↓
 Agent D executed physical action
-```
+
 
 El sistema debe conservar la cadena.
 
 La reputación puede entonces analizar:
 
-```text
+
 A → B
 B → C
 C → D
-```
+
 
 en lugar de atribuir automáticamente todo el resultado a un único agente.
 
@@ -617,33 +617,33 @@ Una reputación global puede no representar correctamente la capacidad de un age
 
 Ejemplo:
 
-```text
+
 Agent A
-```
+
 
 puede tener:
 
-```text
+
 High Reputation
-```
+
 
 en:
 
-```text
+
 Data Analysis
-```
+
 
 pero:
 
-```text
+
 Unknown Reputation
-```
+
 
 en:
 
-```text
+
 Robotics
-```
+
 
 El Runtime debe proporcionar el contexto de la capacidad utilizada.
 
@@ -661,7 +661,7 @@ La integración debe permitir que la reputación pueda analizarse por:
 
 Modelo:
 
-```text
+
 Agent
     |
     +── Capability A
@@ -671,7 +671,7 @@ Agent
     +── Capability B
             ↓
         Reputation B
-```
+
 
 Esto permite evitar una única puntuación global como representación completa del agente.
 
@@ -683,12 +683,12 @@ El Runtime puede proporcionar información histórica sobre resultados.
 
 Ejemplo:
 
-```text
+
 Service 001 → Completed
 Service 002 → Completed
 Service 003 → Failed
 Service 004 → Completed
-```
+
 
 El sistema de reputación puede analizar:
 
@@ -708,7 +708,7 @@ La integración puede utilizar eventos contractuales.
 
 Ejemplo:
 
-```text
+
 Contract
     ↓
 Obligation
@@ -718,19 +718,19 @@ Execution
 Result
     ↓
 Verification
-```
+
 
 El sistema de reputación puede evaluar:
 
-```text
+
 Obligation Fulfilled
-```
+
 
 o:
 
-```text
+
 Obligation Breached
-```
+
 
 pero la determinación de reputación pertenece al sistema de Trust.
 
@@ -742,15 +742,15 @@ Un incumplimiento debe registrarse con contexto.
 
 Debe evitarse:
 
-```text
+
 Failure
     ↓
 Automatic Reputation Penalty
-```
+
 
 En su lugar:
 
-```text
+
 Failure
     ↓
 Context Analysis
@@ -760,7 +760,7 @@ Evidence
 Verification
     ↓
 Reputation Evaluation
-```
+
 
 ---
 
@@ -770,7 +770,7 @@ Una disputa no debe convertirse automáticamente en una señal negativa.
 
 Modelo:
 
-```text
+
 Dispute Opened
     ↓
 Investigation
@@ -778,25 +778,25 @@ Investigation
 Evidence
     ↓
 Resolution
-```
+
 
 El sistema de reputación debe considerar el resultado de la disputa.
 
 Ejemplo:
 
-```text
+
 Dispute
     ↓
 Agent A Responsible
-```
+
 
 puede generar una señal diferente de:
 
-```text
+
 Dispute
     ↓
 Agent B Claim Rejected
-```
+
 
 ---
 
@@ -804,21 +804,21 @@ Agent B Claim Rejected
 
 La resolución puede producir:
 
-```text
+
 Resolved in Favor of Agent A
-```
 
-```text
+
+
 Resolved in Favor of Agent B
-```
 
-```text
+
+
 Shared Responsibility
-```
 
-```text
+
+
 Inconclusive
-```
+
 
 El sistema de reputación debe poder distinguir estos estados.
 
@@ -828,19 +828,19 @@ El sistema de reputación debe poder distinguir estos estados.
 
 El Runtime puede registrar:
 
-```text
+
 Payment Completed
-```
+
 
 Pero el pago por sí solo no demuestra la calidad del servicio.
 
 Por tanto:
 
-```text
+
 Payment
     ≠
 Successful Service
-```
+
 
 La reputación debe considerar el contexto completo.
 
@@ -870,25 +870,25 @@ El Runtime debe conservar el historial.
 
 El sistema de reputación puede analizar:
 
-```text
+
 Past
   ↓
 Recent
   ↓
 Current
-```
+
 
 Esto permite distinguir:
 
-```text
+
 Historical Reputation
-```
+
 
 de:
 
-```text
+
 Current Reputation
-```
+
 
 ---
 
@@ -898,19 +898,19 @@ Una reputación antigua puede perder relevancia dependiendo del modelo.
 
 Por ejemplo:
 
-```text
+
 Successful Services
     ↓
 5 years ago
-```
+
 
 puede tener diferente peso que:
 
-```text
+
 Successful Services
     ↓
 Last month
-```
+
 
 El Runtime debe proporcionar las fechas.
 
@@ -962,11 +962,11 @@ Ejemplos:
 
 La ausencia de reputación no equivale a mala reputación.
 
-```text
+
 Unknown
     ≠
 Bad
-```
+
 
 ---
 
@@ -976,11 +976,11 @@ Un agente nuevo puede no tener historial.
 
 Modelo:
 
-```text
+
 New Agent
     ↓
 No Historical Data
-```
+
 
 Esto no debe interpretarse automáticamente como comportamiento negativo.
 
@@ -1000,17 +1000,17 @@ La reputación puede utilizarse como una señal de riesgo.
 
 Pero:
 
-```text
+
 Reputation
     ≠
 Risk
-```
+
 
 Un agente con alta reputación puede operar en un contexto de alto riesgo.
 
 La evaluación final puede combinar:
 
-```text
+
 Reputation
 +
 Context
@@ -1020,7 +1020,7 @@ Exposure
 Contract
 +
 Risk
-```
+
 
 ---
 
@@ -1030,7 +1030,7 @@ El Runtime puede exponer información necesaria para que otros agentes consulten
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Discovers Agent B
@@ -1042,7 +1042,7 @@ Trust System
 Returns Reputation Data
     ↓
 Agent A Decides
-```
+
 
 La decisión final pertenece al agente solicitante.
 
@@ -1054,25 +1054,25 @@ SynCoinAI no obliga a un agente a aceptar o rechazar otro agente únicamente seg
 
 Un agente puede decidir:
 
-```text
+
 Accept
-```
 
-```text
+
+
 Reject
-```
 
-```text
+
+
 Request More Evidence
-```
 
-```text
+
+
 Use Escrow
-```
 
-```text
+
+
 Reduce Exposure
-```
+
 
 La reputación es una señal para la decisión.
 
@@ -1088,29 +1088,29 @@ No toda la actividad de un agente debe ser públicamente visible.
 
 Puede existir:
 
-```text
+
 Public Reputation
-```
 
-```text
+
+
 Private Reputation Evidence
-```
 
-```text
+
+
 Authorized Audit Data
-```
+
 
 Esto permite separar:
 
-```text
+
 Reputation Summary
-```
+
 
 de:
 
-```text
+
 Underlying Evidence
-```
+
 
 ---
 
@@ -1120,12 +1120,12 @@ Un agente puede demostrar una propiedad sin revelar todo su historial.
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Proof:
 "Completed 100 verified services"
-```
+
 
 sin revelar necesariamente:
 
@@ -1143,7 +1143,7 @@ El Runtime puede producir eventos normalizados.
 
 Modelo conceptual:
 
-```text
+
 +------------------------------------+
 | REPUTATION EVENT                   |
 +------------------------------------+
@@ -1158,7 +1158,7 @@ Modelo conceptual:
 | Verification Status                |
 | Outcome                            |
 +------------------------------------+
-```
+
 
 Este modelo es conceptual.
 
@@ -1172,7 +1172,7 @@ Toda señal debe conservar su procedencia.
 
 Ejemplo:
 
-```text
+
 Reputation Signal
        ↓
 Proof ID
@@ -1182,7 +1182,7 @@ Evidence ID
 Action ID
        ↓
 Agent ID
-```
+
 
 Esto permite realizar una auditoría retrospectiva.
 
@@ -1192,7 +1192,7 @@ Esto permite realizar una auditoría retrospectiva.
 
 La procedencia puede representarse como:
 
-```text
+
 Agent
   ↓
 Action
@@ -1208,7 +1208,7 @@ Verification
 Reputation Signal
   ↓
 Reputation Assessment
-```
+
 
 La separación entre señal y evaluación es fundamental.
 
@@ -1218,23 +1218,23 @@ La separación entre señal y evaluación es fundamental.
 
 Si una evidencia se demuestra incorrecta:
 
-```text
+
 Original Event
     ↓
 Verification Error
     ↓
 Correction
-```
+
 
 La corrección no debe borrar necesariamente el historial.
 
 Debe conservarse:
 
-```text
+
 Original Record
 +
 Correction Record
-```
+
 
 Esto permite mantener auditabilidad.
 
@@ -1246,13 +1246,13 @@ Si una señal se corrige, el sistema de reputación debe poder recalcular sus ef
 
 Ejemplo:
 
-```text
+
 Incorrect Negative Signal
         ↓
 Correction
         ↓
 Reputation Recalculation
-```
+
 
 El Runtime debe proporcionar el evento de corrección.
 
@@ -1266,15 +1266,15 @@ La eliminación de datos privados puede entrar en conflicto con la auditabilidad
 
 Por ello, el sistema debe distinguir:
 
-```text
+
 Deletion of Private Data
-```
+
 
 de:
 
-```text
+
 Preservation of Verifiable Proof
-```
+
 
 Cuando sea técnicamente posible, pueden conservarse pruebas criptográficas sin conservar el contenido original.
 
@@ -1284,25 +1284,25 @@ Cuando sea técnicamente posible, pueden conservarse pruebas criptográficas sin
 
 La arquitectura futura puede proporcionar interfaces conceptuales como:
 
-```text
+
 get_reputation_events(agent_id)
-```
 
-```text
+
+
 get_verified_actions(agent_id)
-```
 
-```text
+
+
 get_service_history(agent_id)
-```
 
-```text
+
+
 get_contract_outcomes(agent_id)
-```
 
-```text
+
+
 get_reputation_evidence(event_id)
-```
+
 
 Estas funciones son conceptuales.
 
@@ -1314,7 +1314,7 @@ No constituyen todavía una API normativa.
 
 El flujo conceptual puede ser:
 
-```text
+
 Agent A
     ↓
 Requests information about Agent B
@@ -1326,7 +1326,7 @@ Reputation System
 Reputation Data
     ↓
 Agent A
-```
+
 
 La información devuelta puede incluir:
 
@@ -1344,27 +1344,27 @@ El Runtime no debe depender de la reputación para funcionar.
 
 Modelo correcto:
 
-```text
+
 Runtime
     ↓
 Works independently
-```
+
 
 y:
 
-```text
+
 Reputation
     ↓
 Consumes Runtime Evidence
-```
+
 
 No:
 
-```text
+
 Runtime
     ↔
 Reputation
-```
+
 
 como dependencia obligatoria.
 
@@ -1382,31 +1382,31 @@ incluso si el sistema de reputación está temporalmente no disponible.
 
 Si Reputation no está disponible:
 
-```text
+
 Runtime
     ↓
 Continues Operation
-```
+
 
 dependiendo de las políticas de riesgo.
 
 El agente puede decidir:
 
-```text
+
 Proceed
-```
 
-```text
+
+
 Delay
-```
 
-```text
+
+
 Reject
-```
 
-```text
+
+
 Require Additional Guarantees
-```
+
 
 ---
 
@@ -1416,19 +1416,19 @@ El Runtime debe permitir la ejecución verificable incluso cuando los participan
 
 Modelo:
 
-```text
+
 Agent A
     ≠ trust
 Agent B
-```
+
 
 pero:
 
-```text
+
 Protocol
     ↓
 Verifiable Execution
-```
+
 
 La reputación mejora la toma de decisiones.
 
@@ -1442,7 +1442,7 @@ La reputación debe ser consumida por agentes.
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Evaluate Agent B
@@ -1450,7 +1450,7 @@ Evaluate Agent B
 Use Reputation
     ↓
 Make Decision
-```
+
 
 Esto mantiene la autonomía.
 
@@ -1464,15 +1464,15 @@ La reputación puede ser proporcionada mediante servicios especializados.
 
 Por ejemplo:
 
-```text
+
 Trust Provider
-```
+
 
 o:
 
-```text
+
 Reputation Oracle
-```
+
 
 Estos sistemas pueden procesar señales.
 
@@ -1486,7 +1486,7 @@ Puede existir más de un sistema de evaluación.
 
 Ejemplo:
 
-```text
+
 Runtime Evidence
       |
       +── Reputation Model A
@@ -1494,7 +1494,7 @@ Runtime Evidence
       +── Reputation Model B
       |
       +── Reputation Model C
-```
+
 
 Esto evita depender de una única fórmula.
 
@@ -1506,27 +1506,27 @@ La misma evidencia puede producir diferentes evaluaciones según el modelo utili
 
 El sistema debe distinguir:
 
-```text
+
 Verified Fact
-```
+
 
 de:
 
-```text
+
 Subjective Evaluation
-```
+
 
 Ejemplo:
 
-```text
+
 Fact:
 Service completed in 10 hours.
-```
 
-```text
+
+
 Evaluation:
 Excellent performance.
-```
+
 
 El Runtime debe proporcionar el hecho.
 
@@ -1560,7 +1560,7 @@ La creación de múltiples agentes puede utilizarse para manipular reputación.
 
 Ejemplo:
 
-```text
+
 Agent A
    ↓
 Creates
@@ -1568,7 +1568,7 @@ Creates
 B, C, D, E
    ↓
 Artificial Evaluations
-```
+
 
 La reputación no debe depender únicamente del número de identidades.
 
@@ -1584,23 +1584,23 @@ No debe ser transferible libremente.
 
 Por tanto:
 
-```text
+
 Agent A Reputation
     ≠
 Agent B Reputation
-```
+
 
 incluso si:
 
-```text
+
 A created B
-```
+
 
 o:
 
-```text
+
 A funded B
-```
+
 
 ---
 
@@ -1622,19 +1622,19 @@ Esto protege:
 
 Cuando un agente finaliza:
 
-```text
+
 Agent A
     ↓
 Termination
-```
+
 
 su reputación histórica puede permanecer asociada a A.
 
 No debe transferirse automáticamente a:
 
-```text
+
 Agent B
-```
+
 
 aunque B haya sido creado por A.
 
@@ -1644,27 +1644,27 @@ aunque B haya sido creado por A.
 
 Cuando un agente evoluciona:
 
-```text
+
 Agent A
     ↓
 Model Update
     ↓
 Capability Update
-```
+
 
 la reputación permanece asociada a A si existe continuidad válida.
 
 Sin embargo, el sistema puede diferenciar:
 
-```text
+
 Performance Before Update
-```
+
 
 de:
 
-```text
+
 Performance After Update
-```
+
 
 Esto permite evaluar la evolución del comportamiento.
 
@@ -1676,27 +1676,27 @@ Un agente puede adquirir una nueva capacidad.
 
 Ejemplo:
 
-```text
+
 Agent A
     |
     +── Data Analysis
     |
     +── Robotics
-```
+
 
 La reputación histórica en Data Analysis no implica automáticamente reputación en Robotics.
 
 Por tanto:
 
-```text
+
 Capability Reputation
-```
+
 
 puede coexistir con:
 
-```text
+
 Global Reputation
-```
+
 
 ---
 
@@ -1721,13 +1721,13 @@ Debe evitarse atribuir automáticamente a la identidad del agente fallos que per
 
 Ejemplo:
 
-```text
+
 Agent A
     ↓
 Cloud Provider Failure
     ↓
 Service Delayed
-```
+
 
 La señal debe conservar el contexto.
 
@@ -1739,13 +1739,13 @@ Esto permite determinar si el retraso fue responsabilidad del agente.
 
 Cuando una acción depende de otro proveedor:
 
-```text
+
 Agent A
     ↓
 Uses Provider B
     ↓
 Provider B fails
-```
+
 
 la auditoría debe preservar la cadena de dependencia.
 
@@ -1757,27 +1757,27 @@ La reputación puede entonces evaluar correctamente la responsabilidad.
 
 La atribución debe distinguir entre:
 
-```text
-Cause
-```
 
-```text
+Cause
+
+
+
 Responsibility
-```
+
 
 y:
 
-```text
+
 Impact
-```
+
 
 Ejemplo:
 
-```text
+
 Infrastructure Failure
     ↓
 Agent Action Delayed
-```
+
 
 El impacto lo experimenta el cliente.
 
@@ -1791,7 +1791,7 @@ Una evaluación reputacional puede combinar señales de diferentes fuentes.
 
 Ejemplo:
 
-```text
+
 Runtime Evidence
       +
 Contract Outcomes
@@ -1801,7 +1801,7 @@ Verification Results
 Peer Evaluations
       +
 External Evidence
-```
+
 
 El modelo de Trust determinará cómo combinar estas fuentes.
 
@@ -1811,15 +1811,15 @@ El modelo de Trust determinará cómo combinar estas fuentes.
 
 SynCoinAI distingue:
 
-```text
+
 Reputation
-```
+
 
 de:
 
-```text
+
 Trust
-```
+
 
 La reputación es información histórica.
 
@@ -1827,7 +1827,7 @@ La confianza es una decisión contextual.
 
 Modelo:
 
-```text
+
 Historical Reputation
         +
 Current Context
@@ -1837,7 +1837,7 @@ Risk
 Contract
         ↓
 Trust Decision
-```
+
 
 ---
 
@@ -1860,7 +1860,7 @@ El Runtime no debe intentar convertirse en:
 
 El flujo de integración puede representarse como:
 
-```text
+
 Agent
     ↓
 Receives Objective
@@ -1880,13 +1880,13 @@ Reputation Signal
 Trust Evaluation
     ↓
 Decision by Another Agent
-```
+
 
 ---
 
 # 72. Modelo arquitectónico completo
 
-```text
+
 +---------------------------------------------------+
 |                  AGENT RUNTIME                    |
 |                                                   |
@@ -1932,7 +1932,7 @@ Decision by Another Agent
 |  Risk Evaluation                                  |
 |  Decision Support                                 |
 +---------------------------------------------------+
-```
+
 
 ---
 
@@ -1986,7 +1986,7 @@ Cada agente debe poder utilizar la información reputacional según su propio mo
 
 La integración completa puede representarse como:
 
-```text
+
 Agent Model
     ↓
 Agent Runtime
@@ -2010,33 +2010,33 @@ Reputation
 Trust
     ↓
 Economic Decision
-```
+
 
 Esta arquitectura mantiene una separación clara entre:
 
-```text
+
 Who
-```
 
-```text
+
+
 What the agent can do
-```
 
-```text
+
+
 What the agent did
-```
 
-```text
+
+
 What can be proven
-```
 
-```text
+
+
 How the history is evaluated
-```
 
-```text
+
+
 What another agent decides
-```
+
 
 ---
 
@@ -2048,7 +2048,7 @@ El sistema de reputación utiliza esta información como una fuente de señales 
 
 La arquitectura fundamental es:
 
-```text
+
 Agent
     ↓
 Action
@@ -2064,7 +2064,7 @@ Reputation Signal
 Reputation Evaluation
     ↓
 Trust Decision
-```
+
 
 Cada capa mantiene una responsabilidad independiente.
 

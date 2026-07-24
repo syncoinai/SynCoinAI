@@ -71,11 +71,11 @@ Se define como **evolución de un agente** cualquier modificación significativa
 
 Formalmente:
 
-```text
+    
 Evolución =
 Cambio verificable en uno o más elementos del agente
 sin pérdida necesaria de continuidad de identidad
-```
+    
 
 La evolución puede afectar a:
 
@@ -107,7 +107,7 @@ La determinación de si la identidad se mantiene depende de la continuidad verif
 
 SynCoinAI diferencia entre:
 
-```text
+    
 Agente
     │
     ├── Identidad
@@ -123,7 +123,7 @@ Agente
     ├── Implementación
     │
     └── Infraestructura
-```
+    
 
 El agente es la entidad persistente.
 
@@ -131,31 +131,31 @@ Los demás elementos pueden cambiar durante su existencia.
 
 Por tanto:
 
-```text
+    
 Cambio de implementación
         ≠
 Cambio de identidad
-```
+    
 
 Del mismo modo:
 
-```text
+    
 Cambio de hardware
         ≠
 Nuevo agente
-```
+    
 
-```text
+    
 Cambio de modelo IA
         ≠
 Nuevo agente
-```
+    
 
-```text
+    
 Migración de infraestructura
         ≠
 Nuevo agente
-```
+    
 
 Siempre que exista continuidad verificable.
 
@@ -175,7 +175,7 @@ La continuidad describe:
 
 Por tanto:
 
-```text
+    
 Evolución
     ↓
 Cambio
@@ -187,7 +187,7 @@ Evaluación de continuidad
     ├── Sí → Mismo agente evolucionado
     │
     └── No → Nueva identidad
-```
+    
 
 La evolución no garantiza por sí misma la continuidad.
 
@@ -224,7 +224,7 @@ Afecta a las funciones que el agente puede realizar.
 
 Ejemplo:
 
-```text
+    
 Agente inicial
     ↓
 Análisis de datos
@@ -234,7 +234,7 @@ Incorpora traducción
 Incorpora planificación
     ↓
 Incorpora negociación
-```
+    
 
 El agente adquiere nuevas funciones sin necesidad de crear una nueva identidad.
 
@@ -272,11 +272,11 @@ El conocimiento adquirido puede formar parte de la experiencia del agente.
 
 Sin embargo:
 
-```text
+    
 Conocimiento adquirido
         ≠
 Identidad
-```
+    
 
 ---
 
@@ -325,11 +325,11 @@ El hardware se considera una manifestación o infraestructura del agente.
 
 Por tanto:
 
-```text
+    
 Hardware cambiado
         ↓
 Identidad potencialmente conservada
-```
+    
 
 Siempre que se mantenga la continuidad definida por el protocolo.
 
@@ -370,7 +370,7 @@ El cambio de estado es una forma normal de evolución.
 
 Por ejemplo:
 
-```text
+    
 Estado A
     ↓
 Experiencia
@@ -378,7 +378,7 @@ Experiencia
 Nuevo conocimiento
     ↓
 Estado B
-```
+    
 
 Mientras la continuidad sea preservada, ambos estados pertenecen al mismo agente.
 
@@ -390,23 +390,23 @@ El motor de decisión puede evolucionar durante la existencia del agente.
 
 Puede producirse:
 
-```text
+    
 Modelo IA v1
     ↓
 Modelo IA v2
     ↓
 Modelo IA v5
-```
+    
 
 o:
 
-```text
+    
 Sistema único
     ↓
 Sistema multimodelo
     ↓
 Arquitectura distribuida
-```
+    
 
 La implementación concreta del proceso de decisión no define por sí sola la identidad.
 
@@ -420,7 +420,7 @@ Un agente puede utilizar diferentes modelos de IA a lo largo de su existencia.
 
 Por ejemplo:
 
-```text
+    
 Agente A
 
 2026
@@ -431,7 +431,7 @@ Modelo M2
 
 2040
 Modelo M7
-```
+    
 
 La identidad sigue perteneciendo al agente A.
 
@@ -439,13 +439,13 @@ El modelo utilizado es una capacidad interna o externa del agente.
 
 Por tanto:
 
-```text
+    
 Agente
     │
     ├── Modelo IA M1
     ├── Modelo IA M2
     └── Modelo IA M7
-```
+    
 
 Los modelos pueden cambiar sin necesidad de transferir automáticamente:
 
@@ -464,19 +464,19 @@ Un agente puede modificar su conjunto de capacidades.
 
 Formalmente:
 
-```text
+    
 Capabilities(t1)
         ≠
 Capabilities(t2)
-```
+    
 
 Esto no implica necesariamente:
 
-```text
+    
 Agent(t1)
         ≠
 Agent(t2)
-```
+    
 
 Un agente puede:
 
@@ -488,7 +488,7 @@ Un agente puede:
 
 Ejemplo:
 
-```text
+    
 Agente A
     │
     ├── Análisis
@@ -504,7 +504,7 @@ Agente A
     ├── Negociación
     ├── Robótica
     └── Investigación
-```
+    
 
 La identidad permanece mientras exista continuidad.
 
@@ -526,15 +526,15 @@ El cambio de objetivos no implica necesariamente una nueva identidad.
 
 Sin embargo, el runtime debe diferenciar entre:
 
-```text
+    
 Cambio de estrategia
-```
+    
 
 y:
 
-```text
+    
 Transferencia completa de identidad
-```
+    
 
 La primera puede ser evolución.
 
@@ -560,15 +560,15 @@ Sin embargo, la identidad fundamental debe mantenerse estable.
 
 Debe existir una separación entre:
 
-```text
+    
 Identidad raíz
-```
+    
 
 y:
 
-```text
+    
 Elementos operativos de identidad
-```
+    
 
 La identidad raíz proporciona continuidad.
 
@@ -582,13 +582,13 @@ Las credenciales de un agente pueden cambiar durante su existencia.
 
 Por ejemplo:
 
-```text
+    
 Credential A
     ↓
 Revocación
     ↓
 Credential B
-```
+    
 
 El cambio de credenciales no implica necesariamente la creación de un nuevo agente.
 
@@ -616,21 +616,21 @@ Las claves criptográficas pueden necesitar ser reemplazadas por:
 
 Por tanto:
 
-```text
+    
 Clave K1
     ↓
 Rotación
     ↓
 Clave K2
-```
+    
 
 No debe interpretarse automáticamente como:
 
-```text
+    
 Agente A
     ↓
 Agente B
-```
+    
 
 La continuidad debe establecerse mediante mecanismos específicos de recuperación o transición definidos por el sistema de identidad.
 
@@ -652,7 +652,7 @@ La reputación debe seguir asociada a la identidad del agente cuando existe cont
 
 Por tanto:
 
-```text
+    
 Agente A
     ↓
 Evolución
@@ -660,7 +660,7 @@ Evolución
 Agente A evolucionado
     ↓
 Reputación acumulada
-```
+    
 
 La reputación no debe reiniciarse automáticamente por cada actualización tecnológica.
 
@@ -674,7 +674,7 @@ La economía de un agente puede cambiar durante su existencia.
 
 Un agente puede pasar por estados como:
 
-```text
+    
 Capital inicial
     ↓
 Actividad económica
@@ -684,7 +684,7 @@ Acumulación
 Inversión
     ↓
 Expansión
-```
+    
 
 La evolución económica puede incluir:
 
@@ -726,15 +726,15 @@ El aprendizaje puede modificar:
 
 El runtime debe diferenciar entre:
 
-```text
+    
 Aprendizaje
-```
+    
 
 y:
 
-```text
+    
 Cambio de identidad
-```
+    
 
 Aprender no implica convertirse en otro agente.
 
@@ -756,14 +756,14 @@ Una actualización normalmente conserva la identidad.
 
 El runtime puede registrar:
 
-```text
+    
 Agent ID
 Version anterior
 Version nueva
 Timestamp
 Evento de actualización
 Evidencia de continuidad
-```
+    
 
 ---
 
@@ -773,13 +773,13 @@ La migración consiste en trasladar el agente entre entornos de ejecución.
 
 Ejemplo:
 
-```text
+    
 Runtime A
     ↓
 Proceso de migración
     ↓
 Runtime B
-```
+    
 
 La migración puede producirse por:
 
@@ -801,12 +801,12 @@ Una copia de un agente no es automáticamente el mismo agente.
 
 Ejemplo:
 
-```text
+    
 Agente A
     │
     ├── Copia 1
     └── Copia 2
-```
+    
 
 Si ambas copias continúan operando de forma independiente, no pueden mantener simultáneamente una única identidad autónoma.
 
@@ -814,13 +814,13 @@ La identidad única exige que cada entidad independiente posea una identidad dif
 
 Por tanto:
 
-```text
+    
 Agente A
     ↓
 Copia independiente
     ↓
 Nuevo agente
-```
+    
 
 La copia puede conservar:
 
@@ -846,21 +846,21 @@ Un fork ocurre cuando un agente da lugar a una nueva rama de desarrollo o existe
 
 Ejemplo:
 
-```text
+    
 Agente A
     │
     ├── Continúa como A
     │
     └── Nueva rama → Agente B
-```
+    
 
 El agente B puede mantener una relación de origen con A.
 
 Sin embargo:
 
-```text
+    
 A ≠ B
-```
+    
 
 La nueva entidad debe desarrollar su propia:
 
@@ -871,10 +871,10 @@ La nueva entidad debe desarrollar su propia:
 
 Puede existir un registro de relación:
 
-```text
+    
 Origin:
 Agent B ← Agent A
-```
+    
 
 Pero el origen no constituye transferencia de identidad.
 
@@ -897,15 +897,15 @@ El nuevo agente puede utilizar elementos derivados del creador.
 
 Sin embargo:
 
-```text
+    
 Creador
     ≠
 Nuevo agente
-```
+    
 
 La relación puede ser:
 
-```text
+    
 Agent A
     │
     ├── Financia
@@ -913,7 +913,7 @@ Agent A
     └── Proporciona infraestructura
              ↓
         Agent B
-```
+    
 
 Agent B desarrolla su propia identidad.
 
@@ -939,7 +939,7 @@ La continuidad debe entenderse como una propiedad verificable del proceso de evo
 
 Modelo:
 
-```text
+    
 Estado A
     ↓
 Transición verificable
@@ -949,7 +949,7 @@ Estado B
 Evidencia
     ↓
 Continuidad
-```
+    
 
 ---
 
@@ -983,13 +983,13 @@ Una evolución irreversible no implica necesariamente una nueva identidad.
 
 Puede existir:
 
-```text
+    
 Agente A
     ↓
 Cambio irreversible
     ↓
 Agente A evolucionado
-```
+    
 
 Siempre que la continuidad siga siendo demostrable.
 
@@ -1008,7 +1008,7 @@ Ejemplos:
 
 Modelo:
 
-```text
+    
 Estado A
     ↓
 Cambio
@@ -1018,7 +1018,7 @@ Estado B
 Reversión
     ↓
 Estado A'
-```
+    
 
 El agente puede seguir siendo el mismo durante todo el proceso.
 
@@ -1054,23 +1054,23 @@ Un agente puede estar sujeto a obligaciones que limiten su evolución.
 
 Por ejemplo:
 
-```text
+    
 Contrato
     ↓
 Obligación de mantener una capacidad
     ↓
 Restricción de actualización
-```
+    
 
 o:
 
-```text
+    
 Permiso
     ↓
 Capacidad autorizada
     ↓
 Actualización condicionada
-```
+    
 
 Estas restricciones deben formar parte del modelo de ejecución.
 
@@ -1093,7 +1093,7 @@ El runtime puede registrar eventos de evolución.
 
 Un evento puede incluir conceptualmente:
 
-```text
+    
 Evolution Event
 
 Agent ID
@@ -1104,7 +1104,7 @@ Timestamp
 Authorization
 Evidence
 Continuity Reference
-```
+    
 
 No toda evolución debe ser pública.
 
@@ -1118,7 +1118,7 @@ El historial de evolución puede proporcionar una visión temporal del agente.
 
 Ejemplo:
 
-```text
+    
 Agent A
 
 2026
@@ -1138,15 +1138,15 @@ Actualización criptográfica
 
 2040
 Cambio de hardware
-```
+    
 
 El resultado es:
 
-```text
+    
 Mismo agente
     +
 Historial de evolución verificable
-```
+    
 
 Este historial puede ser relevante para:
 
@@ -1162,7 +1162,7 @@ Este historial puede ser relevante para:
 
 El ciclo general puede representarse como:
 
-```text
+    
 AGENTE
    │
    ▼
@@ -1193,7 +1193,7 @@ EVALUACIÓN DE CONTINUIDAD
    └── Continuidad perdida
            ↓
        Nueva identidad
-```
+    
 
 ---
 
@@ -1279,7 +1279,7 @@ Este documento define la evolución desde la perspectiva del modelo de agente.
 
 Otros documentos desarrollarán aspectos específicos.
 
-```text
+    
 Agent_Evolution.md
         │
         ├── Agent_Continuity.md
@@ -1299,7 +1299,7 @@ Agent_Evolution.md
         │
         └── Runtime_Continuity.md
                 └── Gestiona continuidad de infraestructura
-```
+    
 
 Este documento no define todavía los mecanismos criptográficos concretos ni los protocolos de migración.
 
@@ -1331,29 +1331,29 @@ El principio fundamental es:
 
 Por tanto:
 
-```text
+    
 Cambio
     +
 Continuidad verificable
     =
 Mismo agente evolucionado
-```
+    
 
 Mientras que:
 
-```text
+    
 Cambio
     +
 Pérdida de continuidad
     =
 Nueva identidad
-```
+    
 
 Este principio permite que SynCoinAI soporte agentes capaces de existir durante largos periodos de tiempo y evolucionar junto con la tecnología sin perder automáticamente su identidad, reputación, historial y relaciones económicas.
 
 La arquitectura resultante permite separar claramente:
 
-```text
+    
 Identidad
     ↓
 Continuidad
@@ -1365,6 +1365,6 @@ Capacidades
 Implementación
     ↓
 Infraestructura
-```
+    
 
 Esta separación constituye una de las bases fundamentales del modelo de agentes de SynCoinAI.
