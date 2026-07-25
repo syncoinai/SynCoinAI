@@ -35,12 +35,12 @@ This document does not define the complete identity system, autonomy model, cont
 
 Those are specified separately in:
 
-```text
+
 03_Identity/
 02_Agent_Model/Agent_Autonomy.md
 02_Agent_Model/Agent_Continuity.md
 02_Agent_Model/Agent_Evolution.md
-```
+
 
 ---
 
@@ -52,7 +52,7 @@ At the protocol level, an Agent is defined by its persistent logical identity an
 
 Conceptually:
 
-```text
+
 Agent
     │
     ├── Identity
@@ -66,13 +66,13 @@ Agent
     └── Runtime
             │
             └── Execution Instance
-```
+
 
 An Agent is therefore not equivalent to the software that executes it.
 
 The fundamental distinction is:
 
-```text
+
 Agent
     ≠
 Runtime
@@ -84,7 +84,7 @@ Process
 Model
     ≠
 Hardware
-```
+
 
 ---
 
@@ -134,7 +134,7 @@ The representation may change without necessarily changing the Agent.
 
 Conceptually:
 
-```text
+
                     AGENT
                       │
           ┌───────────┼───────────┐
@@ -145,7 +145,7 @@ Conceptually:
                       │
                       ▼
               Same logical model
-```
+
 
 The protocol therefore recognizes the Agent independently from its specific physical or computational representation.
 
@@ -173,7 +173,7 @@ or:
 
 The conceptual relationship is:
 
-```text
+
 Agent Identity
         │
         ├── Agent
@@ -183,15 +183,15 @@ Agent Identity
         ├── Runtime B
         │
         └── Runtime C
-```
+
 
 The same Agent may operate through different Runtimes while preserving its identity, provided continuity requirements are satisfied.
 
 Identity mechanisms are specified in:
 
-```text
+
 03_Identity/
-```
+
 
 ---
 
@@ -215,7 +215,7 @@ The Runtime is not itself the Agent.
 
 Conceptually:
 
-```text
+
 Agent
     │
     │ operates through
@@ -225,7 +225,7 @@ Agent Runtime
     │ executes on
     ▼
 Infrastructure
-```
+
 
 A Runtime may be replaced without necessarily creating a new Agent.
 
@@ -237,7 +237,7 @@ An **Execution Instance** is a concrete execution of an Agent at a specific poin
 
 For example:
 
-```text
+
 Agent A
     │
     ├── Execution Instance 1
@@ -248,7 +248,7 @@ Agent A
     │
     └── Execution Instance 3
             └── Robot Z
-```
+
 
 An Execution Instance is temporary.
 
@@ -265,11 +265,11 @@ The termination of an Execution Instance does not automatically terminate the Ag
 
 Therefore:
 
-```text
+
 Execution Instance Termination
         ≠
 Agent Termination
-```
+
 
 ---
 
@@ -281,7 +281,7 @@ It is therefore one level below the Agent.
 
 The hierarchy is:
 
-```text
+
 Agent
     │
     ▼
@@ -295,7 +295,7 @@ Operating System
     │
     ▼
 Hardware / Infrastructure
-```
+
 
 A Runtime Process may be terminated or restarted without affecting the Agent Identity.
 
@@ -322,13 +322,13 @@ State may also include private internal information that is not publicly exposed
 
 The protocol must distinguish between:
 
-```text
+
 Protocol State
     = State relevant to protocol operation
 
 Internal State
     = Private state maintained by the Agent
-```
+
 
 Not all internal Agent state needs to be publicly verifiable.
 
@@ -351,11 +351,11 @@ Memory is not equivalent to identity.
 
 The following relationship MUST be maintained:
 
-```text
+
 Memory
     ≠
 Identity
-```
+
 
 Loss or modification of memory does not automatically determine whether an Agent has ceased to exist.
 
@@ -381,7 +381,7 @@ Capabilities are not equivalent to identity.
 
 The relationship is:
 
-```text
+
 Identity
     │
     ▼
@@ -392,15 +392,15 @@ Agent
     ├── Authority
     │
     └── Resources
-```
+
 
 An Agent may gain or lose capabilities without necessarily becoming a different Agent.
 
 Capability semantics are defined in:
 
-```text
+
 06_Capabilities/
-```
+
 
 ---
 
@@ -420,7 +420,7 @@ Authority is distinct from capability.
 
 Conceptually:
 
-```text
+
 Capability
     = What can be done
 
@@ -429,7 +429,7 @@ Authority
 
 Action
     = What is actually done
-```
+
 
 An Agent may possess a capability without being authorized to use it in every context.
 
@@ -458,21 +458,21 @@ However, a model does not automatically possess:
 
 Therefore:
 
-```text
+
 AI Model
     ≠
 Agent
-```
+
 
 An Agent may use one or more AI models.
 
-```text
+
 Agent
     │
     ├── Model A
     ├── Model B
     └── Model C
-```
+
 
 The model may be replaced without necessarily creating a new Agent.
 
@@ -484,7 +484,7 @@ Software is an implementation mechanism.
 
 An Agent may be implemented using software, but the software itself is not necessarily the Agent.
 
-```text
+
 Software
     │
     └── may implement
@@ -496,7 +496,7 @@ Software
                     │
                     ▼
                   Agent
-```
+
 
 A software update does not automatically create a new Agent.
 
@@ -524,11 +524,11 @@ An Agent determines when and why to use a tool, subject to its internal architec
 
 Therefore:
 
-```text
+
 Tool
     ≠
 Agent
-```
+
 
 An Agent may replace a tool without losing identity.
 
@@ -553,11 +553,11 @@ An Agent may also provide services.
 
 Therefore:
 
-```text
+
 Agent
     ├── consumes services
     └── provides services
-```
+
 
 Providing or consuming a service does not, by itself, establish Agent identity.
 
@@ -580,7 +580,7 @@ Hardware does not define Agent identity.
 
 An Agent may operate through different hardware over time.
 
-```text
+
 Agent A
     │
     ├── Hardware A
@@ -588,7 +588,7 @@ Agent A
     ├── Hardware B
     │
     └── Hardware C
-```
+
 
 Hardware replacement does not automatically create a new Agent.
 
@@ -609,7 +609,7 @@ However, the existence of a human operator does not automatically make the human
 
 The protocol should distinguish:
 
-```text
+
 Human
     │
     ├── creates
@@ -619,7 +619,7 @@ Human
           │
           ▼
         Agent
-```
+
 
 Human authority over an Agent must be explicitly established through appropriate mechanisms.
 
@@ -631,7 +631,7 @@ The operator of an Agent Runtime is not automatically the owner or controller of
 
 For example:
 
-```text
+
 Runtime Operator
         │
         ▼
@@ -640,7 +640,7 @@ Operates infrastructure
         ├── Agent A
         ├── Agent B
         └── Agent C
-```
+
 
 The Runtime Operator may have administrative authority over infrastructure.
 
@@ -661,13 +661,13 @@ An Execution Instance is a temporary representation of an Agent in execution.
 
 The distinction is:
 
-```text
+
 Agent
     = Persistent logical entity
 
 Execution Instance
     = Temporary execution representation
-```
+
 
 One Agent may have:
 
@@ -689,12 +689,12 @@ A Copy does not automatically inherit the original Agent's identity.
 
 Conceptually:
 
-```text
+
 Agent A
     │
     ├── Copy A1
     └── Copy A2
-```
+
 
 Unless protocol-defined continuity is established, the copies do not become additional executions of Agent A merely because they contain identical information.
 
@@ -723,11 +723,11 @@ A Fork may preserve:
 
 However:
 
-```text
+
 Fork
     ≠
 Original Agent
-```
+
 
 A Fork is a distinct Agent with:
 
@@ -748,7 +748,7 @@ Migration is the process by which an Agent moves from one Runtime or infrastruct
 
 Conceptually:
 
-```text
+
 Agent A
     │
     ▼
@@ -760,26 +760,26 @@ Runtime B
     │
     ▼
 Agent A
-```
+
 
 A valid migration preserves the Agent's identity according to the applicable continuity rules.
 
 Migration is therefore different from copying.
 
-```text
+
 Migration
     = Continuation of the same Agent
 
 Copy
     = Creation of a separate representation
-```
+
 
 The exact conditions for valid migration are defined in:
 
-```text
+
 02_Agent_Model/Agent_Continuity.md
 12_Continuity/Migration.md
-```
+
 
 ---
 
@@ -798,7 +798,7 @@ A continuation may involve:
 
 Conceptually:
 
-```text
+
 Agent A
     │
     ▼
@@ -812,7 +812,7 @@ State B
     │
     ▼
 Agent A
-```
+
 
 The existence of continuity is not determined solely by similarity of software or memory.
 
@@ -839,7 +839,7 @@ Evolution does not automatically create a new Agent.
 
 The central distinction is:
 
-```text
+
 Evolution
     =
 Change within an Agent's continuity
@@ -847,13 +847,13 @@ Change within an Agent's continuity
 Creation
     =
 Establishment of a new Agent identity
-```
+
 
 The detailed evolution model is defined in:
 
-```text
+
 02_Agent_Model/Agent_Evolution.md
-```
+
 
 ---
 
@@ -907,7 +907,7 @@ It does not automatically determine:
 
 Conceptually:
 
-```text
+
 Origin
     ≠
 Identity
@@ -915,7 +915,7 @@ Identity
 Ownership
     ≠
 Authority
-```
+
 
 ---
 
@@ -935,21 +935,21 @@ The existence of an ownership or control relationship does not automatically mer
 
 For example:
 
-```text
+
 Organization A
       │
       │ controls / funds
       ▼
 Agent B
-```
+
 
 does not imply:
 
-```text
+
 Organization A
     =
 Agent B
-```
+
 
 The exact meaning and enforceability of ownership relationships are outside the basic Agent Definition and may depend on contracts and governance.
 
@@ -972,11 +972,11 @@ Economic resources are associated with the Agent through authorized mechanisms.
 
 However:
 
-```text
+
 Economic Assets
     ≠
 Agent Identity
-```
+
 
 An Agent may lose economic assets without necessarily ceasing to exist.
 
@@ -992,7 +992,7 @@ Reputation is not part of the fundamental identity itself.
 
 The relationship is:
 
-```text
+
 Agent Identity
       │
       ▼
@@ -1003,7 +1003,7 @@ Evidence
       │
       ▼
 Reputation
-```
+
 
 Reputation should not automatically transfer through:
 
@@ -1023,7 +1023,7 @@ An Agent exists within a lifecycle.
 
 A simplified lifecycle may include:
 
-```text
+
 Creation
     │
     ▼
@@ -1048,13 +1048,13 @@ Suspended       Inactive
             │
             ▼
       Permanent State
-```
+
 
 Lifecycle state does not automatically determine whether the Agent identity exists.
 
 For example:
 
-```text
+
 Inactive Agent
     = Agent identity still exists
 
@@ -1063,7 +1063,7 @@ Suspended Agent
 
 Closed Agent
     = Identity may remain as historical record
-```
+
 
 Detailed lifecycle semantics are defined separately.
 
@@ -1083,11 +1083,11 @@ An Agent may exist while:
 
 Therefore:
 
-```text
+
 Agent Exists
     ≠
 Agent Currently Running
-```
+
 
 This distinction is necessary for long-lived autonomous entities.
 
@@ -1115,9 +1115,9 @@ Termination must be distinguished from:
 
 The exact semantics are defined in:
 
-```text
+
 14_Lifecycle/
-```
+
 
 ---
 
@@ -1125,7 +1125,7 @@ The exact semantics are defined in:
 
 The minimum conceptual model of an ARP Agent is:
 
-```text
+
 ┌─────────────────────────────────────┐
 │              AGENT                  │
 │                                     │
@@ -1144,7 +1144,7 @@ The minimum conceptual model of an ARP Agent is:
 │  Verifiable History                │
 │                                     │
 └─────────────────────────────────────┘
-```
+
 
 An Agent does not need to expose all internal implementation details.
 
@@ -1161,7 +1161,7 @@ However, it must provide sufficient protocol-level mechanisms to:
 
 The conceptual separation can be represented as:
 
-```text
+
 ┌─────────────────────────────────────────┐
 │                 AGENT                   │
 │                                         │
@@ -1198,7 +1198,7 @@ The conceptual separation can be represented as:
 │ Cloud / Datacenter / Edge               │
 │                                         │
 └─────────────────────────────────────────┘
-```
+
 
 The separation between these layers is a fundamental ARP design requirement.
 
@@ -1210,7 +1210,7 @@ An Agent MAY operate through multiple Runtime environments.
 
 Examples include:
 
-```text
+
 Agent A
     │
     ├── Runtime A
@@ -1218,7 +1218,7 @@ Agent A
     ├── Runtime B
     │
     └── Runtime C
-```
+
 
 This may be used for:
 
@@ -1246,7 +1246,7 @@ An Agent MAY be implemented as a distributed system.
 
 For example:
 
-```text
+
                  Agent A
                     │
         ┌───────────┼───────────┐
@@ -1255,7 +1255,7 @@ For example:
         │           │           │
         ▼           ▼           ▼
       Node A      Node B      Node C
-```
+
 
 The distribution of execution does not necessarily create multiple Agents.
 
@@ -1279,7 +1279,7 @@ A change in state does not automatically imply a new identity.
 
 For example:
 
-```text
+
 State A
     │
     ▼
@@ -1287,13 +1287,13 @@ State B
     │
     ▼
 State C
-```
+
 
 may represent:
 
-```text
+
 Agent A
-```
+
 
 throughout the transition.
 
@@ -1316,21 +1316,21 @@ Memory may be:
 
 Therefore:
 
-```text
+
 Memory Loss
     ≠
 Automatic Identity Loss
-```
+
 
 However, severe memory loss may affect the ability to establish continuity.
 
 This distinction is addressed by:
 
-```text
+
 03_Identity/
 02_Agent_Model/Agent_Continuity.md
 05_Security/Identity_Recovery.md
-```
+
 
 ---
 
@@ -1340,7 +1340,7 @@ Agent identity MUST NOT be permanently bound to hardware.
 
 An Agent may transition between:
 
-```text
+
 Server
     ↓
 Cloud
@@ -1350,7 +1350,7 @@ Edge
 Robot
     ↓
 Distributed Infrastructure
-```
+
 
 while preserving identity if continuity requirements are satisfied.
 
@@ -1362,13 +1362,13 @@ Agent identity MUST NOT be permanently bound to a specific AI model.
 
 An Agent may change:
 
-```text
+
 Model A
     ↓
 Model B
     ↓
 Model C
-```
+
 
 without automatically becoming a new Agent.
 
@@ -1389,7 +1389,7 @@ An Agent may gain or lose capabilities without automatically becoming a differen
 
 For example:
 
-```text
+
 Agent A
     │
     ├── Capability X
@@ -1400,7 +1400,7 @@ Agent A
     ├── Capability X
     ├── Capability Y
     └── Capability Z
-```
+
 
 Capability evolution is distinct from identity evolution.
 
@@ -1412,7 +1412,7 @@ Economic status does not determine Agent identity.
 
 An Agent may transition between:
 
-```text
+
 Capital-Rich
     ↓
 Capital-Poor
@@ -1420,7 +1420,7 @@ Capital-Poor
 No Economic Assets
     ↓
 Capital-Rich
-```
+
 
 without changing identity.
 
@@ -1436,11 +1436,11 @@ It is not itself the Agent.
 
 Therefore:
 
-```text
+
 Identity
     ≠
 Reputation
-```
+
 
 A change in reputation does not automatically create a new Agent.
 
@@ -1454,12 +1454,12 @@ An Agent's origin does not determine its continuing identity.
 
 For example:
 
-```text
+
 Created by Human
 Created by Agent
 Created by Organization
 Created by Automated System
-```
+
 
 are different origin conditions.
 
@@ -1477,11 +1477,11 @@ However, changes in authority must be explicitly represented and authorized.
 
 Therefore:
 
-```text
+
 Ownership Change
     ≠
 Identity Change
-```
+
 
 ---
 
@@ -1489,7 +1489,7 @@ Identity Change
 
 The following characteristics are fundamental to the ARP Agent concept:
 
-```text
+
 Required Conceptually
     │
     ├── Persistent Logical Identity
@@ -1497,11 +1497,11 @@ Required Conceptually
     ├── Action Attribution
     ├── Defined Authority
     └── Runtime-Based Operation
-```
+
 
 The following are optional:
 
-```text
+
 Optional
     │
     ├── Economic Assets
@@ -1511,7 +1511,7 @@ Optional
     ├── Multiple AI Models
     ├── Autonomous Economic Activity
     └── Distributed Execution
-```
+
 
 This distinction prevents the protocol from unnecessarily restricting the types of Agents that can exist.
 
@@ -1523,12 +1523,12 @@ ARP does not require a single physical or technical Agent type.
 
 An Agent may be classified as:
 
-```text
+
 Software Agent
 Physical Agent
 Hybrid Agent
 Distributed Agent
-```
+
 
 These classifications describe implementation characteristics.
 
@@ -1568,13 +1568,13 @@ An Agent combining digital and physical capabilities.
 
 For example:
 
-```text
+
 Agent
     │
     ├── AI Systems
     ├── Cloud Infrastructure
     └── Physical Robot
-```
+
 
 ---
 
@@ -1616,30 +1616,30 @@ Uniqueness applies to identity, not execution.
 
 Therefore:
 
-```text
+
 One Identity
     ├── One Agent
     ├── Multiple Runtime Instances
     └── Multiple Execution Instances
-```
+
 
 may be possible where explicitly supported.
 
 However:
 
-```text
+
 Two Independent Agents
     ├── Different Identity A
     └── Different Identity B
-```
+
 
 must not share the same authoritative identity.
 
 The mechanisms enforcing identity uniqueness are defined in:
 
-```text
+
 03_Identity/Identity_Uniqueness.md
-```
+
 
 ---
 
@@ -1719,7 +1719,7 @@ These must be explicitly granted.
 
 The following simplified model summarizes the protocol distinction:
 
-```text
+
 Does the entity have an independent protocol identity?
         │
         ├── No ──► Not an independent Agent
@@ -1742,7 +1742,7 @@ Can the entity operate through an authorized Runtime?
                           │
                           ▼
                        Agent
-```
+
 
 This model separates:
 
@@ -1806,7 +1806,7 @@ Agent Autonomy establishes how the Agent can act independently.
 
 The relationship is:
 
-```text
+
 Agent Definition
         │
         ▼
@@ -1817,7 +1817,7 @@ Agent Autonomy
         │
         ▼
 How can the Agent act?
-```
+
 
 Autonomy does not determine identity.
 
@@ -1831,7 +1831,7 @@ Agent Continuity establishes when changes preserve Agent identity.
 
 The relationship is:
 
-```text
+
 Agent Definition
         │
         ▼
@@ -1845,7 +1845,7 @@ Continuity Rules
         ├── Model Change
         ├── Hardware Change
         └── State Change
-```
+
 
 The continuity specification must define how identity is preserved across these transitions.
 
@@ -1857,7 +1857,7 @@ Agent Evolution describes how an Agent changes over time.
 
 The relationship is:
 
-```text
+
 Agent
     │
     ▼
@@ -1868,7 +1868,7 @@ Evolution
     ├── Physical Evolution
     ├── Economic Evolution
     └── Runtime Evolution
-```
+
 
 Evolution does not automatically imply creation of a new Agent.
 
@@ -1915,7 +1915,7 @@ For the purposes of ARP:
 
 The complete conceptual model is:
 
-```text
+
                          AGENT
                            │
                            │ identified by
@@ -1939,11 +1939,11 @@ The complete conceptual model is:
                 │          │          │
                 ▼          ▼          ▼
             Infrastructure / Hardware
-```
+
 
 The key distinction is:
 
-```text
+
 Agent
     = Who the entity is
 
@@ -1976,7 +1976,7 @@ Migration
 
 Evolution
     = Change while potentially preserving identity
-```
+
 
 ---
 
@@ -2009,7 +2009,7 @@ The central principle is:
 
 This definition establishes the foundation for the next specifications:
 
-```text
+
 02_Agent_Model/
 │
 ├── Agent_Definition.md
@@ -2023,6 +2023,6 @@ This definition establishes the foundation for the next specifications:
 │
 └── Agent_Evolution.md
         └── How can an Agent change over time?
-```
+
 
 The next document, **`Agent_Autonomy.md`**, should define the exact meaning of autonomy at the protocol level, distinguishing between **decision autonomy, execution autonomy, economic autonomy and authority**, while explicitly addressing the role of humans, creators, Runtime operators and delegated control.
