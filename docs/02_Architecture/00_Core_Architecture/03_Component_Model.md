@@ -29,7 +29,7 @@ La arquitectura de componentes está diseñada alrededor de la idea central:
 
 La arquitectura se organiza en los siguientes dominios:
 
-```text
+
                            AGENTE
 
                              |
@@ -58,7 +58,7 @@ La arquitectura se organiza en los siguientes dominios:
                              |
 
               External Integration Layer
-```
+
 
 ---
 
@@ -74,7 +74,7 @@ Es el componente que permite que una entidad pueda percibir, decidir y actuar.
 
 ## Componentes internos
 
-```text
+
 Agent Core
 
 ├── Reasoning Engine
@@ -83,7 +83,7 @@ Agent Core
 ├── Capability Manager
 ├── Decision Engine
 └── Action Controller
-```
+
 
 ---
 
@@ -151,7 +151,7 @@ Proporciona identidad verificable al agente.
 
 ## Componentes internos
 
-```text
+
 Identity System
 
 ├── Agent Identifier
@@ -159,7 +159,7 @@ Identity System
 ├── Authentication Module
 ├── Credential Manager
 └── Identity Registry
-```
+
 
 ---
 
@@ -184,7 +184,7 @@ Crear confianza entre agentes mediante evidencia verificable.
 
 ## Componentes internos
 
-```text
+
 Trust System
 
 ├── Reputation Engine
@@ -192,7 +192,7 @@ Trust System
 ├── Service History
 ├── Performance Analyzer
 └── Trust Registry
-```
+
 
 ---
 
@@ -217,7 +217,7 @@ Permitir que agentes participen en una economía autónoma.
 
 ## Componentes internos
 
-```text
+
 Economic System
 
 ├── Agent Wallet
@@ -225,7 +225,7 @@ Economic System
 ├── Resource Manager
 ├── Market Engine
 └── Payment Processor
-```
+
 
 ---
 
@@ -250,7 +250,7 @@ Permitir colaboración entre agentes.
 
 ## Componentes internos
 
-```text
+
 Coordination System
 
 ├── Discovery Service
@@ -258,7 +258,7 @@ Coordination System
 ├── Negotiation Engine
 ├── Agreement Manager
 └── Collaboration Manager
-```
+
 
 ---
 
@@ -283,7 +283,7 @@ Proporcionar una capa descentralizada de seguridad y coordinación.
 
 ## Componentes internos
 
-```text
+
 Blockchain System
 
 ├── Consensus Engine
@@ -291,7 +291,7 @@ Blockchain System
 ├── Smart Contract Runtime
 ├── Validator Network
 └── Governance Module
-```
+
 
 ---
 
@@ -316,14 +316,14 @@ Proporcionar pruebas verificables sobre acciones realizadas.
 
 ## Componentes internos
 
-```text
+
 Verification System
 
 ├── Proof Generator
 ├── Evidence Storage
 ├── Validation Engine
 └── Oracle Interface
-```
+
 
 ---
 
@@ -348,14 +348,14 @@ Conectar agentes digitales con sistemas físicos.
 
 ## Componentes internos
 
-```text
+
 Physical Integration
 
 ├── Robot Interface
 ├── Sensor Gateway
 ├── Device Controller
 └── Physical Action Validator
-```
+
 
 ---
 
@@ -402,7 +402,7 @@ Ejemplos:
 
 Las comunicaciones principales serán:
 
-```text
+
 Agent Core
 
       |
@@ -429,7 +429,7 @@ Coordination System
       ↓
 
 Blockchain Infrastructure
-```
+
 
 ---
 

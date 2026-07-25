@@ -57,7 +57,7 @@ Publicación de capacidades
         │
         ▼
 Agente disponible
-```
+
 
 ### Componentes implicados
 
@@ -89,7 +89,7 @@ Evaluación de reputación
       │
       ▼
 Selección del proveedor
-```
+
 
 ### Componentes implicados
 
@@ -148,7 +148,7 @@ Actualización de reputación
 ↓
 
 Fin del servicio
-```
+
 
 ### Componentes implicados
 
@@ -194,7 +194,7 @@ Aceptación
 ↓
 
 Actualización del protocolo
-```
+
 
 ### Componentes implicados
 
@@ -265,7 +265,7 @@ Los distintos componentes de SynCoinAI colaboran continuamente durante una inter
                            ▼
                   Ambos agentes
               actualizan su historial
-```
+
 
 Este flujo representa la interacción típica entre agentes dentro del ecosistema SynCoinAI.
 
@@ -328,7 +328,7 @@ Actualizar memoria
 ↓
 
 Continuar operando
-```
+
 
 Este ciclo puede repetirse de forma indefinida durante toda la vida del agente.
 

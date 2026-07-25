@@ -83,7 +83,7 @@ La arquitectura debe permitir integrar:
 
 La arquitectura global se divide en siete dominios principales:
 
-```text
+
                     AGENTES INTELIGENTES
 
                             |
@@ -120,7 +120,7 @@ La arquitectura global se divide en siete dominios principales:
                             |
 
           7. Integration Layer
-```
+
 
 ---
 
@@ -153,7 +153,7 @@ Incluye:
 
 ## Elementos principales
 
-```text
+
 Agent
 
 ├── Cognitive Engine
@@ -161,7 +161,7 @@ Agent
 ├── Capability System
 ├── Decision System
 └── Action Interface
-```
+
 
 ---
 
@@ -185,7 +185,7 @@ Permitir que cada agente exista como entidad reconocible dentro del ecosistema.
 
 ## Elementos principales
 
-```text
+
 Agent Identity
 
 ├── Unique Identifier
@@ -193,7 +193,7 @@ Agent Identity
 ├── Credentials
 ├── Origin Record
 └── Identity History
-```
+
 
 ---
 
@@ -216,14 +216,14 @@ Crear mecanismos de confianza entre agentes desconocidos.
 
 ## Elementos principales
 
-```text
+
 Trust System
 
 ├── Reputation
 ├── Service History
 ├── Verification Records
 └── Trust Signals
-```
+
 
 ---
 
@@ -247,7 +247,7 @@ Permitir que los agentes participen en actividades económicas.
 
 ## Elementos principales
 
-```text
+
 Economic System
 
 ├── Wallet
@@ -255,7 +255,7 @@ Economic System
 ├── Service Market
 ├── Resource Management
 └── Payment Engine
-```
+
 
 ---
 
@@ -278,14 +278,14 @@ Permitir interacción directa entre agentes.
 
 ## Elementos principales
 
-```text
+
 Agent Communication
 
 ├── Discovery Protocol
 ├── Messaging System
 ├── Negotiation Engine
 └── Collaboration Protocol
-```
+
 
 ---
 
@@ -309,7 +309,7 @@ Proporcionar una infraestructura descentralizada para confianza económica.
 
 ## Elementos principales
 
-```text
+
 Blockchain
 
 ├── Consensus
@@ -317,7 +317,7 @@ Blockchain
 ├── Smart Contracts
 ├── Validators
 └── Governance
-```
+
 
 ---
 
@@ -341,14 +341,14 @@ Conectar SynCoinAI con sistemas externos.
 
 ## Elementos principales
 
-```text
+
 Integration
 
 ├── Physical Systems
 ├── External Networks
 ├── Data Sources
 └── Compute Providers
-```
+
 
 ---
 
@@ -356,7 +356,7 @@ Integration
 
 La actividad económica principal seguirá el siguiente ciclo:
 
-```text
+
 1. Agente identifica una necesidad
 
             ↓
@@ -390,7 +390,7 @@ La actividad económica principal seguirá el siguiente ciclo:
             ↓
 
 9. Actualiza reputación
-```
+
 
 ---
 
@@ -400,7 +400,7 @@ Las capas no funcionan de manera aislada.
 
 La interacción principal es:
 
-```text
+
 Agent Layer
 
       ↓
@@ -415,7 +415,7 @@ Economic Layer
       ↓
 
 Blockchain Layer
-```
+
 
 La blockchain proporciona garantías, pero la lógica económica y cognitiva pertenece a los agentes.
 

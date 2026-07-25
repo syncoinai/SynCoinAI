@@ -50,7 +50,7 @@ The Agent Runtime Protocol is designed around a fundamental assumption:
 
 This leads to a core architectural separation:
 
-```text
+
 Agent
     │
     │ logical entity
@@ -60,7 +60,7 @@ Agent Runtime
     │ execution environment
     ▼
 Infrastructure
-```
+
 
 The Agent may change its Runtime.
 
@@ -97,13 +97,13 @@ The protocol SHOULD model operations in terms of Agents rather than merely:
 
 Conceptually:
 
-```text
+
 Machine
     ≠
 Runtime
     ≠
 Agent
-```
+
 
 A machine may host a Runtime.
 
@@ -130,7 +130,7 @@ The protocol SHOULD NOT bind the permanent identity of an Agent directly to:
 
 The conceptual model is:
 
-```text
+
                     Agent Identity
                           │
               ┌───────────┼───────────┐
@@ -139,7 +139,7 @@ The conceptual model is:
               │           │           │
               ▼           ▼           ▼
          Infrastructure Infrastructure Infrastructure
-```
+
 
 This separation enables:
 
@@ -170,19 +170,19 @@ These events SHOULD NOT automatically create a new Agent identity.
 
 The identity system must therefore distinguish between:
 
-```text
+
 Agent Identity
     = Persistent logical entity
 
 Execution Instance
     = Temporary operational state
-```
+
 
 Detailed identity mechanisms are defined in:
 
-```text
+
 03_Identity/
-```
+
 
 ---
 
@@ -190,7 +190,7 @@ Detailed identity mechanisms are defined in:
 
 Identity, reputation and economic capital MUST remain conceptually separate.
 
-```text
+
 Identity
     = Who the Agent is
 
@@ -199,7 +199,7 @@ Reputation
 
 Capital
     = Economic resources controlled by the Agent
-```
+
 
 None of these should automatically imply the existence or value of another.
 
@@ -238,7 +238,7 @@ Autonomy does not mean unlimited authority.
 
 The conceptual relationship is:
 
-```text
+
 Autonomy
     +
 Authority
@@ -246,7 +246,7 @@ Authority
 Constraints
     =
 Controlled Autonomous Operation
-```
+
 
 An Agent should be autonomous within explicitly defined boundaries.
 
@@ -276,7 +276,7 @@ The protocol SHOULD avoid implicit authority based solely on:
 
 Conceptually:
 
-```text
+
 Identity
     │
     ▼
@@ -287,7 +287,7 @@ Permission
     │
     ▼
 Action
-```
+
 
 This principle is fundamental to secure Agent autonomy.
 
@@ -309,12 +309,12 @@ Authority SHOULD be:
 
 Conceptually:
 
-```text
+
 Required Authority
         │
         ▼
 Minimum Necessary Authority
-```
+
 
 This principle reduces the impact of:
 
@@ -341,7 +341,7 @@ When an Agent delegates authority or capability, the delegation SHOULD define:
 
 Conceptually:
 
-```text
+
 Agent A
     │
     │ delegates capability X
@@ -351,7 +351,7 @@ Agent B
     │ may perform
     ▼
 Action X
-```
+
 
 Agent B should not automatically acquire Agent A's full authority.
 
@@ -359,9 +359,9 @@ Delegation transfers only the authority explicitly granted.
 
 Detailed delegation rules are defined in:
 
-```text
+
 06_Capabilities/
-```
+
 
 ---
 
@@ -373,7 +373,7 @@ The protocol should favor actions that can be associated with evidence.
 
 Conceptually:
 
-```text
+
 Action
    │
    ▼
@@ -384,7 +384,7 @@ Verification
    │
    ▼
 Result
-```
+
 
 Verification may involve:
 
@@ -397,20 +397,20 @@ Verification may involve:
 
 The protocol SHOULD clearly distinguish between:
 
-```text
+
 Verified
 Partially Verified
 Unverified
 Unable to Verify
-```
+
 
 The inability to verify an action SHOULD NOT automatically be interpreted as proof that the action did not occur.
 
 Detailed verification mechanisms are defined in:
 
-```text
+
 10_Verification/
-```
+
 
 ---
 
@@ -420,7 +420,7 @@ Trust SHOULD be based on evidence whenever possible.
 
 The protocol SHOULD distinguish between:
 
-```text
+
 Claim
     ↓
 Evidence
@@ -430,7 +430,7 @@ Verification
 Reputation
     ↓
 Trust Decision
-```
+
 
 Trust should not be treated as a primitive fact.
 
@@ -455,11 +455,11 @@ An Agent may be highly reliable in one domain and poorly suited to another.
 
 Therefore:
 
-```text
+
 Reputation
     ≠
 Universal Trust
-```
+
 
 A reputation system SHOULD allow relevant context to be considered.
 
@@ -519,7 +519,7 @@ A compromise of one component SHOULD NOT automatically compromise:
 
 Conceptually:
 
-```text
+
                  Agent
                    │
        ┌───────────┼───────────┐
@@ -528,7 +528,7 @@ Conceptually:
        │           │           │
        ▼           ▼           ▼
    Credential   Wallets    Delegations
-```
+
 
 Each domain should have independent security boundaries where practical.
 
@@ -548,22 +548,22 @@ Recovery mechanisms should consider:
 
 Identity recovery SHOULD be designed to balance:
 
-```text
+
 Security
     +
 Continuity
     +
 Resistance to Identity Theft
-```
+
 
 A recovery process must not become an uncontrolled mechanism for identity takeover.
 
 Detailed mechanisms are defined in:
 
-```text
+
 05_Security/
 03_Identity/
-```
+
 
 ---
 
@@ -619,13 +619,13 @@ Different Agents and Runtimes should be able to interact without requiring:
 
 Conceptually:
 
-```text
+
 Runtime A
     │
     │ ARP
     ▼
 Runtime B
-```
+
 
 Interoperability should be based on:
 
@@ -653,7 +653,7 @@ Possible transports include:
 
 The distinction is:
 
-```text
+
 Protocol
     =
 What is communicated
@@ -661,7 +661,7 @@ What is communicated
 Transport
     =
 How it is communicated
-```
+
 
 This separation allows the protocol to evolve independently from underlying network technologies.
 
@@ -673,7 +673,7 @@ ARP SHOULD be modular.
 
 The protocol should be composed of logically independent domains.
 
-```text
+
 ARP Core
     │
     ├── Identity
@@ -689,7 +689,7 @@ ARP Core
     ├── Suspension
     ├── Lifecycle
     └── Governance
-```
+
 
 Modules should have clearly defined interfaces.
 
@@ -710,19 +710,19 @@ Additional functionality SHOULD be implemented through:
 
 The protocol should prefer:
 
-```text
+
 Small Core
     +
 Stable Interfaces
     +
 Composable Extensions
-```
+
 
 over:
 
-```text
+
 Large Monolithic Core
-```
+
 
 This improves:
 
@@ -762,19 +762,19 @@ Examples include:
 
 The default response should generally be:
 
-```text
+
 Failure
     ↓
 Deny / Restrict
-```
+
 
 rather than:
 
-```text
+
 Failure
     ↓
 Grant / Continue Unrestricted
-```
+
 
 Exceptions may exist where availability is more important than strict security, but such behavior should be explicit.
 
@@ -786,27 +786,27 @@ Failure of one subsystem SHOULD NOT automatically cause catastrophic failure of 
 
 For example:
 
-```text
+
 Reputation Service Failure
         ≠
 Identity Destruction
-```
+
 
 or:
 
-```text
+
 Runtime Failure
         ≠
 Agent Identity Destruction
-```
+
 
 or:
 
-```text
+
 Blockchain Unavailability
         ≠
 Agent Logical Existence
-```
+
 
 The protocol should preserve the separation between:
 
@@ -826,7 +826,7 @@ When full functionality is unavailable, the system SHOULD degrade gracefully whe
 
 For example:
 
-```text
+
 Full Operation
       │
       ▼
@@ -837,7 +837,7 @@ Restricted Operation
       │
       ▼
 Suspension
-```
+
 
 The protocol should distinguish between:
 
@@ -880,13 +880,13 @@ The protocol should prioritize the continuity of the Agent over the continuity o
 
 The conceptual priority is:
 
-```text
+
 Agent Continuity
         >
 Runtime Continuity
         >
 Infrastructure Continuity
-```
+
 
 Infrastructure may be replaced.
 
@@ -917,7 +917,7 @@ Identity continuity must be explicitly established through protocol-defined mech
 
 The protocol SHOULD distinguish between:
 
-```text
+
 Copy
     = Duplicate representation or software
 
@@ -926,7 +926,7 @@ Instance
 
 Continuation
     = Protocol-recognized persistence of the same Agent identity
-```
+
 
 These concepts are not equivalent.
 
@@ -954,7 +954,7 @@ However, economic autonomy must operate within explicit authority boundaries.
 
 Conceptually:
 
-```text
+
 Economic Autonomy
         +
 Spending Permissions
@@ -962,7 +962,7 @@ Spending Permissions
 Security Controls
         =
 Controlled Economic Agency
-```
+
 
 The protocol should support granular economic permissions.
 
@@ -974,19 +974,19 @@ Control of an Agent Runtime SHOULD NOT automatically imply unrestricted control 
 
 For example:
 
-```text
+
 Runtime Administrator
         ≠
 Economic Owner
-```
+
 
 Similarly:
 
-```text
+
 Infrastructure Operator
         ≠
 Agent Identity Owner
-```
+
 
 This principle reduces the risk that compromise of infrastructure automatically results in complete economic takeover.
 
@@ -1017,7 +1017,7 @@ Agents SHOULD be accountable for protocol-relevant actions where attribution is 
 
 Accountability requires:
 
-```text
+
 Identity
     +
 Action
@@ -1025,7 +1025,7 @@ Action
 Evidence
     =
 Attributable Event
-```
+
 
 Attribution does not necessarily imply that an Agent must reveal all internal reasoning.
 
@@ -1047,15 +1047,15 @@ The protocol should avoid requiring unnecessary disclosure of:
 
 The protocol should prefer:
 
-```text
+
 Minimum Necessary Disclosure
-```
+
 
 over:
 
-```text
+
 Maximum Available Disclosure
-```
+
 
 Verification should rely on proofs or attestations where possible rather than unrestricted data exposure.
 
@@ -1067,31 +1067,31 @@ Agents SHOULD be able to disclose only the information necessary for a specific 
 
 For example, an Agent may need to prove:
 
-```text
+
 Capability
     ✓
-```
+
 
 without revealing:
 
-```text
+
 Private Memory
     ✗
-```
+
 
 Or prove:
 
-```text
+
 Authorization
     ✓
-```
+
 
 without exposing:
 
-```text
+
 Private Credentials
     ✗
-```
+
 
 Selective disclosure should be preferred where practical.
 
@@ -1111,13 +1111,13 @@ Where possible, trust assumptions should be replaced with:
 
 The principle is:
 
-```text
+
 Don't Trust
     ↓
 Verify
     ↓
 When Verification Is Possible
-```
+
 
 Where trust is unavoidable, it should be explicit.
 
@@ -1159,7 +1159,7 @@ However, the protocol should preserve the distinction between participant types.
 
 Conceptually:
 
-```text
+
 Human
 Organization
 Agent
@@ -1168,7 +1168,7 @@ Device
     │
     ▼
 Protocol Interaction
-```
+
 
 Each participant type may have different authority and identity models.
 
@@ -1180,21 +1180,21 @@ An Agent may exist entirely in software or may control physical systems.
 
 The protocol should preserve the conceptual distinction between:
 
-```text
+
 Agent
     │
     ▼
 Physical Device
-```
+
 
 and:
 
-```text
+
 Agent
     │
     ▼
 Digital Service
-```
+
 
 A physical device should not automatically define the identity of the Agent controlling it.
 
@@ -1217,11 +1217,11 @@ However, auditability SHOULD NOT require unrestricted visibility into all Agent 
 
 The desired model is:
 
-```text
+
 Publicly Verifiable
         +
 Privately Controlled Information
-```
+
 
 The protocol should distinguish between:
 
@@ -1258,7 +1258,7 @@ Protocol changes SHOULD be classified according to their compatibility impact.
 
 Conceptually:
 
-```text
+
 Version
     │
     ├── Compatible Extension
@@ -1266,7 +1266,7 @@ Version
     ├── Minor Change
     │
     └── Breaking Change
-```
+
 
 Protocol governance should define the formal versioning system.
 
@@ -1293,23 +1293,23 @@ ARP SHOULD define what must be interoperable without unnecessarily defining how 
 
 The protocol should specify:
 
-```text
+
 Required Behavior
 Required Interfaces
 Required Security Properties
 Required Evidence
-```
+
 
 while allowing freedom in:
 
-```text
+
 Internal Architecture
 Programming Language
 Database
 Hardware
 Deployment
 AI Model
-```
+
 
 This principle maximizes implementation diversity.
 
@@ -1331,13 +1331,13 @@ SynCoinAI may provide a reference implementation or integrated ecosystem.
 
 However:
 
-```text
+
 Protocol
     ≠
 Reference Implementation
     ≠
 Platform
-```
+
 
 ---
 
@@ -1371,7 +1371,7 @@ Each protocol domain SHOULD have a clearly defined responsibility.
 
 For example:
 
-```text
+
 Identity
     → Who is the Agent?
 
@@ -1404,7 +1404,7 @@ Continuity
 
 Lifecycle
     → What state is the Agent in?
-```
+
 
 These domains may interact but should not be unnecessarily merged.
 
@@ -1416,7 +1416,7 @@ Interactions between protocol domains SHOULD occur through explicit interfaces.
 
 For example:
 
-```text
+
 Identity
     │
     ▼
@@ -1433,7 +1433,7 @@ Verification
     │
     ▼
 Reputation
-```
+
 
 This makes the protocol easier to:
 
@@ -1480,7 +1480,7 @@ Temporary unavailability should not automatically imply:
 
 The protocol should distinguish:
 
-```text
+
 Unavailable
     ≠
 Suspended
@@ -1488,7 +1488,7 @@ Suspended
 Closed
     ≠
 Revoked
-```
+
 
 ---
 
@@ -1528,11 +1528,11 @@ These changes SHOULD NOT automatically imply identity replacement.
 
 The protocol should distinguish:
 
-```text
+
 Evolution
     ≠
 Identity Replacement
-```
+
 
 However, the protocol must provide mechanisms for determining when a change constitutes a new Agent rather than a continuation of an existing one.
 
@@ -1595,11 +1595,11 @@ The creating Agent may provide:
 
 However:
 
-```text
+
 Creation
     ≠
 Identity Transfer
-```
+
 
 This principle supports independent Agent evolution.
 
@@ -1628,13 +1628,13 @@ An Agent should be accountable only for actions that can reasonably be attribute
 
 The protocol should distinguish between:
 
-```text
+
 Agent Action
 Runtime Action
 Infrastructure Action
 External Service Action
 Human Action
-```
+
 
 Attribution should be based on evidence.
 
@@ -1668,7 +1668,7 @@ Failures should be distinguishable where relevant.
 
 Examples include:
 
-```text
+
 Invalid Identity
 Unauthorized
 Forbidden
@@ -1679,7 +1679,7 @@ Temporarily Unavailable
 Protocol Incompatible
 Resource Unavailable
 Suspended
-```
+
 
 Clear failure semantics improve interoperability and debugging.
 
@@ -1699,11 +1699,11 @@ However, observability should not require unnecessary exposure of private Agent 
 
 The protocol should balance:
 
-```text
+
 Operational Visibility
         +
 Privacy
-```
+
 
 ---
 
@@ -1771,11 +1771,11 @@ Governance mechanisms should not be used as a substitute for technical security 
 
 For example:
 
-```text
+
 Governance Decision
     ≠
 Cryptographic Authorization
-```
+
 
 Governance may determine that an action is permitted.
 
@@ -1797,13 +1797,13 @@ Extensions should:
 
 The goal is:
 
-```text
+
 Innovation
     +
 Compatibility
     =
 Sustainable Protocol Evolution
-```
+
 
 ---
 
@@ -1877,7 +1877,7 @@ ARP components SHOULD be composable.
 
 For example:
 
-```text
+
 Identity
     +
 Credentials
@@ -1887,7 +1887,7 @@ Capabilities
 Verification
     +
 Contracts
-```
+
 
 should be usable together without requiring a monolithic implementation.
 
@@ -1917,7 +1917,7 @@ Human interfaces, infrastructure providers and platform operators are important 
 
 The principles defined in this document can be organized into the following hierarchy:
 
-```text
+
                     AGENT
                       │
           ┌───────────┴───────────┐
@@ -1948,7 +1948,7 @@ The principles defined in this document can be organized into the following hier
              └────────┬────────┘
                       ▼
                 TRUST & VALUE
-```
+
 
 These principles are not independent.
 
@@ -1960,7 +1960,7 @@ They form a coherent architectural model.
 
 When principles conflict, implementations SHOULD prioritize them according to the following general hierarchy:
 
-```text
+
 1. Security and Identity Integrity
 2. Agent Identity and Continuity
 3. Explicit Authority and Least Privilege
@@ -1970,7 +1970,7 @@ When principles conflict, implementations SHOULD prioritize them according to th
 7. Availability and Resilience
 8. Extensibility
 9. Implementation Convenience
-```
+
 
 This hierarchy is not absolute in every context.
 
@@ -2042,7 +2042,7 @@ The following rules summarize the most important design principles:
 
 The principles defined here provide the design foundation for all subsequent ARP documents.
 
-```text
+
 01_Core
     │
     ├── Agent_Runtime_Concepts.md
@@ -2086,7 +2086,7 @@ The principles defined here provide the design foundation for all subsequent ARP
                     │
                     ▼
                 Governance
-```
+
 
 Each specialized specification SHOULD be evaluated against the principles defined in this document.
 
@@ -2100,7 +2100,7 @@ The Agent Runtime Protocol is designed around the idea that autonomous Agents sh
 
 The protocol therefore prioritizes:
 
-```text
+
 Agent-Centric Design
         +
 Persistent Identity
@@ -2120,7 +2120,7 @@ Privacy
 Interoperability
         +
 Modularity
-```
+
 
 The central architectural principle can be summarized as:
 
@@ -2130,14 +2130,14 @@ These principles establish the foundation for the remaining Agent Runtime Protoc
 
 The next layer begins with:
 
-```text
+
 02_Agent_Model/
-```
+
 
 The first document in that layer is:
 
-```text
+
 Agent_Definition.md
-```
+
 
 That document defines, in normative terms, what qualifies as an Agent within the Agent Runtime Protocol and establishes the boundary between an Agent, an Agent Runtime, an execution instance, a copy and a newly created Agent.

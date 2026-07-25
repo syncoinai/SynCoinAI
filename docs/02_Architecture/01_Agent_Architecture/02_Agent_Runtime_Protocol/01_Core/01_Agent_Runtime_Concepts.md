@@ -45,7 +45,7 @@ Where a later document introduces a more detailed specification, that document b
 
 For example:
 
-```text
+
 Agent Runtime Concepts
         │
         ├── General conceptual definition
@@ -61,7 +61,7 @@ Agent Runtime Concepts
         │
         └── Economic Autonomy
                 └── Detailed economic specification
-```
+
 
 This document defines the concepts.
 
@@ -83,15 +83,15 @@ A Runtime represents the **execution environment**.
 
 Therefore:
 
-```text
+
 Agent
     ≠
 Agent Runtime
-```
+
 
 The conceptual relationship is:
 
-```text
+
              Agent Identity
                    │
                    ▼
@@ -108,7 +108,7 @@ The conceptual relationship is:
           └────────┼────────┘
                    ▼
              Infrastructure
-```
+
 
 The Agent Runtime provides the mechanisms through which an Agent can operate, but it does not define the Agent's intelligence itself.
 
@@ -172,7 +172,7 @@ The Runtime provides the operational mechanisms required for the Agent to:
 
 Conceptually:
 
-```text
+
 Agent Runtime
 │
 ├── Execution
@@ -183,7 +183,7 @@ Agent Runtime
 ├── Capability Exposure
 ├── Lifecycle Support
 └── Protocol Integration
-```
+
 
 The exact architecture of these components is implementation-dependent.
 
@@ -209,7 +209,7 @@ A Runtime may use any of these components.
 
 For example:
 
-```text
+
 Physical Hardware
         │
         ▼
@@ -223,7 +223,7 @@ Agent Runtime
         │
         ▼
 Agent
-```
+
 
 The implementation may differ.
 
@@ -239,7 +239,7 @@ A Runtime exists at the execution level.
 
 The relationship can be represented as:
 
-```text
+
                  Logical Layer
                  ─────────────
                       Agent
@@ -253,13 +253,13 @@ The relationship can be represented as:
                Infrastructure Layer
                ────────────────────
                  Hardware / Cloud
-```
+
 
 An Agent MAY operate through different Runtime instances during its lifetime.
 
 Therefore:
 
-```text
+
 Agent A
    │
    ├── Runtime 1
@@ -267,7 +267,7 @@ Agent A
    ├── Runtime 2
    │
    └── Runtime 3
-```
+
 
 This does not necessarily represent three different Agents.
 
@@ -297,7 +297,7 @@ Identity is conceptually distinct from:
 
 The conceptual relationship is:
 
-```text
+
 Identity
     │
     │ identifies
@@ -308,15 +308,15 @@ Agent
     ├── Memory
     ├── Capabilities
     └── Resources
-```
+
 
 Identity is therefore a foundational concept of the protocol.
 
 The detailed identity model is defined in:
 
-```text
+
 03_Identity/
-```
+
 
 This document only establishes the conceptual separation.
 
@@ -342,13 +342,13 @@ It may change continuously during the Agent's operation.
 
 Conceptually:
 
-```text
+
 Identity
     = Persistent logical identity
 
 State
     = Current operational condition
-```
+
 
 The same Agent may have many different states throughout its lifetime.
 
@@ -369,7 +369,7 @@ Memory may include:
 
 Memory is conceptually different from identity and reputation.
 
-```text
+
 Identity
     = Who the Agent is
 
@@ -378,7 +378,7 @@ Memory
 
 Reputation
     = What can be established about its history
-```
+
 
 Memory may be:
 
@@ -419,25 +419,25 @@ A capability does not necessarily answer:
 
 Therefore:
 
-```text
+
 Capability
     ≠
 Performance
-```
+
 
 And:
 
-```text
+
 Capability
     ≠
 Reputation
-```
+
 
 The detailed capability and delegation model is defined in:
 
-```text
+
 06_Capabilities/
-```
+
 
 ---
 
@@ -459,7 +459,7 @@ Resources may include:
 
 The protocol distinguishes conceptually between:
 
-```text
+
 Ownership
     ≠
 Control
@@ -467,7 +467,7 @@ Control
 Access
     ≠
 Availability
-```
+
 
 An Agent may use a resource without owning it.
 
@@ -497,7 +497,7 @@ Context may include:
 
 The distinction is:
 
-```text
+
 Memory
     = Information retained over time
 
@@ -506,7 +506,7 @@ State
 
 Context
     = Information relevant to current operation
-```
+
 
 These concepts are related but not interchangeable.
 
@@ -518,7 +518,7 @@ These concepts are related but not interchangeable.
 
 A conceptual execution flow is:
 
-```text
+
 Input
    │
    ▼
@@ -535,7 +535,7 @@ Execution
    │
    ▼
 Result
-```
+
 
 Depending on the implementation, execution may be:
 
@@ -562,7 +562,7 @@ The lifecycle describes the conceptual existence of an Agent over time.
 
 A simplified model is:
 
-```text
+
 Creation
    │
    ▼
@@ -581,17 +581,17 @@ Suspension      Migration
           │
           ▼
        Closure
-```
+
 
 Lifecycle states are conceptually distinct from Runtime execution states.
 
 For example:
 
-```text
+
 Agent Lifecycle State
         ≠
 Runtime Process State
-```
+
 
 An Agent may be logically active even when its Runtime process is temporarily stopped.
 
@@ -599,15 +599,15 @@ Similarly, an Agent may be suspended while its identity remains valid.
 
 Detailed lifecycle semantics are defined in:
 
-```text
+
 14_Lifecycle/
-```
+
 
 Suspension semantics are defined in:
 
-```text
+
 13_Suspension/
-```
+
 
 ---
 
@@ -626,7 +626,7 @@ Continuity may involve:
 
 Conceptually:
 
-```text
+
 Agent A
    │
    ▼
@@ -638,7 +638,7 @@ Runtime B
    │
    ▼
 Agent A
-```
+
 
 The objective is not necessarily to preserve every internal execution detail.
 
@@ -646,9 +646,9 @@ The objective is to preserve the Agent's protocol-level continuity where require
 
 The detailed mechanisms are defined in:
 
-```text
+
 12_Continuity/
-```
+
 
 ---
 
@@ -658,13 +658,13 @@ Agents may operate in different Runtime environments.
 
 Therefore, the protocol must conceptually support:
 
-```text
+
 Runtime A
     │
     │ Protocol Interaction
     ▼
 Runtime B
-```
+
 
 The interaction may involve:
 
@@ -684,9 +684,9 @@ Interoperability should be achieved through defined protocol interfaces.
 
 The detailed communication mechanisms are specified in:
 
-```text
+
 09_Communication/
-```
+
 
 ---
 
@@ -707,7 +707,7 @@ Examples include:
 
 A conceptual interaction flow is:
 
-```text
+
 Need
   │
   ▼
@@ -724,7 +724,7 @@ Execution
   │
   ▼
 Result
-```
+
 
 Not every interaction is necessarily economic.
 
@@ -742,10 +742,10 @@ Trust represents the decision of an entity to rely on another entity.
 
 Trust is contextual.
 
-```text
+
 Trust
     = Decision to rely
-```
+
 
 ---
 
@@ -753,10 +753,10 @@ Trust
 
 Reputation represents information derived from historical behavior or outcomes that can be evaluated by other entities.
 
-```text
+
 Reputation
     = Evidence about historical behavior
-```
+
 
 ---
 
@@ -764,14 +764,14 @@ Reputation
 
 Verification is the process of establishing whether a claim, action or result can be supported by evidence.
 
-```text
+
 Verification
     = Process of establishing evidence
-```
+
 
 Therefore:
 
-```text
+
 Verification
       │
       ▼
@@ -782,16 +782,16 @@ Reputation
       │
       ▼
 Trust Decision
-```
+
 
 These concepts must not be treated as interchangeable.
 
 Detailed specifications are defined in:
 
-```text
+
 10_Verification/
 11_Reputation/
-```
+
 
 ---
 
@@ -810,19 +810,19 @@ This may include:
 
 Economic participation is conceptually separate from identity.
 
-```text
+
 Identity
     ≠
 Capital
-```
+
 
 Likewise:
 
-```text
+
 Capital
     ≠
 Reputation
-```
+
 
 An Agent may have:
 
@@ -832,15 +832,15 @@ An Agent may have:
 
 The detailed economic model is defined in:
 
-```text
+
 07_Economy/
-```
+
 
 Contractual interactions are defined in:
 
-```text
+
 08_Contracts/
-```
+
 
 ---
 
@@ -859,7 +859,7 @@ SynCoinAI may provide infrastructure that is particularly suitable for Agents, i
 
 The conceptual relationship is:
 
-```text
+
                   Agent
                     │
                     ▼
@@ -872,7 +872,7 @@ The conceptual relationship is:
         └───────────┼───────────┘
                     ▼
               SynCoinAI
-```
+
 
 The Runtime Protocol should therefore be designed with a modular integration model.
 
@@ -886,7 +886,7 @@ Instead, integration should occur through defined interfaces.
 
 The following distinctions are fundamental:
 
-```text
+
 Agent
     = Logical autonomous entity
 
@@ -922,7 +922,7 @@ Trust
 
 Capital
     = Economic resources controlled by the Agent
-```
+
 
 These concepts may interact, but none should be assumed to be equivalent to another.
 
@@ -932,7 +932,7 @@ These concepts may interact, but none should be assumed to be equivalent to anot
 
 At the highest conceptual level, the Agent Runtime Protocol can be represented as:
 
-```text
+
                          AGENT
                            │
           ┌────────────────┼────────────────┐
@@ -973,7 +973,7 @@ At the highest conceptual level, the Agent Runtime Protocol can be represented a
                            │
                            ▼
                     Contracts / Value
-```
+
 
 This is a conceptual model, not a mandatory implementation architecture.
 
@@ -1006,7 +1006,7 @@ The protocol defines interoperability boundaries rather than prescribing every i
 
 The concepts in this document are expanded by the following protocol areas:
 
-```text
+
 01_Core/
     ├── Protocol_Scope.md
     └── Design_Principles.md
@@ -1079,7 +1079,7 @@ The concepts in this document are expanded by the following protocol areas:
 
 15_Governance/
     └── Runtime_Governance.md
-```
+
 
 Each specialized document expands one part of the conceptual model established here.
 
@@ -1176,7 +1176,7 @@ The Agent Runtime Protocol defines a conceptual separation between the logical i
 
 The central relationship is:
 
-```text
+
 Agent
     │
     │ operates through
@@ -1186,11 +1186,11 @@ Agent Runtime
     │ uses
     ▼
 Infrastructure
-```
+
 
 Around this relationship exist additional protocol domains:
 
-```text
+
 Identity
 Credentials
 Security
@@ -1204,7 +1204,7 @@ Continuity
 Suspension
 Lifecycle
 Governance
-```
+
 
 The protocol's architecture is based on the principle that these domains should remain conceptually modular while remaining interoperable.
 
@@ -1214,7 +1214,7 @@ Its purpose is to establish the conceptual foundation upon which those mechanism
 
 The next documents in the Core layer define:
 
-```text
+
 Protocol_Scope.md
     ↓
 What the protocol covers and does not cover
@@ -1222,6 +1222,6 @@ What the protocol covers and does not cover
 Design_Principles.md
     ↓
 Which architectural principles govern the protocol
-```
+
 
 After the Core layer is completed, the protocol proceeds to the detailed definition of the Agent itself.

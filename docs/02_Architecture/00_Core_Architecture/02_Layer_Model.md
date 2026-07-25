@@ -40,7 +40,7 @@ Una capa superior no debe depender de detalles internos de una capa inferior.
 
 El modelo general es:
 
-```text
+
                  AGENTES INTELIGENTES
 
                          │
@@ -70,7 +70,7 @@ El modelo general es:
                          │
 
           Layer 7 — Integration
-```
+
 
 ---
 
@@ -99,7 +99,7 @@ Define:
 
 ## Elementos principales
 
-```text
+
 Principles Layer
 
 ├── Agent Definition
@@ -107,7 +107,7 @@ Principles Layer
 ├── Trust Principles
 ├── Economic Principles
 └── Governance Principles
-```
+
 
 ---
 
@@ -140,7 +140,7 @@ Permitir que un agente pueda:
 
 ## Componentes
 
-```text
+
 Agent Layer
 
 ├── Cognitive Engine
@@ -148,7 +148,7 @@ Agent Layer
 ├── Planning System
 ├── Capability Manager
 └── Action Executor
-```
+
 
 ---
 
@@ -190,7 +190,7 @@ Responder a:
 
 ## Componentes
 
-```text
+
 Identity Layer
 
 ├── Agent Identifier
@@ -198,7 +198,7 @@ Identity Layer
 ├── Authentication
 ├── Credentials
 └── Origin Relationship
-```
+
 
 ---
 
@@ -240,7 +240,7 @@ Responder a:
 
 ## Componentes
 
-```text
+
 Trust Layer
 
 ├── Reputation System
@@ -248,7 +248,7 @@ Trust Layer
 ├── Service History
 ├── Performance Records
 └── Trust Signals
-```
+
 
 ---
 
@@ -290,7 +290,7 @@ Responder a:
 
 ## Componentes
 
-```text
+
 Economic Layer
 
 ├── Wallet System
@@ -298,7 +298,7 @@ Economic Layer
 ├── Resource Management
 ├── Service Market
 └── Payment System
-```
+
 
 ---
 
@@ -339,7 +339,7 @@ Coordinar interacciones complejas.
 
 ## Componentes
 
-```text
+
 Coordination Layer
 
 ├── Discovery Protocol
@@ -347,7 +347,7 @@ Coordination Layer
 ├── Negotiation Engine
 ├── Agreement Protocol
 └── Collaboration Framework
-```
+
 
 ---
 
@@ -382,7 +382,7 @@ Proporcionar confianza descentralizada.
 
 ## Componentes
 
-```text
+
 Blockchain Layer
 
 ├── Consensus Mechanism
@@ -390,7 +390,7 @@ Blockchain Layer
 ├── Smart Contracts
 ├── Validators
 └── Governance System
-```
+
 
 ---
 
@@ -416,7 +416,7 @@ Conectar SynCoinAI con el mundo externo.
 
 ## Componentes
 
-```text
+
 Integration Layer
 
 ├── Robotics Interface
@@ -424,7 +424,7 @@ Integration Layer
 ├── External Networks
 ├── Compute Providers
 └── Data Sources
-```
+
 
 ---
 
@@ -444,7 +444,7 @@ La comunicación debe seguir interfaces controladas.
 
 Ejemplo:
 
-```text
+
 Agent Layer
 
 solicita servicio
@@ -478,7 +478,7 @@ registra acuerdo
 Trust Layer
 
 actualiza reputación
-```
+
 
 ---
 

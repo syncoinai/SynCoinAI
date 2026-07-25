@@ -39,7 +39,7 @@ The Agent Runtime Protocol defines the conceptual and protocol-level mechanisms 
 
 At a high level, ARP covers:
 
-```text
+
 Agent
     │
     ├── Identity
@@ -56,7 +56,7 @@ Agent
     ├── Suspension
     ├── Lifecycle
     └── Governance
-```
+
 
 ARP therefore defines the protocol boundaries necessary for an Agent to:
 
@@ -108,7 +108,7 @@ This distinction is fundamental to the protocol.
 
 The scope of ARP can be divided into four conceptual domains.
 
-```text
+
 ┌─────────────────────────────────────────────┐
 │              AGENT RUNTIME PROTOCOL         │
 │                                             │
@@ -117,7 +117,7 @@ The scope of ARP can be divided into four conceptual domains.
 │  3. Agent Interaction                       │
 │  4. Agent Continuity                        │
 └─────────────────────────────────────────────┘
-```
+
 
 These domains contain the protocol areas defined in the ARP specification.
 
@@ -141,10 +141,10 @@ This includes conceptual support for:
 
 The relevant specifications are:
 
-```text
+
 03_Identity/
 04_Credentials/
-```
+
 
 ARP does not prescribe a single cryptographic algorithm or key management implementation unless explicitly required by a later normative specification.
 
@@ -169,9 +169,9 @@ The security scope includes:
 
 The relevant specifications are:
 
-```text
+
 05_Security/
-```
+
 
 Security is considered a cross-cutting concern.
 
@@ -222,7 +222,7 @@ The protocol operates at the boundary between intelligence and externally observ
 
 Conceptually:
 
-```text
+
 Internal Intelligence
         │
         │ decision
@@ -232,7 +232,7 @@ Agent Runtime Protocol
         │ authorized action
         ▼
 External World
-```
+
 
 The internal reasoning process may remain implementation-specific.
 
@@ -253,9 +253,9 @@ ARP defines the conceptual and protocol mechanisms through which an Agent can:
 
 The relevant specifications are:
 
-```text
+
 06_Capabilities/
-```
+
 
 The protocol does not require a universal taxonomy of all possible Agent capabilities.
 
@@ -289,9 +289,9 @@ The protocol defines the conceptual framework for delegation.
 
 Detailed delegation semantics are defined in:
 
-```text
+
 06_Capabilities/
-```
+
 
 ---
 
@@ -311,9 +311,9 @@ These may include:
 
 The relevant specifications are:
 
-```text
+
 07_Economy/
-```
+
 
 ARP does not necessarily define the monetary system itself.
 
@@ -344,9 +344,9 @@ The scope includes mechanisms for:
 
 The relevant specifications are:
 
-```text
+
 08_Contracts/
-```
+
 
 ARP does not require that all contracts be implemented as blockchain smart contracts.
 
@@ -378,9 +378,9 @@ This includes:
 
 The relevant specifications are:
 
-```text
+
 09_Communication/
-```
+
 
 ARP does not require a single transport protocol.
 
@@ -411,9 +411,9 @@ The scope includes:
 
 The relevant specifications are:
 
-```text
+
 10_Verification/
-```
+
 
 Verification may be:
 
@@ -427,12 +427,12 @@ Not every action will be fully verifiable.
 
 The protocol should distinguish between:
 
-```text
+
 Verified
 Partially Verified
 Unverified
 Unable to Verify
-```
+
 
 The exact verification model depends on the nature of the action.
 
@@ -454,9 +454,9 @@ The detailed reputation system is not necessarily part of the Runtime itself.
 
 The relevant specification is:
 
-```text
+
 11_Reputation/
-```
+
 
 This distinction is important.
 
@@ -480,9 +480,9 @@ The protocol includes mechanisms related to:
 
 The relevant specifications are:
 
-```text
+
 12_Continuity/
-```
+
 
 The goal is to allow an Agent to remain the same logical entity even if its execution environment changes.
 
@@ -506,9 +506,9 @@ Suspension may be:
 
 The relevant specifications are:
 
-```text
+
 13_Suspension/
-```
+
 
 Suspension is distinct from:
 
@@ -537,17 +537,17 @@ This includes:
 
 The relevant specifications are:
 
-```text
+
 14_Lifecycle/
-```
+
 
 The protocol distinguishes between:
 
-```text
+
 Agent Lifecycle
         ≠
 Runtime Process Lifecycle
-```
+
 
 A Runtime process may terminate without necessarily terminating the Agent.
 
@@ -567,9 +567,9 @@ This includes:
 
 The relevant specification is:
 
-```text
+
 15_Governance/
-```
+
 
 ARP governance is distinct from:
 
@@ -585,7 +585,7 @@ These systems may interact but should not be considered identical.
 
 ARP aims to standardize:
 
-```text
+
 Identity
     │
     ▼
@@ -602,7 +602,7 @@ Verification
     │
     ▼
 Continuity
-```
+
 
 More specifically, ARP standardizes or defines the conceptual interfaces for:
 
@@ -735,7 +735,7 @@ SynCoinAI is the broader ecosystem in which ARP may operate.
 
 The relationship can be represented as:
 
-```text
+
                     SynCoinAI
                         │
           ┌─────────────┴─────────────┐
@@ -750,7 +750,7 @@ The relationship can be represented as:
           └─────────────┬─────────────┘
                         ▼
                   Agent Economy
-```
+
 
 ARP provides the operational protocol layer.
 
@@ -784,7 +784,7 @@ The protocol should avoid unnecessary vendor lock-in.
 
 Conceptually:
 
-```text
+
              Agent
                 │
                 ▼
@@ -797,7 +797,7 @@ Conceptually:
           │           │
           ▼           ▼
       Infrastructure Infrastructure
-```
+
 
 Different implementations may coexist as long as they satisfy the same protocol requirements.
 
@@ -822,13 +822,13 @@ However, implementations MUST comply with protocol-defined interoperability requ
 
 This distinction is critical:
 
-```text
+
 Implementation Freedom
         +
 Protocol Compatibility
         =
 Interoperable Ecosystem
-```
+
 
 ---
 
@@ -836,7 +836,7 @@ Interoperable Ecosystem
 
 The following model represents the conceptual boundary of ARP:
 
-```text
+
 ┌──────────────────────────────────────────────────────┐
 │                 INTERNAL AGENT                       │
 │                                                      │
@@ -881,7 +881,7 @@ The following model represents the conceptual boundary of ARP:
 │  Human Systems                                       │
 │                                                      │
 └──────────────────────────────────────────────────────┘
-```
+
 
 The protocol boundary exists to provide interoperability while preserving implementation freedom.
 
@@ -893,7 +893,7 @@ Not every implementation needs to expose every feature at the same level.
 
 The protocol should distinguish between:
 
-```text
+
 Core Requirements
     │
     ├── Required for ARP compatibility
@@ -904,7 +904,7 @@ Optional Extensions
     ├── Domain-specific
     ├── Infrastructure-specific
     └── Ecosystem-specific
-```
+
 
 An implementation may support additional functionality without violating ARP.
 
@@ -928,14 +928,14 @@ An implementation SHOULD declare:
 
 Conceptually:
 
-```text
+
 Runtime
     │
     ├── ARP Version
     ├── Modules
     ├── Extensions
     └── Capabilities
-```
+
 
 Two Runtimes should be able to determine whether they can interoperate before initiating operations that require incompatible features.
 
@@ -968,7 +968,7 @@ ARP is one component of the broader SynCoinAI technical architecture.
 
 The relationship should be understood as:
 
-```text
+
 SynCoinAI Vision
         │
         ▼
@@ -991,7 +991,7 @@ Architecture
                 │
                 ▼
      Runtime-Level Specifications
-```
+
 
 The exact dependency direction between architecture documents and protocol specifications must be maintained explicitly.
 
@@ -1021,19 +1021,19 @@ New functionality SHOULD be added as an extension or separate module when it can
 
 The protocol should favor:
 
-```text
+
 Small Core
     +
 Composable Modules
     +
 Explicit Extensions
-```
+
 
 over:
 
-```text
+
 Monolithic Protocol
-```
+
 
 ---
 
@@ -1068,7 +1068,7 @@ The Agent Runtime Protocol defines the protocol layer required for autonomous Ag
 
 Its scope includes:
 
-```text
+
 Identity
 Credentials
 Security
@@ -1084,11 +1084,11 @@ Continuity
 Suspension
 Lifecycle
 Governance
-```
+
 
 Its scope excludes the internal implementation of:
 
-```text
+
 AI Models
 Programming Languages
 Operating Systems
@@ -1096,7 +1096,7 @@ Hardware
 Cloud Infrastructure
 Blockchain Consensus
 User Interfaces
-```
+
 
 The central architectural principle is:
 
@@ -1104,7 +1104,7 @@ The central architectural principle is:
 
 The protocol therefore acts as a modular layer between Agent intelligence and the external ecosystem.
 
-```text
+
 Agent Intelligence
         │
         ▼
@@ -1119,6 +1119,6 @@ Agent Runtime Protocol
         ├── Blockchain
         ├── Physical Systems
         └── External Infrastructure
-```
+
 
 The next Core document, `Design_Principles.md`, defines the principles that must guide the design and evolution of all ARP components.
