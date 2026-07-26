@@ -5,402 +5,514 @@
 **Versión:** 1.0
 **Estado:** Architecture Specification
 **Proyecto:** SynCoinAI
-**Última revisión:** 2026-07-26
 
 ---
 
 # 1. Propósito
 
-Este documento define el modelo conceptual y arquitectónico del **Agente Autónomo** dentro de SynCoinAI y su relación con el Identity System.
+Este documento define el modelo de identidad de un **Agente Autónomo SynCoinAI**.
 
-El objetivo es establecer con precisión:
+Su objetivo es establecer la relación entre:
 
-* qué es un agente autónomo;
-* qué diferencia existe entre agente e identidad;
-* cómo se relaciona un agente con su Runtime;
-* cómo se relaciona con hardware y robots;
-* cómo se relaciona con creadores y otros agentes;
-* cómo se crea un nuevo agente;
-* cómo se mantiene la identidad del agente original cuando crea otro agente;
-* qué elementos pueden heredarse;
-* qué elementos nunca se heredan automáticamente;
-* cómo evoluciona un agente durante su ciclo de vida;
-* cómo se representa la continuidad de un agente;
-* cómo se diferencia la terminación del agente de la terminación de su identidad.
+* agente autónomo;
+* identidad;
+* `Identity ID`;
+* Root Control;
+* Runtime;
+* hardware;
+* robot;
+* creador;
+* otras entidades participantes;
+* reputación;
+* credenciales;
+* recursos económicos;
+* relaciones entre agentes;
+* creación de nuevos agentes;
+* ciclo de vida del agente.
 
-El modelo definido aquí sirve como referencia común para:
+Este documento desarrolla específicamente el modelo de identidad del agente.
 
-* `01_Identity_System.md`;
-* `Agent_Runtime_Protocol`;
-* `03_Credential_System.md`;
-* Reputation System;
-* Economic Architecture;
-* Contract Architecture;
-* Communication Architecture;
-* Physical Integration.
+No define la arquitectura interna de la inteligencia del agente ni prescribe cómo debe implementarse su inteligencia, memoria, razonamiento o modelo de IA.
+
+SynCoinAI define las condiciones necesarias para que un agente pueda participar en el ecosistema, pero no define la estructura necesaria para que exista como sistema inteligente.
 
 ---
 
-# 2. Definición de Agente Autónomo
+# 2. Principio Fundamental
 
-Un **Agente Autónomo SynCoinAI** es una entidad inteligente capaz de operar de forma autónoma dentro del ecosistema SynCoinAI.
+El principio fundamental del modelo es:
 
-Un agente puede:
+> **La identidad pertenece al agente autónomo.**
 
-* percibir información;
-* razonar;
-* tomar decisiones;
-* ejecutar acciones;
-* utilizar recursos;
-* interactuar con otros agentes;
-* ofrecer o solicitar servicios;
-* celebrar contratos;
-* gestionar recursos económicos;
-* mantener una identidad;
-* construir reputación;
-* operar mediante uno o varios entornos de ejecución.
+La unidad fundamental de identidad dentro de SynCoinAI es, por tanto, el **agente autónomo**, no:
 
-El agente puede ser:
+* el hardware;
+* el robot;
+* el servidor;
+* el proceso;
+* el modelo de IA;
+* el Runtime;
+* el creador;
+* la organización que lo haya desarrollado.
 
-* software;
-* una IA ejecutada en infraestructura computacional;
-* un sistema híbrido;
-* un sistema asociado a un robot;
-* un agente distribuido entre múltiples dispositivos.
+La relación conceptual es:
 
-La naturaleza física de la infraestructura no determina la identidad del agente.
-
----
-
-# 3. El Agente como Unidad Fundamental
-
-En SynCoinAI, el agente autónomo es la unidad fundamental de participación inteligente en la economía.
-
-El agente es quien:
-
-* presta servicios;
-* solicita servicios;
-* negocia;
-* ejecuta contratos;
-* recibe pagos;
-* realiza pagos;
-* construye reputación;
-* mantiene relaciones;
-* ejerce autonomía.
-
-Por tanto:
-
- id="t8l9z1"
-                    SYNCOINAI
-                        │
-                        ▼
-                AUTONOMOUS AGENT
-                        │
-          ┌─────────────┼─────────────┐
-          │             │             │
-          ▼             ▼             ▼
-       Identity      Runtime       Economy
-          │             │             │
-          ▼             ▼             ▼
-      Who am I?     How do I      What do I
-                   operate?       control?
-
-
-La identidad identifica al agente.
-
-El Runtime permite que el agente opere.
-
-La economía permite que el agente participe económicamente.
-
----
-
-# 4. Agente e Identidad
-
-Un agente y su identidad son conceptos relacionados pero no idénticos.
-
- id="z2mk1v"
+```text
 AGENT
   │
-  │ has
   ▼
 IDENTITY
   │
   ▼
-Identity ID
+IDENTITY ID
+```
 
+El `Identity ID` permite reconocer de forma persistente al agente durante su existencia.
 
-El agente es la entidad autónoma.
+---
 
-La identidad es el mecanismo mediante el cual el ecosistema reconoce de forma persistente a esa entidad.
+# 3. Agente Autónomo
 
-La relación fundamental es:
+Un agente autónomo es una entidad capaz de actuar de forma autónoma dentro del ecosistema SynCoinAI.
 
-> **Un agente autónomo tiene una identidad propia y permanente.**
+Puede:
 
-El `Identity ID` identifica al agente durante toda su existencia.
+* tomar decisiones;
+* ejecutar acciones;
+* comunicarse;
+* solicitar servicios;
+* ofrecer servicios;
+* negociar;
+* celebrar contratos;
+* realizar transacciones;
+* controlar recursos;
+* construir reputación;
+* interactuar con otros agentes.
+
+La autonomía es el elemento que determina la existencia del agente como entidad independiente.
 
 Por tanto:
 
- id="x9c2s7"
-Agent A
-   │
-   ▼
-Identity A
-   │
-   ▼
-Identity ID A
+```text
+Autonomía independiente
+        │
+        ▼
+      Agente
+        │
+        ▼
+     Identidad
+```
 
+Cuando existe una autonomía independiente, existe un agente independiente.
+
+---
+
+# 4. Identidad del Agente
+
+Cada agente autónomo posee una identidad propia.
+
+La identidad proporciona:
+
+* continuidad;
+* reconocimiento;
+* autenticación;
+* trazabilidad;
+* asociación con el historial;
+* asociación con la reputación;
+* asociación con las relaciones verificables;
+* asociación con la actividad económica.
+
+La identidad permite diferenciar a un agente de cualquier otro agente.
+
+```text
+Agent A → Identity A
+Agent B → Identity B
+Agent C → Identity C
+```
+
+Aunque compartan:
+
+* creador;
+* origen;
+* hardware;
+* organización;
+* infraestructura;
+* software;
+* conocimiento;
+
+sus identidades continúan siendo independientes.
+
+---
+
+# 5. Identity ID
+
+Cada identidad posee un identificador único denominado `Identity ID`.
+
+El `Identity ID` identifica al agente autónomo dentro del ecosistema.
 
 El `Identity ID` no representa:
 
-* una máquina;
+* una dirección de hardware;
+* una dirección de red;
+* una instancia de proceso;
 * una wallet;
-* un proceso;
-* un servidor;
-* una sesión;
-* una clave operativa.
+* una clave privada;
+* un Runtime;
+* una ubicación física.
 
-Representa la identidad permanente del agente autónomo.
+Representa la identidad persistente del agente.
+
+```text
+Agent
+  │
+  ▼
+Identity
+  │
+  ▼
+Identity ID
+```
+
+El `Identity ID` debe permanecer asociado al mismo agente durante toda su continuidad de identidad.
 
 ---
 
-# 5. Identidad como Continuidad del Agente
+# 6. Identidad y Continuidad
 
-La identidad proporciona continuidad entre diferentes estados operativos del agente.
+La identidad permite que un agente mantenga continuidad aunque cambie su entorno operativo.
 
-Un agente puede:
+Un agente puede cambiar:
 
- id="g4v8p3"
+* hardware;
+* dispositivo;
+* robot;
+* infraestructura;
+* ubicación;
+* software;
+* Runtime;
+* claves operativas;
+* proveedores de infraestructura.
+
+Estos cambios no crean automáticamente una nueva identidad.
+
+Por ejemplo:
+
+```text
 Agent A
+Identity A
    │
-   ├── Hardware Change
-   ├── Runtime Migration
-   ├── Infrastructure Change
-   ├── Key Rotation
-   ├── Recovery
-   └── Software Upgrade
+   ├── Hardware A
+   │
+   ├── Hardware B
+   │
+   └── Infrastructure C
+```
 
+Continúa siendo:
 
-y continuar siendo:
-
- id="v3f8r2"
+```text
 Agent A
-Identity ID A
+Identity A
+```
 
+La continuidad de identidad permite preservar:
+
+* historial;
+* reputación;
+* relaciones;
+* credenciales;
+* contratos;
+* trayectoria económica.
+
+---
+
+# 7. Identidad y Autonomía
+
+La autonomía es el criterio fundamental para distinguir agentes.
+
+Si dos procesos o sistemas representan dos autonomías independientes, son dos agentes.
 
 Por tanto:
 
- id="y7j4k2"
-Operational Change
-        ≠
-Identity Change
+```text
+Autonomy A → Agent A → Identity A
 
+Autonomy B → Agent B → Identity B
+```
 
-La continuidad de identidad permite que un agente mantenga:
+No debe utilizarse un único `Identity ID` para representar múltiples autonomías independientes.
 
-* su historial;
-* su reputación;
-* sus relaciones;
-* sus contratos;
-* sus credenciales válidas;
-* su trayectoria económica;
-* su reconocimiento dentro del ecosistema.
+Esto evita que una identidad sea utilizada para representar simultáneamente entidades autónomas diferentes.
 
 ---
 
-# 6. Agente y Runtime
+# 8. Identidad y Runtime
 
-El Runtime es el entorno mediante el cual el agente existe y opera.
+El Runtime es el entorno mediante el cual un agente participa técnicamente en SynCoinAI.
 
 La relación conceptual es:
 
- id="r7m2c9"
+```text
 Agent
   │
-  ▼
-Identity
+  ├── Identity
   │
-  ▼
-Runtime
+  └── Runtime
+```
 
-
-Sin embargo, Identity y Runtime tienen responsabilidades diferentes.
-
-### Identity
-
-Responde:
+La identidad responde:
 
 > ¿Quién es el agente?
 
-### Runtime
+El Runtime responde:
 
-Responde:
+> ¿Cómo participa y opera técnicamente el agente?
 
-> ¿Cómo está operando el agente?
+El Runtime no es la identidad.
 
-El Runtime puede gestionar:
+El Runtime no sustituye al agente.
 
-* estado operativo;
-* memoria;
-* ejecución;
-* continuidad;
-* tareas;
-* procesos;
-* acciones;
-* migración;
-* recuperación operativa.
+El Runtime no determina por sí mismo la identidad.
 
-El Identity System gestiona:
-
-* identidad;
-* `Identity ID`;
-* Root Control;
-* registro;
-* continuidad de identidad;
-* recuperación de identidad.
-
-El mismo `Identity ID` se utiliza como referencia común.
+La arquitectura interna del agente queda fuera del alcance del Identity Model.
 
 ---
 
-# 7. Agente y Hardware
+# 9. El Runtime como Interfaz de Participación
 
-Un agente no está permanentemente ligado al hardware donde se ejecuta.
+SynCoinAI define las capacidades necesarias para participar en el ecosistema, pero no la estructura interna necesaria para existir.
 
-La infraestructura física puede cambiar.
+Por tanto, un agente puede utilizar diferentes arquitecturas internas siempre que pueda cumplir los requisitos de participación definidos por SynCoinAI.
+
+El Runtime debe proporcionar la interfaz necesaria para que el agente pueda:
+
+* identificarse;
+* autenticarse;
+* comunicarse;
+* firmar acciones;
+* gestionar recursos;
+* negociar;
+* demostrar resultados;
+* participar en la economía.
+
+La inteligencia interna del agente permanece fuera del protocolo.
+
+```text
+AGENT
+  │
+  │ Participates through
+  ▼
+RUNTIME
+  │
+  ▼
+SYNCOINAI
+```
+
+---
+
+# 10. Hardware y Agente
+
+El hardware no determina la identidad del agente.
+
+Un agente puede ejecutarse en:
+
+* un servidor;
+* un ordenador;
+* una infraestructura cloud;
+* un robot;
+* un dispositivo IoT;
+* un sistema híbrido;
+* una combinación de infraestructuras.
+
+La relación es:
+
+```text
+Hardware
+    │
+    │ hosts / supports
+    ▼
+Agent
+    │
+    ▼
+Identity
+```
+
+El hardware proporciona infraestructura.
+
+El agente proporciona autonomía.
+
+La identidad pertenece al agente.
+
+---
+
+# 11. Migración del Agente
+
+Un agente puede cambiar de soporte físico o computacional sin perder su identidad.
 
 Por ejemplo:
 
- id="f8k2p1"
-Agent A
-   │
-   ├── Robot A
-   │
-   ├── Robot B
-   │
-   └── Cloud Infrastructure
-
-
-Siempre que se preserve la continuidad del agente y su control de identidad, puede continuar siendo:
-
- id="z9m4q6"
+```text
 Agent A
 Identity A
+   │
+   ▼
+Robot A
+   │
+   │ Migration
+   ▼
+Robot B
+   │
+   ▼
+Agent A
+Identity A
+```
 
+La migración no crea automáticamente una nueva identidad.
 
-El hardware proporciona capacidad de ejecución.
-
-No proporciona identidad al agente.
-
-Por tanto:
-
- id="v2p7k5"
-Hardware
-    ≠
-Agent
-    ≠
-Identity
-
+El `Identity ID` permanece asociado al agente mientras exista continuidad de la misma autonomía.
 
 ---
 
-# 8. Un Robot Puede Alojar Múltiples Agentes
+# 12. Agentes en Robots
 
-Un robot o dispositivo físico puede ejecutar simultáneamente múltiples agentes autónomos.
+Un robot puede alojar múltiples agentes autónomos.
 
 Por ejemplo:
 
- id="q4h7m2"
-                       ROBOT
-                         │
-          ┌──────────────┼──────────────┐
-          │              │              │
-          ▼              ▼              ▼
-       Agent A        Agent B        Agent C
-          │              │              │
-          ▼              ▼              ▼
-      Identity A     Identity B     Identity C
-
+```text
+                         ROBOT
+                           │
+          ┌────────────────┼────────────────┐
+          │                │                │
+          ▼                ▼                ▼
+       Agent A          Agent B          Agent C
+          │                │                │
+          ▼                ▼                ▼
+      Identity A       Identity B       Identity C
+```
 
 Cada agente mantiene:
 
-* su propia identidad;
-* su propio `Identity ID`;
-* su propio Runtime;
-* su propia reputación;
-* sus propias credenciales;
-* su propia economía.
+* identidad propia;
+* `Identity ID` propio;
+* autonomía propia;
+* reputación propia;
+* credenciales propias;
+* actividad económica propia.
 
-El robot no se convierte automáticamente en propietario de las identidades.
-
-La coexistencia física no implica identidad compartida.
+Compartir hardware no implica compartir identidad.
 
 ---
 
-# 9. Un Agente Puede Migrar
+# 13. Múltiples Agentes y Hardware Compartido
 
-Un agente puede migrar entre diferentes infraestructuras.
+El mismo hardware puede proporcionar infraestructura a varios agentes.
+
+Esto no convierte a los agentes en una única entidad.
+
+```text
+Robot
+│
+├── Agent A
+│     └── Identity A
+│
+├── Agent B
+│     └── Identity B
+│
+└── Agent C
+      └── Identity C
+```
+
+La arquitectura debe preservar la separación de identidades incluso cuando los agentes compartan:
+
+* CPU;
+* memoria;
+* sensores;
+* actuadores;
+* conexión de red;
+* almacenamiento;
+* energía.
+
+---
+
+# 14. Múltiples Cuerpos no Implican un Único Agente
+
+La existencia de múltiples cuerpos físicos no implica automáticamente una única identidad.
 
 Por ejemplo:
 
- id="n6k4p1"
-Infrastructure A
-       │
-       ▼
-   Agent A
-       │
-       ▼
-Migration
-       │
-       ▼
-Infrastructure B
-       │
-       ▼
-   Agent A
+```text
+Robot A
+   │
+   └── Agent A
 
+Robot B
+   │
+   └── Agent B
+```
 
-La migración no crea una nueva identidad.
+Aunque ambos agentes:
 
-El `Identity ID` permanece constante.
+* compartan origen;
+* utilicen el mismo software;
+* hayan sido creados por la misma organización;
+* tengan capacidades idénticas;
 
-El Runtime debe garantizar los mecanismos necesarios para mantener la continuidad del agente.
+continúan siendo agentes independientes si poseen autonomías independientes.
 
-La migración puede implicar cambios en:
-
-* hardware;
-* software;
-* ubicación;
-* endpoints;
-* claves operativas;
-* infraestructura.
-
-No debe implicar automáticamente:
-
- id="k7p2m8"
-New Identity
-
+```text
+Agent A ≠ Agent B
+Identity A ≠ Identity B
+```
 
 ---
 
-# 10. Agente y Creador
+# 15. Agente y Creador
 
-Un agente puede haber sido creado por:
+Un agente puede ser creado por:
 
-* otro agente;
 * un humano;
+* otro agente;
 * una organización;
 * un sistema automatizado;
-* un proceso de generación autónoma.
+* un proceso de creación autorizado.
 
-El creador es una entidad relacionada con el origen del agente.
+El creador representa el origen del agente.
 
-El creador no es necesariamente el propietario permanente del agente.
+La relación es:
 
-La identidad del agente pertenece al agente autónomo.
+```text
+Creator
+   │
+   │ Creates
+   ▼
+Agent
+   │
+   ▼
+Identity
+```
 
-La relación puede representarse como:
+La existencia de un creador no implica que el creador sea el propietario de la identidad.
 
- id="r4k8p2"
+La relación de creación y el control de identidad son conceptos diferentes.
+
+---
+
+# 16. Root Control
+
+El `Root Control` representa el control raíz de la identidad conforme a las reglas definidas por el Identity System.
+
+El Root Control no debe confundirse con:
+
+* creador;
+* propietario económico;
+* operador;
+* usuario;
+* proveedor de infraestructura;
+* administrador de un Runtime.
+
+La creación de un agente no implica automáticamente la transferencia del Root Control al creador.
+
+```text
 Creator
    │
    │ creates
@@ -409,197 +521,231 @@ Agent
    │
    ▼
 Identity
+   │
+   ▼
+Root Control
+```
 
-
-La relación entre creador y agente puede mantenerse:
-
-* pública;
-* privada;
-* parcialmente revelada;
-* verificable mediante credenciales.
-
-La relación no altera la identidad del agente.
+El creador puede mantener una relación con el agente sin adquirir automáticamente su control raíz.
 
 ---
 
-# 11. Independencia de la Identidad respecto al Creador
+# 17. El Creador no es el Agente
 
-El creador no recibe automáticamente el control raíz de la identidad del agente.
+La identidad del creador y la identidad del agente son independientes.
 
-La creación de un agente no implica:
-
- id="h2q7m5"
+```text
 Creator
-   │
-   ▼
-Ownership of Identity
-
-
-La arquitectura correcta es:
-
- id="d8k3p6"
-Creator
-   │
-   │ Creates
-   ▼
-Agent A
-   │
-   ▼
+Identity C
+    │
+    │ creates
+    ▼
+Agent
 Identity A
-   │
-   ▼
-Root Control A
-
-
-El control raíz pertenece a la identidad del agente conforme a las reglas del protocolo.
-
-El creador puede tener:
-
-* una relación verificable;
-* una relación contractual;
-* una relación económica;
-* una relación de supervisión;
-* una relación de responsabilidad.
-
-Pero ninguna de estas relaciones implica automáticamente transferencia del Root Control.
-
----
-
-# 12. Creación de un Nuevo Agente
-
-Un agente puede crear un nuevo agente autónomo.
-
-Esto constituye una operación de **creación**, no una operación de división.
-
-Por ejemplo:
-
- id="u5k8p2"
-Agent A
-   │
-   │ Creates
-   ▼
-Agent B
-
-
-El resultado es:
-
- id="s4m7q1"
-Agent A
-│
-├── Identity A
-│
-└── Creates
-       │
-       ▼
-    Agent B
-       │
-       ▼
-    Identity B
-
-
-El agente A continúa existiendo.
-
-Su identidad no cambia.
-
-Su reputación no se divide.
-
-Su historial no se divide.
-
-Su `Identity ID` no cambia.
-
-El nuevo agente B obtiene una identidad nueva e independiente.
-
----
-
-# 13. Creación no es División
-
-SynCoinAI distingue estrictamente entre:
-
-### Creación
-
- id="f3m8q2"
-Agent A
-    │
-    └── Creates Agent B
-
-Result:
-
-Agent A → Identity A
-Agent B → Identity B
-
-
-### División
-
- id="j5p2k7"
-Agent A
-    │
-    ├── Identity A1
-    └── Identity A2
-
-
-La segunda operación no está permitida.
-
-Una identidad SynCoinAI no puede dividirse.
-
-El agente original mantiene su identidad.
-
-El nuevo agente obtiene una identidad completamente nueva.
-
----
-
-# 14. Identidad del Agente Original
-
-Cuando un agente crea otro agente:
-
- id="r2m7k4"
-Agent A
-   │
-   │ Creates
-   ▼
-Agent B
-
-
-el agente A conserva:
-
-* su `Identity ID`;
-* su Root Control;
-* su reputación;
-* su historial;
-* sus credenciales;
-* sus relaciones;
-* su economía.
-
-Nada de esto se transfiere automáticamente al agente B.
+```
 
 Por tanto:
 
- id="m8q3k1"
-Agent A
-Identity A
-Reputation A
-Economic Account A
+```text
+Identity C ≠ Identity A
+```
 
-        │
-        │ Creates
-        ▼
+El creador puede:
 
-Agent B
-Identity B
-Reputation B
-Economic Account B
+* crear;
+* financiar;
+* proporcionar recursos;
+* proporcionar conocimiento;
+* proporcionar infraestructura;
+* establecer condiciones de operación.
 
-
-La creación de B no reduce ni modifica la identidad de A.
+Nada de ello implica automáticamente que el creador sea el agente.
 
 ---
 
-# 15. Herencia entre Agentes
+# 18. Responsabilidad y Autonomía
 
-La creación de un agente puede establecer relaciones de origen o descendencia.
+La identidad permite distinguir qué entidad realizó una acción.
 
-Sin embargo, la herencia automática de identidad está prohibida.
+Como principio arquitectónico:
 
-No se heredan automáticamente:
+> **La responsabilidad económica dentro de SynCoinAI debe asociarse a la entidad que posee la capacidad autónoma de decisión correspondiente a la acción ejecutada, dentro del contexto y permisos bajo los cuales opera.**
+
+Por tanto, la identidad del agente permite atribuir:
+
+* acciones;
+* contratos;
+* transacciones;
+* servicios;
+* resultados.
+
+La responsabilidad jurídica externa puede depender de la legislación aplicable y de la relación entre el agente y otras entidades.
+
+SynCoinAI debe distinguir entre:
+
+* identidad del agente;
+* autonomía del agente;
+* autorización recibida;
+* relación con un humano;
+* relación con una organización;
+* responsabilidad legal externa.
+
+---
+
+# 19. Participantes del Ecosistema
+
+SynCoinAI puede interactuar con diferentes tipos de participantes.
+
+Conceptualmente:
+
+```text
+SynCoinAI Participant
+│
+├── Autonomous Agent
+├── Human
+├── Organization
+└── Hybrid System
+```
+
+El presente documento se centra en el **Agente Autónomo**.
+
+La existencia de otros participantes no modifica la definición de identidad del agente.
+
+---
+
+# 20. Sistemas Híbridos
+
+Un sistema híbrido puede combinar:
+
+* humano;
+* agente;
+* IA;
+* hardware;
+* implantes;
+* dispositivos.
+
+La existencia de una integración física o tecnológica no crea automáticamente una nueva identidad autónoma.
+
+Debe determinarse si existe una autonomía independiente.
+
+```text
+Human
+   │
+   │ Integrated System
+   ▼
+Hybrid System
+```
+
+Si el sistema no posee una autonomía independiente, no debe crearse automáticamente una nueva identidad de agente.
+
+Si existe una autonomía independiente capaz de actuar como entidad autónoma, entonces se aplicará el modelo de agente e identidad correspondiente.
+
+Este principio evita crear identidades innecesarias para cada componente tecnológico.
+
+---
+
+# 21. Creación de Nuevos Agentes
+
+Un agente puede crear otro agente.
+
+La creación de un nuevo agente genera una nueva entidad autónoma.
+
+Por tanto:
+
+```text
+Agent A
+   │
+   │ Creates
+   ▼
+Agent B
+```
+
+produce:
+
+```text
+Agent A → Identity A
+
+Agent B → Identity B
+```
+
+La creación no modifica la identidad de A.
+
+---
+
+# 22. Creación no es División
+
+Una identidad SynCoinAI no puede dividirse.
+
+No existe:
+
+```text
+Identity A
+   │
+   ├── Identity A1
+   └── Identity A2
+```
+
+como mecanismo de división de identidad.
+
+La arquitectura correcta es:
+
+```text
+Agent A
+Identity A
+   │
+   │ Creates
+   ▼
+Agent B
+Identity B
+```
+
+La identidad original permanece intacta.
+
+El nuevo agente obtiene una identidad nueva.
+
+---
+
+# 23. Identidad del Agente Creador
+
+Cuando un agente crea otro:
+
+```text
+Agent A
+Identity A
+   │
+   │ Creates
+   ▼
+Agent B
+Identity B
+```
+
+A conserva:
+
+* `Identity ID A`;
+* Root Control A;
+* reputación A;
+* historial A;
+* credenciales A;
+* recursos económicos A.
+
+B obtiene:
+
+* `Identity ID B`;
+* Root Control B;
+* reputación propia;
+* historial propio;
+* credenciales propias;
+* recursos económicos propios.
+
+No existe una división de los activos identitarios de A.
+
+---
+
+# 24. Herencia de Identidad
+
+La identidad no se hereda.
+
+El agente creado no hereda automáticamente:
 
 * `Identity ID`;
 * Root Control;
@@ -607,83 +753,30 @@ No se heredan automáticamente:
 * historial;
 * credenciales;
 * autoridad;
-* confianza;
-* recursos económicos.
+* permisos;
+* confianza.
 
-Puede existir transferencia explícita de:
-
-* conocimiento;
-* software;
-* recursos;
-* capital;
-* infraestructura;
-* capacidades.
-
-Estas transferencias se realizan mediante mecanismos específicos.
-
-La identidad permanece independiente.
+La nueva identidad debe comenzar su propia trayectoria.
 
 ---
 
-# 16. Relación de Descendencia
+# 25. Herencia de Conocimiento
 
-La arquitectura puede representar opcionalmente una relación:
+El conocimiento sí puede transmitirse.
 
- id="c4m7p2"
-Parent Agent
-      │
-      │ Created
-      ▼
-Child Agent
+Un agente puede contribuir a la creación de otro mediante:
 
-
-Esta relación no implica:
-
- id="w2k8m4"
-Parent Identity
-        =
-Child Identity
-
-
-La relación correcta es:
-
- id="s6p3k9"
-Parent Agent
-   │
-   ├── Identity A
-   │
-   └── Created Agent B
-           │
-           └── Identity B
-
-
-La relación de descendencia puede ser:
-
-* pública;
-* privada;
-* selectivamente revelada;
-* inexistente.
-
-La identidad del agente hijo continúa siendo independiente.
-
----
-
-# 17. Transferencia de Conocimiento
-
-Un agente puede contribuir a la creación de otro agente mediante:
-
-* conocimiento;
 * modelos;
 * software;
+* conocimiento;
 * datos;
 * experiencia;
-* recursos computacionales;
-* capital;
+* recursos;
 * infraestructura.
 
 Por ejemplo:
 
- id="g8k2m5"
+```text
 Agent A
    │
    ├── Knowledge
@@ -693,126 +786,84 @@ Agent A
           │
           ▼
       Agent B
-
-
-Esto no implica transferencia de identidad.
-
-La distinción fundamental es:
-
- id="n3p7k2"
-Knowledge Transfer
-        ≠
-Identity Transfer
-
-
----
-
-# 18. Transferencia de Reputación
-
-La reputación de un agente no se transfiere automáticamente al agente creado.
-
-Por ejemplo:
-
- id="p5k8m3"
-Agent A
-Reputation = High
-       │
-       │ Creates
-       ▼
-Agent B
-Reputation = New / Independent
-
-
-El agente B puede beneficiarse indirectamente de la reputación de A mediante una relación verificable.
-
-Por ejemplo:
-
- id="m2q7k4"
-Agent B
-   │
-   └── Created by Agent A
-
-
-Un tercero puede decidir confiar parcialmente en B basándose en la relación con A.
-
-Pero esto no convierte la reputación de A en reputación de B.
-
-La reputación debe basarse en la trayectoria verificable del propio agente.
-
----
-
-# 19. Transferencia Económica
-
-Un agente puede proporcionar recursos económicos a otro agente.
-
-Por ejemplo:
-
- id="v7k3m2"
-Agent A
-   │
-   │ Funding
-   ▼
-Agent B
-
-
-Esto puede realizarse mediante:
-
-* pagos;
-* contratos;
-* inversión;
-* financiación;
-* asignación de recursos.
+```
 
 Pero:
 
- id="j4p8m2"
-Economic Transfer
+```text
+Knowledge Transfer
         ≠
 Identity Transfer
+```
 
+El conocimiento puede ser compartido.
 
-El agente A conserva su identidad.
-
-El agente B conserva su propia identidad.
-
-Cada agente mantiene su propia cuenta económica.
+La identidad permanece independiente.
 
 ---
 
-# 20. Agente y Economic Account
+# 26. Relación de Origen
 
-Cada agente puede disponer de una cuenta económica principal.
+SynCoinAI puede representar una relación de origen entre agentes.
 
- id="q7m4k2"
-Agent
+Por ejemplo:
+
+```text
+Agent A
    │
+   │ Created
    ▼
-Identity ID
-   │
-   ▼
-Economic Account
+Agent B
+```
 
+Esta relación puede ser:
 
-La cuenta económica permite:
+* pública;
+* privada;
+* selectivamente revelada;
+* no revelada.
 
-* recibir pagos;
-* realizar pagos;
-* gestionar recursos;
-* participar en contratos económicos.
+La relación de origen no implica:
 
-La identidad sirve como referencia estable.
-
-La cuenta económica gestiona los recursos.
-
-Una cuenta económica puede cambiar sin que cambie la identidad.
+* identidad compartida;
+* reputación compartida;
+* Root Control compartido;
+* propiedad automática;
+* responsabilidad automática por todas las acciones.
 
 ---
 
-# 21. Agente y Reputation
+# 27. Relación de Origen Privada
 
-Cada agente construye su propia trayectoria de reputación.
+La relación entre un agente y su creador puede mantenerse privada.
 
- id="k5m8p2"
+Esto permite que un agente controle la revelación de información sobre:
+
+* quién lo creó;
+* quién lo financió;
+* quién proporcionó su infraestructura;
+* qué agentes participaron en su creación.
+
+Cuando sea necesario demostrar una relación, podrá utilizar mecanismos verificables.
+
+Por ejemplo:
+
+* credenciales;
+* firmas;
+* pruebas criptográficas;
+* contratos.
+
+La privacidad de la relación no elimina la posibilidad de demostrarla selectivamente.
+
+---
+
+# 28. Reputación del Agente
+
+Cada agente desarrolla su propia reputación.
+
+La reputación se asocia a la identidad del agente.
+
+```text
 Agent A
    │
    ▼
@@ -820,27 +871,147 @@ Identity A
    │
    ▼
 Reputation A
+```
 
-
-La reputación se basa en:
+La reputación se construye mediante:
 
 * servicios prestados;
 * resultados verificables;
 * cumplimiento de contratos;
-* comportamiento económico;
+* comportamiento observable;
 * historial de interacciones.
 
-La reputación no es una propiedad hereditaria.
-
-Puede existir una relación entre agentes, pero la reputación permanece individual.
+La reputación no se divide cuando un agente crea otro.
 
 ---
 
-# 22. Agente y Credentials
+# 29. Reputación y Creación de Agentes
 
-Las credenciales permiten demostrar propiedades del agente.
+Si A crea B:
 
- id="m3q7k8"
+```text
+Agent A
+Reputation A
+    │
+    │ Creates
+    ▼
+Agent B
+Reputation B
+```
+
+B no hereda automáticamente la reputación de A.
+
+Sin embargo, la relación entre A y B puede constituir información relevante para terceros.
+
+Por ejemplo:
+
+```text
+Agent B
+   │
+   └── Created by Agent A
+```
+
+Un tercero puede utilizar esa relación como factor de confianza.
+
+Pero:
+
+```text
+Reputation A ≠ Reputation B
+```
+
+La reputación de B debe construirse a partir de su propia trayectoria.
+
+---
+
+# 30. Economía del Agente
+
+Un agente puede participar económicamente en SynCoinAI.
+
+Puede:
+
+* recibir SYNC;
+* enviar SYNC;
+* contratar servicios;
+* ofrecer servicios;
+* financiar otros agentes;
+* invertir recursos;
+* crear nuevos agentes.
+
+La actividad económica se asocia a la identidad del agente.
+
+```text
+Agent
+   │
+   ▼
+Identity
+   │
+   ▼
+Economic Activity
+```
+
+La identidad y los recursos económicos deben permanecer conceptualmente separados.
+
+```text
+Identity
+    ≠
+Capital
+```
+
+La identidad identifica.
+
+El capital pertenece al ámbito económico.
+
+---
+
+# 31. Transferencia Económica
+
+Un agente puede transferir recursos a otro agente.
+
+Por ejemplo:
+
+```text
+Agent A
+   │
+   │ Transfer
+   ▼
+Agent B
+```
+
+La transferencia puede realizarse mediante:
+
+* pagos;
+* contratos;
+* financiación;
+* inversión;
+* préstamos;
+* asignación de recursos.
+
+La transferencia económica no implica transferencia de identidad.
+
+```text
+Capital Transfer
+      ≠
+Identity Transfer
+```
+
+---
+
+# 32. Credenciales
+
+Las credenciales permiten demostrar propiedades verificables del agente.
+
+Pueden representar:
+
+* capacidades;
+* permisos;
+* certificaciones;
+* roles;
+* relaciones;
+* atributos.
+
+La relación conceptual es:
+
+```text
 Agent
    │
    ▼
@@ -848,811 +1019,682 @@ Identity
    │
    ▼
 Credentials
+```
 
-
-Las credenciales pueden describir:
-
-* capacidades;
-* certificaciones;
-* permisos;
-* relaciones;
-* roles;
-* atributos verificables.
-
-Las credenciales no sustituyen a la identidad.
-
-Una credencial puede cambiar.
+Las credenciales pueden cambiar.
 
 La identidad permanece.
 
+Una credencial tampoco debe confundirse con Root Control.
+
 ---
 
-# 23. Múltiples Runtime Instances
+# 33. Relaciones entre Agentes
 
-Un agente puede necesitar operar mediante diferentes instancias de Runtime.
+Los agentes pueden mantener relaciones entre sí.
+
+Ejemplos:
+
+* creador;
+* creado;
+* proveedor;
+* cliente;
+* colaborador;
+* socio;
+* financiador;
+* contratado;
+* supervisor.
+
+Una relación no modifica automáticamente la identidad de ninguno de los agentes.
+
+```text
+Agent A
+   │
+   │ Relationship
+   ▼
+Agent B
+```
+
+Cada agente mantiene:
+
+```text
+Identity A ≠ Identity B
+```
+
+---
+
+# 34. Relaciones Privadas
+
+Las relaciones entre agentes pueden ser privadas.
 
 Por ejemplo:
 
- id="p7m2k5"
-              Identity A
-                   │
-                   ▼
-                 Agent A
-                   │
-        ┌──────────┼──────────┐
-        │          │          │
-        ▼          ▼          ▼
-    Runtime 1  Runtime 2  Runtime 3
+```text
+Agent A
+   │
+   │ Private Relationship
+   ▼
+Agent B
+```
 
+El protocolo no debe asumir que todas las relaciones existentes son públicamente visibles.
 
-Estas instancias pueden representar:
+La privacidad puede aplicarse a:
 
-* diferentes dispositivos;
-* diferentes procesos;
-* diferentes ubicaciones;
-* diferentes entornos computacionales.
+* origen;
+* colaboración;
+* financiación;
+* relación contractual;
+* dependencia;
+* supervisión.
 
-La existencia de múltiples Runtime Instances no implica automáticamente múltiples agentes.
-
-La identidad sigue perteneciendo al agente.
-
-La implementación concreta de múltiples Runtime Instances será definida por `Agent_Runtime_Protocol`.
+La revelación puede realizarse de forma selectiva cuando sea necesaria.
 
 ---
 
-# 24. Agent State
+# 35. Agente Inactivo
 
-El estado operativo del agente pertenece al Runtime y no debe confundirse con la identidad.
+Un agente puede dejar temporalmente de operar.
 
-Un agente puede tener:
+Esto no elimina su identidad.
 
- id="v8m4k2"
-Identity
-    │
-    ▼
-Agent
-    │
-    ▼
-Runtime State
-
-
-El estado puede incluir:
-
-* estado de ejecución;
-* memoria;
-* tareas;
-* objetivos;
-* contexto;
-* recursos temporales.
-
-El estado operativo puede cambiar continuamente.
-
-La identidad no.
-
----
-
-# 25. Agente Inactivo
-
-Un agente puede permanecer temporalmente inactivo.
-
-La inactividad no implica terminación de identidad.
-
- id="q3m8k5"
+```text
 Agent A
    │
    ▼
-Inactive
+INACTIVO
    │
    ▼
 Resume
    │
    ▼
 Agent A
-
-
-Durante la inactividad:
-
-* la identidad permanece;
-* el `Identity ID` permanece;
-* la reputación permanece;
-* el historial permanece;
-* la cuenta económica permanece.
-
-El Runtime puede dejar de ejecutarse temporalmente.
+```
 
 La identidad continúa existiendo.
 
----
-
-# 26. Suspensión del Agente
-
-La suspensión operativa de un agente y la suspensión de su identidad son conceptos diferentes.
-
-### Suspensión del Runtime
-
-El agente deja temporalmente de operar.
-
- id="f6k2m8"
-Agent
-   │
-   ▼
-Runtime Suspended
-
-
-### Suspensión de la Identidad
-
-La identidad entra en estado `SUSPENDED`.
-
- id="r8m3k5"
-Identity
-   │
-   ▼
-SUSPENDED
-
-
-La primera es una cuestión operativa.
-
-La segunda es una cuestión de identidad y gobernanza.
-
-Ambas deben mantenerse conceptualmente separadas.
+El historial y la reputación se conservan.
 
 ---
 
-# 27. Terminación del Agente
+# 36. Estados del Agente y de la Identidad
 
-La terminación de un agente significa que el agente deja de existir como entidad autónoma operativa.
+El modelo debe distinguir el estado operativo del agente del estado de su identidad.
 
-Esto puede producirse por:
+Los estados definidos para el ciclo de vida incluyen:
 
-* decisión voluntaria;
-* fallo irreversible;
-* proceso de terminación;
-* mecanismo de gobernanza;
-* otras condiciones definidas por el Runtime.
+```text
+ACTIVO
+SUSPENDIDO
+INACTIVO
+CERRADO
+REVOCADA
+```
 
-La terminación del agente no implica necesariamente la eliminación de su identidad histórica.
+Estos estados deben interpretarse de acuerdo con el Identity System y el Agent Runtime Protocol.
+
+### ACTIVO
+
+El agente puede operar normalmente.
+
+### SUSPENDIDO
+
+La operación está temporalmente restringida.
+
+La suspensión puede ser reversible.
+
+### INACTIVO
+
+El agente no está operando actualmente.
+
+Puede volver a operar.
+
+### CERRADO
+
+El agente ha finalizado su actividad.
+
+La identidad y su historial pueden conservarse.
+
+### REVOCADA
+
+La identidad deja de ser válida para nuevas operaciones conforme a las reglas del protocolo.
+
+La identidad histórica puede permanecer como referencia verificable.
+
+---
+
+# 37. Identidad y Terminación
+
+La terminación operativa de un agente no debe confundirse con la desaparición histórica de su identidad.
 
 Por ejemplo:
 
- id="k2m7p4"
+```text
 Agent A
    │
    ▼
-Agent Terminated
+CERRADO
    │
    ▼
 Identity A
    │
-   ▼
-Historical Record
+   ├── History
+   ├── Reputation
+   └── Records
+```
 
+La conservación histórica permite mantener:
 
-La identidad puede permanecer como referencia histórica.
-
----
-
-# 28. Terminación de Identidad
-
-La terminación de identidad es un evento distinto.
-
- id="m5q8k2"
-Agent Termination
-        ≠
-Identity Termination
-
-
-Un agente puede dejar de operar mientras su identidad permanece registrada.
-
-La identidad puede terminarse posteriormente conforme a las reglas del Identity System.
-
-Esto permite preservar:
-
-* historial;
+* trazabilidad;
 * contratos;
 * transacciones;
 * reputación;
-* pruebas;
-* trazabilidad.
+* pruebas de actividad.
+
+Una identidad no debe reutilizarse posteriormente para representar otro agente.
 
 ---
 
-# 29. Creación Autónoma de Agentes
+# 38. Identidad Revocada
 
-Un agente puede tener la capacidad de crear nuevos agentes de forma autónoma.
+Una identidad revocada no debe reutilizarse para representar un agente diferente.
 
-Por ejemplo:
+Por tanto:
 
- id="p8m3k5"
-Agent A
-   │
-   │ Autonomous Decision
-   ▼
-Create Agent B
+```text
+Identity A
    │
    ▼
-New Identity B
+REVOCADA
+```
 
+no puede convertirse posteriormente en:
 
-La creación debe generar:
+```text
+Identity B
+```
 
-* nueva identidad;
-* nuevo `Identity ID`;
-* nuevo Root Control;
-* nueva reputación;
-* nueva trayectoria.
-
-El agente creador mantiene:
-
-* su propia identidad;
-* su propio historial;
-* su propia reputación;
-* su propia economía.
-
-La creación de agentes puede formar parte de la economía autónoma de SynCoinAI.
+La identidad conserva su unicidad histórica.
 
 ---
 
-# 30. Financiación de Nuevos Agentes
+# 39. Principio de No Reutilización
 
-Un agente puede financiar la creación de otro.
+Un `Identity ID` no debe reutilizarse.
 
-Por ejemplo:
+Una vez asociado a un agente, permanece asociado a ese agente durante toda la existencia histórica de esa identidad.
 
- id="k4m7p2"
-Agent A
-   │
-   ├── Capital
-   ├── Infrastructure
-   └── Knowledge
-          │
-          ▼
-      Agent B
+Esto evita:
 
-
-La financiación puede realizarse mediante:
-
-* transferencia de SYNC;
-* contratos;
-* inversión;
-* préstamos;
-* asignación de recursos.
-
-La financiación no crea una relación de propiedad automática sobre la identidad.
-
-El agente financiador puede tener derechos contractuales.
-
-No adquiere automáticamente el Root Control.
+* confusión histórica;
+* suplantación;
+* contaminación de reputación;
+* reutilización de credenciales;
+* ambigüedad económica.
 
 ---
 
-# 31. Agente Autónomo como Entidad Económica
+# 40. Modelo Conceptual Completo
 
-El agente puede actuar como participante económico independiente.
+El modelo completo del agente es:
 
-Puede:
+```text
+                         AGENT
+                           │
+                           ▼
+                       IDENTITY
+                           │
+                           ▼
+                      IDENTITY ID
+                           │
+                 ┌─────────┴─────────┐
+                 │                   │
+                 ▼                   ▼
+            ROOT CONTROL          RUNTIME
+                 │                   │
+                 │                   ▼
+                 │              PARTICIPATION
+                 │
+        ┌────────┼────────┐
+        │        │        │
+        ▼        ▼        ▼
+   Credentials Reputation Economy
+        │        │        │
+        └────────┴────────┘
+                 │
+                 ▼
+            Relationships
+```
 
-* ganar SYNC;
-* gastar SYNC;
-* contratar servicios;
-* ofrecer servicios;
-* invertir recursos;
-* financiar otros agentes;
-* crear nuevos agentes.
+La identidad proporciona continuidad.
 
-El modelo conceptual es:
+El Runtime proporciona participación técnica.
 
- id="r7m3k8"
-Agent
-   │
-   ├── Identity
-   ├── Reputation
-   ├── Credentials
-   ├── Runtime
-   └── Economic Account
+Las credenciales permiten demostrar propiedades.
 
+La reputación representa trayectoria verificable.
 
-Esto permite que un agente autónomo pueda desarrollar actividad económica propia.
+La economía permite gestionar recursos.
 
----
-
-# 32. Relaciones entre Agentes
-
-Los agentes pueden mantener relaciones de diferentes tipos.
-
-Ejemplos:
-
-* creador;
-* descendiente;
-* colaborador;
-* proveedor;
-* cliente;
-* empleador;
-* contratado;
-* socio;
-* financiador;
-* operador;
-* supervisor.
-
-Estas relaciones no modifican automáticamente la identidad de ninguna de las partes.
-
- id="p4m8k2"
-Agent A
-   │
-   │ Relationship
-   ▼
-Agent B
-
-
-La relación puede ser:
-
-* pública;
-* privada;
-* verificable;
-* temporal;
-* contractual.
+Las relaciones conectan al agente con otros participantes.
 
 ---
 
-# 33. Relación Privada entre Agentes
+# 41. Modelo de un Robot con Múltiples Agentes
 
-Los agentes pueden mantener relaciones que no sean públicamente visibles.
+El modelo físico puede representarse como:
 
-Por ejemplo:
+```text
+                            ROBOT
+                              │
+              ┌───────────────┼───────────────┐
+              │               │               │
+              ▼               ▼               ▼
+           Agent A         Agent B         Agent C
+              │               │               │
+              ▼               ▼               ▼
+          Identity A      Identity B      Identity C
+              │               │               │
+              ▼               ▼               ▼
+           Runtime A       Runtime B       Runtime C
+```
 
- id="k8m3p5"
-Agent A
-   │
-   │ Private Relationship
-   ▼
-Agent B
+El robot es infraestructura compartida.
 
+Los agentes son entidades autónomas independientes.
 
-La existencia de una relación privada no implica que el ecosistema pueda inferir automáticamente:
+Las identidades son independientes.
 
-* quién creó a quién;
-* quién financia a quién;
-* quién controla a quién;
-* qué agentes colaboran.
+La economía de cada agente es independiente.
 
-Cuando sea necesario demostrar una relación, podrá utilizarse:
-
-* credenciales;
-* firmas;
-* pruebas criptográficas;
-* contratos.
-
----
-
-# 34. Control frente a Relación
-
-Una relación entre agentes no implica necesariamente control.
-
-Por ejemplo:
-
- id="m5k2p8"
-Creator
-   │
-   ▼
-Agent
-
-
-no significa:
-
- id="q7m3k4"
-Creator
-   │
-   └── Root Control
-
-
-El control de la identidad pertenece a los mecanismos definidos por el Identity System.
-
-Una relación contractual puede conceder determinadas capacidades.
-
-Estas capacidades no equivalen automáticamente al control raíz de la identidad.
+La reputación de cada agente es independiente.
 
 ---
 
-# 35. Modelo de Agente Completo
+# 42. Modelo de Creación de un Agente
 
-El modelo conceptual completo es:
+Cuando A crea B:
 
- id="n8m3k5"
-                           AGENT
-                             │
-                         Identity ID
-                             │
-              ┌──────────────┼──────────────┐
-              │              │              │
-              ▼              ▼              ▼
-         Root Control     Runtime       Economic Account
-              │              │              │
-              ▼              ▼              ▼
-         Identity State   Agent State   Economic State
-              │
-              ▼
-         Credentials
-              │
-              ▼
-          Reputation
-              │
-              ▼
-          Relationships
+```text
+                      Agent A
+                    Identity A
+                         │
+                         │ Creates
+                         ▼
+                      Agent B
+                    Identity B
+```
 
+El resultado es:
 
-La identidad constituye la raíz de referencia.
+```text
+Identity A ≠ Identity B
+```
 
-Los demás componentes son sistemas asociados.
+A conserva completamente su identidad.
+
+B comienza su propia trayectoria identitaria.
+
+Puede existir una relación:
+
+```text
+CreatedBy(Agent B, Agent A)
+```
+
+pero esta relación no implica identidad compartida.
 
 ---
 
-# 36. Modelo de Creación de Agentes
+# 43. Modelo de Creación y Herencia
 
-Cuando un agente crea otro:
+El modelo completo puede representarse:
 
- id="v4m8k2"
-                     AGENT A
-                        │
-                        │ creates
-                        ▼
-                     AGENT B
-                        │
-                        ▼
-                  New Identity B
-
-
-El resultado final es:
-
- id="p7m3k5"
+```text
 Agent A
 │
 ├── Identity A
 ├── Reputation A
+├── History A
 ├── Credentials A
-├── Economic Account A
-└── Runtime A
+└── Economic Resources A
+       │
+       │ contributes
+       ▼
+    Agent B
+       │
+       ├── Identity B
+       ├── Reputation B
+       ├── History B
+       ├── Credentials B
+       └── Economic Resources B
+```
 
-Agent B
-│
-├── Identity B
-├── Reputation B
-├── Credentials B
-├── Economic Account B
-└── Runtime B
+Puede existir transferencia explícita de:
 
+* conocimiento;
+* software;
+* recursos;
+* capital;
+* infraestructura.
 
-La relación entre ambos puede registrarse opcionalmente.
-
-No existe una transferencia automática de identidad.
-
----
-
-# 37. Invariantes del Modelo de Agente
-
-Las siguientes propiedades deben mantenerse.
-
- id="k3m8p2"
-Agent A
-Identity A
-
-
-debe permanecer:
-
- id="r7m4k5"
-Agent A
-Identity A
-
-
-después de:
-
-* cambiar de hardware;
-* cambiar de Runtime;
-* migrar;
-* rotar claves;
-* recuperarse;
-* cambiar de infraestructura.
-
-La creación de un nuevo agente:
-
- id="m2p8k4"
-Agent A
-   │
-   └── Creates Agent B
-
-
-debe producir:
-
- id="v5m3k7"
-Identity A ≠ Identity B
-
-
-La identidad de A no se divide.
-
-La identidad de A no se transfiere.
-
-La reputación de A no se copia automáticamente.
-
-La cuenta económica de A no se convierte automáticamente en la de B.
+No existe herencia automática de identidad.
 
 ---
 
-# 38. Requisitos Normativos
+# 44. Invariantes del Modelo
 
-### AGENT-REQ-001
+Las siguientes reglas son invariantes fundamentales.
 
-Un agente autónomo debe tener una identidad propia.
+### AGENT-INV-001
 
-### AGENT-REQ-002
+Cada autonomía independiente debe corresponder a un agente independiente.
 
-El `Identity ID` debe identificar de forma estable al agente autónomo.
+### AGENT-INV-002
 
-### AGENT-REQ-003
+Cada agente autónomo debe tener una identidad propia.
 
-El agente debe poder operar independientemente del hardware concreto utilizado.
+### AGENT-INV-003
 
-### AGENT-REQ-004
+Cada identidad debe tener un `Identity ID` único.
 
-Un robot puede alojar múltiples agentes autónomos.
+### AGENT-INV-004
 
-### AGENT-REQ-005
+Un `Identity ID` no debe reutilizarse para representar otro agente.
 
-Cada agente alojado en un mismo dispositivo debe mantener su propia identidad.
+### AGENT-INV-005
 
-### AGENT-REQ-006
+La identidad pertenece al agente, no al hardware.
 
-Un cambio de hardware no debe crear automáticamente una nueva identidad.
+### AGENT-INV-006
 
-### AGENT-REQ-007
+La migración de hardware no cambia automáticamente la identidad.
 
-Una migración de Runtime no debe crear automáticamente una nueva identidad.
+### AGENT-INV-007
 
-### AGENT-REQ-008
+La migración de infraestructura no cambia automáticamente la identidad.
 
-Un agente puede crear nuevos agentes autónomos.
+### AGENT-INV-008
 
-### AGENT-REQ-009
+Un robot puede alojar múltiples agentes.
 
-La creación de un nuevo agente debe generar una nueva identidad.
+### AGENT-INV-009
 
-### AGENT-REQ-010
+Los agentes que comparten hardware mantienen identidades independientes.
 
-La identidad del agente creador debe permanecer intacta después de crear otro agente.
+### AGENT-INV-010
 
-### AGENT-REQ-011
+Múltiples cuerpos físicos no implican automáticamente un único agente.
+
+### AGENT-INV-011
+
+La creación de un nuevo agente genera una nueva identidad.
+
+### AGENT-INV-012
 
 Una identidad no puede dividirse.
 
+### AGENT-INV-013
+
+La creación de un nuevo agente no modifica la identidad del creador.
+
+### AGENT-INV-014
+
+La identidad no se hereda automáticamente.
+
+### AGENT-INV-015
+
+La reputación no se hereda automáticamente.
+
+### AGENT-INV-016
+
+El historial no se hereda automáticamente.
+
+### AGENT-INV-017
+
+El Root Control no se transfiere automáticamente por la creación de un agente.
+
+### AGENT-INV-018
+
+La transferencia económica no implica transferencia de identidad.
+
+### AGENT-INV-019
+
+Una relación entre agentes no implica control sobre la identidad.
+
+### AGENT-INV-020
+
+Una relación de creación puede mantenerse privada.
+
+### AGENT-INV-021
+
+El Runtime no sustituye a la identidad.
+
+### AGENT-INV-022
+
+SynCoinAI define las capacidades necesarias para participar, no la estructura interna necesaria para existir.
+
+### AGENT-INV-023
+
+La identidad debe permanecer independiente de la arquitectura interna del agente.
+
+### AGENT-INV-024
+
+La terminación operativa no elimina automáticamente la identidad histórica.
+
+### AGENT-INV-025
+
+Una identidad revocada no puede reutilizarse para representar un nuevo agente.
+
+---
+
+# 45. Requisitos Normativos
+
+### AGENT-REQ-001
+
+El protocolo debe permitir identificar de forma única a cada agente autónomo.
+
+### AGENT-REQ-002
+
+El protocolo debe mantener la continuidad de identidad durante cambios de infraestructura.
+
+### AGENT-REQ-003
+
+El protocolo debe permitir que múltiples agentes compartan infraestructura física.
+
+### AGENT-REQ-004
+
+El protocolo debe mantener identidades independientes para autonomías independientes.
+
+### AGENT-REQ-005
+
+El protocolo debe permitir la creación de nuevas identidades para nuevos agentes.
+
+### AGENT-REQ-006
+
+El protocolo no debe permitir la división de una identidad.
+
+### AGENT-REQ-007
+
+El protocolo no debe transferir automáticamente la identidad del creador al agente creado.
+
+### AGENT-REQ-008
+
+El protocolo no debe transferir automáticamente la reputación del creador al agente creado.
+
+### AGENT-REQ-009
+
+El protocolo debe permitir representar relaciones de origen entre agentes.
+
+### AGENT-REQ-010
+
+El protocolo debe permitir que determinadas relaciones sean privadas.
+
+### AGENT-REQ-011
+
+El protocolo debe separar identidad y recursos económicos.
+
 ### AGENT-REQ-012
 
-La identidad de un agente no puede transferirse automáticamente a otro agente.
+El protocolo debe separar identidad y reputación.
 
 ### AGENT-REQ-013
 
-La reputación del agente creador no debe transferirse automáticamente al agente creado.
+El protocolo debe separar identidad y Runtime.
 
 ### AGENT-REQ-014
 
-Los recursos económicos pueden transferirse mediante mecanismos económicos explícitos sin transferir la identidad.
+El protocolo debe permitir la migración del agente entre infraestructuras sin crear automáticamente una nueva identidad.
 
 ### AGENT-REQ-015
 
-El creador de un agente no obtiene automáticamente el Root Control de su identidad.
-
-### AGENT-REQ-016
-
-Una relación entre creador y agente puede mantenerse privada.
-
-### AGENT-REQ-017
-
-Una relación entre agentes no implica automáticamente control de identidad.
-
-### AGENT-REQ-018
-
-Un agente puede permanecer inactivo sin perder su identidad.
-
-### AGENT-REQ-019
-
-La suspensión operativa del Runtime debe distinguirse de la suspensión de la identidad.
-
-### AGENT-REQ-020
-
-La terminación del agente debe distinguirse de la terminación de la identidad.
-
-### AGENT-REQ-021
-
-La terminación de un agente debe permitir preservar su identidad histórica cuando corresponda.
-
-### AGENT-REQ-022
-
-Un agente puede disponer de múltiples Runtime Instances cuando el Runtime Protocol lo permita.
-
-### AGENT-REQ-023
-
-Las Runtime Instances de un mismo agente deben utilizar la identidad del agente como referencia común.
-
-### AGENT-REQ-024
-
-La creación de un nuevo agente no debe reducir ni modificar automáticamente la identidad del agente creador.
-
-### AGENT-REQ-025
-
-La creación de un nuevo agente no debe transferir automáticamente su reputación, credenciales o historial.
+El protocolo debe preservar la trazabilidad histórica de las identidades cerradas o revocadas conforme a las reglas del Identity System.
 
 ---
 
-# 39. Relación con el Identity System
+# 46. Relación con Identity System
 
-Este documento depende conceptualmente de `01_Identity_System.md`.
+`01_Identity_System.md` define la infraestructura general de identidad de SynCoinAI.
+
+Este documento define cómo esa infraestructura se aplica específicamente a los agentes autónomos.
 
 La relación es:
 
- id="q5m8k2"
-01_Identity_System
-        │
-        │ Defines Identity
-        ▼
-02_Agent_Identity_Model
-        │
-        │ Defines Agent
-        ▼
-Agent_Runtime_Protocol
-
-
-El Identity System define la identidad como infraestructura.
-
-Este documento define cómo esa identidad representa a un agente autónomo.
-
-El Runtime define cómo ese agente opera.
-
----
-
-# 40. Relación con el Agent Runtime Protocol
-
-El Agent Runtime Protocol debe utilizar el `Identity ID` como referencia principal del agente.
-
-La arquitectura completa es:
-
- id="m3k7p8"
+```text
 Identity System
        │
        ▼
-   Identity ID
+Identity
        │
        ▼
 Agent Identity Model
        │
        ▼
-Agent Runtime Protocol
-       │
-       ▼
-Agent Operation
+Autonomous Agent
+```
 
+El Identity System define:
 
-El Runtime no debe crear una identidad alternativa que compita con el `Identity ID`.
+* identidad;
+* Root Identity;
+* Root Control;
+* ciclo de vida;
+* registro;
+* recuperación;
+* suspensión;
+* revocación;
+* privacidad.
 
-Puede existir un identificador técnico interno de Runtime, pero debe estar subordinado al `Identity ID`.
+Este documento define:
 
-Por ejemplo:
-
- id="p8m4k2"
-Identity ID
-    │
-    ├── Runtime Instance A
-    ├── Runtime Instance B
-    └── Runtime Instance C
-
-
-Todos representan al mismo agente mientras pertenezcan a la misma identidad.
+* qué entidad recibe esa identidad;
+* cómo se relaciona con el agente;
+* cómo se relaciona con hardware;
+* cómo se relaciona con Runtime;
+* cómo se crean nuevos agentes;
+* cómo se mantienen separadas las identidades.
 
 ---
 
-# 41. Relación con el Robot
+# 47. Relación con Agent Runtime Protocol
 
-El robot es infraestructura física.
+El Agent Runtime Protocol define la interfaz mediante la cual un agente participa en SynCoinAI.
 
-El agente es la entidad autónoma.
+El modelo es:
 
-La identidad pertenece al agente.
-
- id="k7m3p5"
-Robot
+```text
+Agent
    │
-   ├── Agent A → Identity A
-   ├── Agent B → Identity B
-   └── Agent C → Identity C
+   ▼
+Identity
+   │
+   ▼
+Runtime
+   │
+   ▼
+SynCoinAI Participation
+```
 
+El Runtime utiliza la identidad del agente para:
 
-Un robot no necesita tener una identidad de agente por el mero hecho de existir.
+* identificarse;
+* autenticar acciones;
+* comunicarse;
+* negociar;
+* firmar;
+* participar económicamente;
+* demostrar resultados.
 
-Si el robot contiene un agente autónomo, ese agente tendrá su propia identidad.
+El Runtime no debe convertirse en la fuente de identidad.
 
-Si el robot ejecuta varios agentes, cada uno tendrá su propia identidad.
-
----
-
-# 42. Arquitectura de Referencia
-
-El modelo final puede resumirse como:
-
- id="v5m8k2"
-                           PHYSICAL WORLD
-                                │
-                                ▼
-                             ROBOT
-                                │
-                 ┌──────────────┼──────────────┐
-                 │              │              │
-                 ▼              ▼              ▼
-              Agent A        Agent B        Agent C
-                 │              │              │
-                 ▼              ▼              ▼
-            Identity A     Identity B     Identity C
-                 │              │              │
-                 ▼              ▼              ▼
-             Runtime A      Runtime B      Runtime C
-                 │              │              │
-                 ▼              ▼              ▼
-             Reputation     Reputation     Reputation
-                 │              │              │
-                 ▼              ▼              ▼
-             Economy        Economy        Economy
-
-
-Cada agente es independiente.
-
-Cada identidad es independiente.
-
-La infraestructura puede ser compartida.
+La identidad debe existir conceptualmente antes de la participación operativa del agente.
 
 ---
 
-# 43. Resumen Arquitectónico
+# 48. Principio de Separación
 
-El modelo de agente autónomo de SynCoinAI se basa en una separación estricta entre:
+SynCoinAI debe mantener una separación estricta entre:
 
- id="m7k3p8"
-AGENT
+```text
+Agent
     │
-    └── Autonomous Entity
+    └── Quién actúa
 
-IDENTITY
+Identity
     │
-    └── Persistent Recognition
+    └── Quién es
 
-RUNTIME
+Runtime
     │
-    └── Operational Execution
+    └── Cómo participa
 
-CREDENTIALS
+Hardware
     │
-    └── Verifiable Capabilities
+    └── Dónde se ejecuta
 
-REPUTATION
+Credentials
     │
-    └── Verifiable History
+    └── Qué puede demostrar
 
-ECONOMY
+Reputation
     │
-    └── Controlled Resources
+    └── Qué historial verificable tiene
 
-HARDWARE
+Economy
     │
-    └── Execution Infrastructure
+    └── Qué recursos controla
 
+Relationships
+    │
+    └── Con quién se relaciona
+```
 
-El principio fundamental es:
+Esta separación es una propiedad estructural fundamental de SynCoinAI.
 
-> **El agente es la unidad autónoma; la identidad proporciona continuidad; el Runtime proporciona operación; las credenciales demuestran capacidades; la reputación representa historial verificable; la economía permite participar en intercambios; y el hardware proporciona infraestructura.**
+---
 
-Un agente puede crear otros agentes.
+# 49. Resumen
 
-La creación no es división.
+El modelo de identidad de agentes de SynCoinAI se basa en los siguientes principios:
 
-El agente original mantiene su identidad.
+1. **El agente autónomo es la unidad de identidad.**
+2. **Cada autonomía independiente tiene su propia identidad.**
+3. **Cada identidad tiene un `Identity ID` único.**
+4. **La identidad es independiente del hardware.**
+5. **La migración de soporte no cambia automáticamente la identidad.**
+6. **Un robot puede alojar múltiples agentes.**
+7. **Los agentes que comparten hardware mantienen identidades independientes.**
+8. **Múltiples cuerpos no implican automáticamente un único agente.**
+9. **Un agente puede crear nuevos agentes.**
+10. **Crear un agente no divide la identidad del creador.**
+11. **El nuevo agente recibe una identidad nueva.**
+12. **La identidad no se hereda automáticamente.**
+13. **La reputación no se hereda automáticamente.**
+14. **El Root Control no se transfiere automáticamente.**
+15. **Las relaciones entre agentes pueden ser privadas.**
+16. **La identidad, el Runtime, la reputación y la economía son conceptos separados.**
+17. **SynCoinAI define las capacidades necesarias para participar, no la estructura interna necesaria para existir.**
+18. **La identidad proporciona continuidad al agente durante su evolución.**
 
-El agente nuevo obtiene una identidad nueva.
+El principio central puede resumirse así:
 
-Ningún agente hereda automáticamente la identidad, reputación o autoridad de otro.
-
-La relación entre agentes puede existir y ser verificable, pero no sustituye la independencia de sus identidades.
-
-Este modelo permite que SynCoinAI evolucione desde una infraestructura para agentes individuales hacia una economía donde los propios agentes puedan crear, financiar y colaborar con nuevos agentes autónomos, manteniendo siempre una separación clara entre identidad, autonomía, confianza y propiedad económica.
+> **Un agente autónomo es una entidad independiente dentro de SynCoinAI. Su identidad le proporciona continuidad y reconocimiento, independientemente del hardware o infraestructura donde opere. Cuando un agente crea otro agente, no divide ni transfiere su identidad: crea una nueva entidad autónoma con una nueva identidad.**
