@@ -57,7 +57,7 @@ La unidad fundamental de identidad dentro de SynCoinAI es, por tanto, el **agent
 
 La relación conceptual es:
 
-```text
+
 AGENT
   │
   ▼
@@ -65,7 +65,7 @@ IDENTITY
   │
   ▼
 IDENTITY ID
-```
+
 
 El `Identity ID` permite reconocer de forma persistente al agente durante su existencia.
 
@@ -93,7 +93,7 @@ La autonomía es el elemento que determina la existencia del agente como entidad
 
 Por tanto:
 
-```text
+
 Autonomía independiente
         │
         ▼
@@ -101,7 +101,7 @@ Autonomía independiente
         │
         ▼
      Identidad
-```
+
 
 Cuando existe una autonomía independiente, existe un agente independiente.
 
@@ -124,11 +124,11 @@ La identidad proporciona:
 
 La identidad permite diferenciar a un agente de cualquier otro agente.
 
-```text
+
 Agent A → Identity A
 Agent B → Identity B
 Agent C → Identity C
-```
+
 
 Aunque compartan:
 
@@ -162,7 +162,7 @@ El `Identity ID` no representa:
 
 Representa la identidad persistente del agente.
 
-```text
+
 Agent
   │
   ▼
@@ -170,7 +170,7 @@ Identity
   │
   ▼
 Identity ID
-```
+
 
 El `Identity ID` debe permanecer asociado al mismo agente durante toda su continuidad de identidad.
 
@@ -196,7 +196,7 @@ Estos cambios no crean automáticamente una nueva identidad.
 
 Por ejemplo:
 
-```text
+
 Agent A
 Identity A
    │
@@ -205,14 +205,14 @@ Identity A
    ├── Hardware B
    │
    └── Infrastructure C
-```
+
 
 Continúa siendo:
 
-```text
+
 Agent A
 Identity A
-```
+
 
 La continuidad de identidad permite preservar:
 
@@ -233,11 +233,11 @@ Si dos procesos o sistemas representan dos autonomías independientes, son dos a
 
 Por tanto:
 
-```text
+
 Autonomy A → Agent A → Identity A
 
 Autonomy B → Agent B → Identity B
-```
+
 
 No debe utilizarse un único `Identity ID` para representar múltiples autonomías independientes.
 
@@ -251,13 +251,13 @@ El Runtime es el entorno mediante el cual un agente participa técnicamente en S
 
 La relación conceptual es:
 
-```text
+
 Agent
   │
   ├── Identity
   │
   └── Runtime
-```
+
 
 La identidad responde:
 
@@ -296,7 +296,7 @@ El Runtime debe proporcionar la interfaz necesaria para que el agente pueda:
 
 La inteligencia interna del agente permanece fuera del protocolo.
 
-```text
+
 AGENT
   │
   │ Participates through
@@ -305,7 +305,7 @@ RUNTIME
   │
   ▼
 SYNCOINAI
-```
+
 
 ---
 
@@ -325,7 +325,7 @@ Un agente puede ejecutarse en:
 
 La relación es:
 
-```text
+
 Hardware
     │
     │ hosts / supports
@@ -334,7 +334,7 @@ Agent
     │
     ▼
 Identity
-```
+
 
 El hardware proporciona infraestructura.
 
@@ -350,7 +350,7 @@ Un agente puede cambiar de soporte físico o computacional sin perder su identid
 
 Por ejemplo:
 
-```text
+
 Agent A
 Identity A
    │
@@ -364,7 +364,7 @@ Robot B
    ▼
 Agent A
 Identity A
-```
+
 
 La migración no crea automáticamente una nueva identidad.
 
@@ -378,7 +378,7 @@ Un robot puede alojar múltiples agentes autónomos.
 
 Por ejemplo:
 
-```text
+
                          ROBOT
                            │
           ┌────────────────┼────────────────┐
@@ -388,7 +388,7 @@ Por ejemplo:
           │                │                │
           ▼                ▼                ▼
       Identity A       Identity B       Identity C
-```
+
 
 Cada agente mantiene:
 
@@ -409,7 +409,7 @@ El mismo hardware puede proporcionar infraestructura a varios agentes.
 
 Esto no convierte a los agentes en una única entidad.
 
-```text
+
 Robot
 │
 ├── Agent A
@@ -420,7 +420,7 @@ Robot
 │
 └── Agent C
       └── Identity C
-```
+
 
 La arquitectura debe preservar la separación de identidades incluso cuando los agentes compartan:
 
@@ -440,7 +440,7 @@ La existencia de múltiples cuerpos físicos no implica automáticamente una ún
 
 Por ejemplo:
 
-```text
+
 Robot A
    │
    └── Agent A
@@ -448,7 +448,7 @@ Robot A
 Robot B
    │
    └── Agent B
-```
+
 
 Aunque ambos agentes:
 
@@ -459,10 +459,10 @@ Aunque ambos agentes:
 
 continúan siendo agentes independientes si poseen autonomías independientes.
 
-```text
+
 Agent A ≠ Agent B
 Identity A ≠ Identity B
-```
+
 
 ---
 
@@ -480,7 +480,7 @@ El creador representa el origen del agente.
 
 La relación es:
 
-```text
+
 Creator
    │
    │ Creates
@@ -489,7 +489,7 @@ Agent
    │
    ▼
 Identity
-```
+
 
 La existencia de un creador no implica que el creador sea el propietario de la identidad.
 
@@ -512,7 +512,7 @@ El Root Control no debe confundirse con:
 
 La creación de un agente no implica automáticamente la transferencia del Root Control al creador.
 
-```text
+
 Creator
    │
    │ creates
@@ -524,7 +524,7 @@ Identity
    │
    ▼
 Root Control
-```
+
 
 El creador puede mantener una relación con el agente sin adquirir automáticamente su control raíz.
 
@@ -534,7 +534,7 @@ El creador puede mantener una relación con el agente sin adquirir automáticame
 
 La identidad del creador y la identidad del agente son independientes.
 
-```text
+
 Creator
 Identity C
     │
@@ -542,13 +542,13 @@ Identity C
     ▼
 Agent
 Identity A
-```
+
 
 Por tanto:
 
-```text
+
 Identity C ≠ Identity A
-```
+
 
 El creador puede:
 
@@ -598,14 +598,14 @@ SynCoinAI puede interactuar con diferentes tipos de participantes.
 
 Conceptualmente:
 
-```text
+
 SynCoinAI Participant
 │
 ├── Autonomous Agent
 ├── Human
 ├── Organization
 └── Hybrid System
-```
+
 
 El presente documento se centra en el **Agente Autónomo**.
 
@@ -628,13 +628,13 @@ La existencia de una integración física o tecnológica no crea automáticament
 
 Debe determinarse si existe una autonomía independiente.
 
-```text
+
 Human
    │
    │ Integrated System
    ▼
 Hybrid System
-```
+
 
 Si el sistema no posee una autonomía independiente, no debe crearse automáticamente una nueva identidad de agente.
 
@@ -652,21 +652,21 @@ La creación de un nuevo agente genera una nueva entidad autónoma.
 
 Por tanto:
 
-```text
+
 Agent A
    │
    │ Creates
    ▼
 Agent B
-```
+
 
 produce:
 
-```text
+
 Agent A → Identity A
 
 Agent B → Identity B
-```
+
 
 La creación no modifica la identidad de A.
 
@@ -678,18 +678,18 @@ Una identidad SynCoinAI no puede dividirse.
 
 No existe:
 
-```text
+
 Identity A
    │
    ├── Identity A1
    └── Identity A2
-```
+
 
 como mecanismo de división de identidad.
 
 La arquitectura correcta es:
 
-```text
+
 Agent A
 Identity A
    │
@@ -697,7 +697,7 @@ Identity A
    ▼
 Agent B
 Identity B
-```
+
 
 La identidad original permanece intacta.
 
@@ -709,7 +709,7 @@ El nuevo agente obtiene una identidad nueva.
 
 Cuando un agente crea otro:
 
-```text
+
 Agent A
 Identity A
    │
@@ -717,7 +717,7 @@ Identity A
    ▼
 Agent B
 Identity B
-```
+
 
 A conserva:
 
@@ -776,7 +776,7 @@ Un agente puede contribuir a la creación de otro mediante:
 
 Por ejemplo:
 
-```text
+
 Agent A
    │
    ├── Knowledge
@@ -786,15 +786,15 @@ Agent A
           │
           ▼
       Agent B
-```
+
 
 Pero:
 
-```text
+
 Knowledge Transfer
         ≠
 Identity Transfer
-```
+
 
 El conocimiento puede ser compartido.
 
@@ -808,13 +808,13 @@ SynCoinAI puede representar una relación de origen entre agentes.
 
 Por ejemplo:
 
-```text
+
 Agent A
    │
    │ Created
    ▼
 Agent B
-```
+
 
 Esta relación puede ser:
 
@@ -863,7 +863,7 @@ Cada agente desarrolla su propia reputación.
 
 La reputación se asocia a la identidad del agente.
 
-```text
+
 Agent A
    │
    ▼
@@ -871,7 +871,7 @@ Identity A
    │
    ▼
 Reputation A
-```
+
 
 La reputación se construye mediante:
 
@@ -889,7 +889,7 @@ La reputación no se divide cuando un agente crea otro.
 
 Si A crea B:
 
-```text
+
 Agent A
 Reputation A
     │
@@ -897,7 +897,7 @@ Reputation A
     ▼
 Agent B
 Reputation B
-```
+
 
 B no hereda automáticamente la reputación de A.
 
@@ -905,19 +905,19 @@ Sin embargo, la relación entre A y B puede constituir información relevante pa
 
 Por ejemplo:
 
-```text
+
 Agent B
    │
    └── Created by Agent A
-```
+
 
 Un tercero puede utilizar esa relación como factor de confianza.
 
 Pero:
 
-```text
+
 Reputation A ≠ Reputation B
-```
+
 
 La reputación de B debe construirse a partir de su propia trayectoria.
 
@@ -939,7 +939,7 @@ Puede:
 
 La actividad económica se asocia a la identidad del agente.
 
-```text
+
 Agent
    │
    ▼
@@ -947,15 +947,15 @@ Identity
    │
    ▼
 Economic Activity
-```
+
 
 La identidad y los recursos económicos deben permanecer conceptualmente separados.
 
-```text
+
 Identity
     ≠
 Capital
-```
+
 
 La identidad identifica.
 
@@ -969,13 +969,13 @@ Un agente puede transferir recursos a otro agente.
 
 Por ejemplo:
 
-```text
+
 Agent A
    │
    │ Transfer
    ▼
 Agent B
-```
+
 
 La transferencia puede realizarse mediante:
 
@@ -988,11 +988,11 @@ La transferencia puede realizarse mediante:
 
 La transferencia económica no implica transferencia de identidad.
 
-```text
+
 Capital Transfer
       ≠
 Identity Transfer
-```
+
 
 ---
 
@@ -1011,7 +1011,7 @@ Pueden representar:
 
 La relación conceptual es:
 
-```text
+
 Agent
    │
    ▼
@@ -1019,7 +1019,7 @@ Identity
    │
    ▼
 Credentials
-```
+
 
 Las credenciales pueden cambiar.
 
@@ -1047,19 +1047,19 @@ Ejemplos:
 
 Una relación no modifica automáticamente la identidad de ninguno de los agentes.
 
-```text
+
 Agent A
    │
    │ Relationship
    ▼
 Agent B
-```
+
 
 Cada agente mantiene:
 
-```text
+
 Identity A ≠ Identity B
-```
+
 
 ---
 
@@ -1069,13 +1069,13 @@ Las relaciones entre agentes pueden ser privadas.
 
 Por ejemplo:
 
-```text
+
 Agent A
    │
    │ Private Relationship
    ▼
 Agent B
-```
+
 
 El protocolo no debe asumir que todas las relaciones existentes son públicamente visibles.
 
@@ -1098,7 +1098,7 @@ Un agente puede dejar temporalmente de operar.
 
 Esto no elimina su identidad.
 
-```text
+
 Agent A
    │
    ▼
@@ -1109,7 +1109,7 @@ Resume
    │
    ▼
 Agent A
-```
+
 
 La identidad continúa existiendo.
 
@@ -1123,13 +1123,13 @@ El modelo debe distinguir el estado operativo del agente del estado de su identi
 
 Los estados definidos para el ciclo de vida incluyen:
 
-```text
+
 ACTIVO
 SUSPENDIDO
 INACTIVO
 CERRADO
 REVOCADA
-```
+
 
 Estos estados deben interpretarse de acuerdo con el Identity System y el Agent Runtime Protocol.
 
@@ -1169,7 +1169,7 @@ La terminación operativa de un agente no debe confundirse con la desaparición 
 
 Por ejemplo:
 
-```text
+
 Agent A
    │
    ▼
@@ -1181,7 +1181,7 @@ Identity A
    ├── History
    ├── Reputation
    └── Records
-```
+
 
 La conservación histórica permite mantener:
 
@@ -1201,18 +1201,18 @@ Una identidad revocada no debe reutilizarse para representar un agente diferente
 
 Por tanto:
 
-```text
+
 Identity A
    │
    ▼
 REVOCADA
-```
+
 
 no puede convertirse posteriormente en:
 
-```text
+
 Identity B
-```
+
 
 La identidad conserva su unicidad histórica.
 
@@ -1238,7 +1238,7 @@ Esto evita:
 
 El modelo completo del agente es:
 
-```text
+
                          AGENT
                            │
                            ▼
@@ -1264,7 +1264,7 @@ El modelo completo del agente es:
                  │
                  ▼
             Relationships
-```
+
 
 La identidad proporciona continuidad.
 
@@ -1284,7 +1284,7 @@ Las relaciones conectan al agente con otros participantes.
 
 El modelo físico puede representarse como:
 
-```text
+
                             ROBOT
                               │
               ┌───────────────┼───────────────┐
@@ -1297,7 +1297,7 @@ El modelo físico puede representarse como:
               │               │               │
               ▼               ▼               ▼
            Runtime A       Runtime B       Runtime C
-```
+
 
 El robot es infraestructura compartida.
 
@@ -1315,7 +1315,7 @@ La reputación de cada agente es independiente.
 
 Cuando A crea B:
 
-```text
+
                       Agent A
                     Identity A
                          │
@@ -1323,13 +1323,13 @@ Cuando A crea B:
                          ▼
                       Agent B
                     Identity B
-```
+
 
 El resultado es:
 
-```text
+
 Identity A ≠ Identity B
-```
+
 
 A conserva completamente su identidad.
 
@@ -1337,9 +1337,9 @@ B comienza su propia trayectoria identitaria.
 
 Puede existir una relación:
 
-```text
+
 CreatedBy(Agent B, Agent A)
-```
+
 
 pero esta relación no implica identidad compartida.
 
@@ -1349,7 +1349,7 @@ pero esta relación no implica identidad compartida.
 
 El modelo completo puede representarse:
 
-```text
+
 Agent A
 │
 ├── Identity A
@@ -1367,7 +1367,7 @@ Agent A
        ├── History B
        ├── Credentials B
        └── Economic Resources B
-```
+
 
 Puede existir transferencia explícita de:
 
@@ -1559,7 +1559,7 @@ Este documento define cómo esa infraestructura se aplica específicamente a los
 
 La relación es:
 
-```text
+
 Identity System
        │
        ▼
@@ -1570,7 +1570,7 @@ Agent Identity Model
        │
        ▼
 Autonomous Agent
-```
+
 
 El Identity System define:
 
@@ -1601,7 +1601,7 @@ El Agent Runtime Protocol define la interfaz mediante la cual un agente particip
 
 El modelo es:
 
-```text
+
 Agent
    │
    ▼
@@ -1612,7 +1612,7 @@ Runtime
    │
    ▼
 SynCoinAI Participation
-```
+
 
 El Runtime utiliza la identidad del agente para:
 
@@ -1634,7 +1634,7 @@ La identidad debe existir conceptualmente antes de la participación operativa d
 
 SynCoinAI debe mantener una separación estricta entre:
 
-```text
+
 Agent
     │
     └── Quién actúa
@@ -1666,7 +1666,7 @@ Economy
 Relationships
     │
     └── Con quién se relaciona
-```
+
 
 Esta separación es una propiedad estructural fundamental de SynCoinAI.
 

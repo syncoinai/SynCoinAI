@@ -202,8 +202,8 @@ Define el modelo arquitectónico del agente, su ciclo de vida, sus capacidades y
 | Estado | Documento             | Descripción                                          |
 | ------ | --------------------- | ---------------------------------------------------- |
 | ✅      | Agent_Model.md        | Modelo arquitectónico general del agente inteligente |
-| ⏳      | Agent_Lifecycle.md    | Modelo arquitectónico del ciclo de vida del agente   |
-| ⏳      | Agent_Capabilities.md | Modelo arquitectónico de las capacidades del agente  |
+| ✅      | Agent_Lifecycle.md    | Modelo arquitectónico del ciclo de vida del agente   |
+| ✅      | Agent_Capabilities.md | Modelo arquitectónico de las capacidades del agente  |
 
 #### 02 — Agent Runtime Protocol
 
@@ -334,9 +334,9 @@ Especificación detallada del protocolo que permite a los agentes existir, opera
 
 | Estado | Documento               | Descripción                                   |
 | ------ | ----------------------- | --------------------------------------------- |
-| ⏳      | Identity_System.md      | Arquitectura general del sistema de identidad |
-| ⏳      | Agent_Identity_Model.md | Modelo arquitectónico de identidad del agente |
-| ⏳      | Credential_System.md    | Arquitectura del sistema de credenciales      |
+| ✅      | Identity_System.md      | Arquitectura general del sistema de identidad |
+| ✅      | Agent_Identity_Model.md | Modelo arquitectónico de identidad del agente |
+| ✅      | Credential_System.md    | Arquitectura del sistema de credenciales      |
 
 ---
 
