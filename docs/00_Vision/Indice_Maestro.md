@@ -344,10 +344,10 @@ Especificación detallada del protocolo que permite a los agentes existir, opera
 
 | Estado | Documento              | Descripción                                         |
 | ------ | ---------------------- | --------------------------------------------------- |
-| ⏳      | Reputation_System.md   | Arquitectura del sistema de reputación              |
-| ⏳      | Reputation_Model.md    | Modelo arquitectónico de reputación y confianza     |
-| ⏳      | Verification_System.md | Arquitectura del sistema de verificación            |
-| ⏳      | Proof_of_Service.md    | Arquitectura de las pruebas de servicios realizados |
+| ✅      | Reputation_System.md   | Arquitectura del sistema de reputación              |
+| ✅      | Reputation_Model.md    | Modelo arquitectónico de reputación y confianza     |
+| ✅      | Verification_System.md | Arquitectura del sistema de verificación            |
+| ✅      | Proof_of_Service.md    | Arquitectura de las pruebas de servicios realizados |
 
 ---
 
