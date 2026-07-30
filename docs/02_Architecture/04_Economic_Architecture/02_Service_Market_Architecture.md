@@ -259,7 +259,7 @@ Sin definir un algoritmo concreto, la arquitectura reconoce distintas estrategia
 
 Category Match
 Condition Match (price range, duration)
-Reputation-Weighted Match
+Economic Conditions Match
 Proximity / Latency Match (para recursos físicos o computación distribuida)
 Manual Selection
 

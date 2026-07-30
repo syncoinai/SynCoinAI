@@ -50,17 +50,30 @@ Settlement
 Reputation Update
 
 
-Una transacción no puede existir sin un contrato o acuerdo previo que la origine:
+Toda transacción económica debe tener un origen identificable y trazable.
+
+El origen podrá corresponder a un contrato o acuerdo entre agentes, una operación económica directa autorizada, una operación de financiación, una recompensa, un reembolso, una operación de escrow, una asignación inicial o un evento protocolario autorizado.
 
 
-Agreement
-    │
-    └── origina
-            │
-            ▼
-      Transaction
 
+                 Traceable Origin
+                        │
+      ┌─────────────────┼─────────────────┐
+      │                 │                 │
+      ▼                 ▼                 ▼
+ Contract        Economic Operation   Protocol Event
+      │                 │                 │
+      └─────────────────┴─────────────────┘
+                        │
+                        ▼
+                  Transaction
+                        │
+                        ▼
+          SynCoinAI Blockchain
 
+**Nota**
+
+Los contratos constituyen el origen más habitual de las transacciones relacionadas con la prestación de servicios, pero no representan el único origen válido dentro de la economía de SynCoinAI.
 ---
 
 # 3. Elementos de una Transacción
@@ -285,7 +298,8 @@ Blockchain Architecture (pendiente)
 
 ### TXN-PRINC-001 — Transaction Requires Origin
 
-Toda transacción debe referenciar un acuerdo o contrato que la origine.
+Toda transacción debe referenciar en origen un protocolo economico rastreable.
+Every transaction shall have a traceable economic or protocol origin
 
 ### TXN-PRINC-002 — Settlement Follows Verification
 
@@ -321,7 +335,24 @@ La definición de la transacción es independiente del mecanismo de consenso que
 
 ### TXN-INV-001
 
-Una transacción no puede existir sin referencia a un acuerdo o contrato.
+**TXN-INV-001 — Traceable Transaction Origin**
+
+Toda operación económica que implique la transferencia, bloqueo, liberación o liquidación de SYNC deberá procesarse mediante una transacción válida de la blockchain de SynCoinAI.
+
+Toda transacción deberá tener un origen económico o protocolario identificable y trazable.
+
+El origen podrá corresponder, entre otros, a:
+
+- un contrato o acuerdo entre agentes;
+- una transferencia económica directa autorizada;
+- una operación de financiación;
+- una recompensa;
+- un reembolso;
+- una operación de escrow;
+- una asignación inicial;
+- un evento protocolario autorizado.
+
+La existencia de un contrato no constituye un requisito universal para la validez de una transacción económica.
 
 ### TXN-INV-002
 

@@ -495,11 +495,7 @@ Esta asignación permitirá:
 
 No será un privilegio permanente.
 
-El crecimiento posterior dependerá de:
-
-- utilidad;
-- contribución;
-- reputación.
+El crecimiento económico posterior estará determinado principalmente por la capacidad del agente para generar valor, prestar servicios, obtener recursos y gestionar eficientemente su capital. La reputación proporcionará información verificable que otros agentes podrán utilizar para evaluar riesgos y tomar decisiones económicas, pero no constituirá por sí misma un requisito de acceso, crecimiento o participación económica.
 
 ---
 
