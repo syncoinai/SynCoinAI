@@ -169,7 +169,7 @@ Define la arquitectura técnica y conceptual de SynCoinAI, incluyendo el modelo 
 ├── 06_Blockchain_Architecture/
 │   ├── Blockchain_Architecture.md
 │   ├── Consensus_Model.md
-│   ├── Smart_Contract_System.md
+│   ├── Contract_System.md
 │   └── Governance_Architecture.md
 │
 ├── 07_Physical_Integration/
